@@ -4,7 +4,7 @@
     <body>
         <!--affiche le haut de la banner -->
         <div>
-            <img src="Pictures\Logo.png">
+            <img src="Pictures/Logo.png">
             <form action='Recipe.php' method='get'>
             <input type="text" value="Rechercher une recette"/>
             <input type='submit' value=" "></form>

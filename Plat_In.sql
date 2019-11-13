@@ -4,7 +4,7 @@ USE Plat_In;
 CREATE TABLE IF NOT EXISTS `users` (
   `ID_user` INT NOT NULL AUTO_INCREMENT,
   `user` VARCHAR(45) NULL,
-  `password` VARCHAR(45) NULL,
+  `u_password` VARCHAR(45) NULL,
   `first_name` VARCHAR(45) NULL,
   `last_name` VARCHAR(45) NULL,
   `adress` VARCHAR(45) NULL,
