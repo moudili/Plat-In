@@ -8,6 +8,7 @@
             require('Controller\ControllerStable.php');
             CheckSesion();
             CheckCo();
+            require('View\ViewSignUp.php');
         ?>
     </body>
 </html>        
