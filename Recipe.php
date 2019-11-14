@@ -4,7 +4,10 @@
     </head>
     <body>
         <?php
-            // exporte Stable.php et appelle des fonctions
+        
+           /* fichiers expotés:
+            ControllerStable.php
+            */        
             require('Controller/ControllerStable.php');
             CheckSesion();
             CheckCo();

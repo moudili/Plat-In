@@ -5,8 +5,8 @@
     <body>
     <h1>Connexion</h1>
     <form action='SignIn.php' method='get'>
-    <p> <input type='text' name='user'/></p>
-    <p> <input type='password' name='mdp'/></p>
-    <input type='submit' value='Se Connecter'></form>
+    <p> <input type='text' name='User'/></p>
+    <p> <input type='password' name='Pwd'/></p>
+    <input type='submit' name='Request' value='Se Connecter'></form>
     </body>
 </html> 

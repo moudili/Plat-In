@@ -4,11 +4,24 @@
     </head>
     <body>
         <?php
-            // exporte Stable.php et appelle des fonctions
+
+           /* fichiers expotés:
+            ControllerStable.php
+            ControllerSignIn.php
+            ModelSignIn.php
+            */
+
             require('Controller/ControllerStable.php');
             CheckSesion();
             CheckCo();
-            require("View/ViewSignIn.php");
+            require('Controller/ControllerSignIn.php');
+            FirstView();
+            $Query = GetQuery();
+            require('Model/ModelSignIn.php');
+            $Check = CheckIdent($Query);
+            GetID($Check);
+            ConBDD($Check);
+            Con($Check,$Query);        
         ?>
     </body>
 </html>        
