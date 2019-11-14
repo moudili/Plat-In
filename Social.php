@@ -4,7 +4,8 @@
     </head>
     <body>
         <?php
-           /* fichiers expotés:
+        
+           /* fichiers exportés:
             ControllerStable.php
             */
                     
