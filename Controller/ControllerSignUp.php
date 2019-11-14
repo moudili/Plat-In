@@ -6,6 +6,18 @@
     <body>
         <?php
 
+        function CheckValidatio($Valeur) 
+        {
+            if ($Valeur == 1)
+            {
+                $_SESSION["create"]=true;
+            } else if ($Valeur == 0)
+            {
+                $_SESSION["create"]=false;
+                $_SESSION["erreur"]="Nom d'utilisateur ou e-mail déjà utilisé";
+            }
+        };
+
         function CheckMdp()
         {
             session_start();
@@ -38,6 +50,7 @@
                 $Mdp = base64_encode($Mdp);
                 require('../Model/ModelSignUp.php');
                 ModelSignUp ($Ndu, $FirstName, $LastName, $Adresse, $Mail, $Phone, $Mdp, $Cmdp);
+                CheckValidatio(ModelSignUp ($Ndu, $FirstName, $LastName, $Adresse, $Mail, $Phone, $Mdp, $Cmdp));
             };
         
         };
