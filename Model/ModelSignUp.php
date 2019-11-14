@@ -26,8 +26,8 @@ function ModelSignUp ($Ndu, $FirstName, $LastName, $Adresse, $Mail, $Phone, $Mdp
     if ($Test == true) 
     {
         $Mdp = password_hash($Mdp, PASSWORD_DEFAULT);
-        $Req = $Bdd->prepare("INSERT INTO users(user, password, first_name, last_name, adress, mail, phone_number) 
-        VALUES(:user, :password, :first_name, :last_name, :adress, :mail, :phone_number)");
+        $Req = $Bdd->prepare("INSERT INTO users(user, password, first_name, last_name, adress, mail, phone_number, status_u, connection) 
+        VALUES(:user, :password, :first_name, :last_name, :adress, :mail, :phone_number, 'membre', 'dc')");
             
         $Req->bindParam(':user', $Ndu, PDO::PARAM_STR);
         $Req->bindParam(':password', $Mdp, PDO::PARAM_STR);
@@ -36,8 +36,6 @@ function ModelSignUp ($Ndu, $FirstName, $LastName, $Adresse, $Mail, $Phone, $Mdp
         $Req->bindParam(':adress', $Adresse, PDO::PARAM_STR);
         $Req->bindParam(':mail', $Mail, PDO::PARAM_STR);
         $Req->bindParam(':phone_number', $Phone, PDO::PARAM_STR);
-        /*$Req->bindParam(':status_u', 'membre', PDO::PARAM_STR);
-        $Req->bindParam(':connection', 'dc', PDO::PARAM_STR);*/
 
         $Req->execute();
         $_SESSION["create"]=true;
