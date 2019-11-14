@@ -15,12 +15,13 @@ function ModelSignUp ($Ndu, $FirstName, $LastName, $Adresse, $Mail, $Phone, $Mdp
                     
         $Reponse = $Query->fetch();
         
-        if($Ndu == $Reponse[0] OR $Mail == $Reponse[1])
+        if ($Ndu == $Reponse[0] OR $Mail == $Reponse[1]) 
         {
             $Test = false;
-        }else
+            break;
+        } else
         {
-            $Test = true;
+            $Test=true;
         }
     };
 
