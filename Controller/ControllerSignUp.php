@@ -18,13 +18,25 @@
             $Mdp = $_GET['mdp'];
             $Cmdp = $_GET['cmdp'];
 
-            if ($Mdp != $Cmdp) 
+            if (empty($_GET['ndu']) 
+                OR empty($_GET['first_name'])
+                OR empty($_GET['last_name'])
+                OR empty($_GET['adresse'])
+                OR empty($_GET['mail'])
+                OR empty($_GET['phone'])
+                OR empty($_GET['mdp'])
+                OR empty($_GET['cmdp'])) 
             {
                 $_SESSION["create"]=false;
-                $_SESSION["erreur"]="mdp different de la confirmation";
-            } else 
+                $_SESSION["erreur"]="Un ou plusieurs champ(s) vide(s)";
+            } else if ($Mdp != $Cmdp)
             {
-                require('..\Model\ModelSignUp.php');
+                $_SESSION["create"]=false;
+                $_SESSION["erreur"]="mdp different de la confirmation"; 
+            } else if ($Mdp == $Cmdp)
+            {
+                $Mdp = base64_encode($Mdp);
+                require('../Model/ModelSignUp.php');
                 ModelSignUp ($Ndu, $FirstName, $LastName, $Adresse, $Mail, $Phone, $Mdp, $Cmdp);
             };
         

@@ -17,7 +17,7 @@
             {
                 if($_SESSION['Co']==false)
                 {
-                    require('View\ViewBannerVisitor.php');
+                    require('View/ViewBannerVisitor.php');
                 }
                 else{
                     

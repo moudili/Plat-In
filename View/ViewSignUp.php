@@ -23,16 +23,16 @@
                     </form>");
             } else if ($_GET['go'] == 'fini')
             {
-                require('..\Controller\ControllerSignUp.php');
+                require('../Controller/ControllerSignUp.php');
                 CheckMdp();
                 if ($_SESSION["create"]== true) 
                 {
-                    require('..\View\ViewSignUpGood.php');
+                    require('../View/ViewSignUpGood.php');
                 } else 
                 {
-                    require('..\View\ViewSignUpFalse.php');
+                    require('../View/ViewSignUpFalse.php');
                 }
-            }
+            };
 
             ?>
         </div>

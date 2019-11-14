@@ -9,23 +9,23 @@ function ModelSignUp ($Ndu, $FirstName, $LastName, $Adresse, $Mail, $Phone, $Mdp
 
     $Taille = $Lignes->fetch();
     $Test = false;
+
     for($i = 0 ; $i<$Taille[0] ; $i++) 
     {
                     
         $Reponse = $Query->fetch();
         
-        if($Ndu != $Reponse[0] && $Mail != $Reponse[1])
-        {
-            $Test = true;
-        }else
+        if($Ndu == $Reponse[0] OR $Mail == $Reponse[1])
         {
             $Test = false;
+        }else
+        {
+            $Test = true;
         }
     };
 
     if ($Test == true) 
     {
-        $Mdp = password_hash($Mdp, PASSWORD_DEFAULT);
         $Req = $Bdd->prepare("INSERT INTO users(user, password, first_name, last_name, adress, mail, phone_number, status_u, connection) 
         VALUES(:user, :password, :first_name, :last_name, :adress, :mail, :phone_number, 'membre', 'dc')");
             

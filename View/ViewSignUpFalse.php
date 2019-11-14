@@ -4,6 +4,29 @@
     </head>
     
     <body>
+    <div>
+            <img src="../Pictures/Logo.png">
+            <form action='Recipe.php' method='get'>
+            <input type="text" value="Rechercher une recette"/>
+            <input type='submit' value=" "></form>
+            <form action='SignUp.php' method='get'>
+            <input type='submit' value="Inscription"></form>
+            <form action='SignIn.php' method='get'>
+            <input type='submit' value="Connexion"></form>
+        </div>
+        <!--affiche le menu -->
+        <div>
+            <form action='Index.php' method='get'>
+            <input type='submit' value="Accueil"></form>
+            <form action='Recipe.php' method='get'>
+            <input type='submit' value="Recette"></form>
+            <form action='Event.php' method='get'>
+            <input type='submit' value="Evènement"></form>
+            <form action='Profile.php' method='get'>
+            <input type='submit' value="Profile"></form>
+            <form action='Social.php' method='get'>
+            <input type='submit' value="Sociale"></form>            
+        </div>
         <?php 
         $Ndu = $_GET['ndu'];
         $FirstName = $_GET['first_name'];
@@ -16,7 +39,7 @@
 
         echo($_SESSION["erreur"]."
         
-        <form action='..\Controller\ControllerSignUp.php' method='get'>
+        <form action='../Controller/ControllerSignUp.php' method='get'>
         <p>Nom d'utilisateur : <input id='get_compte' type='text' name='ndu' value='".$Ndu."'></p>
         <p>Prénom : <input id='get_prenom' type='text' name='first_name' value='".$FirstName."'></p>
         <p>Nom : <input id='get_nom' type='text' name='last_name' value='".$LastName."'></p>
