@@ -1,10 +1,15 @@
 <html>
     <head>
+    <meta charset="utf-8"/>
+	<title>Plat'In</title>
+    <link rel="stylesheet" href="../css/divbg.css"/>
+    <link rel="stylesheet" href="../css/BannerVisitor.css"/>
+    <link rel="icon"  type="image/png" href="../Pictures/Logo.png">
     </head>
     <body>
         <!--affiche le haut de la banner -->
-        <div>
-            <img src="Pictures\Logo.png">
+        <div class="box center row">
+            <img src="../Pictures/Logo.png">
             <form action='Recipe.php' method='get'>
             <input type="text" value="Rechercher une recette"/>
             <input type='submit' value=" "></form>
@@ -14,7 +19,7 @@
             <input type='submit' value="Connexion"></form>
         </div>
         <!--affiche le menu -->
-        <div>
+        <div class="box center row">
             <form action='Index.php' method='get'>
             <input type='submit' value="Accueil"></form>
             <form action='Recipe.php' method='get'>
