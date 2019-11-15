@@ -6,7 +6,7 @@
     {
         if(empty($_GET['Request']))
         {
-            require("View/ViewSignIn.php");
+            require("View\ViewSignIn.php");
         }
     }
 
@@ -21,7 +21,7 @@
                 || empty($_GET['Pwd']))
             {
                 $Query = false;
-                require('View/ViewSignInFalse.php');
+                require('View/ViewSignIn.php');
             }
             else
             {
@@ -49,7 +49,7 @@
             }
             else
             {
-                require('View/ViewSignInFalse.php'); 
+                require('View/ViewSignIn.php'); 
             }
         }
     }

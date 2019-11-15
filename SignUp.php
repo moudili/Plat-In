@@ -5,7 +5,7 @@
     <body>
         <?php
         
-            /* fichiers expotés:
+            /* fichiers exportés:
             ControllerStable.php
             */
             require('Controller/ControllerStable.php');
