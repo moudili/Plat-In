@@ -3,20 +3,17 @@
 function ModelSignUp ($Ndu, $FirstName, $LastName, $Adresse, $Mail, $Phone, $Mdp) 
 {
 
-    $Bdd = new PDO("mysql:host=localhost;dbname=plat_in","root","");
-    echo($Ndu);
-    echo($Mail);
+    require('Model\ModelNewPDO.php');
     $Req = $Bdd -> prepare("SELECT count(ID_user) FROM users WHERE :user LIKE user AND :mail LIKE mail ");
     $Req -> bindParam(':user',$Ndu,PDO::PARAM_STR);
     $Req -> bindParam(':mail',$Mail,PDO::PARAM_STR);
     $Req -> execute();
     $n = $Req -> fetch();
     $Check = $n[0];
-    echo($Check);
     
     if ($Check == 0) 
     {
-        echo("<br>C bon");
+        
         $Req = $Bdd->prepare("INSERT INTO users(user, u_password, first_name, last_name, adress, mail, phone_number, status_u, connection) 
         VALUES(:user, :password, :first_name, :last_name, :adress, :mail, :phone_number, 'membre', 'dc')");
             
@@ -33,7 +30,6 @@ function ModelSignUp ($Ndu, $FirstName, $LastName, $Adresse, $Mail, $Phone, $Mdp
 
     } else if ($Check == 1)
     {
-        echo("<br>C pas bon");
         return $Check;
     };
 }
