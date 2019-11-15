@@ -13,6 +13,7 @@
             CheckSesion();
             CheckCo();
             CheckLogOut();
+
         ?>
     </body>
 </html>        
