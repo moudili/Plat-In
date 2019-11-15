@@ -1,31 +1,21 @@
 <html>
     <head>
-    <meta charset="utf-8"/>
-	<title>Plat'In</title>
-    <link rel="stylesheet" href="../css/divbg.css"/>
-    <link rel="stylesheet" href="../css/BannerVisitor.css"/>
-    <link rel="icon"  type="image/png" href="../Pictures/Logo.png">
     </head>
     <body>
         <!--affiche le haut de la banner -->
-<<<<<<< HEAD
-        <div class="box center row">
-            <img src="../Pictures/Logo.png">
-=======
         <div>
             <img src="Pictures/Logo.png">
->>>>>>> 460ec6055dcff19c08d50b8c87a63dce48555783
             <form action='Recipe.php' method='get'>
             <input type="text" value="Rechercher une recette"/>
             <input type='submit' value=" "></form>
         <!--partie statut -->
-            <form action='SignUp.php' method='get'>
-            <input type='submit' value="Inscription"></form>
-            <form action='SignIn.php' method='get'>
-            <input type='submit' value="Connexion"></form>
+            <?php
+            echo $_SESSION['User'];
+            ?>
+            <br><a href=Index.php?Request=LogOut>Déconnexion</a><br>
         </div>
         <!--affiche le menu -->
-        <div class="box center row">
+        <div>
             <form action='Index.php' method='get'>
             <input type='submit' value="Accueil"></form>
             <form action='Recipe.php' method='get'>
