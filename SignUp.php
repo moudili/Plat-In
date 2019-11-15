@@ -5,10 +5,12 @@
     <body>
         <?php
             // exporte Stable.php et appelle des fonctions
-            /*require('Controller/ControllerStable.php');
+            require('Controller\ControllerStable.php');
             CheckSesion();
-            CheckCo();*/
-            header("Location:View/ViewSignUp.php");
+            CheckCo();
+            require('Controller/ControllerSignUp.php');
+            CheckMdp();     
+            require("View/ViewSignUp.php");
         ?>
     </body>
 </html>        
