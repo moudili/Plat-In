@@ -9,10 +9,28 @@
             <input type="text" value="Rechercher une recette"/>
             <input type='submit' value=" "></form>
         <!--partie statut -->
+
             <?php
-            echo $_SESSION['User'];
+
+                if($_SESSION['Co']==false)
+                {
+                    ?>
+                        <form action='SignUp.php' method='get'>
+                        <input type='submit' value="Inscription"></form>
+                        <form action='SignIn.php' method='get'>
+                        <input type='submit' value="Connexion"></form>
+                    <?php
+                }
+                else        
+                {
+                    echo $_SESSION['User'];
+                    ?>
+                        <br><br><a href=Index.php?Request=LogOut>Déconnexion</a><br><br>
+                    <?php
+                }
+
             ?>
-            <br><a href=Index.php?Request=LogOut>Déconnexion</a><br>
+            
         </div>
         <!--affiche le menu -->
         <div>

@@ -11,7 +11,7 @@
 
             require('Controller/ControllerStable.php');
             CheckSesion();
-            CheckCo();
+            require("View/ViewBanner.php");
             CheckLogOut();
         ?>
     </body>

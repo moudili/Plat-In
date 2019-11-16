@@ -13,7 +13,7 @@
 
             require('Controller/ControllerStable.php');
             CheckSesion();
-            CheckCo();
+            require("View/ViewBanner.php");
             require('Controller/ControllerSignIn.php');
             FirstView();
             $Query = GetQuery();
