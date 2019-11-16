@@ -29,11 +29,12 @@
         {
             require("Model\ModelNewPDO.php");
             $User = $_SESSION['User'];
-            $Req = $Bdd -> prepare("SELECT ID_user FROM users WHERE user LIKE :user");
+            $Req = $Bdd -> prepare("SELECT ID_user,status_u FROM users WHERE user LIKE :user");
             $Req->bindParam(':user',$User,PDO::PARAM_STR);
             $Req->execute();
             $n = $Req -> fetch();
             $_SESSION['id'] = $n[0];
+            $_SESSION['status_u'] = $n[1];
         }
     }
 

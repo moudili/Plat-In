@@ -1,20 +1,17 @@
 <html>
     <head>
-        <title>Inscription</title>
+        <title>Régimes</title>
     </head>
     <body>
         <?php
-        
+            
             /* fichiers exportés:
             ControllerStable.php
             */
-            
+
             require('Controller/ControllerStable.php');
             CheckSesion();
             require("View/ViewBanner.php");
-            require('Controller/ControllerSignUp.php');
-            CheckMdp();     
-            require("View/ViewSignUp.php");
         ?>
     </body>
-</html>        
+</html>
