@@ -11,6 +11,9 @@
             require('Controller/ControllerStable.php');
             CheckSesion();
             require("View/ViewBanner.php");
+            require('Controller/ControllerSignUp.php');
+            CheckMdp();     
+            require("View/ViewSignUp.php");
         ?>
     </body>
 </html>        

@@ -13,6 +13,7 @@
             CheckSesion();
             require("View/ViewBanner.php");
             CheckLogOut();
+
         ?>
     </body>
 </html>        
