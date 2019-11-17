@@ -5,37 +5,37 @@
     
     <body>
         <?php
-        if (empty($_GET['go']))
+        if (empty($_GET['SignUp']))
         {
             echo("<form action='SignUp.php' method='get'>
-            <p>Nom d'utilisateur : <input id='get_compte' type='text' name='ndu' value=''></p>
-            <p>Prénom : <input id='get_prenom' type='text' name='first_name' value=''></p>
-            <p>Nom : <input id='get_nom' type='text' name='last_name' value=''></p>
-            <p>Adresse : <input id='get_adresse' type='text' name='adresse' value=''></p>
-            <p>Adresse e-mail : <input id='get_mail' type='e-mail' name='mail' value=''></p>
-            <p>Numéro de téléphone : <input id='get_phone' type='text' name='phone' value=''></p>
-            <p>Mot de passe : <input id='get_mdp' type='text' name='mdp' value=''></p>
-            <p>Confirmation de mot de passe : <input id='get_cmdp' type='text' name='cmdp' value=''></p>
-            <input type='submit' value='Inscription' name='go'>
+            <p>Nom d'utilisateur : <input type='text' name='User' value=''></p>
+            <p>Prénom : <input type='text' name='FirstName' value=''></p>
+            <p>Nom : <input type='text' name='LastName' value=''></p>
+            <p>Adresse : <input type='text' name='Adress' value=''></p>
+            <p>Adresse e-mail : <input type='email' name='Mail' value=''></p>
+            <p>Numéro de téléphone : <input type='text' name='Phone' value=''></p>
+            <p>Mot de passe : <input type='password' name='Pwd' value=''></p>
+            <p>Confirmation de mot de passe : <input type='password' name='Cpwd' value=''></p>
+            <input type='submit' value='Inscription' name='SignUp'>
             </form>
             </div>");
-        } else if (!empty($_GET['go']))
+        } else if (!empty($_GET['SignUp']))
         {
-            if ($_SESSION["create"]==true) {
-                echo("Tu as reussi a t'inscrire, ton nom d'utilisateur est : ".$_GET['ndu']." Et ton mot de passe : ".$_GET['mdp']."<br>
+            if ($_SESSION["Create"]==true) {
+                echo("Tu as reussi a t'inscrire, ton nom d'utilisateur est : ".$_GET['User']." Et ton mot de passe : ".$_GET['Pwd']."<br>
                 <a href='Index.php'><input type='button' value='Retour accueil'></a>");
-            } else if ($_SESSION["create"]==false)
+            } else if ($_SESSION["Create"]==false)
             {
-                echo($_SESSION['erreur']."<br><form action='SignUp.php' method='get'>
-                <p>Nom d'utilisateur : <input id='get_compte' type='text' name='ndu' value='".$_GET['ndu']."'></p>
-                <p>Prénom : <input id='get_prenom' type='text' name='first_name' value='".$_GET['first_name']."'></p>
-                <p>Nom : <input id='get_nom' type='text' name='last_name' value='".$_GET['last_name']."'></p>
-                <p>Adresse : <input id='get_adresse' type='text' name='adresse' value='".$_GET['adresse']."'></p>
-                <p>Adresse e-mail : <input id='get_mail' type='e-mail' name='mail' value='".$_GET['mail']."'></p>
-                <p>Numéro de téléphone : <input id='get_phone' type='text' name='phone' value='".$_GET['phone']."'></p>
-                <p>Mot de passe : <input id='get_mdp' type='text' name='mdp' value='".$_GET['mdp']."'></p>
-                <p>Confirmation de mot de passe : <input id='get_cmdp' type='text' name='cmdp' value='".$_GET['cmdp']."'></p>
-                <input type='submit' value='Inscription' name='go'>
+                echo($_SESSION['Error']."<br><form action='SignUp.php' method='get'>
+                <p>Nom d'utilisateur : <input type='text' name='User' value='".$_GET['User']."'></p>
+                <p>Prénom : <input type='text' name='FirstName' value='".$_GET['FirstName']."'></p>
+                <p>Nom : <input type='text' name='LastName' value='".$_GET['LastName']."'></p>
+                <p>Adresse : <input type='text' name='Adress' value='".$_GET['Adress']."'></p>
+                <p>Adresse e-mail : <input type='email' name='Mail' value='".$_GET['Mail']."'></p>
+                <p>Numéro de téléphone : <input type='text' name='Phone' value='".$_GET['Phone']."'></p>
+                <p>Mot de passe : <input type='password' name='Pwd' value='".$_GET['Pwd']."'></p>
+                <p>Confirmation de mot de passe : <input type='password' name='Cpwd' value='".$_GET['Cpwd']."'></p>
+                <input type='submit' value='Inscription' name='SignUp'>
                 </form>
                 </div>");
             }
