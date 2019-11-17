@@ -88,18 +88,18 @@
             }
         }
 
-        function CheckUser($Check,$CheckForm)
+        function CheckUser($CheckUser,$CheckForm)
         {
             if($CheckForm == true)
             {
-                if ($Check == 0)
+                if ($CheckUser == 0)
                 {
                     $_SESSION["Create"]=true;
                 } 
-                else if ($Check == 1)
+                else
                 {
                     $_SESSION["Create"]=false;
-                    $_SESSION["Error"]="Nom d'utilisateur ou e-Mail déjà utilisé";
+                    $_SESSION["Error"]="Ce nom d'utilisateur ou cette adresse e-mail est déjà utilisé";
                 }
             }
         }
