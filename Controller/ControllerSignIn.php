@@ -25,7 +25,6 @@
             }
             else
             {
-                //echo "oui";
                 $_SESSION['User'] = $_GET['User'];
                 $_SESSION['Pwd'] = $_GET['Pwd'];
                 $Query = true;
