@@ -7,10 +7,10 @@
         
             /* fichiers exportés:
             ControllerStable.php
-            View/ViewBanner.php
-            Controller/ControllerSignUp.php
-            Model/ModelSignUp.php
-            View/ViewSignUp.php
+            ViewBanner.php
+            ControllerSignUp.php
+            ModelSignUp.php
+            ViewSignUp.php
             */
             
             require('Controller/ControllerStable.php');

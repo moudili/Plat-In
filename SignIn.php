@@ -7,6 +7,7 @@
 
            /* fichiers exportés:
             ControllerStable.php
+            ViewBanner.php
             ControllerSignIn.php
             ModelSignIn.php
             */
