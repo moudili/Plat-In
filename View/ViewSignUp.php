@@ -34,7 +34,7 @@
                 <p>Adresse e-mail : <input type='email' name='Mail' value='".$_GET['Mail']."'></p>
                 <p>Numéro de téléphone : <input type='text' name='Phone' value='".$_GET['Phone']."'></p>
                 <p>Mot de passe : <input type='password' name='Pwd' value='".$_GET['Pwd']."'></p>
-                <p>Confirmation de mot de passe : <input type='password' name='Cpwd' value='".$_GET['Cpwd']."'></p>"
+                <p>Confirmation de mot de passe : <input type='password' name='Cpwd' value='".$_GET['Cpwd']."'></p><br>"
                 .$_SESSION['Error'].
                 "<input type='submit' value='Inscription' name='SignUp'>
                 </form>
