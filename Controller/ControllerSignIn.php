@@ -6,7 +6,7 @@
     {
         if(empty($_GET['Request']))
         {
-            require("View\ViewSignIn.php");
+            require("View/ViewSignIn.php");
         }
     }
 
@@ -25,7 +25,6 @@
             }
             else
             {
-                //echo "oui";
                 $_SESSION['User'] = $_GET['User'];
                 $_SESSION['Pwd'] = $_GET['Pwd'];
                 $Query = true;
