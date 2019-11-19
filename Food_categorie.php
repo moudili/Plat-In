@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Plat'In</title>
+        <title>Catégories Alimentaires</title>
     </head>
     <body>
         <?php
@@ -12,8 +12,6 @@
             require('Controller/ControllerStable.php');
             CheckSesion();
             require("View/ViewBanner.php");
-            CheckLogOut();
-
         ?>
     </body>
-</html>        
+</html>

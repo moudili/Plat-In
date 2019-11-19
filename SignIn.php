@@ -7,13 +7,14 @@
 
            /* fichiers exportés:
             ControllerStable.php
+            ViewBanner.php
             ControllerSignIn.php
             ModelSignIn.php
             */
 
             require('Controller/ControllerStable.php');
             CheckSesion();
-            CheckCo();
+            require("View/ViewBanner.php");
             require('Controller/ControllerSignIn.php');
             FirstView();
             $Query = GetQuery();

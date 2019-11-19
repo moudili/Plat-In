@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `last_name` VARCHAR(45) NULL,
   `adress` VARCHAR(45) NULL,
   `mail` VARCHAR(45) NULL,
-  `phone_number` INT NULL,
+  `phone_number` VARCHAR(45) NULL,
   `picture` BLOB NULL,
   `status_u` ENUM('admin', 'operator', 'membre', 'ban') NULL,
   `connection` ENUM('co', 'dc') NULL,
