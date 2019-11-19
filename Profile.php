@@ -4,13 +4,11 @@
     </head>
     <body>
         <?php
-        
-           /* fichiers exportés:
-            ControllerStable.php
-            */       
             require('Controller/ControllerStable.php');
             CheckSesion();
             CheckCo();
+            require('Controller/ControllerProfile.php');
+            PrintProfile();
         ?>
     </body>
 </html>        
