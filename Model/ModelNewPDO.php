@@ -1,5 +1,5 @@
 <?php
 
-    $Bdd = new PDO("mysql:host=localhost;dbname=Plat_In","root","");
+    $Bdd = new PDO("mysql:host=localhost;dbname=Plat_In","root","root");
 
 ?>

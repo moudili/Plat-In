@@ -1,6 +1,6 @@
 <?php
     
-    require("Model\ModelNewPDO.php");
+    require("Model/ModelNewPDO.php");
 
      /* deconnecte un utilisateur */
      
