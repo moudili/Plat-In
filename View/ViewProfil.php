@@ -65,6 +65,9 @@
             <input type='submit' value='Corriger' name='modif'>
             </form>
             </div>");
+            echo("<form action='Profile.php' method='get'>
+            <input type='submit' value='Retour'>
+            </form>");
         }
         ?>
     </body>

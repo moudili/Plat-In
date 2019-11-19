@@ -67,8 +67,9 @@
         } else if ($_GET['supprimer']=='Oui')
         {
             require('Model/ModelProfile.php');
+            DeleteUser();
             session_destroy();
-            header("Location:Index.php");
+            header("Location:Index.php?supprimer=Oui");
         }
     }
 ?>
