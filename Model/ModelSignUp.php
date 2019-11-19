@@ -4,7 +4,7 @@ function ModelSignUp ($User,$FirstName,$LastName,$Adresse,$Mail,$Phone,$Pwd,$Che
 {
     if($CheckForm == true)
     {
-        require('Model\ModelNewPDO.php');
+        require('Model/ModelNewPDO.php');
         $Req = $Bdd -> prepare("SELECT count(ID_user) FROM users WHERE :user LIKE user OR :mail LIKE mail");
         $Req -> bindParam(':user',$User,PDO::PARAM_STR);
         $Req -> bindParam(':mail',$Mail,PDO::PARAM_STR);
