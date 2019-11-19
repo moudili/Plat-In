@@ -23,7 +23,7 @@
                 }
                 else        
                 {
-                    echo $_SESSION['User'];
+                    echo($_SESSION['User']);
                     ?>
                         <br><br><a href=Index.php?Request=LogOut>Déconnexion</a><br><br>
                     <?php

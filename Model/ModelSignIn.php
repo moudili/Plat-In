@@ -1,6 +1,4 @@
-<?php
-
-    
+<?php 
 
     /* cherche si l'utilisateur existe dans la bdd, renvoi 1 si oui et 0 autrement */ 
 
@@ -8,7 +6,7 @@
     {
         if($Query == true)
         {
-            require("Model\ModelNewPDO.php");
+            require("Model/ModelNewPDO.php");
             $User = $_SESSION['User'];
             $Pwd = $_SESSION['Pwd'];
             $Req = $Bdd -> prepare("SELECT count(ID_user) FROM users WHERE :user LIKE user AND :pwd LIKE u_password ");
@@ -27,7 +25,7 @@
     {
         if($Check == 1 )
         {
-            require("Model\ModelNewPDO.php");
+            require("Model/ModelNewPDO.php");
             $User = $_SESSION['User'];
             $Req = $Bdd -> prepare("SELECT ID_user,status_u FROM users WHERE user LIKE :user");
             $Req->bindParam(':user',$User,PDO::PARAM_STR);
@@ -44,7 +42,7 @@
     {
         if($Check == 1 )
         {
-            require("Model\ModelNewPDO.php");
+            require("Model/ModelNewPDO.php");
             $ID = $_SESSION['id'];
             $Req = $Bdd -> prepare("UPDATE `users` SET `connection` = 'co' WHERE `users`.`ID_user` = :id ;");
             $Req->bindParam(':id',$ID,PDO::PARAM_STR);
