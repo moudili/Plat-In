@@ -3,21 +3,31 @@
         <title>Connexion</title>
     </head>
     <body>
+
+    <?php
+    
+    require("View/ViewBanner.php");
+    
+    ?>
+
     <h1>Connexion</h1>
-    <form action='SignIn.php' method='get'>
     <?php
     if(empty($Query) 
         && empty($Check) 
         && empty($_GET['Request']))
     {
-        echo("<p> <input type='text' name='User'/></p>
+        echo("<p><form action='Index.php' method='get'>
+        <input type='text' name='User'/></p>
         <p> <input type='password' name='Pwd'/></p>
+        <input type='hidden' name='page' value='Connexion'>
         <input type='submit' name='Request' value='Se Connecter'></form>");
     }
     else
     {
-        echo("<p> <input type='text' name='User'value='".$_GET['User']."'/></p>
-        <p> <input type='password' name='Pwd' value='".$_GET['Pwd']."'/></p>");
+        echo("<p><form action='Index.php' method='get'> 
+        <input type='text' name='User'value='".$_GET['User']."'/></p>
+        <p> <input type='password' name='Pwd' value='".$_GET['Pwd']."'/></p>
+        <input type='hidden' name='page' value='Connexion'>");
         
         if(empty($Query) 
             && empty($Check))
