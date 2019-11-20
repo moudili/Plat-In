@@ -52,4 +52,15 @@
             }
         }
     }
+
+        require('ControllerStable.php');
+        CheckSesion();
+        FirstView();
+        $Query = GetQuery();
+        require('Model/ModelSignIn.php');
+        $Check = CheckIdent($Query);
+        GetID($Check);
+        ConBDD($Check);
+        Con($Check,$Query); 
+
 ?>
