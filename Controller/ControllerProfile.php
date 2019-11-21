@@ -72,4 +72,9 @@
             header("Location:Index.php?supprimer=Oui");
         }
     }
+
+    require('Controller/ControllerStable.php');
+    CheckSesion();
+    CheckCo();
+    PrintProfile();
 ?>

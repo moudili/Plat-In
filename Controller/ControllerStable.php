@@ -17,11 +17,11 @@
     {
         if($_SESSION['Co']==false)
         {
-            require('View/ViewBannerVisitor.php');
+            require('View/ViewBanner.php');
         }
         else
         {
-            require('View/ViewBannerMember.php');
+            require('View/ViewBanner.php');
         }
     }
 

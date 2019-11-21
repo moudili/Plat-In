@@ -15,7 +15,7 @@
             else if ($_GET['page'] == 'Evènement')
                 require('Controller/ControllerEvent.php');
             else if ($_GET['page'] == 'Profile')
-                require('Controller/ControllerProfil.php');
+                require('Controller/ControllerProfile.php');
             else if ($_GET['page'] == 'Sociale')
                 require('Controller/ControllerSocial.php');
             else if ($_GET['page'] == 'Aliments')
