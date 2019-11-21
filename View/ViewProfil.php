@@ -48,7 +48,7 @@
                 <input type='hidden' name='page' value='Profile'>
                 <input type='submit' name='supprimer'value='Oui'>
                 </form>");
-            echo("<form action='Profile.php' method='get'>
+            echo("<form action='Index.php' method='get'>
                 <input type='hidden' name='page' value='Profile'>
                 <input type='submit' value='Non'>
                 </form>");

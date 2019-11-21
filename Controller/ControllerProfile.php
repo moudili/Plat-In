@@ -1,18 +1,9 @@
 
 <?php 
 
-    function PrintProfile() 
+    function PrintProfile($Valeur) 
     {
-        
-        if (empty($_GET['modif']) AND empty($_GET['supprimer']))
-        {
-            require('Model/ModelProfile.php');
-            require('View/ViewProfil.php');
-        } else if ($_GET['modif']=='Modifier mon profil')
-        {
-            require('Model/ModelProfile.php');
-            require('View/ViewProfil.php');
-        } else if ($_GET['modif']=='Corriger')
+        if (!empty($_GET['modif']) AND $_GET['modif']=='Corriger')
         { 
             unset($_SESSION['erreur']);
             $Ndu = $_GET['ndu'];
@@ -34,47 +25,70 @@
                 OR empty($_GET['cmdp'])) 
             {
                 echo("Un ou plusieurs champ(s) vide(s)");
-                $_SESSION['modifier']=false;
-                require('View/ViewProfil.php');
+                $_SESSION['modifier']=false; 
 
             } else if ($Mdp != $Cmdp)
             {
                 echo("mdp different de la confirmation"); 
                 $_SESSION['modifier']=false;
-                require('View/ViewProfil.php');
+            
             } else if ($Mdp == $Cmdp)
             {
                 $Mdp = base64_encode($Mdp);
-                require('Model/ModelProfile.php');
-                $Valeur=ModifProfil();
 
                 if ($Valeur == 0)
                 {
                     echo("Vos modifications ont bien été appliquées");
                     $_SESSION['modifier']=true;
-                    require('View/ViewProfil.php');
-                    unset($_SESSION['modifier']);
                 } else if ($Valeur == 1)
                 {
                     echo("Nom d'utilisateur ou e-mail déjà utilisé");
                     $_SESSION['modifier']=false;
-                    require('View/ViewProfil.php');
                 }
             }
-        } else if ($_GET['modif']=='Supprimer mon profil')
+        } else if (!empty($_GET['supprimer']) AND $_GET['supprimer']=='Oui')
         {
-            require('View/ViewProfil.php');
-        } else if ($_GET['supprimer']=='Oui')
-        {
-            require('Model/ModelProfile.php');
-            DeleteUser();
             session_destroy();
             header("Location:Index.php?supprimer=Oui");
         }
     }
 
+    function FindMdp()
+    {
+        if (!empty($_GET['modif']) AND $_GET['modif']=='Corriger')
+        { 
+            $Mdp = $_GET['mdp'];
+            $Cmdp = $_GET['cmdp'];
+
+            if ($Mdp == $Cmdp)
+            {
+               $Choix="Oui"; 
+               return $Choix;
+            } else {
+                $Choix="Non";
+                return $Choix;
+            }
+        }
+    }
+
+    function Supp($Valeur) 
+    {
+        if ($Valeur == 0)
+        {
+            unset($_SESSION['modifier']);
+        }
+    }
+
+
     require('Controller/ControllerStable.php');
     CheckSesion();
     CheckCo();
-    PrintProfile();
+    require('Model/ModelProfile.php');
+    $Choix=FindMdp();
+    $Valeur=ModifProfil($Choix);
+    DeleteUser();
+    PrintProfile($Valeur);
+    require('View/ViewProfil.php');
+    Supp($Valeur);
+
 ?>

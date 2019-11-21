@@ -34,50 +34,55 @@
         return $Print;
     } 
 
-    function ModifProfil()
+    function ModifProfil($Choix)
     {
-        require("Model\ModelNewPDO.php");
-
-        $ID = $_SESSION['id'];
-        $Ndu = $_GET['ndu'];
-        $FirstName = $_GET['first_name'];
-        $LastName = $_GET['last_name'];
-        $Adresse = $_GET['adresse'];
-        $Mail = $_GET['mail'];
-        $Phone = $_GET['phone'];
-        $Mdp = $_GET['mdp'];
-        $Mdp = base64_encode($Mdp);
-
-        $Req = $Bdd -> prepare("SELECT count(ID_user) FROM users WHERE :user LIKE user OR :mail LIKE mail AND :id NOT LIKE ID_user");
-        $Req -> bindParam(':user',$Ndu,PDO::PARAM_STR);
-        $Req->bindParam(':id',$ID,PDO::PARAM_STR);
-        $Req -> bindParam(':mail',$Mail,PDO::PARAM_STR);
-        $Req -> execute();
-        $n = $Req -> fetch();
-        $Check = $n[0];
-
-        if ($Check==0)
+        if (!empty($_GET['modif']) AND $_GET['modif']=='Corriger' AND $Choix == "Oui")
         {
-            $Req = $Bdd -> prepare("UPDATE `users` SET `user` = :user, `u_password` = :u_password, `first_name` = :first_name, `last_name` = :last_name, `adress` = :adress, `mail` = :mail, `phone_number` = :phone_number  WHERE `users`.`ID_user` = :id ;");
-            $Req->bindParam(':id',$ID,PDO::PARAM_STR);
-            $Req->bindParam(':user', $Ndu, PDO::PARAM_STR);
-            $Req->bindParam(':u_password', $Mdp, PDO::PARAM_STR);
-            $Req->bindParam(':first_name', $FirstName, PDO::PARAM_STR);
-            $Req->bindParam(':last_name', $LastName, PDO::PARAM_STR);
-            $Req->bindParam(':adress', $Adresse, PDO::PARAM_STR);
-            $Req->bindParam(':mail', $Mail, PDO::PARAM_STR);
-            $Req->bindParam(':phone_number', $Phone, PDO::PARAM_STR);
+            require("Model\ModelNewPDO.php");
 
-            $Req->execute();
-            return $Check;
+            $ID = $_SESSION['id'];
+            $Ndu = $_GET['ndu'];
+            $FirstName = $_GET['first_name'];
+            $LastName = $_GET['last_name'];
+            $Adresse = $_GET['adresse'];
+            $Mail = $_GET['mail'];
+            $Phone = $_GET['phone'];
+            $Mdp = $_GET['mdp'];
+            $Mdp = base64_encode($Mdp);
+
+            $Req = $Bdd -> prepare("SELECT count(ID_user) FROM users WHERE :user LIKE user OR :mail LIKE mail");
+            $Req -> bindParam(':user',$Ndu,PDO::PARAM_STR);
+            $Req -> bindParam(':mail',$Mail,PDO::PARAM_STR);
+            $Req -> execute();
+            $n = $Req -> fetch();
+            $Check = $n[0];
+
+            if ($Check==0)
+            {
+                $Req = $Bdd -> prepare("UPDATE `users` SET `user` = :user, `u_password` = :u_password, `first_name` = :first_name, `last_name` = :last_name, `adress` = :adress, `mail` = :mail, `phone_number` = :phone_number  WHERE `users`.`ID_user` = :id ;");
+                $Req->bindParam(':id',$ID,PDO::PARAM_STR);
+                $Req->bindParam(':user', $Ndu, PDO::PARAM_STR);
+                $Req->bindParam(':u_password', $Mdp, PDO::PARAM_STR);
+                $Req->bindParam(':first_name', $FirstName, PDO::PARAM_STR);
+                $Req->bindParam(':last_name', $LastName, PDO::PARAM_STR);
+                $Req->bindParam(':adress', $Adresse, PDO::PARAM_STR);
+                $Req->bindParam(':mail', $Mail, PDO::PARAM_STR);
+                $Req->bindParam(':phone_number', $Phone, PDO::PARAM_STR);
+
+                $Req->execute();
+                return $Check;
+            } else {
+                return $Check;
+            }
         } else {
+            $Check=0;
             return $Check;
         }
     }
 
     function DeleteUser()
     {
-        if ($_GET['supprimer']=='Oui')
+        if (!empty($_GET['supprimer']) AND $_GET['supprimer']=='Oui')
         {
             $ID = $_SESSION['id'];
             require("Model\ModelNewPDO.php");
