@@ -1,58 +1,116 @@
-<html>
-    <head>
-        <title> </title>
-    </head>
-    
-    <body>
-        <?php
+<?php
 
-        function CheckMdp()
+    function CheckField()
+    {
+        if (!empty($_GET['SignUp']))
         {
-            if (!empty($_GET['go']))
+            $User = $_GET['User'];
+            $FirstName = $_GET['FirstName'];
+            $LastName = $_GET['LastName'];
+            $Adresse = $_GET['Adress'];
+            $Mail = $_GET['Mail'];
+            $Phone = $_GET['Phone'];
+            $Pwd = $_GET['Pwd'];
+            $Cpwd = $_GET['Cpwd'];
+            
+            $Phone = str_replace(" ", "", $Phone);
+            $Data = array($User,$FirstName,$LastName,$Adresse,$Mail,$Phone);
+
+            if (empty($_GET['User']) 
+                OR empty($_GET['FirstName'])
+                OR empty($_GET['LastName'])
+                OR empty($_GET['Adress'])
+                OR empty($_GET['Mail'])
+                OR empty($_GET['Phone'])
+                OR empty($_GET['Pwd'])
+                OR empty($_GET['Cpwd'])) 
             {
-                $Ndu = $_GET['ndu'];
-                $FirstName = $_GET['first_name'];
-                $LastName = $_GET['last_name'];
-                $Adresse = $_GET['adresse'];
-                $Mail = $_GET['mail'];
-                $Phone = $_GET['phone'];
-                $Mdp = $_GET['mdp'];
-                $Cmdp = $_GET['cmdp'];
-                
-                if (empty($_GET['ndu']) 
-                    OR empty($_GET['first_name'])
-                    OR empty($_GET['last_name'])
-                    OR empty($_GET['adresse'])
-                    OR empty($_GET['mail'])
-                    OR empty($_GET['phone'])
-                    OR empty($_GET['mdp'])
-                    OR empty($_GET['cmdp'])) 
-                {
-                    $_SESSION["create"]=false;
-                    $_SESSION["erreur"]="Un ou plusieurs champ(s) vide(s)";
-                } else if ($Mdp != $Cmdp)
-                {
-                    $_SESSION["create"]=false;
-                    $_SESSION["erreur"]="mdp different de la confirmation"; 
-                } else if ($Mdp == $Cmdp)
-                {
-                    $Mdp = base64_encode($Mdp);
-                    require('Model/ModelSignUp.php');
-                    $Valeur=ModelSignUp($Ndu, $FirstName, $LastName, $Adresse, $Mail, $Phone, $Mdp);
-                    if ($Valeur == 0)
-                    {
-                        $_SESSION["create"]=true;
-                    } else if ($Valeur == 1)
-                    {
-                        $_SESSION["create"]=false;
-                        $_SESSION["erreur"]="Nom d'utilisateur ou e-mail déjà utilisé";
-                    }
-                    
-                };
-            };
-        };
+                $_SESSION["Create"] = false;
+                $_SESSION["Error"] = "Il y a un ou plusieurs champ(s) vide(s)";
+                $CheckForm = false; 
+            }
+            else if (strlen($_GET['User']) < 5)
+            {
+                $_SESSION["Create"] = false;
+                $_SESSION["Error"] = "Le nom d'utilisateur doit faire plus de 5 caractères";
+                $CheckForm = false; 
+            }
+            else if (strlen($_GET['FirstName']) < 2)
+            {
+                $_SESSION["Create"] = false;
+                $_SESSION["Error"] = "Le prenom doit faire plus de 2 caractères";
+                $CheckForm = false; 
+            }
+            else if (strlen($_GET['LastName']) < 2)
+            {
+                $_SESSION["Create"] = false;
+                $_SESSION["Error"] = "Le nom doit faire plus de 2 caractères";
+                $CheckForm = false; 
+            }
+            else if (!preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $Mail))
+            {
+                $_SESSION["Create"] = false;
+                $_SESSION["Error"] = "Veuillez rentrer une adresse e-mail valide";
+                $CheckForm = false; 
+            }
+            else if(!preg_match('#^(0|\+33)[6-7]{1}\d{8}$#' , $Phone))
+            {
+                $_SESSION["Create"] = false;
+                $_SESSION["Error"] = "Veuillez rentrer un numéro de téléphone valide";
+                $CheckForm = false;                      
+            }
+            else if (strlen($_GET['Pwd']) < 5)
+            {
+                $_SESSION["Create"] = false;
+                $_SESSION["Error"] = "Le mot de passe doit faire plus de 5 caractères";
+                $CheckForm = false; 
 
-        ?>
+            }                                                                
+            else if ($Pwd != $Cpwd)
+            {
+                $_SESSION["Create"] = false;
+                $_SESSION["Error"] = "Mot de passe different de la confirmation";
+                $CheckForm = false; 
+            }
+            else if ($Pwd == $Cpwd)
+            {
+                $Pwd = base64_encode($Pwd);
+                $CheckForm = true;                    
+            }
+            array_push($Data, $Pwd , $CheckForm);
+            return $Data;
+        }
+    }
 
-    </body>
-</html>
+    function CheckUser($CheckUser,$CheckForm)
+    {
+        if($CheckForm == true)
+        {
+            if ($CheckUser == 0)
+            {
+                $_SESSION["Create"]=true;
+            } 
+            else
+            {
+                $_SESSION["Create"]=false;
+                $_SESSION["Error"]="Ce nom d'utilisateur ou cette adresse e-mail est déjà utilisé";
+            }
+        }
+    }
+
+    function CleanVariable()
+    {
+        unset($_SESSION['Create']);
+        unset($_SESSION['Error']);
+    }
+
+    require('ControllerStable.php');
+    CheckSesion();
+    $Data = CheckField();
+    require('Model/ModelSignUp.php');
+    $CheckUser = ModelSignUp($Data[0],$Data[1],$Data[2],$Data[3],$Data[4],$Data[5],$Data[6],$Data[7]);
+    CheckUser($CheckUser,$Data[7]);
+    require("View/ViewSignUp.php");
+    CleanVariable();
+
+?>

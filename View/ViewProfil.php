@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Profil de BG</title>
+        <title>Profile</title>
     </head>
     
     <body>
