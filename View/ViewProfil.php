@@ -54,7 +54,7 @@
                 </form>");
         } else if ($_SESSION['modifier']==true)
         {
-            echo("<form action='Index.php' method='get'>
+            echo($_SESSION['erreur']."<br><form action='Index.php' method='get'>
             <input type='submit' value='Retour'>
             <input type='hidden' name='page' value='Profil'>
             </form>");

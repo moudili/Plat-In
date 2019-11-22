@@ -40,6 +40,7 @@
                 {
                     $_SESSION['erreur']="Vos modifications ont bien été appliquées";
                     $_SESSION['modifier']=true;
+                    $_SESSION['User']=$Ndu;
                 } else if ($Valeur == 1)
                 {
                     $_SESSION['erreur']="Nom d'utilisateur ou e-mail déjà utilisé";
@@ -76,6 +77,7 @@
         if ($Valeur == 0)
         {
             unset($_SESSION['modifier']);
+
         }
     }
 

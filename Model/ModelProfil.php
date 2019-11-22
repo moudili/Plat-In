@@ -50,7 +50,8 @@
             $Mdp = $_GET['mdp'];
             $Mdp = base64_encode($Mdp);
 
-            $Req = $Bdd -> prepare("SELECT count(ID_user) FROM users WHERE :user LIKE user OR :mail LIKE mail");
+            $Req = $Bdd -> prepare("SELECT count(ID_user) FROM users WHERE :user LIKE user OR :mail LIKE mail AND :id NOT LIKE ID_user");
+            $Req -> bindParam(':id',$ID,PDO::PARAM_STR);
             $Req -> bindParam(':user',$Ndu,PDO::PARAM_STR);
             $Req -> bindParam(':mail',$Mail,PDO::PARAM_STR);
             $Req -> execute();
