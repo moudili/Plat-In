@@ -60,7 +60,7 @@
                             admin
                             <form action='Index.php' method='get'>
                             <input type='submit' value="Accueil"></form>
-                            <form action='Food.php' method='get'>
+                            <form action='ManageFood.php' method='get'>
                             <input type='submit' value="Aliments"></form>                            
                             <form action='Origins.php' method='get'>
                             <input type='submit' value="Origines"></form>
