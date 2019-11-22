@@ -17,11 +17,11 @@
                 <p>Mot de passe : ".PrintProfil(SelectProfile())[1]."</p>");
             echo("<form action='Index.php' method='get'>
             <input type='submit' name='modif' value='Modifier mon profil'>
-            <input type='hidden' name='page' value='Profile'>
+            <input type='hidden' name='page' value='Profil'>
             </form>");
             echo("<form action='Index.php' method='get'>
             <input type='submit' name='modif' value='Supprimer mon profil'>
-            <input type='hidden' name='page' value='Profile'>
+            <input type='hidden' name='page' value='Profil'>
             </form>");
         } else if ($_GET['modif']=='Modifier mon profil')
         {
@@ -35,32 +35,32 @@
                 <p>Mot de passe : <input id='get_mdp' type='text' name='mdp' value='".PrintProfil(SelectProfile())[1]."'></p>
                 <p>Confirmation de mot de passe : <input id='get_cmdp' type='text' name='cmdp' value=''></p>
                 <input type='submit' name='modif' value='Corriger'>
-                <input type='hidden' name='page' value='Profile'>
+                <input type='hidden' name='page' value='Profil'>
                 </form>");
             echo("<form action='Index.php' method='get'>
-                <input type='hidden' name='page' value='Profile'>
+                <input type='hidden' name='page' value='Profil'>
                 <input type='submit' value='Retour'>
                 </form>");
         }else if ($_GET['modif']=='Supprimer mon profil')
         {
             echo("Veux-tu vraiment supprimer ton profil ???");
             echo("<form action='Index.php' method='get'>
-                <input type='hidden' name='page' value='Profile'>
+                <input type='hidden' name='page' value='Profil'>
                 <input type='submit' name='supprimer'value='Oui'>
                 </form>");
             echo("<form action='Index.php' method='get'>
-                <input type='hidden' name='page' value='Profile'>
+                <input type='hidden' name='page' value='Profil'>
                 <input type='submit' value='Non'>
                 </form>");
         } else if ($_SESSION['modifier']==true)
         {
             echo("<form action='Index.php' method='get'>
             <input type='submit' value='Retour'>
-            <input type='hidden' name='page' value='Profile'>
+            <input type='hidden' name='page' value='Profil'>
             </form>");
         } else if ($_SESSION['modifier']==false)
         {
-            echo("<br><form action='Index.php' method='get'>
+            echo($_SESSION['erreur']."<br><form action='Index.php' method='get'>
             <p>Nom d'utilisateur : <input id='get_compte' type='text' name='ndu' value='".$_GET['ndu']."'></p>
             <p>Prénom : <input id='get_prenom' type='text' name='first_name' value='".$_GET['first_name']."'></p>
             <p>Nom : <input id='get_nom' type='text' name='last_name' value='".$_GET['last_name']."'></p>
@@ -70,11 +70,11 @@
             <p>Mot de passe : <input id='get_mdp' type='text' name='mdp' value='".$_GET['mdp']."'></p>
             <p>Confirmation de mot de passe : <input id='get_cmdp' type='text' name='cmdp' value='".$_GET['cmdp']."'></p>
             <input type='submit' value='Corriger' name='modif'>
-            <input type='hidden' name='page' value='Profile'>
+            <input type='hidden' name='page' value='Profil'>
             </form>
             </div>");
             echo("<form action='Index.php' method='get'>
-            <input type='hidden' name='page' value='Profile'>
+            <input type='hidden' name='page' value='Profil'>
             <input type='submit' value='Retour'>
             </form>");
         }
