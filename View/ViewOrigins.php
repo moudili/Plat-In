@@ -10,28 +10,34 @@
             if(empty($_GET['Request']))
             {
 
-        ?>
+                ?>
+                    <form action='Index.php' method='get'>
+                    <input type='search' placeholder = 'Rechercher une origine...' name='Org'/>
+                    <input type='hidden' name='page' value='Origines'>
+                    <input type='hidden' name='Request' value='Search'>
+                    <input type='submit' value=" "></form>
+
+                    <form action='Index.php' method='get'>
+                    <input type='hidden' name='page' value='Origines'>
+                    <input type='submit' name='Request' value='Ajouter une origine'></form><br>       
         
-        <form action='Index.php' method='get'>
-        <input type='hidden' name='page' value='Origines'>
-        <input type='submit' name='Request' value='Ajouter une origine'></form><br>       
-        
-        <?php
-            for($i = 0 ; $i < count($Origins[0]) ; $i++ )
-            {
-                echo $Origins[1][$i]
-                ."<form action='Index.php' method='get'>
-                <input type='hidden' name='page' value='Origines'>
-                <input type='hidden' name='origin' value='".$Origins[1][$i]."'>
-                <input type='hidden' name='id' value='".$Origins[0][$i]."'>
-                <input type='submit' name='Request' value='Supprimer'></form>
-                <form action='Index.php' method='get'>
-                <input type='hidden' name='page' value='Origines'>
-                <input type='hidden' name='origin' value='".$Origins[1][$i]."'>
-                <input type='hidden' name='id' value='".$Origins[0][$i]."'>
-                <input type='submit' name='Request' value='Modifier'></form>";
+                <?php
+                for($i = 0 ; $i < count($Origins[0]) ; $i++ )
+                {
+                    echo $Origins[1][$i]
+                    ."<form action='Index.php' method='get'>
+                    <input type='hidden' name='page' value='Origines'>
+                    <input type='hidden' name='origin' value='".$Origins[1][$i]."'>
+                    <input type='hidden' name='id' value='".$Origins[0][$i]."'>
+                    <input type='submit' name='Request' value='Supprimer'></form>
+                    <form action='Index.php' method='get'>
+                    <input type='hidden' name='page' value='Origines'>
+                    <input type='hidden' name='origin' value='".$Origins[1][$i]."'>
+                    <input type='hidden' name='id' value='".$Origins[0][$i]."'>
+                    <input type='submit' name='Request' value='Modifier'></form>";
+                }
             }
-            }else if (!empty($_GET['Request']))
+            else if (!empty($_GET['Request']))
             {
                 if($_GET['Request'] == "Ajouter une origine")
                 {
@@ -155,6 +161,54 @@
                         }
 
 
+                    }
+                }
+                else if($_GET['Request'] == "Search")
+                {
+                    if($Origins != false)
+                    {
+                        ?>
+                            <form action='Index.php' method='get'>
+                            <input type='search' placeholder = 'Rechercher une origine...' name='Org'/>
+                            <input type='hidden' name='page' value='Origines'>
+                            <input type='hidden' name='Request' value='Search'>
+                            <input type='submit' value=" "></form>
+        
+                            <form action='Index.php' method='get'>
+                            <input type='hidden' name='page' value='Origines'>
+                            <input type='submit' name='Request' value='Ajouter une origine'></form><br>       
+                
+                        <?php
+                        for($i = 0 ; $i < count($Origins[0]) ; $i++ )
+                        {
+                            echo $Origins[1][$i]
+                            ."<form action='Index.php' method='get'>
+                            <input type='hidden' name='page' value='Origines'>
+                            <input type='hidden' name='origin' value='".$Origins[1][$i]."'>
+                            <input type='hidden' name='id' value='".$Origins[0][$i]."'>
+                            <input type='submit' name='Request' value='Supprimer'></form>
+                            <form action='Index.php' method='get'>
+                            <input type='hidden' name='page' value='Origines'>
+                            <input type='hidden' name='origin' value='".$Origins[1][$i]."'>
+                            <input type='hidden' name='id' value='".$Origins[0][$i]."'>
+                            <input type='submit' name='Request' value='Modifier'></form>";
+                        }                        
+                    }
+                    else
+                    {
+                        ?>
+                            <form action='Index.php' method='get'>
+                            <input type='search' placeholder = 'Rechercher une origine...' name='Org'/>
+                            <input type='hidden' name='page' value='Origines'>
+                            <input type='hidden' name='Request' value='Search'>
+                            <input type='submit' value=" "></form>
+        
+                            <form action='Index.php' method='get'>
+                            <input type='hidden' name='page' value='Origines'>
+                            <input type='submit' name='Request' value='Ajouter une origine'></form><br>       
+                
+                        <?php
+                        echo "<br>aucun résultat pour la recherche ".$_GET['Org'].".";                        
                     }
                 }
             }

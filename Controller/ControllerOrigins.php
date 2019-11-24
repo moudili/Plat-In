@@ -3,7 +3,8 @@
     function CheckOrigine()
     {
         if($_GET['Request'] == "Ajouter"
-        || $_GET['Request'] == "Modifier cette origine")
+        || $_GET['Request'] == "Modifier cette origine"
+        || $_GET['Request'] == "Search")
         {
             if(!empty($_GET['Org']))
             {
@@ -23,11 +24,13 @@
     {
         $Org = CheckOrigine();
         
-    $CheckFormAdd = CheckForm ($Org);
+        $CheckFormAdd = CheckForm ($Org);
         
         DeletOrigin();
         
         $CheckFormUpdate = ModifOrigin($Org);
+
+        $Origins = SearchOrigin($Org);
         
     }
     require("View/ViewOrigins.php");

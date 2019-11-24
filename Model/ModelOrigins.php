@@ -90,4 +90,42 @@
         }
     }
 
+    function SearchOrigin($Org)
+    {
+        if($_GET['Request'] == "Search")
+        {
+            require("Model/ModelNewPDO.php");
+            if(empty($_GET['Org']))
+            {
+                $Req = $Bdd -> prepare("SELECT ID_origin,origin_name FROM origins");
+                $Req -> execute();
+                $Origins = array(array(),array());
+                while($n = $Req -> fetch())
+                {
+                    array_push($Origins[0], $n[0]);
+                    array_push($Origins[1], $n[1]);               
+                }
+            }
+            else
+            {
+                $Req = $Bdd -> prepare('SELECT ID_origin,origin_name FROM origins WHERE origin_name LIKE "%'.$Org.'%" ');
+                $Req -> execute();
+                $Origins = array(array(),array());
+                if($Req->rowCount() > 0)
+                {
+                    while($n = $Req -> fetch())
+                    {
+                        array_push($Origins[0], $n[0]);
+                        array_push($Origins[1], $n[1]);               
+                    }
+                }
+                else
+                {
+                    $Origins = false;
+                }
+            }
+            return $Origins;
+        }
+    }
+
 ?>

@@ -3,11 +3,37 @@
         <!--affiche le haut de la banner -->
         <div>
             <img src="Pictures/Logo.png">
+            
+            <?php
+                if($_SESSION['Co']==false)
+                {
+            ?>
+
             <form action='Index.php' method='get'>
-            <input type="text" value="Rechercher une recette"/>
-            <input type='hidden' name="page" value="Recette">
-            <input type='hidden' name="request" value="search">
+            <input type='search' placeholder = 'Recherche...' name='Search'/>
+            <input type='hidden' name='page' value='Recette'>
+            <input type='hidden' name='Request' value='Search'>
             <input type='submit' value=" "></form>
+            
+            <?php    
+                }
+                else
+                {
+                    if($_SESSION['status_u'] != 'admin')
+                    {
+                        ?>
+
+                        <form action='Index.php' method='get'>
+                        <input type='search' placeholder = 'Recherche...'/>
+                        <input type='hidden' name='page' value='Recette'>
+                        <input type='hidden' name='Request' value='search'>
+                        <input type='submit' value=" "></form>
+                        
+                        <?php   
+                    }
+                }    
+            ?>
+
         <!--partie statut -->
 
             <?php
@@ -23,7 +49,7 @@
                 }
                 else        
                 {
-                    echo($_SESSION['User']);
+                    echo"<br>".($_SESSION['User']);
             ?>
                 <br><br><a href=Index.php?Request=LogOut>Déconnexion</a><br><br>
             <?php
