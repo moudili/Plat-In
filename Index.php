@@ -19,7 +19,7 @@
             else if ($_GET['page'] == 'Sociale')
                 require('Controller/ControllerSocial.php');
             else if ($_GET['page'] == 'Aliments')
-                require('Controller/ControllerFood.php');
+                require('Controller/ControllerManageFood.php');
             else if ($_GET['page'] == 'Origines')
                 require('Controller/ControllerOrigins.php');
             else if ($_GET['page'] == 'Gestion des droits')
@@ -28,6 +28,7 @@
                 require('Controller/ControllerDiet.php');
             else if ($_GET['page'] == 'Catégories Alimentaires')
                 require('Controller/ControllerFoodCategories.php');
+
         
         ?>
     </body>
