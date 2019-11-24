@@ -4,7 +4,7 @@
     {
         if(empty($_GET['Request']))
         {
-            require("Model\ModelNewPDO.php");
+            require("Model/ModelNewPDO.php");
             $Req = $Bdd -> prepare("SELECT ID_origin,origin_name FROM origins");
             $Req -> execute();
             $Origins = array(array(),array());
@@ -24,7 +24,7 @@
         {
             if(!empty($_GET['Org']))
             {
-                require("Model\ModelNewPDO.php");
+                require("Model/ModelNewPDO.php");
                 $Req = $Bdd -> prepare("SELECT count(ID_origin) FROM origins WHERE origin_name LIKE :origin");
                 $Req -> bindParam(':origin',$Org,PDO::PARAM_STR);
                 $Req -> execute();
@@ -52,7 +52,7 @@
             if(!empty($_GET['Answer']))
             {
                 $Id = $_GET['id'];
-                require("Model\ModelNewPDO.php");
+                require("Model/ModelNewPDO.php");
                 $Req = $Bdd -> prepare("DELETE FROM `origins` WHERE `origins`.`ID_origin` = :id");
                 $Req -> bindParam(':id',$Id,PDO::PARAM_STR);
                 $Req -> execute();       
@@ -68,7 +68,7 @@
             if(!empty($_GET['Org']))
             {
                 $Id = $_GET['id'];
-                require("Model\ModelNewPDO.php");
+                require("Model/ModelNewPDO.php");
                 $Req = $Bdd -> prepare("SELECT count(ID_origin) FROM origins WHERE origin_name LIKE :origin");
                 $Req -> bindParam(':origin',$Org,PDO::PARAM_STR);
                 //$Req -> bindParam(':id',$Id,PDO::PARAM_STR);

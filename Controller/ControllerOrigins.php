@@ -17,7 +17,7 @@
     require('Controller/ControllerStable.php');
     CheckSesion();
     CheckLogOut();
-    require('Model\ModelOrigins.php');
+    require('Model/ModelOrigins.php');
     $Origins = Origins();
     if(!empty($_GET['Request']))
     {
