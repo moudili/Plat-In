@@ -5,6 +5,9 @@
     
     <body>
         <?php
+
+        require("View/ViewBanner.php"); 
+        
         if (empty($_GET['modif']))
         {
             echo("<br>
@@ -30,7 +33,7 @@
                 <p>Prénom : <input id='get_prenom' type='text' name='first_name' value='".PrintProfil(SelectProfile())[2]."'></p>
                 <p>Nom : <input id='get_nom' type='text' name='last_name' value='".PrintProfil(SelectProfile())[3]."'></p>
                 <p>Adresse : <input id='get_adresse' type='text' name='adresse' value='".PrintProfil(SelectProfile())[4]."'></p>
-                <p>Adresse e-mail : <input id='get_mail' type='e-mail' name='mail' value='".PrintProfil(SelectProfile())[5]."'></p>
+                <p>Adresse e-mail : <input id='get_mail' type='email' name='mail' value='".PrintProfil(SelectProfile())[5]."'></p>
                 <p>Numéro de téléphone : <input id='get_phone' type='text' name='phone' value='".PrintProfil(SelectProfile())[6]."'></p>
                 <p>Mot de passe : <input id='get_mdp' type='text' name='mdp' value='".PrintProfil(SelectProfile())[1]."'></p>
                 <p>Confirmation de mot de passe : <input id='get_cmdp' type='text' name='cmdp' value=''></p>
@@ -65,7 +68,7 @@
             <p>Prénom : <input id='get_prenom' type='text' name='first_name' value='".$_GET['first_name']."'></p>
             <p>Nom : <input id='get_nom' type='text' name='last_name' value='".$_GET['last_name']."'></p>
             <p>Adresse : <input id='get_adresse' type='text' name='adresse' value='".$_GET['adresse']."'></p>
-            <p>Adresse e-mail : <input id='get_mail' type='e-mail' name='mail' value='".$_GET['mail']."'></p>
+            <p>Adresse e-mail : <input id='get_mail' type='email' name='mail' value='".$_GET['mail']."'></p>
             <p>Numéro de téléphone : <input id='get_phone' type='text' name='phone' value='".$_GET['phone']."'></p>
             <p>Mot de passe : <input id='get_mdp' type='text' name='mdp' value='".$_GET['mdp']."'></p>
             <p>Confirmation de mot de passe : <input id='get_cmdp' type='text' name='cmdp' value='".$_GET['cmdp']."'></p>

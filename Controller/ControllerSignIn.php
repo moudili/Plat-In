@@ -27,6 +27,8 @@
             {
                 $_SESSION['User'] = $_GET['User'];
                 $_SESSION['Pwd'] = $_GET['Pwd'];
+                $_SESSION['Pwd'] = base64_encode($_SESSION['Pwd']);
+                echo($_SESSION['Pwd']);
                 $Query = true;
             }
             return $Query;

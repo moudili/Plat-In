@@ -11,19 +11,16 @@
         }
     }
 
-    /* affiche la banner en fonction de si l'utilisateur est un visiteur ou un membre */
+    /* si la personne n'est pas connecté cela la renvoie vers une autre page ou il y a deux liens pour se connecter ou s'incrire*/
 
-    function CheckCo()
+    function CheckCo2()
     {
         if($_SESSION['Co']==false)
         {
-            require('View/ViewBanner.php');
-        }
-        else
-        {
-            require('View/ViewBanner.php');
+            require('View/ViewErreurConnexion.php');
         }
     }
+
 
     /* Si l'utiliateur se déconnecte detruit sa session, le met en dc dans la bdd et le renvoi sur la page d'accueil */
 
@@ -39,4 +36,6 @@
             }
         }
     }
+
+
 ?>

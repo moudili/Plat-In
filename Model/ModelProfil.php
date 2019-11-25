@@ -1,5 +1,7 @@
 <?php
 
+    /* Selectionne le profil connecte*/
+
     function SelectProfile()
     {
         require('Model\ModelNewPDO.php');
@@ -12,6 +14,8 @@
         return $Check;
 
     };
+
+    /* Permet de selectionner toutes les infos du profil qui est connecté */
 
     function PrintProfil($Id)
     {
@@ -34,6 +38,8 @@
         return $Print;
     } 
 
+    /* */
+
     function ModifProfil($Choix)
     {
         if (!empty($_GET['modif']) AND $_GET['modif']=='Corriger' AND $Choix == "Oui")
@@ -50,7 +56,7 @@
             $Mdp = $_GET['mdp'];
             $Mdp = base64_encode($Mdp);
 
-            $Req = $Bdd -> prepare("SELECT count(ID_user) FROM users WHERE :user LIKE user OR :mail LIKE mail AND :id NOT LIKE ID_user");
+            $Req = $Bdd -> prepare("SELECT count(ID_user) FROM users WHERE :id <> ID_user AND (:user LIKE user OR :mail LIKE mail)");
             $Req -> bindParam(':id',$ID,PDO::PARAM_STR);
             $Req -> bindParam(':user',$Ndu,PDO::PARAM_STR);
             $Req -> bindParam(':mail',$Mail,PDO::PARAM_STR);
@@ -76,7 +82,7 @@
                 return $Check;
             }
         } else {
-            $Check=0;
+            $Check=1;
             return $Check;
         }
     }
