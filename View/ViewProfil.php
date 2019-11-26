@@ -23,7 +23,8 @@
             <input type='hidden' name='page' value='Profil'>
             </form>");
             echo("<form action='Index.php' method='get'>
-            <input type='submit' name='modif' value='Supprimer mon profil'>
+            <input type='hidden' name='modif' value='Supprimer mon profil'>
+            <input type='submit' value='Supprimer mon compte'>
             <input type='hidden' name='page' value='Profil'>
             </form>");
         } 
@@ -36,9 +37,10 @@
                 <p>Adresse : <input id='get_adresse' type='text' name='adresse' value='".PrintProfil(SelectProfile())[4]."'></p>
                 <p>Adresse e-mail : <input id='get_mail' type='email' name='mail' value='".PrintProfil(SelectProfile())[5]."'></p>
                 <p>Numéro de téléphone : <input id='get_phone' type='text' name='phone' value='".PrintProfil(SelectProfile())[6]."'></p>
-                <p>Mot de passe : <input id='get_mdp' type='text' name='mdp' value='".PrintProfil(SelectProfile())[1]."'></p>
-                <p>Confirmation de mot de passe : <input id='get_cmdp' type='text' name='cmdp' value=''></p>
-                <input type='submit' name='modif' value='Corriger'>
+                <p>Mot de passe : <input id='get_mdp' type='password' name='mdp' value='".PrintProfil(SelectProfile())[1]."'></p>
+                <p>Confirmation de mot de passe : <input id='get_cmdp' type='password' name='cmdp' value=''></p>
+                <input type='hidden' name='modif' value='Corriger'>
+                <input type='submit' value='Modifier'>
                 <input type='hidden' name='page' value='Profil'>
                 </form>");
             echo("<form action='Index.php' method='get'>
@@ -48,7 +50,7 @@
         }
         else if ($_GET['modif']=='Supprimer mon profil')
         {
-            echo("Veux-tu vraiment supprimer ton profil ???");
+            echo("Etes-vous vraiment sûr de vouloir supprimer votre compte ?");
             echo("<form action='Index.php' method='get'>
                 <input type='hidden' name='page' value='Profil'>
                 <input type='submit' name='supprimer'value='Oui'>
@@ -74,9 +76,10 @@
             <p>Adresse : <input id='get_adresse' type='text' name='adresse' value='".$_GET['adresse']."'></p>
             <p>Adresse e-mail : <input id='get_mail' type='email' name='mail' value='".$_GET['mail']."'></p>
             <p>Numéro de téléphone : <input id='get_phone' type='text' name='phone' value='".$_GET['phone']."'></p>
-            <p>Mot de passe : <input id='get_mdp' type='text' name='mdp' value='".$_GET['mdp']."'></p>
-            <p>Confirmation de mot de passe : <input id='get_cmdp' type='text' name='cmdp' value='".$_GET['cmdp']."'></p>
-            <input type='submit' value='Corriger' name='modif'>
+            <p>Mot de passe : <input id='get_mdp' type='password' name='mdp' value='".$_GET['mdp']."'></p>
+            <p>Confirmation de mot de passe : <input id='get_cmdp' type='password' name='cmdp' value='".$_GET['cmdp']."'></p>
+            <input type='hidden' value='Corriger' name='modif'>
+            <input type='submit' value='Modifier'>
             <input type='hidden' name='page' value='Profil'>
             </form>
             </div>");
