@@ -16,6 +16,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`ID_user`))
 ENGINE = InnoDB;
 
+INSERT INTO `users` (`ID_user`, `user`, `u_password`, `first_name`, `last_name`, `adress`, `mail`, `phone_number`, `picture`, `status_u`, `connection`) VALUES ('1', 'admin', 'YWJjZGU=', '', '', '', '', NULL, NULL, 'admin', 'dc');
+
 CREATE TABLE IF NOT EXISTS `recipes` (
   `ID_recipe` INT NOT NULL AUTO_INCREMENT,
   `name_r` VARCHAR(45) NULL,

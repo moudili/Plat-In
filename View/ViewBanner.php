@@ -2,6 +2,7 @@
     <body>
         <!--affiche le haut de la banner -->
         <div>
+        
             <img src="Pictures/Logo.png">
             
             <?php

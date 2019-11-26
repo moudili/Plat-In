@@ -28,7 +28,8 @@
                         echo $Search[1][$i];
                         if($Search[2][$i] == NULL)
                         {
-                            echo "<br>random";
+                            echo "<br>
+                            <img src='Pictures/random_user.svg' alt='' width='200'>";
                         }
                         else
                         {
