@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>ACTION IMPOSSIBLE</title>
+        <title>Plat'In</title>
     </head>
     
     <body>

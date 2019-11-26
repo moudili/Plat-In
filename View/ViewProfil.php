@@ -26,7 +26,8 @@
             <input type='submit' name='modif' value='Supprimer mon profil'>
             <input type='hidden' name='page' value='Profil'>
             </form>");
-        } else if ($_GET['modif']=='Modifier mon profil')
+        } 
+        else if ($_GET['modif']=='Modifier mon profil')
         {
             echo("<br><form action='Index.php' method='get'>
                 <p>Nom d'utilisateur : <input id='get_compte' type='text' name='ndu' value='".PrintProfil(SelectProfile())[0]."'></p>
@@ -44,7 +45,8 @@
                 <input type='hidden' name='page' value='Profil'>
                 <input type='submit' value='Retour'>
                 </form>");
-        }else if ($_GET['modif']=='Supprimer mon profil')
+        }
+        else if ($_GET['modif']=='Supprimer mon profil')
         {
             echo("Veux-tu vraiment supprimer ton profil ???");
             echo("<form action='Index.php' method='get'>
@@ -55,13 +57,15 @@
                 <input type='hidden' name='page' value='Profil'>
                 <input type='submit' value='Non'>
                 </form>");
-        } else if ($_SESSION['modifier']==true)
+        } 
+        else if ($_SESSION['modifier']==true)
         {
             echo($_SESSION['erreur']."<br><form action='Index.php' method='get'>
             <input type='submit' value='Retour'>
             <input type='hidden' name='page' value='Profil'>
             </form>");
-        } else if ($_SESSION['modifier']==false)
+        } 
+        else if ($_SESSION['modifier']==false)
         {
             echo($_SESSION['erreur']."<br><form action='Index.php' method='get'>
             <p>Nom d'utilisateur : <input id='get_compte' type='text' name='ndu' value='".$_GET['ndu']."'></p>

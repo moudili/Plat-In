@@ -3,7 +3,7 @@
     require('Controller/ControllerStable.php');
     CheckSesion();
     CheckLogOut();
-    CheckCo2();
+    CheckCo();
 
     if ($_SESSION['Co']==true)
     {

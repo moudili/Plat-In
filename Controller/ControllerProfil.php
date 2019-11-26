@@ -132,7 +132,7 @@
 
     require('Controller/ControllerStable.php');
     CheckSesion();
-    CheckCo2();
+    CheckCo();
 
     if ($_SESSION['Co']==true)
     {
