@@ -2,6 +2,7 @@
     <body>
         <!--affiche le haut de la banner -->
         <div>
+        
             <img src="Pictures/Logo.png">
             
             <?php
@@ -70,7 +71,7 @@
                         <form action='Index.php' method='get'>
                         <input type='submit' name="page" value="Evènement"></form>
                         <form action='Index.php' method='get'>
-                        <input type='submit' name="page" value="Profile"></form>
+                        <input type='submit' name="page" value="Profil"></form>
                         <form action='Index.php' method='get'>
                         <input type='submit' name="page" value="Sociale"></form>            
                     </div>
@@ -114,7 +115,7 @@
                             <form action='Index.php' method='get'>
                             <input type='submit' name="page" value="Evènement"></form>
                             <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Profile"></form>
+                            <input type='submit' name="page" value="Profil"></form>
                             <form action='Index.php' method='get'>
                             <input type='submit' name="page" value="Sociale"></form>
                         </div>

@@ -23,7 +23,7 @@
                 OR empty($_GET['Mail'])
                 OR empty($_GET['Phone'])
                 OR empty($_GET['Pwd'])
-                OR empty($_GET['Cpwd'])) 
+                OR empty($_GET['Cpwd']))  
             {
                 $_SESSION["Create"] = false;
                 $_SESSION["Error"] = "Il y a un ou plusieurs champ(s) vide(s)";

@@ -3,7 +3,11 @@
     require('Controller/ControllerStable.php');
     CheckSesion();
     CheckLogOut();
-    require("View/ViewEvent.php");
-    
+    CheckCo();
+
+    if ($_SESSION['Co']==true)
+    {
+        require("View/ViewEvent.php");
+    }
 ?>
        
