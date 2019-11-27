@@ -83,6 +83,7 @@
                 {
                     ?>
                         <div>
+                            admin
                             <form action='Index.php' method='get'>
                             <input type='submit' value="Accueil"></form>
                             <form action='Index.php' method='get'>
@@ -100,8 +101,13 @@
                 }
                 else
                 {
+                    var_dump($_SESSION);
+                    echo("test");
+                    echo($_SESSION['status_u']);
                     ?>
                         <div>
+                            pas admin
+                            
                             <form action='Index.php' method='get'>
                             <input type='submit' value="Accueil"></form>
                             <form action='Index.php' method='get'>
