@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `ingredients` (
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `kinds_of_food` (
-  `ID_kind_of_food` INT NOT NULL,
+  `ID_kind_of_food` INT NOT NULL AUTO_INCREMENT,
   `name_k` VARCHAR(45) NULL,
   PRIMARY KEY (`ID_kind_of_food`))
 ENGINE = InnoDB;
@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `friends` (
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `diets` (
-  `ID_diet` INT NOT NULL,
+  `ID_diet` INT NOT NULL AUTO_INCREMENT,
   `name_d` VARCHAR(45) NULL,
   PRIMARY KEY (`ID_diet`))
 ENGINE = InnoDB;

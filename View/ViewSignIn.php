@@ -25,8 +25,8 @@
     else
     {
         echo("<p><form action='Index.php' method='get'> 
-        <input type='text' name='User'value='".$_GET['User']."'/></p>
-        <p> <input type='password' name='Pwd' value='".$_GET['Pwd']."'/></p>
+        <input type='text' name='User'value='".htmlspecialchars($_GET['User'], ENT_QUOTES)."'/></p>
+        <p> <input type='password' name='Pwd' value='".htmlspecialchars($_GET['Pwd'], ENT_QUOTES)."'/></p>
         <input type='hidden' name='page' value='Connexion'>");
         
         if(empty($Query) 

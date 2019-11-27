@@ -89,7 +89,7 @@
                 {
                     if(empty($_GET['Answer']))
                     {
-                        echo "Etes-vous sûr de voiloir supprimer l'origine ".$_GET['origin']." de la base de données?<br>
+                        echo "Etes-vous sûr de vouloir supprimer l'origine ".$_GET['origin']." de la base de données?<br>
                         
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
@@ -168,17 +168,21 @@
                     if($Origins != false)
                     {
                         ?>
-                            <form action='Index.php' method='get'>
-                            <input type='search' placeholder = 'Rechercher une origine...' name='Org'/>
-                            <input type='hidden' name='page' value='Origines'>
-                            <input type='hidden' name='Request' value='Search'>
-                            <input type='submit' value=" "></form>
-        
-                            <form action='Index.php' method='get'>
-                            <input type='hidden' name='page' value='Origines'>
-                            <input type='submit' name='Request' value='Ajouter une origine'></form><br>       
+       
                 
                         <?php
+
+                        echo("
+                        <form action='Index.php' method='get'>
+                        <input type='search' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/>
+                        <input type='hidden' name='page' value='Origines'>
+                        <input type='hidden' name='Request' value='Search'>
+                        <input type='submit' value=' '></form>
+    
+                        <form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Origines'>
+                        <input type='submit' name='Request' value='Ajouter une origine'></form><br>                        
+                        ");
                         for($i = 0 ; $i < count($Origins[0]) ; $i++ )
                         {
                             echo $Origins[1][$i]
@@ -196,19 +200,17 @@
                     }
                     else
                     {
-                        ?>
-                            <form action='Index.php' method='get'>
-                            <input type='search' placeholder = 'Rechercher une origine...' name='Org'/>
-                            <input type='hidden' name='page' value='Origines'>
-                            <input type='hidden' name='Request' value='Search'>
-                            <input type='submit' value=" "></form>
-        
-                            <form action='Index.php' method='get'>
-                            <input type='hidden' name='page' value='Origines'>
-                            <input type='submit' name='Request' value='Ajouter une origine'></form><br>       
-                
-                        <?php
-                        echo "<br>aucun résultat pour la recherche ".$_GET['Org'].".";                        
+                        echo("
+                        <form action='Index.php' method='get'>
+                        <input type='search' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/>
+                        <input type='hidden' name='page' value='Origines'>
+                        <input type='hidden' name='Request' value='Search'>
+                        <input type='submit' value=' '></form>
+    
+                        <form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Origines'>
+                        <input type='submit' name='Request' value='Ajouter une origine'></form><br>                        
+                        <br>aucun résultat pour la recherche ".$_GET['Org'].".");                        
                     }
                 }
             }

@@ -35,24 +35,72 @@
                 $_SESSION["modifier"] = false;
                 $_SESSION["erreur"] = "Le nom d'utilisateur doit faire plus de 5 caractères";
 
+            }
+            else if (strlen($_GET['ndu']) > 40)
+            {
+                $_SESSION["modifier"] = false;
+                $_SESSION["erreur"] = "Le nom d'utilisateur doit faire moins de 40 caractères";
+                $CheckForm = false; 
             } 
             else if (strlen($_GET['first_name']) < 2)
             {
                 $_SESSION["modifier"] = false;
                 $_SESSION["erreur"] = "Le prenom doit faire plus de 2 caractères";
 
+            }
+            else if (strlen($_GET['first_name']) > 40)
+            {
+                $_SESSION["modifier"] = false;
+                $_SESSION["erreur"] = "Le prenom doit faire moins de 40 caractères";
+                $CheckForm = false; 
+            }
+            else if (!preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $FirstName))
+            {
+                $_SESSION["modifier"] = false;
+                $_SESSION["erreur"] = "Ce prenom n'est pas correcte";
+                $CheckForm = false; 
             } 
             else if (strlen($_GET['last_name']) < 2)
             {
                 $_SESSION["modifier"] = false;
                 $_SESSION["erreur"] = "Le nom doit faire plus de 2 caractères";
 
+            }
+            else if (strlen($_GET['last_name']) > 40)
+            {
+                $_SESSION["modifier"] = false;
+                $_SESSION["erreur"] = "Le nom doit faire moins de 40 caractères";
+                $CheckForm = false; 
+            }
+            else if (!preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $LastName))
+            {
+                $_SESSION["modifier"] = false;
+                $_SESSION["erreur"] = "Ce nom n'est pas correcte";
+                $CheckForm = false; 
+            }
+            else if (strlen($_GET['adresse']) < 2)
+            {
+                $_SESSION["modifier"] = false;
+                $_SESSION["erreur"] = "Votre adresse doit faire plus de 2 caractères";
+                $CheckForm = false; 
+            }
+            else if (strlen($_GET['adresse']) > 40)
+            {
+                $_SESSION["modifier"] = false;
+                $_SESSION["erreur"] = "Votre adresse doit faire moins de 40 caractères";
+                $CheckForm = false; 
+            }
+            else if (!preg_match("#^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $Adresse))
+            {
+                $_SESSION["modifier"] = false;
+                $_SESSION["erreur"] = "Cette adresse n'est pas correcte";
+                $CheckForm = false; 
             } 
-            else if (!preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $Mail))
+            else if (!preg_match("#^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ'._-]{2,30}+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $Mail))
             {
                 $_SESSION["modifier"] = false;
                 $_SESSION["erreur"] = "Veuillez rentrer une adresse e-mail valide";
-
+                $CheckForm = false; 
             }
             else if(!preg_match('#^(0|\+33)[6-7]{1}\d{8}$#' , $Phone))
             {
@@ -66,6 +114,13 @@
                 $_SESSION["erreur"] = "Le mot de passe doit faire plus de 5 caractères";
 
             }
+            else if (strlen($_GET['mdp']) > 40)
+            {
+                $_SESSION["modifier"] = false;
+                $_SESSION["erreur"] = "Le mot de passe doit faire moins de 40 caractères";
+                $CheckForm = false; 
+
+            } 
             else if ($Mdp != $Cmdp)
             {
                 $_SESSION['erreur']="mdp different de la confirmation"; 

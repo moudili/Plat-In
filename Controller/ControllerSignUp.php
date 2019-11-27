@@ -7,14 +7,14 @@
             $User = $_GET['User'];
             $FirstName = $_GET['FirstName'];
             $LastName = $_GET['LastName'];
-            $Adresse = $_GET['Adress'];
+            $Adress = $_GET['Adress'];
             $Mail = $_GET['Mail'];
             $Phone = $_GET['Phone'];
             $Pwd = $_GET['Pwd'];
             $Cpwd = $_GET['Cpwd'];
             
             $Phone = str_replace(" ", "", $Phone);
-            $Data = array($User,$FirstName,$LastName,$Adresse,$Mail,$Phone);
+            $Data = array($User,$FirstName,$LastName,$Adress,$Mail,$Phone);
 
             if (empty($_GET['User']) 
                 OR empty($_GET['FirstName'])
@@ -35,10 +35,28 @@
                 $_SESSION["Error"] = "Le nom d'utilisateur doit faire plus de 5 caractères";
                 $CheckForm = false; 
             }
+            else if (strlen($_GET['User']) > 40)
+            {
+                $_SESSION["Create"] = false;
+                $_SESSION["Error"] = "Le nom d'utilisateur doit faire moins de 40 caractères";
+                $CheckForm = false; 
+            }
             else if (strlen($_GET['FirstName']) < 2)
             {
                 $_SESSION["Create"] = false;
                 $_SESSION["Error"] = "Le prenom doit faire plus de 2 caractères";
+                $CheckForm = false; 
+            }
+            else if (strlen($_GET['FirstName']) > 40)
+            {
+                $_SESSION["Create"] = false;
+                $_SESSION["Error"] = "Le prenom doit faire moins de 40 caractères";
+                $CheckForm = false; 
+            }
+            else if (!preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $FirstName))
+            {
+                $_SESSION["Create"] = false;
+                $_SESSION["Error"] = "Ce prenom n'est pas correcte";
                 $CheckForm = false; 
             }
             else if (strlen($_GET['LastName']) < 2)
@@ -47,7 +65,37 @@
                 $_SESSION["Error"] = "Le nom doit faire plus de 2 caractères";
                 $CheckForm = false; 
             }
-            else if (!preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $Mail))
+            else if (strlen($_GET['LastName']) > 40)
+            {
+                $_SESSION["Create"] = false;
+                $_SESSION["Error"] = "Le nom doit faire moins de 40 caractères";
+                $CheckForm = false; 
+            }
+            else if (!preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $LastName))
+            {
+                $_SESSION["Create"] = false;
+                $_SESSION["Error"] = "Ce nom n'est pas correcte";
+                $CheckForm = false; 
+            }
+            else if (strlen($_GET['Adress']) < 2)
+            {
+                $_SESSION["Create"] = false;
+                $_SESSION["Error"] = "Votre adresse doit faire plus de 2 caractères";
+                $CheckForm = false; 
+            }
+            else if (strlen($_GET['Adress']) > 40)
+            {
+                $_SESSION["Create"] = false;
+                $_SESSION["Error"] = "Votre adresse doit faire moins de 40 caractères";
+                $CheckForm = false; 
+            }
+            else if (!preg_match("#^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $Adress))
+            {
+                $_SESSION["Create"] = false;
+                $_SESSION["Error"] = "Cette adresse n'est pas correcte";
+                $CheckForm = false; 
+            }
+            else if (!preg_match("#^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ'._-]{2,30}+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $Mail))
             {
                 $_SESSION["Create"] = false;
                 $_SESSION["Error"] = "Veuillez rentrer une adresse e-mail valide";
@@ -63,6 +111,13 @@
             {
                 $_SESSION["Create"] = false;
                 $_SESSION["Error"] = "Le mot de passe doit faire plus de 5 caractères";
+                $CheckForm = false; 
+
+            }
+            else if (strlen($_GET['Pwd']) > 40)
+            {
+                $_SESSION["Create"] = false;
+                $_SESSION["Error"] = "Le mot de passe doit faire moins de 40 caractères";
                 $CheckForm = false; 
 
             }                                                                
