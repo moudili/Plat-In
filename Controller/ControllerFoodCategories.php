@@ -34,6 +34,7 @@
         {
             //echo($Liste[0][$i]."  ");
             
+<<<<<<< HEAD
       
             //print_r($Liste);
             //echo($Liste[0][0]);
@@ -86,6 +87,9 @@
     }
 
     require('Controller/ControllerStable.php');
+=======
+    require('Controller/ControllerStaple.php');
+>>>>>>> adc02e709745c7e3d61380b42d8e2a6fc8a54513
     CheckSesion();
     CheckLogOut();
     require('Model/ModelFoodCategories.php');

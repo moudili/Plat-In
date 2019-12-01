@@ -1,9 +1,9 @@
 <?php
 
-    require('Controller/ControllerStable.php');
+    require('Controller/ControllerStaple.php');
     CheckSesion();
     CheckLogOut();
-    CheckCo2();
+    CheckCo();
 
     if ($_SESSION['Co']==true)
     {

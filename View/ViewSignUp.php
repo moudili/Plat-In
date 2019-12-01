@@ -26,20 +26,22 @@
                 </div>");
             } else if (!empty($_GET['SignUp']))
             {
-                if ($_SESSION["Create"]==true) {
+                if ($_SESSION["Create"]==true) 
+                {
                     echo("Tu as reussi a t'inscrire, ton nom d'utilisateur est : ".$_GET['User']." Et ton mot de passe est : ".$_GET['Pwd']."<br>
                     <a href='Index.php'><input type='button' value='Retour accueil'></a>");
                 } else if ($_SESSION["Create"]==false)
                 {
-                    echo("<br><form action='Index.php' method='get'>
-                    <p>Nom d'utilisateur : <input type='text' name='User' value='".$_GET['User']."'></p>
-                    <p>Prénom : <input type='text' name='FirstName' value='".$_GET['FirstName']."'></p>
-                    <p>Nom : <input type='text' name='LastName' value='".$_GET['LastName']."'></p>
-                    <p>Adresse : <input type='text' name='Adress' value='".$_GET['Adress']."'></p>
-                    <p>Adresse e-mail : <input type='email' name='Mail' value='".$_GET['Mail']."'></p>
-                    <p>Numéro de téléphone : <input type='text' name='Phone' value='".$_GET['Phone']."'></p>
-                    <p>Mot de passe : <input type='password' name='Pwd' value='".$_GET['Pwd']."'></p>
-                    <p>Confirmation de mot de passe : <input type='password' name='Cpwd' value='".$_GET['Cpwd']."'></p>"
+
+                    echo("<form action='Index.php' method='get'>
+                    <p>Nom d'utilisateur : <input type='text' name='User' value='".htmlspecialchars($_GET['User'], ENT_QUOTES)."'></p>
+                    <p>Prénom : <input type='text' name='FirstName' value='".htmlspecialchars($_GET['FirstName'], ENT_QUOTES)."'></p>
+                    <p>Nom : <input type='text' name='LastName' value='".htmlspecialchars($_GET['LastName'], ENT_QUOTES)."'></p>
+                    <p>Adresse : <input type='text' name='Adress' value='".htmlspecialchars($_GET['Adress'], ENT_QUOTES)."'></p>
+                    <p>Adresse e-mail : <input type='email' name='Mail' value='".htmlspecialchars($_GET['Mail'], ENT_QUOTES)."'></p>
+                    <p>Numéro de téléphone : <input type='text' name='Phone' value='".htmlspecialchars($_GET['Phone'], ENT_QUOTES)."'></p>
+                    <p>Mot de passe : <input type='password' name='Pwd' value='".htmlspecialchars($_GET['Pwd'], ENT_QUOTES)."'></p>
+                    <p>Confirmation de mot de passe : <input type='password' name='Cpwd' value='".htmlspecialchars($_GET['Cpwd'], ENT_QUOTES)."'></p>"
                     .$_SESSION['Error'].
                     "<input type='hidden' name='page' value='Inscription'>
                     <br><br><input type='submit' value='Inscription' name='SignUp'>

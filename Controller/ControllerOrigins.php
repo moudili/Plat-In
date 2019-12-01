@@ -9,13 +9,13 @@
             if(!empty($_GET['Org']))
             {
                 $Org = $_GET['Org'];
-                $Org = strtolower($Org);
+                $Org = mb_strtolower($Org,"UTF-8");
                 return $Org;
             }
         }
     }
 
-    require('Controller/ControllerStable.php');
+    require('Controller/ControllerStaple.php');
     CheckSesion();
     CheckLogOut();
     require('Model/ModelOrigins.php');

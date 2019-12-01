@@ -13,7 +13,7 @@
 
     /* si la personne n'est pas connecté cela la renvoie vers une autre page ou il y a deux liens pour se connecter ou s'incrire*/
 
-    function CheckCo2()
+    function CheckCo()
     {
         if($_SESSION['Co']==false)
         {

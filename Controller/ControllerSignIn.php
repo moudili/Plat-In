@@ -6,7 +6,7 @@
     {
         if(empty($_GET['Request']))
         {
-            require("View\ViewSignIn.php");
+            require("View/ViewSignIn.php");
         }
     }
 
@@ -42,7 +42,7 @@
         if(!empty($_GET['Request'])
             && $Query == true)
         {
-            if($Check == 1)
+            if($Check == 1 && $_SESSION['status_u'] != "ban")
             {   
                 $_SESSION['Co'] = true;
                 unset($_SESSION['Pwd']);
@@ -55,7 +55,7 @@
         }
     }
 
-        require('ControllerStable.php');
+        require('ControllerStaple.php');
         CheckSesion();
         FirstView();
         $Query = GetQuery();
