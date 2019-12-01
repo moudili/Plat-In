@@ -133,7 +133,7 @@
     require('Controller/ControllerStable.php');
     CheckSesion();
     CheckCo2();
-
+ 
     if ($_SESSION['Co']==true)
     {
         require('Model/ModelProfil.php');

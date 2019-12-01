@@ -5,7 +5,7 @@
         if(empty($_GET['Request']))
         {
             require("Model/ModelNewPDO.php");
-            $Req = $Bdd -> prepare("SELECT ID_kind_of_food, name_k FROM kinds_of_food");
+            $Req = $Bdd -> prepare("SELECT ID_kind_of_food, name_k FROM kinds_of_food ORDER BY name_k");
             $Req -> execute();
             $Categories = array(array(),array());
             while($n = $Req -> fetch())
@@ -34,6 +34,24 @@
             
             return $Foods;
         }
+    }
+
+    function CheckFood()
+    {
+        require("Model/ModelNewPDO.php");
+        $Req = $Bdd -> prepare("SELECT KF.ID_kind_of_food,KF.name_k,F.ID_food,F.food_name FROM kinds_of_food KF JOIN food_categories FC JOIN foods F WHERE KF.ID_kind_of_food 
+            LIKE FC.ID_kind_of_food AND FC.ID_food LIKE F.ID_food ORDER BY KF.name_k");
+        $Req->execute();
+        $Liste=array(array(),array(),array(),array());
+        while($n = $Req -> fetch())
+        {
+            array_push($Liste[0], $n[0]);
+            array_push($Liste[1], $n[1]);               
+            array_push($Liste[2], $n[2]);
+            array_push($Liste[3], $n[3]);  
+        }
+        
+        return $Liste;
     }
 
     function CheckForm ($Cat, $IdFood) 
@@ -101,9 +119,34 @@
                 require("Model/ModelNewPDO.php");
                 $Req = $Bdd -> prepare("DELETE FROM `kinds_of_food` WHERE `kinds_of_food`.`ID_kind_of_food` = :id");
                 $Req -> bindParam(':id',$Id,PDO::PARAM_STR);
-                $Req -> execute();       
+                $Req -> execute();    
+                
+                $Req2 = $Bdd -> prepare("DELETE FROM `food_categories` WHERE `food_categories`.`ID_kind_of_food` = :id");
+                $Req2 -> bindParam(':id',$Id,PDO::PARAM_STR);
+                $Req2 -> execute(); 
 
             }
+        }
+    }
+
+    function DeletFood()
+    {
+        if($_GET['Request'] == "Supprimer cet aliment")
+        {        
+            $Food = $_GET['aliment'];
+            require("Model/ModelNewPDO.php"); 
+            $Req = $Bdd -> prepare("SELECT ID_food FROM foods WHERE food_name LIKE :FoodName");
+            $Req -> bindParam(':FoodName',$Food,PDO::PARAM_STR);
+            $Req -> execute();
+            $n=$Req->fetch();
+            $Resultat=$n[0];
+            
+            $Id = $_GET['id'];
+            $Req2 = $Bdd -> prepare("DELETE FROM `food_categories` WHERE `food_categories`.`ID_food` = :resultat AND `food_categories`.`ID_kind_of_food` = :id");
+            $Req2 -> bindParam(':resultat',$Resultat,PDO::PARAM_STR);
+            $Req2 -> bindParam(':id',$Id,PDO::PARAM_STR);
+            $Req2 -> execute(); 
+
         }
     }
 
@@ -144,7 +187,7 @@
             require("Model/ModelNewPDO.php");
             if(empty($_GET['Cat']))
             {
-                $Req = $Bdd -> prepare("SELECT ID_kind_of_food,name_k FROM kinds_of_food");
+                $Req = $Bdd -> prepare("SELECT ID_kind_of_food,name_k FROM kinds_of_food ORDER BY name_k");
                 $Req -> execute();
                 $Categories = array(array(),array());
                 while($n = $Req -> fetch())
