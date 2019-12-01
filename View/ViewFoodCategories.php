@@ -309,11 +309,13 @@
                             <input type='hidden' name='page' value='Catégories Alimentaires'>
                             <input type='hidden' name='categorie' value='".$Liste[1][$i]."'>
                             <input type='hidden' name='id' value='".$Liste[0][$i]."'>
+                            <input type='hidden' name='liste' value='".$i."'>
                             <input type='submit' name='Request' value='Supprimer'></form>
                             <form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Catégories Alimentaires'>
                             <input type='hidden' name='categorie' value='".$Liste[1][$i]."'>
                             <input type='hidden' name='id' value='".$Liste[0][$i]."'>
+                            <input type='hidden' name='liste' value='".$i."'>
                             <input type='submit' name='Request' value='Modifier'></form>");
                         }                        
                     }
