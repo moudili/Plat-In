@@ -95,7 +95,7 @@
                 $_SESSION["Error"] = "Cette adresse n'est pas correcte";
                 $CheckForm = false; 
             }
-            else if (!preg_match("#^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ'._-]{2,30}+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $Mail))
+            else if (!preg_match("#^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ'._-]{2,30}+@[a-z0-9._-]{2,10}\.[a-z]{2,4}$#", $Mail))
             {
                 $_SESSION["Create"] = false;
                 $_SESSION["Error"] = "Veuillez rentrer une adresse e-mail valide";
@@ -159,7 +159,7 @@
         unset($_SESSION['Error']);
     }
 
-    require('ControllerStable.php');
+    require('ControllerStaple.php');
     CheckSesion();
     $Data = CheckField();
     require('Model/ModelSignUp.php');

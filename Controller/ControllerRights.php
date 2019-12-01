@@ -13,13 +13,17 @@
         }
     }
 
-    require('Controller/ControllerStable.php');
+    require('Controller/ControllerStaple.php');
     CheckSesion();
     CheckLogOut();
    
     $User = CheckUser();
     require('Model/ModelRights.php');
     $Search = SearchUser($User);
+    Ban();
+    UnBan();
+    $CheckRights = ManageRights();
+    
     require("View/ViewRights.php");
 
 ?>

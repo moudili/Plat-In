@@ -22,8 +22,14 @@
     {
         if($_GET['Request'] == "Ajouter")
         {
-            if(!empty($_GET['Org']))
+            echo strlen($_GET['Org']);
+            if(!empty($_GET['Org'])
+            && strlen($_GET['Org']) > 2
+            && strlen($_GET['Org']) < 40
+            && preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['Org'])
+            )
             {
+                echo "oui";
                 require("Model/ModelNewPDO.php");
                 $Req = $Bdd -> prepare("SELECT count(ID_origin) FROM origins WHERE origin_name LIKE :origin");
                 $Req -> bindParam(':origin',$Org,PDO::PARAM_STR);
@@ -65,7 +71,11 @@
     {
         if($_GET['Request'] == "Modifier cette origine")
         {
-            if(!empty($_GET['Org']))
+            if(!empty($_GET['Org'])
+            && strlen($_GET['Org']) > 2
+            && strlen($_GET['Org']) < 40
+            && preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['Org'])
+            )
             {
                 $Id = $_GET['id'];
                 require("Model/ModelNewPDO.php");
