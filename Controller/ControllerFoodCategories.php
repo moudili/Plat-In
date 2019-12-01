@@ -34,62 +34,7 @@
         {
             //echo($Liste[0][$i]."  ");
             
-<<<<<<< HEAD
-      
-            //print_r($Liste);
-            //echo($Liste[0][0]);
-            if ($i > 0)
-            {
-                for ($j = 0 ; $j < count($ListeFini[1]) ; $j++)
-                {
-                    if ($Liste[1][$i] == $ListeFini[1][$j])
-                    {
-                        $Test = true;
-                        break;
-                    } 
-                    else 
-                    {
-                        $Test = false;
-                    }
-                }
-            }
-            else 
-            {
-                $Test = false;
-            }
-
-
-            if ($Test == false AND $i==0)
-            {
-                array_push($ListeFini[2], array());
-                array_push($ListeFini[3], array());
-                array_push($ListeFini[0], $Liste[0][$i]);
-                array_push($ListeFini[1], $Liste[1][$i]);
-                array_push($ListeFini[2][$i], $Liste[2][$i]);
-                array_push($ListeFini[3][$i], $Liste[3][$i]);
-            } 
-            else if ($Test == false)
-            {
-                array_push($ListeFini[2], array());
-                array_push($ListeFini[3], array());
-                array_push($ListeFini[0], $Liste[0][$i]);
-                array_push($ListeFini[1], $Liste[1][$i]);
-                array_push($ListeFini[2][$i], $Liste[2][$i]);
-                array_push($ListeFini[3][$i], $Liste[3][$i]);
-            } 
-            else
-            {
-                array_push($ListeFini[2][$i-1], $Liste[2][$i]);
-                array_push($ListeFini[3][$i-1], $Liste[3][$i]);      
-            }
-        }
-        return $ListeFini;
-    }
-
-    require('Controller/ControllerStable.php');
-=======
     require('Controller/ControllerStaple.php');
->>>>>>> adc02e709745c7e3d61380b42d8e2a6fc8a54513
     CheckSesion();
     CheckLogOut();
     require('Model/ModelFoodCategories.php');

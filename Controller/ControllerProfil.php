@@ -187,13 +187,8 @@
 
     require('Controller/ControllerStaple.php');
     CheckSesion();
-<<<<<<< HEAD
-    CheckCo2();
- 
-=======
     CheckCo();
 
->>>>>>> adc02e709745c7e3d61380b42d8e2a6fc8a54513
     if ($_SESSION['Co']==true)
     {
         require('Model/ModelProfil.php');
