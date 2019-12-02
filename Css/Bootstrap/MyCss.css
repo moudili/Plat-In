@@ -1,3 +1,10 @@
+div {
+    margin: 4px;
+    padding: 4px;
+    border: 1px solid black;
+    background-color: rgba(240, 0, 0, 0.2);
+    }
+
 .banner1{
 background-color:whitesmoke;
 border: thick double gray;
@@ -13,10 +20,21 @@ border-top-style: none;
 display: flex;
 }
 
-/*div {
-    margin: 4px;
-    padding: 4px;
-    border: 1px solid black;
-    background-color: rgba(240, 0, 0, 0.2);
-    }*/
+
+.adjimg {
+        width: 200;
+    }
+
+.brr{
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    text-align: center;
+    margin: 1%
+    
+}
+
+
 

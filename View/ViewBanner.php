@@ -7,19 +7,20 @@
     </head>
     <body>
         <!--affiche le haut de la banner -->
-        <div class="banner1 row justify-content-between px-5">
-        
-            <form action='Index.php' method='get'>
-            <button class='top left'>
-            <img src="Pictures/Logo.png" alt="logo Plat'In" type='submit' value='Accueil'>
-            </button>
-            </form>
+        <div class="banner1 row justify-content-between px-5" >
+            <div>
+                <form action='Index.php' method='get'>
+                <button>
+                <img src="Pictures/Logo.png" alt="logo Plat'In" class='adjimg' type='submit' value='Accueil'>
+                </button>
+                </form>
+            </div>
             
             <?php
                 if($_SESSION['Co']==false)
                 {
             ?>
-            <div>
+            <div class='brr'>
             <form action='Index.php' method='get'>
             <input type='search' placeholder = 'Recherche...' name='Search'/>
             <input type='hidden' name='page' value='Recette'>
@@ -33,7 +34,7 @@
                     if($_SESSION['status_u'] != 'admin')
                     {
                         ?>
-                        <div>
+                        <div class='brr'>
                         <form action='Index.php' method='get'>
                         <input type='search' placeholder = 'Recherche...'/>
                         <input type='hidden' name='page' value='Recette'>
