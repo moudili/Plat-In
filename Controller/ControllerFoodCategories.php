@@ -1,4 +1,67 @@
 <?php
+    function ManageMenu()
+    {
+        if(!empty($_GET['Request']) AND $_GET['Request']!='Search' 
+        AND $_GET['Request']!='Ajouter une catégorie alimentaire' 
+        AND $_GET['Request']!='Supprimer'
+        AND $_GET['Request']!='Modifier'
+        AND $_GET['Request']!='Modifier cette categorie'
+        AND $_GET['Request']!='Supprimer cet aliment'
+        AND $_GET['Request']!='Ajouter un aliment'
+        )
+        {
+            if($_GET['Request'] == "+")
+            {
+                $Menu = $_GET['Menu'] + 1;
+                return $Menu;
+            }
+            else if($_GET['Request'] == "-")
+            {
+                $Menu = $_GET['Menu'] - 1;
+                return $Menu; 
+            }
+            else
+            {
+                $Menu = $_GET['Menu'];
+                return $Menu;
+            }
+        }
+    }
+
+    function CheckMenu()
+    {
+        if(!empty($_GET['Request']))
+        {
+            if($_GET['Request'] == "Ajouter")
+            {
+                $CheckMenu = "true";
+                for($i = 0 ; $i < $_GET['Menu'] ; $i++)
+                {
+                    if(empty($_GET['Kind'.$i]))
+                    {
+                        $CheckMenu = "void";
+                        break;
+                    }
+
+                    $Check = 0;
+                    for($j = 0 ; $j < $_GET['Menu'] ; $j++)
+                    {
+                        if($_GET['Kind'.$i] == $_GET['Kind'.$j])
+                        {
+                            $Check++ ;
+                        }
+                        
+                        if($Check == 2)
+                        {
+                            $CheckMenu = "double";
+                            break;
+                        }                            
+                    }
+                }
+                return $CheckMenu;
+            }
+        }
+    }
     
     function CheckCategorie()
     {
@@ -14,6 +77,7 @@
             }
         }
     }
+
     function CheckID()
     {
         if (!empty($_GET['Food']))
@@ -21,13 +85,14 @@
             $IdFood=CheckIDFood($_GET['Food']);
             return $IdFood;
         }
-    };
+    }
+
     function PrintListe($Liste)
     {
         //print_r($Liste);
         $ListeFini=array(array(),array(),array(),array());
         //echo(count($Liste[2]));
-        for ($i = 0 ; $i < count($Liste[0]) ; $i++)
+        for ($i = 0 ; $i < count($Liste[2]) ; $i++)
         {
             //echo($Liste[0][$i]."  ");
             
@@ -73,12 +138,13 @@
             } 
             else
             {
-                array_push($ListeFini[2][$i-1], $Liste[2][$i]);
-                array_push($ListeFini[3][$i-1], $Liste[3][$i]);      
+                array_push($ListeFini[2][$i], $Liste[2][$i]);
+                array_push($ListeFini[3][$i], $Liste[3][$i]);      
             }
         }
         return $ListeFini;
     }
+
     require('Controller/ControllerStaple.php');
     CheckSesion();
     CheckLogOut();
@@ -86,15 +152,18 @@
     $Categories = Categorie();
     $FoodPrint=CheckFood();
     //print_r($FoodPrint);
-    $Liste = PrintListe($FoodPrint);
+    //$Liste = PrintListe($FoodPrint);
     //print_r($Liste);
     $Foods = Food();
     $ID=CheckID();
+    $CheckMenu=CheckMenu();
+    $Menu=ManageMenu();
+
     if(!empty($_GET['Request']))
     {
         $Cat = CheckCategorie();
         
-        $CheckFormAdd = CheckForm ($Cat, $ID);
+        $CheckFormAdd = CheckForm ($Cat, $CheckMenu);
         
         DeletCategorie();
         DeletFood();

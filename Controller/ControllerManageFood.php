@@ -1,72 +1,38 @@
 <?php
 
-    function LowCase()
+function CheckFood()
+{
+    if($_GET['Request'] == "Ajouter"
+    || $_GET['Request'] == "Modifier cet aliment"
+    || $_GET['Request'] == "Search")
     {
-        if(isset($_GET['TextAddFood']))
+        if(!empty($_GET['Ali']))
         {
-            $org = strtolower($_GET['TextAddFood']);
-            return $org;
-        }
-        elseif(isset($_GET['TextChangeFood']))
-        {
-            $org = strtolower($_GET['TextChangeFood']);
-            return $org;
+            $Ali = $_GET['Ali'];            
+            $Ali = mb_strtolower($Ali,"UTF-8");
+            return $Ali;
         }
     }
+}
 
-    $org = LowCase();
-
-    require('Controller/ControllerStaple.php');
-    CheckSesion();
-    CheckLogOut();
-    require('Model/ModelManageFood.php');
-
-    $Aliments = BDDFood();
+require('Controller/ControllerStaple.php');
+CheckSesion();
+CheckLogOut();
+require('Model/ModelManageFood.php');
+$Foods = Foods();
+if(!empty($_GET['Request']))
+{
+    $Ali = CheckFood();
     
-    $Repetition = 3;
+    $CheckFormAdd = CheckForm ($Ali);
 
-    if(isset($org) == TRUE)
-    $Repetition=2;
-
-    foreach ($Aliments as $Aliment):
-        if($org==$Aliment['food_name'])
-        {
-            $Repetition=1;
-            break;
-        }
-    endforeach;
-
-    if(isset($_GET['SupprimerAliment']) == TRUE)
-    $Repetition=4;
+    DeletFood();
     
-    if($Repetition==1)
-    {
-        $MessageErreur = "Erreur.<br> Répétitions dans la base de donnée avec ".$org."<br><br>";
-    }
-    elseif($Repetition==2||$Repetition==4)
-    {
-        if(preg_match("#[a-zA-Z-']#",$org)||$Repetition==4)
-        {
-            if(preg_match("#[a-zA-Z-']{2,40}#",$org)||$Repetition==4)
-            {
-                BDDChange($org);
-                $MessageErreur = "Changement de la BDD effectué<br><br>";
-            }
-            else
-            $MessageErreur = "Votre aliment doit etre entre 2 et 40 charactere";
-        }
-        else
-        $MessageErreur= "Votre aliment doit contenir des lettres ou - et '";
+    $CheckFormUpdate = ModifFood($Ali);
 
-
-    }
-    elseif($Repetition==3)
-    {
-        $MessageErreur = "";
-    }
+    $Foods = SearchFood($Ali);
     
-    $Aliments = BDDFood();
-    
-    require("View/ViewManageFood.php");
+}
+require("View/ViewManageFood.php");
 
 ?>
