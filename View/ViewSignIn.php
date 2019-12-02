@@ -5,11 +5,9 @@
     <body>
 
     <?php
-    
     require("View/ViewBanner.php");
-    
     ?>
-
+    <div class="text-center mt-5">
     <h1>Connexion</h1>
     <?php
     if(empty($Query) 
@@ -37,7 +35,7 @@
             <FONT color='red'>veuillez remplir tous les champs</FONT><br>
             <input type='submit' name='Request' value='Se Connecter'></form>");
         }
-        else if(!empty($_SESSION['status']) AND $_SESSION['status_u'] == "ban")
+        else if(!empty($_SESSION['status_u']) && $_SESSION['status_u'] == "ban")
         {
             echo"Votre compte a été banni il vous est donc impossible de vous connecté";
         }
@@ -55,5 +53,6 @@
         }
     }
     ?>
+    </div>
     </body>
 </html> 

@@ -5,8 +5,10 @@
     
     <body>
         <?php
-            
             require("View/ViewBanner.php");
+        ?>
+        <div class="text-center mt-5">
+        <?php
             
             if(!empty($_GET['Request']))
             {
@@ -95,7 +97,6 @@
                         <input type='hidden' name='page' value='Régimes'>
                         <p>Choisissez une ou des catégories alimentaires avec lesquelles votre régime n'est pas compatible:<br><br>");
                         
-                        
                         for($j = 0 ; $j < $Menu ; $j++ )
                         {
                             echo(" <select name='Kind".$j."'>
@@ -181,5 +182,6 @@
             }
         
         ?>
+    </div>
     </body>
 </html>
