@@ -64,7 +64,14 @@
                                 <input type='hidden' name='categorie' value='".$FoodPrint[1][$i]."'>
                                 <input type='hidden' name='id' value='".$FoodPrint[0][$i]."'>
                                 <input type='hidden' name='liste' value='".$i."'>
-                                <input type='submit' name='Request' value='Modifier'></form></td>";
+                                <input type='submit' name='Request' value='Modifier'></form>
+                                <form action='Index.php' method='get'>
+                                <input type='submit' name='Request' value='Ajouter des aliments'>
+                                <input type='hidden' name='categorie' value='".$FoodPrint[1][$i]."'>
+                                <input type='hidden' name='id' value='".$FoodPrint[0][$i]."'>
+                                <input type='hidden' name='Menu' value=1>
+                                <input type='hidden' name='page' value='Catégories Alimentaires'>
+                                </form></td>";
                             }
                         }
                         else
@@ -82,8 +89,10 @@
                             <input type='hidden' name='liste' value='".$i."'>
                             <input type='submit' name='Request' value='Modifier'></form>
                             <form action='Index.php' method='get'>
-                            <input type='submit' name='Request' value='Ajouter un aliment'>
+                            <input type='submit' name='Request' value='Ajouter des aliments'>
                             <input type='hidden' name='categorie' value='".$FoodPrint[1][$i]."'>
+                            <input type='hidden' name='id' value='".$FoodPrint[0][$i]."'>
+                            <input type='hidden' name='Menu' value=1>
                             <input type='hidden' name='page' value='Catégories Alimentaires'>
                             </form></td>";                        
                         }
@@ -482,7 +491,158 @@
                             <input type='submit' value='Retour'></form>");                      
                     }
                 }
+                else if($_GET['Request'] == "Ajouter des aliments")//=========================================================================================================================
+                { 
+                    if(empty($_GET['SubRequest']))
+                    {
+                        echo("<p><form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Catégories Alimentaires'>
+                        <input type='hidden' name='categorie' value='".$_GET['categorie']."'>
+                        <input type='hidden' name='id' value='".$_GET['id']."'>
+                        Choisissez un ou des aliments avec lesquelles votre catégorie alimentaire est compatible:<br><br>
+                        <select name='Kind0'>
+                        <option value=''>--Choisissez un aliment--</option>
+                        ");
+                        
+                        for($i = 0 ; $i < count($Foods[0]) ; $i++)
+                        {
+                            echo("<option value=".$Foods[0][$i].">".$Foods[1][$i]."</option>");
+                        }
+                        
+                        echo("</select>
+                        <input type='hidden' name='Request' value='Ajouter des aliments'>
+                        <input type='submit' name='SubRequest' value='+'></p>
+                        <input type='hidden' name='Menu' value=".$_GET['Menu'].">
+                        <input type='submit' name='SubRequest' value='Ajouter'>
+                        </form>
+                        <p><form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Catégories Alimentaires'>
+                        <input type='submit' value='Retour'></form>");
+                    }
+                    else 
+                    {
+                        if($_GET['SubRequest'] == "Ajouter")
+                        {
+                            if($CheckMenu2 == "double"
+                            || $CheckMenu2 == "void"
+                            || $CheckForm3 != 0)
+                            {
+                                echo ("<p><form action='Index.php' method='get'>
+                                <input type='hidden' name='page' value='Catégories Alimentaires'>
+                                <input type='hidden' name='id' value='".$_GET['id']."'>
+                                <input type='hidden' name='categorie' value='".$_GET['categorie']."'>
+                                <p>Choisissez un ou des aliments avec lesquelles votre catégorie alimentaire est compatible:<br><br>");
+                                
+                        
+                                for($j = 0 ; $j < $Menu2 ; $j++ )
+                                {
+                                    echo(" <select name='Kind".$j."'>
+                                    <option value=''>--Choisissez un aliment--</option>");
+                            
+                                    for($i = 0 ; $i < count($Foods[0]) ; $i++)
+                                    {
+                                        if($Foods[0][$i] == $_GET['Kind'.$j])
+                                        {
+                                            echo("<option selected='selected' value=".$Foods[0][$i].">".$Foods[1][$i]."</option>");
+                                        }
+                                        else
+                                        {
+                                            echo("<option value=".$Foods[0][$i].">".$Foods[1][$i]."</option>");
+                                        }  
+                                    }                
+                                    echo("</select> ");
+    
+                                    if( ($j+2)%5 == 1)
+                                    {
+                                        echo("<br><br>");
+                                    }
+                                }
+                        
+                                if( $Menu2 > 1 )
+                                {
+                                    echo("<input type='submit' name='SubRequest' value='-'> ");
+                                }
+                                
+                                echo("<input type='hidden' name='Request' value='Ajouter des aliments'>
+                                <input type='submit' name='SubRequest' value='+'></p>
+                                <input type='hidden' name='Menu' value=".$Menu2.">");
+                                
+                                if($CheckMenu2 == "double")
+                                {
+                                    echo("<FONT color='red'>Une catégorie alimentaire a été selectionné deux fois ou plus</FONT><br><br>");
+                                }
+                                else if($CheckMenu2 == "void")
+                                {
+                                    echo("<FONT color='red'>Veuillez séléctionner une valeur dans chacun des formulaires</FONT><br><br>");
+                                }
+                                else if($CheckForm3 != 0)
+                                {
+                                    echo("<FONT color='red'>Une des catégorie alimentaire est déjà présente dans ce régime alimentaire</FONT><br><br>");
+                                }
+                                
+                                echo("<input type='submit' name='SubRequest' value='Ajouter'>
+                                </form>
+                                <p><form action='Index.php' method='get'>
+                                <input type='hidden' name='page' value='Catégories Alimentaires'>
+                                <input type='submit' value='Retour'></form>");
+                            }
+                            else
+                            {
+                                echo"Le régime ".$_GET['categorie']." a bien été mis à jour";
+                            }
+                        }
+                        else if($_GET['SubRequest'] == "+"
+                        || $_GET['SubRequest'] == "-" )
+                        {
+                            echo ("<p><form action='Index.php' method='get'>
+                            <input type='hidden' name='page' value='Catégories Alimentaires'>
+                            <input type='hidden' name='id' value='".$_GET['id']."'>
+                            <input type='hidden' name='categorie' value='".$_GET['categorie']."'>
+                            <p>Choisissez un ou des aliments avec lesquelles votre catégorie est compatible:<br><br>");
+                            
+                    
+                            for($j = 0 ; $j < $Menu2 ; $j++ )
+                            {
+                                echo(" <select name='Kind".$j."'>
+                                <option value=''>--Choisissez un aliment--</option>");
+                        
+                                for($i = 0 ; $i < count($Foods[0]) ; $i++)
+                                {
+                                    if($Foods[0][$i] == $_GET['Kind'.$j])
+                                    {
+                                        echo("<option selected='selected' value=".$Foods[0][$i].">".$Foods[1][$i]."</option>");
+                                    }
+                                    else
+                                    {
+                                        echo("<option value=".$Foods[0][$i].">".$Foods[1][$i]."</option>");
+                                    }  
+                                }                
+                                echo("</select> ");
+
+                                if( ($j+2)%5 == 1)
+                                {
+                                    echo("<br><br>");
+                                }
+                            }
+                    
+                            if( $Menu2 > 1 )
+                            {
+                                echo("<input type='submit' name='SubRequest' value='-'> ");
+                            }
+                            
+                            echo("<input type='hidden' name='Request' value='Ajouter des catégories'>
+                            <input type='submit' name='SubRequest' value='+'></p>
+                            <input type='hidden' name='Menu' value=".$Menu2.">
+                            <input type='submit' name='SubRequest' value='Ajouter'>
+                            </form>
+                            <p><form action='Index.php' method='get'>
+                            <input type='hidden' name='page' value='Catégories Alimentaires'>
+                            <input type='submit' value='Retour'></form>");
+                        }
+                    }
+                }//===================================================================================================================================================================================          
             }
+            
         ?>
     </div>
     </body>

@@ -1,4 +1,62 @@
 <?php
+
+    function CheckSubMenu()
+    {
+        if(!empty($_GET['SubRequest']))
+        {
+            if($_GET['SubRequest'] == "Ajouter")
+            {
+                $CheckMenu = "true";
+                for($i = 0 ; $i < $_GET['Menu'] ; $i++)
+                {
+                    if(empty($_GET['Kind'.$i]))
+                    {
+                        $CheckMenu = "void";
+                        break;
+                    }
+
+                    $Check = 0;
+                    for($j = 0 ; $j < $_GET['Menu'] ; $j++)
+                    {
+                        if($_GET['Kind'.$i] == $_GET['Kind'.$j])
+                        {
+                            $Check++ ;
+                        }
+                        
+                        if($Check == 2)
+                        {
+                            $CheckMenu = "double";
+                            break;
+                        }                            
+                    }
+                }
+                return $CheckMenu;
+            }
+        }
+    }
+
+    function ManageSubMenu()
+    {
+        if(!empty($_GET['SubRequest']))
+        {
+            if($_GET['SubRequest'] == "+")
+            {
+                $Menu = $_GET['Menu'] + 1;
+                return $Menu;
+            }
+            else if($_GET['SubRequest'] == "-")
+            {
+                $Menu = $_GET['Menu'] - 1;
+                return $Menu; 
+            }
+            else if ( $_GET['SubRequest'] == "Ajouter")
+            {
+                $Menu = $_GET['Menu'];
+                return $Menu;
+            }
+        }
+    }
+
     function ManageMenu()
     {
         if(!empty($_GET['Request']) AND $_GET['Request']!='Search' 
@@ -7,7 +65,7 @@
         AND $_GET['Request']!='Modifier'
         AND $_GET['Request']!='Modifier cette categorie'
         AND $_GET['Request']!='Supprimer cet aliment'
-        AND $_GET['Request']!='Ajouter un aliment'
+        AND $_GET['Request']!='Ajouter des aliments'
         )
         {
             if($_GET['Request'] == "+")
@@ -158,7 +216,9 @@
     $ID=CheckID();
     $CheckMenu=CheckMenu();
     $Menu=ManageMenu();
-
+    $Menu2 = ManageSubMenu();
+    $CheckMenu2 = CheckSubMenu();
+    $CheckForm3 = CheckAddCat($CheckMenu2);
     if(!empty($_GET['Request']))
     {
         $Cat = CheckCategorie();
