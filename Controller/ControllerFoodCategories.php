@@ -130,7 +130,7 @@
             if(!empty($_GET['Cat']))
             {
                 $Cat = $_GET['Cat'];
-                $Cat = strtolower($Cat);
+                $Cat = mb_strtolower($Cat,"UTF-8");
                 return $Cat;
             }
         }
