@@ -7,7 +7,7 @@
     </head>
     <body>
         <!--affiche le haut de la banner -->
-        <div class="banner1 row justify-content-between">
+        <div class="banner1 row justify-content-between px-5">
         
             <form action='Index.php' method='get'>
             <button class='top left'>

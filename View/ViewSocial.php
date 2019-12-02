@@ -9,6 +9,7 @@
             require("View/ViewBanner.php");     
         
         ?>
+        <div class="text-center mt-5">
 
 
 
@@ -76,6 +77,7 @@
 
         
         ?>
+        </div>
 
     </body>
 </html>

@@ -7,7 +7,7 @@
 <?php 
             require("View/ViewBanner.php");
 ?>
-<div class="text-center">
+<div class="text-center mt-5">
             <!--Ajouter-->
             <form action="Index.php" method='get'>
             <input type="hidden" name="page" value="Aliments">

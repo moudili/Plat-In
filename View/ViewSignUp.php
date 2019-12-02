@@ -4,11 +4,11 @@
     </head>
     
     <body>
-
         <?php 
-        
             require("View/ViewBanner.php");
-
+        ?>
+        <div class="text-center mt-5">
+        <?php
             if (empty($_GET['SignUp']))
             {
                 echo("<form action='Index.php' method='get'>
@@ -50,6 +50,6 @@
                 }
             }       
         ?>
-        
+    </div>
     </body>
 </html>
