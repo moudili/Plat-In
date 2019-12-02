@@ -136,7 +136,7 @@
             {
                 if($_GET['SubRequest'] == "Supprimer")
                 {
-                    header('Location: http://localhost/Plat-In/Index.php?page=R%C3%A9gimes');
+                    header('Location: /Plat-In/Index.php?page=R%C3%A9gimes');
                 }
             }
         }
