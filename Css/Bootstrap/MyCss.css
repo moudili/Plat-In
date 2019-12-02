@@ -25,10 +25,19 @@ display: flex;
         width: 200;
     }
 
+
+.skrink{
+    flex-shrink: 1;
+}
+
+table{
+    text-align: center;
+}
+
 .brr{
     position: absolute; 
-    left: 0; 
-    right: 0; 
+    left: 30%; 
+    right: 30%; 
     margin-left: auto; 
     margin-right: auto; 
     text-align: center;

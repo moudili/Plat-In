@@ -7,7 +7,8 @@
         <?php
             require("View/ViewBanner.php");
         ?>
-        <div class="text-center mt-5">
+        <div class="text-center justify-content-center flexbox">
+            <div>
         <?php
             
             if(!empty($_GET['Request']))
@@ -186,7 +187,7 @@
                     }
                     else
                     {
-                        echo"<table border>";
+                        echo"<div class='shrink'><table border>";
                         for($i = 0 ; $i < count($PrintDiet[0]) ; $i++)
                         {
                             $compt = 0;
@@ -266,7 +267,7 @@
                             }
                             echo"</td></tr>";
                         }
-                        echo("</table>");
+                        echo("</table></div>");
                     }                    
                 }
                 else if($_GET['Request'] == "Supprimer ce régime")
@@ -515,6 +516,7 @@
                     <input type='hidden' name='page' value='Régimes'>
                     <input type='hidden' name='Menu' value=1>
                     <input type='submit' name='Request' value='Ajouter un régime'></form><br>
+                    <div class='shrink'>
                     <table border>       
                 ");
 
@@ -597,10 +599,11 @@
                     }
                     echo"</td></tr>";
                 }
-                echo("</table>");
+                echo("</table></div>");
             }
         
         ?>
+        </div>
     </div>
     </body>
 </html>
