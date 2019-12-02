@@ -13,6 +13,23 @@ border-top-style: none;
 display: flex;
 }
 
+
+.adjimg {
+        width: 200;
+    }
+
+.brr
+{
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    text-align: center;
+    margin: 1%
+    
+}
+
 /*div {
     margin: 4px;
     padding: 4px;
