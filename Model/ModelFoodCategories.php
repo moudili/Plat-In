@@ -52,41 +52,97 @@
         }
         
         return $Liste;
+    } 
+
+    function CheckDiet ($CheckMenu,$Diet)
+    {
+        if(!empty($_GET['Request']))
+        {
+           if($_GET['Request'] == "Ajouter")
+           {
+               if(strlen($_GET['Diet']) > 2
+               && strlen($_GET['Diet']) < 40
+               && preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['Diet'])
+               && $CheckMenu != "double"
+               && $CheckMenu != "void"
+               )
+               {
+                    require("Model/ModelNewPDO.php");
+                    $Req = $Bdd -> prepare("SELECT count(ID_diet) FROM diets WHERE name_d LIKE :diet");
+                    $Req -> bindParam(':diet',$Diet,PDO::PARAM_STR);
+                    $Req -> execute();
+                    $n = $Req -> fetch();
+                    $CheckForm = $n[0];
+                    if($CheckForm == 0)
+                    {
+                        $Req = $Bdd -> prepare("INSERT INTO `diets` (`ID_diet`, `name_d`) VALUES (NULL, :diet);");
+                        $Req -> bindParam(':diet',$Diet,PDO::PARAM_STR);
+                        $Req -> execute();
+                        
+                        $Req = $Bdd -> prepare("SELECT ID_diet FROM diets WHERE name_d LIKE :diet");
+                        $Req -> bindParam(':diet',$Diet,PDO::PARAM_STR);
+                        $Req -> execute();
+                        $n = $Req -> fetch();
+
+                        for($i = 0 ; $i < $_GET['Menu'] ; $i++)
+                        {
+                            $Req = $Bdd -> prepare("INSERT INTO `can_t_eat` (`ID_can_t_eat`, `ID_diet`, `ID_kind_of_food`) VALUES (NULL,:ID_diet ,:ID_Kind );");
+                            $Req -> bindParam(':ID_diet',$n[0],PDO::PARAM_STR);
+                            $Req -> bindParam(':ID_Kind',$_GET['Kind'.$i],PDO::PARAM_STR);
+                            $Req -> execute();
+                        }
+                    }
+                    return $CheckForm;
+               }
+
+           } 
+        }                
     }
 
-    function CheckForm ($Cat, $IdFood) 
+    function CheckForm ($Cat, $CheckMenu) 
     {
         if($_GET['Request'] == "Ajouter")
         {
             if(!empty($_GET['Cat']))
             {
-                require("Model/ModelNewPDO.php");
-                $Req = $Bdd -> prepare("SELECT count(ID_kind_of_food) FROM kinds_of_food WHERE name_k LIKE :categorie");
-                $Req -> bindParam(':categorie',$Cat,PDO::PARAM_STR);
-                $Req -> execute();
-                $n = $Req -> fetch();
-                $CheckForm = $n[0];
+                if(strlen($_GET['Cat']) > 2
+               && strlen($_GET['Cat']) < 40
+               && preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['Cat'])
+               && $CheckMenu != "double"
+               && $CheckMenu != "void"
+               )
+               {
+                    require("Model/ModelNewPDO.php");
+                    $Req = $Bdd -> prepare("SELECT count(ID_kind_of_food) FROM kinds_of_food WHERE name_k LIKE :categorie");
+                    $Req -> bindParam(':categorie',$Cat,PDO::PARAM_STR);
+                    $Req -> execute();
+                    $n = $Req -> fetch();
+                    $CheckForm = $n[0];
 
-                if($CheckForm == 0)
-                {
-                    $Req1 = $Bdd -> prepare("INSERT INTO `kinds_of_food` (`ID_kind_of_food`, `name_k`) VALUES (NULL, :categorie);");
-                    $Req1 -> bindParam(':categorie',$Cat,PDO::PARAM_STR);
-                    $Req1 -> execute();     
-                    
-                    $Req2 = $Bdd -> prepare("SELECT MAX(ID_kind_of_food) FROM kinds_of_food");
-                    $Req2 -> execute();
-                    $n=$Req2->fetch();
-                    $IdCategorie=$n[0];
+                    if($CheckForm == 0)
+                    {
+                        $Req1 = $Bdd -> prepare("INSERT INTO `kinds_of_food` (`ID_kind_of_food`, `name_k`) VALUES (NULL, :categorie);");
+                        $Req1 -> bindParam(':categorie',$Cat,PDO::PARAM_STR);
+                        $Req1 -> execute();     
+                        
+                        $Req2 = $Bdd -> prepare("SELECT MAX(ID_kind_of_food) FROM kinds_of_food");
+                        $Req2 -> execute();
+                        $n=$Req2->fetch();
+                        $IdCategorie=$n[0];
 
-                    $Req3 = $Bdd -> prepare("INSERT INTO `food_categories` (`ID_food_categories`, `ID_food`,`ID_kind_of_food`) VALUES (NULL, :id_food, :id_categorie);");
-                    $Req3 -> bindParam(':id_categorie',$IdCategorie,PDO::PARAM_STR);
-                    $Req3 -> bindParam(':id_food',$IdFood,PDO::PARAM_STR);
-                    $Req3 -> execute();
+                        for($i = 0 ; $i < $_GET['Menu'] ; $i++)
+                        {
+                            echo("Chatte");
+                            $Req3 = $Bdd -> prepare("INSERT INTO `food_categories` (`ID_food_categorie`, `ID_food`,`ID_kind_of_food`) VALUES (NULL, :id_food, :id_categorie);");
+                            $Req3 -> bindParam(':id_categorie',$IdCategorie,PDO::PARAM_STR);
+                            $Req3 -> bindParam(':id_food',$_GET['Kind'.$i],PDO::PARAM_STR);
+                            $Req3 -> execute();
+                        }
 
-                }
+                    }
 
-                return $CheckForm;
-
+                    return $CheckForm;
+               }
             }
         }
     }
@@ -131,7 +187,7 @@
 
     function DeletFood()
     {
-        if($_GET['Request'] == "Supprimer cet aliment")
+        if($_GET['Request'] == "Supprimer cet aliment" AND !empty($_GET['AnswerFood']))
         {        
             $Food = $_GET['aliment'];
             require("Model/ModelNewPDO.php"); 
