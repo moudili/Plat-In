@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `Plat_In`.`users` (
   PRIMARY KEY (`ID_user`))
 ENGINE = InnoDB;
 
-INSERT INTO `users` (`ID_user`, `user`, `u_password`, `first_name`, `last_name`, `adress`, `mail`, `phone_number`, `picture`, `status_u`, `connection`) VALUES ('1', 'admin', 'YWJjZGU=', '', '', '', '', NULL, NULL, 'admin', 'dc');
+INSERT INTO `users` (`ID_user`, `user`, `u_password`, `first_name`, `last_name`, `adress`, `mail`, `phone_number`, `picture`, `status_u`, `connection`) VALUES (NULL, 'admin', 'YWJjZGU=', NULL, NULL, NULL, NULL, NULL, NULL, 'admin', 'dc');
 
 CREATE TABLE IF NOT EXISTS `Plat_In`.`foods` (
   `ID_food` INT NOT NULL AUTO_INCREMENT,
@@ -184,6 +184,29 @@ CREATE TABLE IF NOT EXISTS `Plat_In`.`ingredients` (
   CONSTRAINT `fk_recipes_has_foods_foods1`
     FOREIGN KEY (`ID_food`)
     REFERENCES `Plat_In`.`foods` (`ID_food`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `Plat_In`.`diets` (
+  `ID_diet` INT NOT NULL AUTO_INCREMENT,
+  `name_d` VARCHAR(45) NULL,
+  PRIMARY KEY (`ID_diet`))
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `Plat_In`.`can_t_eat` (
+  `ID_can_t_eat` INT NOT NULL AUTO_INCREMENT,
+  `ID_diet` INT NOT NULL,
+  `ID_kind_of_food` INT NOT NULL,
+  PRIMARY KEY (`ID_can_t_eat`),
+  CONSTRAINT `fk_diets_has_kinds_of_food_diets1`
+    FOREIGN KEY (`ID_diet`)
+    REFERENCES `Plat_In`.`diets` (`ID_diet`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_diets_has_kinds_of_food_kinds_of_food1`
+    FOREIGN KEY (`ID_kind_of_food`)
+    REFERENCES `Plat_In`.`kinds_of_food` (`ID_kind_of_food`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;

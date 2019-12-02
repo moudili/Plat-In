@@ -29,7 +29,6 @@
             && preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['Org'])
             )
             {
-                echo "oui";
                 require("Model/ModelNewPDO.php");
                 $Req = $Bdd -> prepare("SELECT count(ID_origin) FROM origins WHERE origin_name LIKE :origin");
                 $Req -> bindParam(':origin',$Org,PDO::PARAM_STR);
