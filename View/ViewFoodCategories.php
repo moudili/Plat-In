@@ -8,7 +8,7 @@
 
             require("View/ViewBanner.php");     
         ?>
-        <div class="text-center justify-content-center flexbox">
+        <div class="mt-5 text-center justify-content-center flexbox">
             <div>
         <?php
             if(empty($_GET['Request']))
