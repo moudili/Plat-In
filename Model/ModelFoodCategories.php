@@ -274,4 +274,44 @@
         }
     }
 
+    function CheckAddCat($CheckMenu2)
+    {
+        if(!empty($_GET['SubRequest']))
+        {
+            if($_GET['SubRequest'] == "Ajouter"
+            && $CheckMenu2 != "double"
+            && $CheckMenu2 != "void"
+            )
+            {
+                require("Model/ModelNewPDO.php");
+                
+                for($i = 0 ; $i < $_GET['Menu'] ; $i++ )
+                {
+                    $Req = $Bdd -> prepare("SELECT count(ID_food_categorie) FROM food_categories WHERE ID_food LIKE :idfood AND ID_kind_of_food LIKE :idkind");
+                    $Req -> bindParam(':idkind',$_GET['id'],PDO::PARAM_INT);
+                    $Req -> bindParam(':idfood',$_GET['Kind'.$i],PDO::PARAM_INT);
+                    $Req -> execute();
+                    $n = $Req -> fetch();
+                    $CheckForm = $n[0];
+                    if($CheckForm != 0)
+                    {
+                        break;
+                    }
+                }
+
+                if($CheckForm == 0)
+                {
+                    for($i = 0 ; $i < $_GET['Menu'] ; $i++ )
+                    {
+                        $Req = $Bdd -> prepare("INSERT INTO `food_categories` (`ID_food_categorie`, `ID_kind_of_food`, `ID_food`) VALUES (NULL, :idkind, :idfood);");
+                        $Req -> bindParam(':idkind',$_GET['id'],PDO::PARAM_INT);
+                        $Req -> bindParam(':idfood',$_GET['Kind'.$i],PDO::PARAM_INT);
+                        $Req -> execute();
+                    }
+                }
+                echo $CheckForm;
+                return $CheckForm;
+            }
+        }
+    }
 ?>
