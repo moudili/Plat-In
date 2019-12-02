@@ -37,7 +37,7 @@
             <FONT color='red'>veuillez remplir tous les champs</FONT><br>
             <input type='submit' name='Request' value='Se Connecter'></form>");
         }
-        else if($_SESSION['status_u'] == "ban")
+        else if(!empty($_SESSION['status_u']) && $_SESSION['status_u'] == "ban")
         {
             echo"Votre compte a été banni il vous est donc impossible de vous connecté";
         }
