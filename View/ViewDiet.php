@@ -6,7 +6,9 @@
     <body>
         <?php
             
-            require("View/ViewBanner.php");     
+            require("View/ViewBanner.php");
+
+            
         
         ?>
     </body>

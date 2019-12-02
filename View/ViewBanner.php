@@ -1,21 +1,31 @@
 <html>
+    <head>
+    <link rel="stylesheet" href="Css/Bootstrap/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="Css/Bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="Css/Bootstrap/MyCss.css">
+    
+    </head>
     <body>
         <!--affiche le haut de la banner -->
-        <div>
+        <div class="banner1 row justify-content-between">
         
-            <img src="Pictures/Logo.png">
+            <form action='Index.php' method='get'>
+            <button class='top left'>
+            <img src="Pictures/Logo.png" alt="logo Plat'In" type='submit' value='Accueil'>
+            </button>
+            </form>
             
             <?php
                 if($_SESSION['Co']==false)
                 {
             ?>
-
+            <div>
             <form action='Index.php' method='get'>
             <input type='search' placeholder = 'Recherche...' name='Search'/>
             <input type='hidden' name='page' value='Recette'>
             <input type='hidden' name='Request' value='Search'>
             <input type='submit' value=" "></form>
-            
+            </div>
             <?php    
                 }
                 else
@@ -23,18 +33,19 @@
                     if($_SESSION['status_u'] != 'admin')
                     {
                         ?>
-
+                        <div>
                         <form action='Index.php' method='get'>
                         <input type='search' placeholder = 'Recherche...'/>
                         <input type='hidden' name='page' value='Recette'>
                         <input type='hidden' name='Request' value='search'>
                         <input type='submit' value=" "></form>
-                        
+                        </div>
                         <?php   
                     }
                 }    
             ?>
-
+           
+           <div>
         <!--partie statut -->
 
             <?php
@@ -56,14 +67,15 @@
             <?php
                 }
             ?>
-            
+             </div>
         </div>
         <!--affiche le menu -->
+
         <?php
             if($_SESSION['Co']==false)
             {
                 ?>
-                    <div>
+                    <div class="banner2 row justify-content-around">
                         <form action='Index.php' method='get'>
                         <input type='submit' value="Accueil"></form>
                         <form action='Index.php' method='get'>
@@ -82,8 +94,7 @@
                 if($_SESSION['status_u'] == 'admin')
                 {
                     ?>
-                        <div>
-                            admin
+                        <div class="banner2 row justify-content-around">
                             <form action='Index.php' method='get'>
                             <input type='submit' value="Accueil"></form>
                             <form action='Index.php' method='get'>
@@ -101,13 +112,8 @@
                 }
                 else
                 {
-                    var_dump($_SESSION);
-                    echo("test");
-                    echo($_SESSION['status_u']);
                     ?>
-                        <div>
-                            pas admin
-                            
+                        <div class="banner2 row justify-content-around">
                             <form action='Index.php' method='get'>
                             <input type='submit' value="Accueil"></form>
                             <form action='Index.php' method='get'>

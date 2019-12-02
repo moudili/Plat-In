@@ -4,6 +4,7 @@
     CheckSesion();
     CheckLogOut();
     require("View/ViewDiet.php");
+    
 
     
 ?>

@@ -7,6 +7,7 @@
 <?php 
             require("View/ViewBanner.php");
 ?>
+<div class="text-center">
             <!--Ajouter-->
             <form action="Index.php" method='get'>
             <input type="hidden" name="page" value="Aliments">
@@ -34,7 +35,8 @@ foreach ($Aliments as $Aliment): ?>
 
         </li>
 
-<?php endforeach; ?> 
+<?php endforeach; ?>
+</div>
 
     </body>
 </html>
