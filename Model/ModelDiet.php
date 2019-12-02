@@ -68,5 +68,23 @@
            } 
         }                
     }
+
+    function PrintDiet ()
+    {
+        if(empty($_GET['Request'])
+        || $_GET['Request'] == "Search")
+        {
+            require("Model/ModelNewPDO.php");
+            $Req = $Bdd -> prepare("SELECT D.ID_diet,D.name_d,KF.ID_kind_of_food,KF.name_k 
+            FROM kinds_of_food KF 
+            JOIN can_t_eat CE 
+            JOIN diets D 
+            WHERE KF.ID_kind_of_food LIKE CE.ID_kind_of_food 
+            AND CE.ID_diet LIKE D.ID_diet 
+            ORDER BY D.name_d ;");
+            $Req -> execute();
+            $Kind = array(array(),array());            
+        }
+    }
     
 ?>
