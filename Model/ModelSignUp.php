@@ -1,6 +1,6 @@
 <?php
 
-function ModelSignUp ($User,$FirstName,$LastName,$Adresse,$Mail,$Phone,$Pwd,$CheckForm)
+function ModelSignUp ($User,$FirstName,$LastName,$Adress,$Mail,$Phone,$Pwd,$CheckForm)
 {
     if($CheckForm == true)
     {
@@ -22,7 +22,7 @@ function ModelSignUp ($User,$FirstName,$LastName,$Adresse,$Mail,$Phone,$Pwd,$Che
             $Req->bindParam(':password', $Pwd, PDO::PARAM_STR);
             $Req->bindParam(':first_name', $FirstName, PDO::PARAM_STR);
             $Req->bindParam(':last_name', $LastName, PDO::PARAM_STR);
-            $Req->bindParam(':adress', $Adresse, PDO::PARAM_STR);
+            $Req->bindParam(':adress', $Adress, PDO::PARAM_STR);
             $Req->bindParam(':mail', $Mail, PDO::PARAM_STR);
             $Req->bindParam(':phone_number', $Phone, PDO::PARAM_STR);
             $Req->execute();

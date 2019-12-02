@@ -7,7 +7,7 @@
             if($_GET['Request'] == "Search")
             {
                 require("Model/ModelNewPDO.php");
-                $Req = $Bdd -> prepare('SELECT ID_user,user,picture FROM users WHERE status_u <> "'."admin".'" AND user LIKE "%'.$User.'%" ');
+                $Req = $Bdd -> prepare('SELECT ID_user,user,picture FROM users WHERE user <> "'.$_SESSION['User'].'" AND status_u <> "'."admin".'" AND user LIKE "%'.$User.'%" ORDER BY user');
                 $Req -> execute();
                 $User = array(array(),array(),array());
                 if($Req->rowCount() > 0)

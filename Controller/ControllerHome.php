@@ -1,6 +1,6 @@
 <?php
 
-    require('ControllerStable.php');
+    require('ControllerStaple.php');
     CheckSesion();
     CheckLogOut();
     require("View/ViewHome.php");

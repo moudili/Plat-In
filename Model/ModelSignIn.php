@@ -28,7 +28,6 @@
         {
             require("Model/ModelNewPDO.php");
             $User = $_SESSION['User'];
-            $Bdd = new PDO("mysql:host=localhost;dbname=Plat_In","root","root");
             $Req = $Bdd -> prepare("SELECT ID_user,status_u FROM users WHERE user LIKE :user");
             $Req->bindParam(':user',$User,PDO::PARAM_STR);
             $Req->execute();
@@ -46,7 +45,6 @@
         {
             require("Model/ModelNewPDO.php");
             $ID = $_SESSION['id'];
-            $Bdd = new PDO("mysql:host=localhost;dbname=Plat_In","root","root");
             $Req = $Bdd -> prepare("UPDATE `users` SET `connection` = 'co' WHERE `users`.`ID_user` = :id ;");
             $Req->bindParam(':id',$ID,PDO::PARAM_STR);
             $Req->execute();

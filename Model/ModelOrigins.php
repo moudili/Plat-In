@@ -5,7 +5,7 @@
         if(empty($_GET['Request']))
         {
             require("Model/ModelNewPDO.php");
-            $Req = $Bdd -> prepare("SELECT ID_origin,origin_name FROM origins");
+            $Req = $Bdd -> prepare("SELECT ID_origin,origin_name FROM origins ORDER BY origin_name");
             $Req -> execute();
             $Origins = array(array(),array());
             while($n = $Req -> fetch())
@@ -22,7 +22,12 @@
     {
         if($_GET['Request'] == "Ajouter")
         {
-            if(!empty($_GET['Org']))
+            echo strlen($_GET['Org']);
+            if(!empty($_GET['Org'])
+            && strlen($_GET['Org']) > 2
+            && strlen($_GET['Org']) < 40
+            && preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['Org'])
+            )
             {
                 require("Model/ModelNewPDO.php");
                 $Req = $Bdd -> prepare("SELECT count(ID_origin) FROM origins WHERE origin_name LIKE :origin");
@@ -65,7 +70,11 @@
     {
         if($_GET['Request'] == "Modifier cette origine")
         {
-            if(!empty($_GET['Org']))
+            if(!empty($_GET['Org'])
+            && strlen($_GET['Org']) > 2
+            && strlen($_GET['Org']) < 40
+            && preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['Org'])
+            )
             {
                 $Id = $_GET['id'];
                 require("Model/ModelNewPDO.php");
@@ -97,7 +106,7 @@
             require("Model/ModelNewPDO.php");
             if(empty($_GET['Org']))
             {
-                $Req = $Bdd -> prepare("SELECT ID_origin,origin_name FROM origins");
+                $Req = $Bdd -> prepare("SELECT ID_origin,origin_name FROM origins ORDER BY origin_name");
                 $Req -> execute();
                 $Origins = array(array(),array());
                 while($n = $Req -> fetch())
@@ -108,7 +117,7 @@
             }
             else
             {
-                $Req = $Bdd -> prepare('SELECT ID_origin,origin_name FROM origins WHERE origin_name LIKE "%'.$Org.'%" ');
+                $Req = $Bdd -> prepare('SELECT ID_origin,origin_name FROM origins WHERE origin_name LIKE "%'.$Org.'%" ORDER BY origin_name');
                 $Req -> execute();
                 $Origins = array(array(),array());
                 if($Req->rowCount() > 0)

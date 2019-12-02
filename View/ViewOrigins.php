@@ -37,8 +37,8 @@
                     <input type='submit' name='Request' value='Supprimer'></form>
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Origines'>
-                    <input type='hidden' name='origin' value='".$Origins[1][$i]."'>
-                    <input type='hidden' name='id' value='".$Origins[0][$i]."'>
+                    <input type='hidden' name='origin' value='".htmlspecialchars($Origins[1][$i], ENT_QUOTES)."'>
+                    <input type='hidden' name='id' value='".htmlspecialchars($Origins[0][$i], ENT_QUOTES)."'>
                     <input type='submit' name='Request' value='Modifier'></form>";
                 }
             }
@@ -69,16 +69,52 @@
                         <br><input type='submit' value='Retour'></form>
                         ";    
                     }
+                    else if(strlen($_GET['Org']) < 3)
+                    {
+                        echo "<p><form action='Index.php' method='get'>
+                        <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/></p>
+                        <input type='hidden' name='page' value='Origines'>
+                        Cette origine doit faire plus de 2 charactères<br>
+                        <br><input type='submit' name='Request' value='Ajouter'></form>
+                        <p><form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Origines'>
+                        <br><input type='submit' value='Retour'></form>
+                        "; 
+                    }
+                    else if(strlen($_GET['Org']) > 39)
+                    {
+                        echo "<p><form action='Index.php' method='get'>
+                        <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/></p>
+                        <input type='hidden' name='page' value='Origines'>
+                        Cette origine doit faire moins de 40 charactères<br>
+                        <br><input type='submit' name='Request' value='Ajouter'></form>
+                        <p><form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Origines'>
+                        <br><input type='submit' value='Retour'></form>
+                        "; 
+                    }
+                    else if(!preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['Org']))
+                    {
+                        echo "<p><form action='Index.php' method='get'>
+                        <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/></p>
+                        <input type='hidden' name='page' value='Origines'>
+                        Cette origine est incorrecte<br>
+                        <br><input type='submit' name='Request' value='Ajouter'></form>
+                        <p><form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Origines'>
+                        <br><input type='submit' value='Retour'></form>
+                        "; 
+                    }
                     else
                     {
                         if($CheckFormAdd == 0)
                         {
-                            echo "L'origine ".$_GET['Org']." à bien été ajouté à la base de données";
+                            echo "L'origine ".mb_strtolower($_GET['Org'],"UTF-8")." à bien été ajouté à la base de données";
                         }
                         else
                         {
                             echo "<p><form action='Index.php' method='get'>
-                            <p>Origine: <input type='Origine' name='Org' value='".$_GET['Org']."'/></p>
+                            <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/></p>
                             <input type='hidden' name='page' value='Origines'>
                             Cette origine est déja présente dans la base de données<br>
                             <br><input type='submit' name='Request' value='Ajouter'></form>
@@ -94,7 +130,7 @@
                 {
                     if(empty($_GET['Answer']))
                     {
-                        echo "Etes-vous sûr de voiloir supprimer l'origine ".$_GET['origin']." de la base de données?<br>
+                        echo "Etes-vous sûr de vouloir supprimer l'origine ".$_GET['origin']." de la base de données?<br>
                         
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
@@ -118,7 +154,7 @@
                 else if($_GET['Request'] == "Modifier")
                 {
                     echo "<p><form action='Index.php' method='get'>
-                    <p>Origine: <input type='Origine' name='Org' value='".$_GET['origin']."'/></p>
+                    <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['origin'], ENT_QUOTES)."'/></p>
                     <input type='hidden' name='page' value='Origines'>
                     <input type='hidden' name='id' value='".$_GET['id']."'>
                     <input type='hidden' name='origin' value='".$_GET['origin']."'>
@@ -133,7 +169,7 @@
                     if(empty($_GET['Org']))
                     {
                     echo "<p><form action='Index.php' method='get'>
-                    <p>Origine: <input type='Origine' name='Org' value='".$_GET['origin']."'/></p>
+                    <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/></p>
                     <input type='hidden' name='page' value='Origines'>
                     <input type='hidden' name='id' value='".$_GET['id']."'>
                     <input type='hidden' name='origin' value='".$_GET['origin']."'>
@@ -144,16 +180,58 @@
                     <br><input type='submit' value='Retour'></form>
                     ";
                     }
+                    else if(strlen($_GET['Org']) < 3)
+                    {
+                        echo "<p><form action='Index.php' method='get'>
+                        <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/></p>
+                        <input type='hidden' name='page' value='Origines'>
+                        <input type='hidden' name='id' value='".$_GET['id']."'>
+                        <input type='hidden' name='origin' value='".$_GET['origin']."'>
+                        Cette origine doit faire plus de 2 charactères<br>
+                        <input type='submit' name='Request' value='Modifier cette origine'></form>
+                        <p><form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Origines'>
+                        <br><input type='submit' value='Retour'></form>
+                        ";
+                    }
+                    else if(strlen($_GET['Org']) > 39)
+                    {
+                        echo "<p><form action='Index.php' method='get'>
+                        <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/></p>
+                        <input type='hidden' name='page' value='Origines'>
+                        <input type='hidden' name='id' value='".$_GET['id']."'>
+                        <input type='hidden' name='origin' value='".$_GET['origin']."'>
+                        Cette origine doit faire moins de 40 charactères<br>
+                        <input type='submit' name='Request' value='Modifier cette origine'></form>
+                        <p><form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Origines'>
+                        <br><input type='submit' value='Retour'></form>
+                        ";
+                    }
+                    else if(!preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['Org']))
+                    {
+                        echo "<p><form action='Index.php' method='get'>
+                        <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/></p>
+                        <input type='hidden' name='page' value='Origines'>
+                        <input type='hidden' name='id' value='".$_GET['id']."'>
+                        <input type='hidden' name='origin' value='".$_GET['origin']."'>
+                        Cette origine est incorrecte<br>
+                        <input type='submit' name='Request' value='Modifier cette origine'></form>
+                        <p><form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Origines'>
+                        <br><input type='submit' value='Retour'></form>
+                        ";
+                    }
                     else
                     {
                         if($CheckFormUpdate == 0)
                         {
-                            echo "L'origine ".$_GET['origin']." à bien été modifier en ".$_GET['Org'];
+                            echo "L'origine ".$_GET['origin']." à bien été modifier en ".mb_strtolower($_GET['Org'],"UTF-8");
                         }
                         else
                         {
                             echo "<p><form action='Index.php' method='get'>
-                            <p>Origine: <input type='Origine' name='Org' value='".$_GET['origin']."'/></p>
+                            <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/></p>
                             <input type='hidden' name='page' value='Origines'>
                             <input type='hidden' name='id' value='".$_GET['id']."'>
                             <input type='hidden' name='origin' value='".$_GET['origin']."'>
@@ -172,18 +250,18 @@
                 {
                     if($Origins != false)
                     {
-                        ?>
-                            <form action='Index.php' method='get'>
-                            <input type='search' placeholder = 'Rechercher une origine...' name='Org'/>
-                            <input type='hidden' name='page' value='Origines'>
-                            <input type='hidden' name='Request' value='Search'>
-                            <input type='submit' value=" "></form>
-        
-                            <form action='Index.php' method='get'>
-                            <input type='hidden' name='page' value='Origines'>
-                            <input type='submit' name='Request' value='Ajouter une origine'></form><br>       
-                
-                        <?php
+
+                        echo("
+                        <form action='Index.php' method='get'>
+                        <input type='search' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/>
+                        <input type='hidden' name='page' value='Origines'>
+                        <input type='hidden' name='Request' value='Search'>
+                        <input type='submit' value=' '></form>
+    
+                        <form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Origines'>
+                        <input type='submit' name='Request' value='Ajouter une origine'></form><br>                        
+                        ");
                         for($i = 0 ; $i < count($Origins[0]) ; $i++ )
                         {
                             echo $Origins[1][$i]
@@ -201,19 +279,17 @@
                     }
                     else
                     {
-                        ?>
-                            <form action='Index.php' method='get'>
-                            <input type='search' placeholder = 'Rechercher une origine...' name='Org'/>
-                            <input type='hidden' name='page' value='Origines'>
-                            <input type='hidden' name='Request' value='Search'>
-                            <input type='submit' value=" "></form>
-        
-                            <form action='Index.php' method='get'>
-                            <input type='hidden' name='page' value='Origines'>
-                            <input type='submit' name='Request' value='Ajouter une origine'></form><br>       
-                
-                        <?php
-                        echo "<br>aucun résultat pour la recherche ".$_GET['Org'].".";                        
+                        echo("
+                        <form action='Index.php' method='get'>
+                        <input type='search' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/>
+                        <input type='hidden' name='page' value='Origines'>
+                        <input type='hidden' name='Request' value='Search'>
+                        <input type='submit' value=' '></form>
+    
+                        <form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Origines'>
+                        <input type='submit' name='Request' value='Ajouter une origine'></form><br>                        
+                        <br>aucun résultat pour la recherche ".$_GET['Org'].".");                        
                     }
                 }
             }
