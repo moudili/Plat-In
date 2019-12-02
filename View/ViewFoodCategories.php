@@ -630,7 +630,7 @@
                                 echo("<input type='submit' name='SubRequest' value='-'> ");
                             }
                             
-                            echo("<input type='hidden' name='Request' value='Ajouter des catégories'>
+                            echo("<input type='hidden' name='Request' value='Ajouter des aliments'>
                             <input type='submit' name='SubRequest' value='+'></p>
                             <input type='hidden' name='Menu' value=".$Menu2.">
                             <input type='submit' name='SubRequest' value='Ajouter'>
