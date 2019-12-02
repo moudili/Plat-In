@@ -62,7 +62,7 @@
                         echo "<p><form action='Index.php' method='get'>
                         <p>Origine: <input type='Origine' name='Org'/></p>
                         <input type='hidden' name='page' value='Origines'>
-                        Veuillez saisir une origine<br>
+                        <FONT color='red'>Veuillez saisir une origine</FONT><br>
                         <br><input type='submit' name='Request' value='Ajouter'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
@@ -74,7 +74,7 @@
                         echo "<p><form action='Index.php' method='get'>
                         <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/></p>
                         <input type='hidden' name='page' value='Origines'>
-                        Cette origine doit faire plus de 2 charactères<br>
+                        <FONT color='red'>Cette origine doit faire plus de 2 charactères</FONT><br>
                         <br><input type='submit' name='Request' value='Ajouter'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
@@ -86,7 +86,7 @@
                         echo "<p><form action='Index.php' method='get'>
                         <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/></p>
                         <input type='hidden' name='page' value='Origines'>
-                        Cette origine doit faire moins de 40 charactères<br>
+                        <FONT color='red'>Cette origine doit faire moins de 40 charactères</FONT><br>
                         <br><input type='submit' name='Request' value='Ajouter'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
@@ -98,7 +98,7 @@
                         echo "<p><form action='Index.php' method='get'>
                         <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/></p>
                         <input type='hidden' name='page' value='Origines'>
-                        Cette origine est incorrecte<br>
+                        <FONT color='red'>Cette origine est incorrecte</FONT><br>
                         <br><input type='submit' name='Request' value='Ajouter'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
@@ -116,7 +116,7 @@
                             echo "<p><form action='Index.php' method='get'>
                             <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/></p>
                             <input type='hidden' name='page' value='Origines'>
-                            Cette origine est déja présente dans la base de données<br>
+                            <FONT color='red'>Cette origine est déja présente dans la base de données</FONT><br>
                             <br><input type='submit' name='Request' value='Ajouter'></form>
                             <p><form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Origines'>
@@ -173,7 +173,7 @@
                     <input type='hidden' name='page' value='Origines'>
                     <input type='hidden' name='id' value='".$_GET['id']."'>
                     <input type='hidden' name='origin' value='".$_GET['origin']."'>
-                    Veuillez saisir une origine<br>
+                    <FONT color='red'>Veuillez saisir une origine</FONT><br>
                     <input type='submit' name='Request' value='Modifier cette origine'></form>
                     <p><form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Origines'>
@@ -187,7 +187,7 @@
                         <input type='hidden' name='page' value='Origines'>
                         <input type='hidden' name='id' value='".$_GET['id']."'>
                         <input type='hidden' name='origin' value='".$_GET['origin']."'>
-                        Cette origine doit faire plus de 2 charactères<br>
+                        <FONT color='red'>Cette origine doit faire plus de 2 charactères</FONT><br>
                         <input type='submit' name='Request' value='Modifier cette origine'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
@@ -201,7 +201,7 @@
                         <input type='hidden' name='page' value='Origines'>
                         <input type='hidden' name='id' value='".$_GET['id']."'>
                         <input type='hidden' name='origin' value='".$_GET['origin']."'>
-                        Cette origine doit faire moins de 40 charactères<br>
+                        <FONT color='red'>Cette origine doit faire moins de 40 charactères</FONT><br>
                         <input type='submit' name='Request' value='Modifier cette origine'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
@@ -215,7 +215,7 @@
                         <input type='hidden' name='page' value='Origines'>
                         <input type='hidden' name='id' value='".$_GET['id']."'>
                         <input type='hidden' name='origin' value='".$_GET['origin']."'>
-                        Cette origine est incorrecte<br>
+                        <FONT color='red'>Cette origine est incorrecte</FONT><br>
                         <input type='submit' name='Request' value='Modifier cette origine'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
@@ -235,7 +235,7 @@
                             <input type='hidden' name='page' value='Origines'>
                             <input type='hidden' name='id' value='".$_GET['id']."'>
                             <input type='hidden' name='origin' value='".$_GET['origin']."'>
-                            Cette origine est déja présente dans la base de données<br>
+                            <FONT color='red'>Cette origine est déja présente dans la base de données</FONT><br>
                             <br><input type='submit' name='Request' value='Modifier cette origine'></form>
                             <p><form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Origines'>

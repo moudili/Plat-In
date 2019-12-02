@@ -41,9 +41,11 @@
                     <p>Adresse e-mail : <input type='email' name='Mail' value='".htmlspecialchars($_GET['Mail'], ENT_QUOTES)."'></p>
                     <p>Numéro de téléphone : <input type='text' name='Phone' value='".htmlspecialchars($_GET['Phone'], ENT_QUOTES)."'></p>
                     <p>Mot de passe : <input type='password' name='Pwd' value='".htmlspecialchars($_GET['Pwd'], ENT_QUOTES)."'></p>
-                    <p>Confirmation de mot de passe : <input type='password' name='Cpwd' value='".htmlspecialchars($_GET['Cpwd'], ENT_QUOTES)."'></p>"
+                    <p>Confirmation de mot de passe : <input type='password' name='Cpwd' value='".htmlspecialchars($_GET['Cpwd'], ENT_QUOTES)."'></p>
+                    <FONT color='red'>"
                     .$_SESSION['Error'].
-                    "<input type='hidden' name='page' value='Inscription'>
+                    "</FONT>
+                    <input type='hidden' name='page' value='Inscription'>
                     <br><br><input type='submit' value='Inscription' name='SignUp'>
                     </form>
                     </div>");

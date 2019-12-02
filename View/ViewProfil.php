@@ -69,7 +69,8 @@
         } 
         else if ($_SESSION['modifier']==false)
         {
-            echo($_SESSION['erreur']."<br><form action='Index.php' method='get'>
+            echo"
+            <br><form action='Index.php' method='get'>
             <p>Nom d'utilisateur : <input id='get_compte' type='text' name='ndu' value='".htmlspecialchars($_GET['ndu'], ENT_QUOTES)."'></p>
             <p>Prénom : <input id='get_prenom' type='text' name='first_name' value='".htmlspecialchars($_GET['first_name'], ENT_QUOTES)."'></p>
             <p>Nom : <input id='get_nom' type='text' name='last_name' value='".htmlspecialchars($_GET['last_name'], ENT_QUOTES)."'></p>
@@ -79,6 +80,9 @@
             <p>Mot de passe : <input id='get_mdp' type='password' name='mdp' value='".htmlspecialchars($_GET['mdp'], ENT_QUOTES)."'></p>
             <p>Confirmation de mot de passe : <input id='get_cmdp' type='password' name='cmdp' value='".htmlspecialchars($_GET['cmdp'], ENT_QUOTES)."'></p>
             <input type='hidden' value='Corriger' name='modif'>
+            <p><FONT color='red'>
+            ".($_SESSION['erreur']."
+            </FONT></p>
             <input type='submit' value='Modifier'>
             <input type='hidden' name='page' value='Profil'>
             </form>

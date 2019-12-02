@@ -56,7 +56,7 @@
                         echo "<p><form action='Index.php' method='get'>
                         <p>Aliment : <input type='Food' name='Ali'/></p>
                         <input type='hidden' name='page' value='Aliments'>
-                        Veuillez saisir un aliment<br>
+                        <FONT color='red'>Veuillez saisir un aliment</FONT><br>
                         <br><input type='submit' name='Request' value='Ajouter'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Aliments'>
@@ -68,7 +68,7 @@
                         echo "<p><form action='Index.php' method='get'>
                         <p>Aliment : <input type='Food' name='Ali' value='".htmlspecialchars($_GET['Ali'], ENT_QUOTES)."'/></p>
                         <input type='hidden' name='page' value='Aliments'>
-                        Cette aliment doit faire plus de 2 charactères<br>
+                        <FONT color='red'>Cette aliment doit faire plus de 2 charactères</FONT><br>
                         <br><input type='submit' name='Request' value='Ajouter'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Aliments'>
@@ -80,7 +80,7 @@
                         echo "<p><form action='Index.php' method='get'>
                         <p>Aliment : <input type='Food' name='Ali' value='".htmlspecialchars($_GET['Ali'], ENT_QUOTES)."'/></p>
                         <input type='hidden' name='page' value='Aliments'>
-                        Cet aliment doit faire moins de 40 charactères<br>
+                        <FONT color='red'>Cet aliment doit faire moins de 40 charactères</FONT><br>
                         <br><input type='submit' name='Request' value='Ajouter'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Aliments'>
@@ -92,7 +92,7 @@
                         echo "<p><form action='Index.php' method='get'>
                         <p>Aliment : <input type='Food' name='Ali' value='".htmlspecialchars($_GET['Ali'], ENT_QUOTES)."'/></p>
                         <input type='hidden' name='page' value='Aliments'>
-                        Cet aliment est incorrecte<br>
+                        <FONT color='red'>Cet aliment est incorrecte</FONT><br>
                         <br><input type='submit' name='Request' value='Ajouter'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Aliments'>
@@ -113,7 +113,7 @@
                             echo "<p><form action='Index.php' method='get'>
                             <p>Aliment : <input type='Food' name='Ali' value='".htmlspecialchars($_GET['Ali'], ENT_QUOTES)."'/></p>
                             <input type='hidden' name='page' value='Aliments'>
-                            Cet aliment est déja présente dans la base de données<br>
+                            <FONT color='red'>Cet aliment est déja présente dans la base de données</FONT><br>
                             <br><input type='submit' name='Request' value='Ajouter'></form>
                             <p><form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Aliments'>
@@ -173,7 +173,7 @@
                     <input type='hidden' name='page' value='Aliments'>
                     <input type='hidden' name='id' value='".$_GET['id']."'>
                     <input type='hidden' name='food' value='".$_GET['food']."'>
-                    Veuillez saisir un aliment<br>
+                    <FONT color='red'>Veuillez saisir un aliment<br></FONT>
                     <input type='submit' name='Request' value='Modifier cet aliment'></form>
                     <p><form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Aliments'>
@@ -187,7 +187,7 @@
                         <input type='hidden' name='page' value='Aliments'>
                         <input type='hidden' name='id' value='".$_GET['id']."'>
                         <input type='hidden' name='food' value='".$_GET['food']."'>
-                        Cet aliment doit faire plus de 2 charactères<br>
+                        <FONT color='red'>Cet aliment doit faire plus de 2 charactères<br></FONT>
                         <input type='submit' name='Request' value='Modifier cet aliment'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Aliments'>
@@ -201,7 +201,7 @@
                         <input type='hidden' name='page' value='Aliments'>
                         <input type='hidden' name='id' value='".$_GET['id']."'>
                         <input type='hidden' name='food' value='".$_GET['food']."'>
-                        Cet aliment doit faire moins de 40 charactères<br>
+                        <FONT color='red'>Cet aliment doit faire moins de 40 charactères<br></FONT>
                         <input type='submit' name='Request' value='Modifier cet aliment'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Aliments'>
@@ -215,7 +215,7 @@
                         <input type='hidden' name='page' value='Aliments'>
                         <input type='hidden' name='id' value='".$_GET['id']."'>
                         <input type='hidden' name='food' value='".$_GET['food']."'>
-                        Cet aliment est incorrecte<br>
+                        <FONT color='red'>Cet aliment est incorrecte<br></FONT>
                         <input type='submit' name='Request' value='Modifier cet aliment'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Aliments'>
@@ -235,7 +235,7 @@
                             <input type='hidden' name='page' value='Aliments'>
                             <input type='hidden' name='id' value='".$_GET['id']."'>
                             <input type='hidden' name='food' value='".$_GET['food']."'>
-                            Cet aliment est déja présente dans la base de données<br>
+                            <FONT color='red'>Cet aliment est déja présente dans la base de données</FONT><br>
                             <br><input type='submit' name='Request' value='Modifier cet aliment'></form>
                             <p><form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Aliments'>
