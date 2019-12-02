@@ -82,6 +82,7 @@
     $CheckForm = CheckDiet($CheckMenu,$Diet);
 
     require("View/ViewDiet.php");
+    
 
     
 ?>

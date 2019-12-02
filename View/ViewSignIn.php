@@ -5,11 +5,9 @@
     <body>
 
     <?php
-    
     require("View/ViewBanner.php");
-    
     ?>
-
+    <div class="text-center mt-5">
     <h1>Connexion</h1>
     <?php
     if(empty($Query) 
@@ -55,5 +53,6 @@
         }
     }
     ?>
+    </div>
     </body>
 </html> 
