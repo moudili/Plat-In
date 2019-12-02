@@ -95,7 +95,6 @@
                         <input type='hidden' name='page' value='Régimes'>
                         <p>Choisissez une ou des catégories alimentaires avec lesquelles votre régime n'est pas compatible:<br><br>");
                         
-                        
                         for($j = 0 ; $j < $Menu ; $j++ )
                         {
                             echo(" <select name='Kind".$j."'>
