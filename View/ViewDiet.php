@@ -181,7 +181,7 @@
        
                     ");
 
-                    if($PrintDiet == false)
+                    if(count($PrintDiet[0]) == false)
                     {
                         echo "aucun résultat pour la recherche ".htmlspecialchars($_GET['Search'], ENT_QUOTES).".";
                     }

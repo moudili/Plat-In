@@ -109,10 +109,6 @@
                     array_push($PrintDiet[3], $n[3]);               
                 }
             }
-            else
-            {
-                $PrintDiet = false;
-            }
  
             //print_r($PrintDiet);
 
