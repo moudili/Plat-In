@@ -229,7 +229,7 @@
         DeletFood();
         
         $CheckFormUpdate = ModifCategorie($Cat);
-        $Categories = SearchCategorie($Cat);
+        $Categories = SearchCategorie();
         
     }
     require("View/ViewFoodCategories.php");

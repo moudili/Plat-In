@@ -235,42 +235,43 @@
         }
     }
 
-    function SearchCategorie($Cat)
+    function SearchCategorie()
     {
-        if($_GET['Request'] == "Search")
+        if(empty($_GET['Request'])
+        || $_GET['Request'] == "Search")
         {
-
             require("Model/ModelNewPDO.php");
-            if(empty($_GET['Cat']))
+            if(empty($_GET['Request']))
             {
-                $Req = $Bdd -> prepare("SELECT ID_kind_of_food,name_k FROM kinds_of_food ORDER BY name_k");
-                $Req -> execute();
-                $Categories = array(array(),array());
+                $Req = $Bdd -> prepare("SELECT KF.ID_kind_of_food,KF.name_k,F.ID_food,F.food_name FROM kinds_of_food KF JOIN food_categories FC JOIN foods F WHERE KF.ID_kind_of_food 
+            LIKE FC.ID_kind_of_food AND FC.ID_food LIKE F.ID_food ORDER BY KF.name_k");
+            }
+            else if($_GET['Request'] == "Search")
+            {
+                
+                $Req = $Bdd -> prepare('SELECT KF.ID_kind_of_food,KF.name_k,F.ID_food,F.food_name FROM kinds_of_food KF JOIN food_categories FC JOIN foods F WHERE KF.ID_kind_of_food 
+            LIKE FC.ID_kind_of_food AND FC.ID_food LIKE F.ID_food AND KF.name_k LIKE "%'.$_GET['Cat'].'%" ORDER BY KF.name_k ');
+            }
+            $Req -> execute();
+            $FoodPrint = array(array(),array(),array(),array());
+            if($Req->rowCount() > 0)
+            {
                 while($n = $Req -> fetch())
                 {
-                    array_push($Categories[0], $n[0]);
-                    array_push($Categories[1], $n[1]);               
+                    array_push($FoodPrint[0], $n[0]);
+                    array_push($FoodPrint[1], $n[1]);
+                    array_push($FoodPrint[2], $n[2]);
+                    array_push($FoodPrint[3], $n[3]);               
                 }
             }
             else
             {
-                $Req = $Bdd -> prepare('SELECT ID_kind_of_food,name_k FROM kinds_of_food WHERE name_k LIKE "%'.$Cat.'%" ');
-                $Req -> execute();
-                $Categories = array(array(),array());
-                if($Req->rowCount() > 0)
-                {
-                    while($n = $Req -> fetch())
-                    {
-                        array_push($Categories[0], $n[0]);
-                        array_push($Categories[1], $n[1]);               
-                    }
-                }
-                else
-                {
-                    $Categories = false;
-                }
+                $FoodPrint = false;
             }
-            return $Categories;
+ 
+            print_r($FoodPrint);
+
+            return $FoodPrint;
         }
     }
 
