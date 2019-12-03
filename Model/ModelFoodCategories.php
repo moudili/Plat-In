@@ -269,7 +269,7 @@
                 $FoodPrint = false;
             }
  
-            print_r($FoodPrint);
+           //print_r($FoodPrint);
 
             return $FoodPrint;
         }
