@@ -162,17 +162,23 @@
                 && preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['newdiet'])
                 )
                 {
+                    echo($_GET['newdiet']);
                     require("Model/ModelNewPDO.php");
                     $Req = $Bdd -> prepare("SELECT count(ID_diet) FROM diets WHERE name_d LIKE :diet");
-                    $Req -> bindParam(':diet',$_GET['newdiet'],PDO::PARAM_INT);
+                    $Req -> bindParam(':diet',$_GET['newdiet'],PDO::PARAM_STR);
                     $Req -> execute();
+                    /*if ($Req->rowCount() > 0)
+                    {
+                        echo("oui");
+                    }*/
                     $n = $Req -> fetch();
                     $CheckForm2 = $n[0];
-                    
+                    print_r($n);
                     if($CheckForm2 == 0)
                     {
+                        echo("fffffff");
                         $Req = $Bdd -> prepare("UPDATE `diets` SET `name_d` = :diet WHERE `diets`.`ID_diet` = :iddiet ;");
-                        $Req -> bindParam(':diet',$_GET['newdiet'],PDO::PARAM_INT);
+                        $Req -> bindParam(':diet',$_GET['newdiet'],PDO::PARAM_STR);
                         $Req -> bindParam(':iddiet',$_GET['iddiet'],PDO::PARAM_INT);
                         $Req -> execute();
                     }
@@ -216,7 +222,7 @@
                         $Req -> execute();
                     }
                 }
-                echo $CheckForm;
+                
                 return $CheckForm;
             }
         }

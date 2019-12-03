@@ -163,6 +163,9 @@
                     else
                     {
                         echo"<p>Le régime ".$_GET['Diet']." à bien été ajouté à la base de donnée</p>";
+                        echo("<p><form action='Index.php' method='get'>
+                            <input type='hidden' name='page' value='Régimes'>
+                            <input type='submit' value='Retour'></form>");
                     }
                 }
                 else if($_GET['Request'] == "Search")
@@ -290,6 +293,9 @@
                     else
                     {
                         echo"Le régime ".$_GET['diet']." à bien été effacé.";
+                        echo("<p><form action='Index.php' method='get'>
+                            <input type='hidden' name='page' value='Régimes'>
+                            <input type='submit' value='Retour'></form>");
                     }
                 }
                 else if($_GET['Request'] == "Modifier ce régime")
@@ -350,6 +356,9 @@
                     else
                     {
                         echo"Le régime ".$_GET['diet']." a été modifié en ".$_GET['newdiet'].".";
+                        echo("<p><form action='Index.php' method='get'>
+                            <input type='hidden' name='page' value='Régimes'>
+                            <input type='submit' value='Retour'></form>");
                     }
                 }
                 else if($_GET['Request'] == "Ajouter des catégories")//=========================================================================================================================
@@ -450,6 +459,9 @@
                             else
                             {
                                 echo"Le régime ".$_GET['diet']." a bien été mis à jour";
+                                echo("<p><form action='Index.php' method='get'>
+                            <input type='hidden' name='page' value='Régimes'>
+                            <input type='submit' value='Retour'></form>");
                             }
                         }
                         else if($_GET['SubRequest'] == "+"
