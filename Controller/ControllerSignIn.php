@@ -49,7 +49,10 @@
             }
             else
             {
-                $Status_u = "ban";
+                if($Check == 1 && $_SESSION['status_u'] == "ban")
+                {
+                    $Status_u = "ban";
+                }
                 require('View/ViewSignIn.php'); 
             }
         }
