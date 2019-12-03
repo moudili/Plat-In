@@ -128,7 +128,11 @@
                     $Req = $Bdd -> prepare("DELETE FROM `can_t_eat` WHERE `can_t_eat`.`ID_diet` = :iddiet AND `can_t_eat`.`ID_kind_of_food` = :idcat ");
                     $Req -> bindParam(':iddiet',$_GET['iddiet'],PDO::PARAM_INT);
                     $Req -> bindParam(':idcat',$_GET['idcat'],PDO::PARAM_INT);
-                    $Req -> execute();                    
+                    $Req -> execute();
+                    if ($Req->rowCount() > 0)
+                    {
+                        $_SESSION['reload'] = true;
+                    }                    
                 }
             }
         }
