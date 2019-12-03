@@ -15,7 +15,6 @@
             $Req -> execute();
             $n = $Req -> fetch();
             $Check = $n[0];
-            echo($Check);
             return $Check;
         }
     }
