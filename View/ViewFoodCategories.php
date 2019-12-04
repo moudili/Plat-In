@@ -271,7 +271,7 @@
                     }
                     else
                     {
-                        echo"<p>La catégorie alimentaire ".$_GET['Cat']." à bien été ajouté à la base de donnée</p>";
+                        echo"<p>La catégorie alimentaire ".$_GET['Cat']." à bien été ajouté à la base de données</p>";
                     }
                 }
                 else if($_GET['Request'] == "Supprimer")
@@ -396,7 +396,7 @@
                     {
                         if($CheckFormUpdate == 0)
                         {
-                            echo "La categorie ".$_GET['categorie']." à bien été modifier en ".$_GET['Cat'];
+                            echo "La categorie ".$_GET['categorie']." à bien été modifié en ".$_GET['Cat'];
                             echo("<form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Catégories Alimentaires'>
                             <input type='submit' value='Retour'></form>");

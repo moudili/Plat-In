@@ -229,7 +229,7 @@
                     {
                         if($CheckFormUpdate == 0)
                         {
-                            echo "L'aliment ".$_GET['food']." à bien été modifier en ".mb_strtolower($_GET['Ali'],"UTF-8");
+                            echo "L'aliment ".$_GET['food']." à bien été modifié en ".mb_strtolower($_GET['Ali'],"UTF-8");
                         }
                         else
                         {

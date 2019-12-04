@@ -162,7 +162,7 @@
                     }
                     else
                     {
-                        echo"<p>Le régime ".$_GET['Diet']." à bien été ajouté à la base de donnée</p>";
+                        echo"<p>Le régime ".$_GET['Diet']." à bien été ajouté à la base de données</p>";
                     }
                 }
                 else if($_GET['Request'] == "Search")

@@ -28,7 +28,7 @@
             {
                 if ($_SESSION["Create"]==true) 
                 {
-                    echo("Tu as reussi a t'inscrire, ton nom d'utilisateur est : ".$_GET['User']." Et ton mot de passe est : ".$_GET['Pwd']."<br>
+                    echo("Tu as reussi a t'inscrire, ton nom d'utilisateur est : ".$_GET['User']."<br>
                     <a href='Index.php'><input type='button' value='Retour accueil'></a>");
                 } else if ($_SESSION["Create"]==false)
                 {
