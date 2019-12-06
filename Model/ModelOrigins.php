@@ -80,7 +80,6 @@
                 require("Model/ModelNewPDO.php");
                 $Req = $Bdd -> prepare("SELECT count(ID_origin) FROM origins WHERE origin_name LIKE :origin");
                 $Req -> bindParam(':origin',$Org,PDO::PARAM_STR);
-                //$Req -> bindParam(':id',$Id,PDO::PARAM_STR);
                 $Req -> execute();
                 $n = $Req -> fetch();
                 $CheckForm = $n[0];

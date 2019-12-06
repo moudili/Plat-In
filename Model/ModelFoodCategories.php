@@ -132,7 +132,6 @@
 
                         for($i = 0 ; $i < $_GET['Menu'] ; $i++)
                         {
-                            echo("Chatte");
                             $Req3 = $Bdd -> prepare("INSERT INTO `food_categories` (`ID_food_categorie`, `ID_food`,`ID_kind_of_food`) VALUES (NULL, :id_food, :id_categorie);");
                             $Req3 -> bindParam(':id_categorie',$IdCategorie,PDO::PARAM_STR);
                             $Req3 -> bindParam(':id_food',$_GET['Kind'.$i],PDO::PARAM_STR);

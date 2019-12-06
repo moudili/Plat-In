@@ -2,7 +2,7 @@
     <head>
         <title>Aliments</title>
     </head>
-    <body>
+    <body> 
 
 <?php 
             require("View/ViewBanner.php");  

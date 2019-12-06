@@ -78,7 +78,6 @@
                 require("Model/ModelNewPDO.php");
                 $Req = $Bdd -> prepare("SELECT count(ID_food) FROM foods WHERE food_name LIKE :food");
                 $Req -> bindParam(':food',$Ali,PDO::PARAM_STR);
-                //$Req -> bindParam(':id',$Id,PDO::PARAM_STR);
                 $Req -> execute();
                 $n = $Req -> fetch();
                 $CheckForm = $n[0];
