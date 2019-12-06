@@ -74,25 +74,25 @@
                         }
                         else
                         {
-                            echo"<tr><td rowspan='".$compt."'>".$FoodPrint[1][$i]."<form action='Index.php' method='get'>
-                            <input type='hidden' name='page' value='Catégories Alimentaires'>
-                            <input type='hidden' name='categorie' value='".$FoodPrint[1][$i]."'>
-                            <input type='hidden' name='id' value='".$FoodPrint[0][$i]."'>
-                            <input type='hidden' name='liste' value='".$i."'>
-                            <input type='submit' name='Request' value='Supprimer'></form>
-                            <form action='Index.php' method='get'>
-                            <input type='hidden' name='page' value='Catégories Alimentaires'>
-                            <input type='hidden' name='categorie' value='".$FoodPrint[1][$i]."'>
-                            <input type='hidden' name='id' value='".$FoodPrint[0][$i]."'>
-                            <input type='hidden' name='liste' value='".$i."'>
-                            <input type='submit' name='Request' value='Modifier'></form>
-                            <form action='Index.php' method='get'>
-                            <input type='submit' name='Request' value='Ajouter des aliments'>
-                            <input type='hidden' name='categorie' value='".$FoodPrint[1][$i]."'>
-                            <input type='hidden' name='id' value='".$FoodPrint[0][$i]."'>
-                            <input type='hidden' name='Menu' value=1>
-                            <input type='hidden' name='page' value='Catégories Alimentaires'>
-                            </form></td>";                        
+                            echo"<tr ><td rowspan='".$compt."'>".$FoodPrint[1][$i]."<form action='Index.php' method='get'>
+                                <input type='hidden' name='page' value='Catégories Alimentaires'>
+                                <input type='hidden' name='categorie' value='".$FoodPrint[1][$i]."'>
+                                <input type='hidden' name='id' value='".$FoodPrint[0][$i]."'>
+                                <input type='hidden' name='liste' value='".$i."'>
+                                <input type='submit' name='Request' value='Supprimer'></form>
+                                <form action='Index.php' method='get'>
+                                <input type='hidden' name='page' value='Catégories Alimentaires'>
+                                <input type='hidden' name='categorie' value='".$FoodPrint[1][$i]."'>
+                                <input type='hidden' name='id' value='".$FoodPrint[0][$i]."'>
+                                <input type='hidden' name='liste' value='".$i."'>
+                                <input type='submit' name='Request' value='Modifier'></form>
+                                <form action='Index.php' method='get'>
+                                <input type='submit' name='Request' value='Ajouter des aliments'>
+                                <input type='hidden' name='categorie' value='".$FoodPrint[1][$i]."'>
+                                <input type='hidden' name='id' value='".$FoodPrint[0][$i]."'>
+                                <input type='hidden' name='Menu' value=1>
+                                <input type='hidden' name='page' value='Catégories Alimentaires'>
+                                </form></td>";                        
                         }
                         
                         if ($compt != 1)
@@ -449,44 +449,44 @@
                                 else
                                 {
                                     echo"<tr ><td rowspan='".$compt."'>".$Categories[1][$i]."
-                                    <p><form action='Index.php' method='get'>
+                                    <form action='Index.php' method='get'>
                                     <input type='hidden' name='page' value='Catégories Alimentaires'>
                                     <input type='hidden' name='id' value='".$Categories[0][$i]."'>
                                     <input type='hidden' name='categorie' value='".$Categories[1][$i]."'>
-                                    <input type='submit' name='Request' value='Supprimer'></form></p>
-                                    <p><form action='Index.php' method='get'>
+                                    <input type='submit' name='Request' value='Supprimer'></form>
+                                    <form action='Index.php' method='get'>
                                     <input type='hidden' name='page' value='Catégories Alimentaires'>
                                     <input type='hidden' name='id' value='".$Categories[0][$i]."'>
                                     <input type='hidden' name='categorie' value='".$Categories[1][$i]."'>
-                                    <input type='submit' name='Request' value='Modifier'></form></p>
-                                    <p><form action='Index.php' method='get'>
+                                    <input type='submit' name='Request' value='Modifier'></form>
+                                    <form action='Index.php' method='get'>
                                     <input type='hidden' name='page' value='Catégories Alimentaires'>
                                     <input type='hidden' name='id' value='".$Categories[0][$i]."'>
                                     <input type='hidden' name='categorie' value='".$Categories[1][$i]."'> 
                                     <input type='hidden' name='Menu' value=1>   
-                                    <input type='submit' name='Request' value='Ajouter des aliments'></form></p>
+                                    <input type='submit' name='Request' value='Ajouter des aliments'></form>
                                     </td>";
                                 }
                             }
                             else
                             {
                                 echo"<tr><td rowspan='".$compt."'>".$Categories[1][$i]."
-                                <p><form action='Index.php' method='get'>
+                                <form action='Index.php' method='get'>
                                 <input type='hidden' name='page' value='Catégories Alimentaires'>
                                 <input type='hidden' name='id' value='".$Categories[0][$i]."'>
                                 <input type='hidden' name='categorie' value='".$Categories[1][$i]."'>
-                                <input type='submit' name='Request' value='Supprimer'></form></p>
-                                <p><form action='Index.php' method='get'>
+                                <input type='submit' name='Request' value='Supprimer'></form>
+                                <form action='Index.php' method='get'>
                                 <input type='hidden' name='page' value='Catégories Alimentaires'>
                                 <input type='hidden' name='id' value='".$Categories[0][$i]."'>
                                 <input type='hidden' name='categorie' value='".$Categories[1][$i]."'>
-                                <input type='submit' name='Request' value='Modifier'></form></p>
-                                <p><form action='Index.php' method='get'>
+                                <input type='submit' name='Request' value='Modifier'></form>
+                                <form action='Index.php' method='get'>
                                 <input type='hidden' name='page' value='Catégories Alimentaires'>
                                 <input type='hidden' name='id' value='".$Categories[0][$i]."'>
                                 <input type='hidden' name='categorie' value='".$Categories[1][$i]."'>
                                 <input type='hidden' name='Menu' value=1>
-                                <input type='submit' name='Request' value='Ajouter des aliments'></form></p>
+                                <input type='submit' name='Request' value='Ajouter des aliments'></form>
                                 </td>
                                 ";                        
                             }
