@@ -24,23 +24,26 @@
 
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Origines'>
-                    <input type='submit' name='Request' value='Ajouter une origine'></form><br>       
+                    <input type='submit' name='Request' value='Ajouter une origine'></form><br>
+                    <table border>       
         
                 <?php
                 for($i = 0 ; $i < count($Origins[0]) ; $i++ )
                 {
-                    echo $Origins[1][$i]
-                    ."<form action='Index.php' method='get'>
-                    <input type='hidden' name='page' value='Origines'>
-                    <input type='hidden' name='origin' value='".$Origins[1][$i]."'>
-                    <input type='hidden' name='id' value='".$Origins[0][$i]."'>
-                    <input type='submit' name='Request' value='Supprimer'></form>
-                    <form action='Index.php' method='get'>
+                    echo "<tr><td>".$Origins[1][$i]
+                    ."</td><td><form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Origines'>
                     <input type='hidden' name='origin' value='".htmlspecialchars($Origins[1][$i], ENT_QUOTES)."'>
                     <input type='hidden' name='id' value='".htmlspecialchars($Origins[0][$i], ENT_QUOTES)."'>
-                    <input type='submit' name='Request' value='Modifier'></form>";
+                    <input type='submit' name='Request' value='Modifier'></form>
+                    <form action='Index.php' method='get'>
+                    <input type='hidden' name='page' value='Origines'>
+                    <input type='hidden' name='origin' value='".$Origins[1][$i]."'>
+                    <input type='hidden' name='id' value='".$Origins[0][$i]."'>
+                    <input type='submit' name='Request' value='Supprimer'></form></td></tr>
+";
                 }
+                echo "</table>";
             }
             else if (!empty($_GET['Request']))
             {
@@ -260,22 +263,25 @@
     
                         <form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
-                        <input type='submit' name='Request' value='Ajouter une origine'></form><br>                        
+                        <input type='submit' name='Request' value='Ajouter une origine'></form><br>
+                        <table border>;                        
                         ");
                         for($i = 0 ; $i < count($Origins[0]) ; $i++ )
                         {
-                            echo $Origins[1][$i]
-                            ."<form action='Index.php' method='get'>
+                            echo "<tr><td>".$Origins[1][$i]
+                            ."</td><td><form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Origines'>
                             <input type='hidden' name='origin' value='".$Origins[1][$i]."'>
                             <input type='hidden' name='id' value='".$Origins[0][$i]."'>
-                            <input type='submit' name='Request' value='Supprimer'></form>
+                            <input type='submit' name='Request' value='Modifier'></form>
                             <form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Origines'>
                             <input type='hidden' name='origin' value='".$Origins[1][$i]."'>
                             <input type='hidden' name='id' value='".$Origins[0][$i]."'>
-                            <input type='submit' name='Request' value='Modifier'></form>";
-                        }                        
+                            <input type='submit' name='Request' value='Supprimer'></form></td></tr>
+";
+                        }
+                        echo "</table>";                        
                     }
                     else
                     {
