@@ -84,7 +84,7 @@
                 JOIN diets D 
                 WHERE KF.ID_kind_of_food LIKE CE.ID_kind_of_food 
                 AND CE.ID_diet LIKE D.ID_diet 
-                ORDER BY D.name_d ;");
+                ORDER BY D.name_d,KF.name_k  ;");
             }
             else if($_GET['Request'] == "Search")
             {
@@ -95,7 +95,7 @@
                 WHERE KF.ID_kind_of_food LIKE CE.ID_kind_of_food 
                 AND CE.ID_diet LIKE D.ID_diet
                 AND D.name_d LIKE "%'.$_GET['Search'].'%" 
-                ORDER BY D.name_d ;');
+                ORDER BY D.name_d,KF.name_k ;');
             }
             $Req -> execute();
             $PrintDiet = array(array(),array(),array(),array());

@@ -40,7 +40,7 @@
     {
         require("Model/ModelNewPDO.php");
         $Req = $Bdd -> prepare("SELECT KF.ID_kind_of_food,KF.name_k,F.ID_food,F.food_name FROM kinds_of_food KF JOIN food_categories FC JOIN foods F WHERE KF.ID_kind_of_food 
-            LIKE FC.ID_kind_of_food AND FC.ID_food LIKE F.ID_food ORDER BY KF.name_k");
+            LIKE FC.ID_kind_of_food AND FC.ID_food LIKE F.ID_food ORDER BY KF.name_k , F.food_name");
         $Req->execute();
         $Liste=array(array(),array(),array(),array());
         while($n = $Req -> fetch())
@@ -244,13 +244,13 @@
             if(empty($_GET['Request']))
             {
                 $Req = $Bdd -> prepare("SELECT KF.ID_kind_of_food,KF.name_k,F.ID_food,F.food_name FROM kinds_of_food KF JOIN food_categories FC JOIN foods F WHERE KF.ID_kind_of_food 
-            LIKE FC.ID_kind_of_food AND FC.ID_food LIKE F.ID_food ORDER BY KF.name_k");
+            LIKE FC.ID_kind_of_food AND FC.ID_food LIKE F.ID_food ORDER BY KF.name_k , F.food_name");
             }
             else if($_GET['Request'] == "Search")
             {
                 
                 $Req = $Bdd -> prepare('SELECT KF.ID_kind_of_food,KF.name_k,F.ID_food,F.food_name FROM kinds_of_food KF JOIN food_categories FC JOIN foods F WHERE KF.ID_kind_of_food 
-            LIKE FC.ID_kind_of_food AND FC.ID_food LIKE F.ID_food AND KF.name_k LIKE "%'.$_GET['Cat'].'%" ORDER BY KF.name_k ');
+            LIKE FC.ID_kind_of_food AND FC.ID_food LIKE F.ID_food AND KF.name_k LIKE "%'.$_GET['Cat'].'%" ORDER BY KF.name_k, F.food_name ');
             }
             $Req -> execute();
             $FoodPrint = array(array(),array(),array(),array());
