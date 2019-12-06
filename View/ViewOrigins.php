@@ -112,7 +112,10 @@
                     {
                         if($CheckFormAdd == 0)
                         {
-                            echo "L'origine ".mb_strtolower($_GET['Org'],"UTF-8")." à bien été ajouté à la base de données";
+                            echo "L'origine ".mb_strtolower($_GET['Org'],"UTF-8")." à bien été ajouté à la base de données
+                            <p><form action='Index.php' method='get'>
+                            <input type='hidden' name='page' value='Origines'>
+                            <br><input type='submit' value='Retour'></form>";
                         }
                         else
                         {
@@ -151,7 +154,10 @@
                     }
                     else
                     {
-                        echo "Vous avez bien supprimé l'origine ".$_GET['origin']." de la base de données.";
+                        echo "Vous avez bien supprimé l'origine ".$_GET['origin']." de la base de données.
+                        <p><form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Origines'>
+                        <br><input type='submit' value='Retour'></form>";
                     }
                 }
                 else if($_GET['Request'] == "Modifier")
