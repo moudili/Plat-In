@@ -502,7 +502,7 @@
                                 <input type='hidden' name='categorie' value='".$Categories[1][$i]."'>
                                 
                                 <input type='hidden' name='aliment' value='".$Categories[3][$i]."'>
-                                <input type='submit' name='SubRequest' value='Supprimer'></form>
+                                <input type='submit' name='SubRequest' value='Supprimer cet aliment'></form>
                                 ");
                             }
                             echo"</td></tr>";
