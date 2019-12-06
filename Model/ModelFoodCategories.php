@@ -40,11 +40,7 @@
     {
         require("Model/ModelNewPDO.php");
         $Req = $Bdd -> prepare("SELECT KF.ID_kind_of_food,KF.name_k,F.ID_food,F.food_name FROM kinds_of_food KF JOIN food_categories FC JOIN foods F WHERE KF.ID_kind_of_food 
-<<<<<<< HEAD
             LIKE FC.ID_kind_of_food AND FC.ID_food LIKE F.ID_food ORDER BY KF.name_k , F.food_name");
-=======
-            LIKE FC.ID_kind_of_food AND FC.ID_food LIKE F.ID_food ORDER BY KF.name_k, F.food_name");
->>>>>>> 2918ba0d6d220483f3f4fdc3a5578b7fefb7c918
         $Req->execute();
         $Liste=array(array(),array(),array(),array());
         while($n = $Req -> fetch())
