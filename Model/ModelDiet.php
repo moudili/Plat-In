@@ -84,7 +84,7 @@
                 JOIN diets D 
                 WHERE KF.ID_kind_of_food LIKE CE.ID_kind_of_food 
                 AND CE.ID_diet LIKE D.ID_diet 
-                ORDER BY D.name_d ;");
+                ORDER BY D.name_d,KF.name_k ;");
             }
             else if($_GET['Request'] == "Search")
             {

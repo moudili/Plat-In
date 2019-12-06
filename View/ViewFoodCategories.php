@@ -607,7 +607,10 @@
                             }
                             else
                             {
-                                echo"La catégorie alimentaire ".$_GET['categorie']." a bien été mis à jour";
+                                echo"La catégorie alimentaire ".$_GET['categorie']." a bien été mis à jour
+                                <p><form action='Index.php' method='get'>
+                                <input type='hidden' name='page' value='Catégories Alimentaires'>
+                                <input type='submit' value='Retour'></form>";
                             }
                         }
                         else if($_GET['SubRequest'] == "+"
