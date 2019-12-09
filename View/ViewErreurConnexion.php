@@ -10,7 +10,7 @@
         <div class="text-center mt-5">
 
 
-        Veuillez vous <a href="Index.php?page=Inscription"> inscrire</a> ou vous <a href="Index.php?page=Connexion"> connecter</a> pour accéder a cette page
+        Veuillez vous <a href="Index.php?page=Inscription"> inscrire</a> ou vous <a href="Index.php?page=Connexion"> connectez</a> pour accéder a cette page
         </div>
     </body>
 </html>
