@@ -78,12 +78,11 @@
 
                 $Req->execute();
                 return $Check;
-            } else {
+            } 
+            else 
+            {
                 return $Check;
             }
-        } else {
-            $Check=1;
-            return $Check;
         }
     }
 
