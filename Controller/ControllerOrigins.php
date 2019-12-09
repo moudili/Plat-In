@@ -1,5 +1,5 @@
 <?php
-
+ 
     function CheckOrigine()
     {
         if($_GET['Request'] == "Ajouter"

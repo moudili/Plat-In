@@ -22,7 +22,6 @@
     {
         if($_GET['Request'] == "Ajouter")
         {
-            echo strlen($_GET['Org']);
             if(!empty($_GET['Org'])
             && strlen($_GET['Org']) > 2
             && strlen($_GET['Org']) < 40
@@ -41,11 +40,8 @@
                     $Req = $Bdd -> prepare("INSERT INTO `origins` (`ID_origin`, `origin_name`) VALUES (NULL, :origin);");
                     $Req -> bindParam(':origin',$Org,PDO::PARAM_STR);
                     $Req -> execute();                    
-
                 }
-
                 return $CheckForm;
-
             }
         }
     }
@@ -80,7 +76,6 @@
                 require("Model/ModelNewPDO.php");
                 $Req = $Bdd -> prepare("SELECT count(ID_origin) FROM origins WHERE origin_name LIKE :origin");
                 $Req -> bindParam(':origin',$Org,PDO::PARAM_STR);
-                //$Req -> bindParam(':id',$Id,PDO::PARAM_STR);
                 $Req -> execute();
                 $n = $Req -> fetch();
                 $CheckForm = $n[0];

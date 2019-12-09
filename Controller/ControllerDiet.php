@@ -136,7 +136,11 @@
             {
                 if($_GET['SubRequest'] == "Supprimer")
                 {
-                    header('Location: /Plat-In/Index.php?page=R%C3%A9gimes');
+                    if(!empty($_SESSION['reload']))
+                    {
+                        header("Refresh:0");
+                        unset($_SESSION['reload']);
+                    }
                 }
             }
         }

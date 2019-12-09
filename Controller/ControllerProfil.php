@@ -102,7 +102,7 @@
                 $_SESSION["erreur"] = "Veuillez rentrer une adresse e-mail valide";
                 $CheckForm = false; 
             }
-            else if(!preg_match('#^(0|\+33)[6-7]{1}\d{8}$#' , $Phone))
+            else if(!preg_match('#^(0|\+33)[1-9]{1}\d{8}$#' , $Phone))
             {
                 $_SESSION["modifier"] = false;
                 $_SESSION["erreur"] = "Veuillez rentrer un numéro de téléphone valide";

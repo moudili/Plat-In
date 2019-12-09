@@ -2,7 +2,7 @@
     <head>
         <title>Aliments</title>
     </head>
-    <body>
+    <body> 
 
 <?php 
             require("View/ViewBanner.php");  
@@ -21,12 +21,13 @@
 
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Aliments'>
-                    <input type='submit' name='Request' value='Ajouter un aliment'></form><br>       
+                    <input type='submit' name='Request' value='Ajouter un aliment'></form><br>
+                    <table border>       
         
                 <?php
                 for($i = 0 ; $i < count($Foods[0]) ; $i++ )
                 {
-                    echo $Foods[1][$i]
+                    echo "<tr><td>".$Foods[1][$i]
                     ."<form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Aliments'>
                     <input type='hidden' name='food' value='".$Foods[1][$i]."'>
@@ -38,6 +39,7 @@
                     <input type='hidden' name='id' value='".htmlspecialchars($Foods[0][$i], ENT_QUOTES)."'>
                     <input type='submit' name='Request' value='Modifier'></form>";
                 }
+                echo "</table>";
             }
             else if (!empty($_GET['Request']))
             {
@@ -260,15 +262,17 @@
                         <input type='hidden' name='page' value='Aliments'>
                         <input type='hidden' name='Request' value='Search'>
                         <input type='submit' value=' '></form>
+                        
     
                         <form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Aliments'>
-                        <input type='submit' name='Request' value='Ajouter un aliment'></form><br>                        
+                        <input type='submit' name='Request' value='Ajouter un aliment'></form><br>
+                        <table border>                        
                         ");
                         for($i = 0 ; $i < count($Foods[0]) ; $i++ )
                         {
-                            echo $Foods[1][$i]
-                            ."<form action='Index.php' method='get'>
+                            echo "<tr><td>".$Foods[1][$i]
+                            ."</td><td><form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Aliments'>
                             <input type='hidden' name='food' value='".$Foods[1][$i]."'>
                             <input type='hidden' name='id' value='".$Foods[0][$i]."'>
@@ -277,8 +281,9 @@
                             <input type='hidden' name='page' value='Aliments'>
                             <input type='hidden' name='food' value='".$Foods[1][$i]."'>
                             <input type='hidden' name='id' value='".$Foods[0][$i]."'>
-                            <input type='submit' name='Request' value='Modifier'></form>";
-                        }                        
+                            <input type='submit' name='Request' value='Modifier'></form></td></tr>";
+                        }
+                        echo "</table>";                        
                     }
                     else
                     {

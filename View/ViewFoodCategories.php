@@ -29,13 +29,7 @@
                 <?php
                 for($i = 0 ; $i < count($FoodPrint[0]) ; $i++ )
                 {
-                    /*echo ($Categories[1][$i]);
-                    //echo ($Foods[1][$i]);
-                    //echo($Liste[1][$i]);
-                    for ($j = 0 ; $j < count($Liste[3][$i]); $j++)
-                    {
-                        echo("<br>".$Liste[3][$i][$j]);
-                    }*/
+            
                     $compt = 0;
                         for($j = $i ; $FoodPrint[0][$i] == $FoodPrint[0][$j] ; $j++)
                         {
@@ -80,25 +74,25 @@
                         }
                         else
                         {
-                            echo"<tr><td rowspan='".$compt."'>".$FoodPrint[1][$i]."<form action='Index.php' method='get'>
-                            <input type='hidden' name='page' value='Catégories Alimentaires'>
-                            <input type='hidden' name='categorie' value='".$FoodPrint[1][$i]."'>
-                            <input type='hidden' name='id' value='".$FoodPrint[0][$i]."'>
-                            <input type='hidden' name='liste' value='".$i."'>
-                            <input type='submit' name='Request' value='Supprimer'></form>
-                            <form action='Index.php' method='get'>
-                            <input type='hidden' name='page' value='Catégories Alimentaires'>
-                            <input type='hidden' name='categorie' value='".$FoodPrint[1][$i]."'>
-                            <input type='hidden' name='id' value='".$FoodPrint[0][$i]."'>
-                            <input type='hidden' name='liste' value='".$i."'>
-                            <input type='submit' name='Request' value='Modifier'></form>
-                            <form action='Index.php' method='get'>
-                            <input type='submit' name='Request' value='Ajouter des aliments'>
-                            <input type='hidden' name='categorie' value='".$FoodPrint[1][$i]."'>
-                            <input type='hidden' name='id' value='".$FoodPrint[0][$i]."'>
-                            <input type='hidden' name='Menu' value=1>
-                            <input type='hidden' name='page' value='Catégories Alimentaires'>
-                            </form></td>";                        
+                            echo"<tr ><td rowspan='".$compt."'>".$FoodPrint[1][$i]."<form action='Index.php' method='get'>
+                                <input type='hidden' name='page' value='Catégories Alimentaires'>
+                                <input type='hidden' name='categorie' value='".$FoodPrint[1][$i]."'>
+                                <input type='hidden' name='id' value='".$FoodPrint[0][$i]."'>
+                                <input type='hidden' name='liste' value='".$i."'>
+                                <input type='submit' name='Request' value='Supprimer'></form>
+                                <form action='Index.php' method='get'>
+                                <input type='hidden' name='page' value='Catégories Alimentaires'>
+                                <input type='hidden' name='categorie' value='".$FoodPrint[1][$i]."'>
+                                <input type='hidden' name='id' value='".$FoodPrint[0][$i]."'>
+                                <input type='hidden' name='liste' value='".$i."'>
+                                <input type='submit' name='Request' value='Modifier'></form>
+                                <form action='Index.php' method='get'>
+                                <input type='submit' name='Request' value='Ajouter des aliments'>
+                                <input type='hidden' name='categorie' value='".$FoodPrint[1][$i]."'>
+                                <input type='hidden' name='id' value='".$FoodPrint[0][$i]."'>
+                                <input type='hidden' name='Menu' value=1>
+                                <input type='hidden' name='page' value='Catégories Alimentaires'>
+                                </form></td>";                        
                         }
                         
                         if ($compt != 1)
@@ -151,7 +145,7 @@
                     echo ("<p><form action='Index.php' method='get'>
                     <p>Catégorie alimentaire: <input name='Cat' value='".htmlspecialchars($_GET['Cat'], ENT_QUOTES)."'></p>
                     <input type='hidden' name='page' value='Catégories Alimentaires'>
-                    <p>Choisissez un ou des aliments avec lesquelles votre categorie alimentaire est compatible : <br><br>");
+                    <p>Choisissez un ou des aliments que vous voulez ajouter à votre catégorie : <br><br>");
                     
                     
                     for($j = 0 ; $j < $Menu ; $j++ )
@@ -202,9 +196,9 @@
                     )
                     {
                         echo ("<p><form action='Index.php' method='get'>
-                        <p>Régime alimentaire : <input name='Cat' value='".htmlspecialchars($_GET['Cat'], ENT_QUOTES)."'></p>
+                        <p>Catégorie alimentaire: <input name='Cat' value='".htmlspecialchars($_GET['Cat'], ENT_QUOTES)."'></p>
                         <input type='hidden' name='page' value='Catégories Alimentaires'>
-                        <p>Choisissez un ou des aliments avec lesquelles votre categorie alimentaire est compatible : <br><br>");
+                        <p>Choisissez un ou des aliments que vous voulez ajouter à votre catégorie : <br><br>");
                         
                         
                         for($j = 0 ; $j < $Menu ; $j++ )
@@ -271,12 +265,15 @@
                     }
                     else
                     {
-                        echo"<p>La catégorie alimentaire ".$_GET['Cat']." à bien été ajouté à la base de données</p>";
+                        echo"<p>La catégorie alimentaire ".$_GET['Cat']." à bien été ajouté à la base de donnée</p>
+                        <p><form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Catégories Alimentaires'>
+                        <input type='submit' value='Retour'></form>";
                     }
                 }
                 else if($_GET['Request'] == "Supprimer")
                 {
-                    if(empty($_GET['Answer']))
+                    if (empty($_GET['Answer']))
                     {
                         echo "Etes-vous sûr de vouloir supprimer la catégorie alimentaire ".$_GET['categorie']." de la base de données?<br>
                         
@@ -295,9 +292,34 @@
 
                         ";
                     }
-                    else
+                    else if($_GET['Answer']=="Oui")
                     {
-                        echo "Vous avez bien supprimé la catégorie alimentaire ".$_GET['categorie']." de la base de données.";
+                        echo("Voulez-vous supprimer aussi les aliments de la base de données ?
+                        <p><form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Catégories Alimentaires'>
+                        <input type='hidden' name='Request' value='Supprimer'>
+                        <input type='hidden' name='id' value='".$_GET['id']."'>
+                        <input type='hidden' name='categorie' value='".$_GET['categorie']."'>
+                        <br><input type='submit' name='Answer' value='Valider'></form>
+
+                        <p><form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Catégories Alimentaires'>
+                        <input type='hidden' name='Request' value='Supprimer'>
+                        <input type='hidden' name='id' value='".$_GET['id']."'>
+                        <input type='hidden' name='categorie' value='".$_GET['categorie']."'>
+                        <br><input type='submit' name='Answer' value='Non'></form>
+                        ");
+                    }
+                    else if ($_GET['Answer']=='Valider')
+                    {
+                        echo "Vous avez bien supprimé la catégorie alimentaire ".$_GET['categorie']." et les aliments de la base de données.";
+                        echo("<form action='Index.php' method='get'>
+                            <input type='hidden' name='page' value='Catégories Alimentaires'>
+                            <input type='submit' value='Retour'></form>");
+                    }
+                    else if ($_GET['Answer']=='Non')
+                    {
+                        echo "Vous avez bien supprimé la catégorie alimentaire ".$_GET['categorie']." de la base de données mais pas les aliments.";
                         echo("<form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Catégories Alimentaires'>
                             <input type='submit' value='Retour'></form>");
@@ -324,9 +346,33 @@
                         <br><input type='submit' value='Non'></form>
                         ";
                     }
-                    else
+                    else if ($_GET['AnswerFood']=='Oui')
                     {
-                        echo "Vous avez bien supprimé l'aliment ".$_GET['aliment']." de la categorie alimentaire ".$_GET['categorie'].".";
+                        echo("Voulez-vous aussi supprimé l'aliment de la base de donnée ?
+                        <p><form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Catégories Alimentaires'>
+                        <input type='hidden' name='Request' value='Supprimer cet aliment'>
+                        <input type='hidden' name='aliment' value='".$_GET['aliment']."'>
+                        <input type='hidden' name='id' value='".$_GET['id']."'>
+                        <input type='hidden' name='categorie' value='".$_GET['categorie']."'>
+                        <br><input type='submit' name='AnswerFood' value='Valider'></form>
+
+                        <p><form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Catégories Alimentaires'>
+                        <input type='hidden' name='aliment' value='".$_GET['aliment']."'>
+                        <br><input type='submit' name='AnswerFood' value='Non'></form>
+                        ");
+                    }
+                    else if ($_GET['AnswerFood']=='Valider')
+                    {
+                        echo "Vous avez bien supprimé l'aliment ".$_GET['aliment']." de la categorie alimentaire ".$_GET['categorie']." et de la base de donnée.";
+                        echo("<form action='Index.php' method='get'>
+                            <input type='hidden' name='page' value='Catégories Alimentaires'>
+                            <input type='submit' value='Retour'></form>");
+                    }
+                    else if ($_GET['AnswerFood']=='Non')
+                    {
+                        echo "Vous avez bien supprimé l'aliment ".$_GET['aliment']." de la categorie alimentaire ".$_GET['categorie']." mais pas de la base de donnée.";
                         echo("<form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Catégories Alimentaires'>
                             <input type='submit' value='Retour'></form>");
@@ -340,20 +386,7 @@
                     <input type='hidden' name='categorie' value='".$_GET['categorie']."'><p>
                     <p>Categorie : <input type='Categorie' name='Cat' value='".$_GET['categorie']."'/></p>
                     <input type='hidden' name='liste' value='".$_GET['liste']."'>
-                    <input type='submit' name='Request' value='Modifier cette categorie'></form>");
-                    
-
-                    /*for ($j = 0 ; $j < count($Foods[3]); $j++)
-                    {
-                        echo("<form action='Index.php' method='get'><br>".$Foods[3][$_GET['liste']][$j].
-                        "<br><input type='submit' name='Request' value='Supprimer cet aliment'><br>
-                        <input type='hidden' name='page' value='Catégories Alimentaires'>
-                        <input type='hidden' name='categorie' value='".$_GET['categorie']."'>
-                        <input type='hidden' name='id' value='".$Foods[0][$_GET['liste']]."'>
-                        <input type='hidden' name='liste' value='".$_GET['liste']."'>
-                        </form>");
-                    }*/
-                    
+                    <input type='submit' name='Request' value='Modifier cette categorie'></form>");                    
                     
                     echo("<form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Catégories Alimentaires'>
@@ -412,23 +445,9 @@
                         <input type='hidden' name='liste' value='".$_GET['liste']."'>
                         <input type='submit' name='Request' value='Modifier cette categorie'></form>");
                         
-    
-                        /*for ($j = 0 ; $j < count($Liste[3][$_GET['liste']]); $j++)
-                        {
-                            echo("<form action='Index.php' method='get'><br>".$Liste[3][$_GET['liste']][$j].
-                            "<br><input type='submit' name='Request' value='Supprimer cet aliment'><br>
-                            <input type='hidden' name='page' value='Catégories Alimentaires'>
-                            <input type='hidden' name='categorie' value='".$_GET['categorie']."'>
-                            <input type='hidden' name='id' value='".$Liste[0][$_GET['liste']]."'>
-                            <input type='hidden' name='liste' value='".$_GET['liste']."'>
-                            </form>");
-                        }*/
-                        
-                        
                         echo("<form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Catégories Alimentaires'>
-                        <br><input type='submit' value='Retour'></form>
-                        ");                      
+                        <br><input type='submit' value='Retour'></form>");                      
                         }
 
 
@@ -453,7 +472,7 @@
 
                     if($Categories == false)
                     {
-                        echo "aucun résultat pour la recherche ".htmlspecialchars($_GET['Cat'], ENT_QUOTES).".";
+                        echo "Aucun résultat pour la recherche ".htmlspecialchars($_GET['Cat'], ENT_QUOTES).".";
                     }
                     else
                     {
@@ -479,44 +498,44 @@
                                 else
                                 {
                                     echo"<tr ><td rowspan='".$compt."'>".$Categories[1][$i]."
-                                    <p><form action='Index.php' method='get'>
+                                    <form action='Index.php' method='get'>
                                     <input type='hidden' name='page' value='Catégories Alimentaires'>
                                     <input type='hidden' name='id' value='".$Categories[0][$i]."'>
                                     <input type='hidden' name='categorie' value='".$Categories[1][$i]."'>
-                                    <input type='submit' name='Request' value='Supprimer'></form></p>
-                                    <p><form action='Index.php' method='get'>
+                                    <input type='submit' name='Request' value='Supprimer'></form>
+                                    <form action='Index.php' method='get'>
                                     <input type='hidden' name='page' value='Catégories Alimentaires'>
                                     <input type='hidden' name='id' value='".$Categories[0][$i]."'>
                                     <input type='hidden' name='categorie' value='".$Categories[1][$i]."'>
-                                    <input type='submit' name='Request' value='Modifier'></form></p>
-                                    <p><form action='Index.php' method='get'>
+                                    <input type='submit' name='Request' value='Modifier'></form>
+                                    <form action='Index.php' method='get'>
                                     <input type='hidden' name='page' value='Catégories Alimentaires'>
                                     <input type='hidden' name='id' value='".$Categories[0][$i]."'>
                                     <input type='hidden' name='categorie' value='".$Categories[1][$i]."'> 
                                     <input type='hidden' name='Menu' value=1>   
-                                    <input type='submit' name='Request' value='Ajouter des aliments'></form></p>
+                                    <input type='submit' name='Request' value='Ajouter des aliments'></form>
                                     </td>";
                                 }
-                            }
+                            } 
                             else
                             {
                                 echo"<tr><td rowspan='".$compt."'>".$Categories[1][$i]."
-                                <p><form action='Index.php' method='get'>
+                                <form action='Index.php' method='get'>
                                 <input type='hidden' name='page' value='Catégories Alimentaires'>
                                 <input type='hidden' name='id' value='".$Categories[0][$i]."'>
                                 <input type='hidden' name='categorie' value='".$Categories[1][$i]."'>
-                                <input type='submit' name='Request' value='Supprimer'></form></p>
-                                <p><form action='Index.php' method='get'>
+                                <input type='submit' name='Request' value='Supprimer'></form>
+                                <form action='Index.php' method='get'>
                                 <input type='hidden' name='page' value='Catégories Alimentaires'>
                                 <input type='hidden' name='id' value='".$Categories[0][$i]."'>
                                 <input type='hidden' name='categorie' value='".$Categories[1][$i]."'>
-                                <input type='submit' name='Request' value='Modifier'></form></p>
-                                <p><form action='Index.php' method='get'>
+                                <input type='submit' name='Request' value='Modifier'></form>
+                                <form action='Index.php' method='get'>
                                 <input type='hidden' name='page' value='Catégories Alimentaires'>
                                 <input type='hidden' name='id' value='".$Categories[0][$i]."'>
                                 <input type='hidden' name='categorie' value='".$Categories[1][$i]."'>
                                 <input type='hidden' name='Menu' value=1>
-                                <input type='submit' name='Request' value='Ajouter des aliments'></form></p>
+                                <input type='submit' name='Request' value='Ajouter des aliments'></form>
                                 </td>
                                 ";                        
                             }
@@ -532,7 +551,7 @@
                                 <input type='hidden' name='categorie' value='".$Categories[1][$i]."'>
                                 
                                 <input type='hidden' name='aliment' value='".$Categories[3][$i]."'>
-                                <input type='submit' name='SubRequest' value='Supprimer'></form>
+                                <input type='submit' name='SubRequest' value='Supprimer cet aliment'></form>
                                 ");
                             }
                             echo"</td></tr>";
@@ -548,7 +567,7 @@
                         <input type='hidden' name='page' value='Catégories Alimentaires'>
                         <input type='hidden' name='categorie' value='".$_GET['categorie']."'>
                         <input type='hidden' name='id' value='".$_GET['id']."'>
-                        Choisissez un ou des aliments avec lesquelles votre catégorie alimentaire est compatible:<br><br>
+                        Choisissez un ou des aliments que vous voulez ajouter à votre catégorie :<br><br>
                         <select name='Kind0'>
                         <option value=''>--Choisissez un aliment--</option>
                         ");
@@ -580,7 +599,7 @@
                                 <input type='hidden' name='page' value='Catégories Alimentaires'>
                                 <input type='hidden' name='id' value='".$_GET['id']."'>
                                 <input type='hidden' name='categorie' value='".$_GET['categorie']."'>
-                                <p>Choisissez un ou des aliments avec lesquelles votre catégorie alimentaire est compatible:<br><br>");
+                                <p>Choisissez un ou des aliments que vous voulez ajouter à votre catégorie :<br><br>");
                                 
                         
                                 for($j = 0 ; $j < $Menu2 ; $j++ )
@@ -618,7 +637,7 @@
                                 
                                 if($CheckMenu2 == "double")
                                 {
-                                    echo("<FONT color='red'>Une catégorie alimentaire a été selectionné deux fois ou plus</FONT><br><br>");
+                                    echo("<FONT color='red'>Un aliment a été selectionné deux fois ou plus</FONT><br><br>");
                                 }
                                 else if($CheckMenu2 == "void")
                                 {
@@ -626,7 +645,7 @@
                                 }
                                 else if($CheckForm3 != 0)
                                 {
-                                    echo("<FONT color='red'>Une des catégorie alimentaire est déjà présente dans ce régime alimentaire</FONT><br><br>");
+                                    echo("<FONT color='red'>Un des aliments est déjà présente dans cette catégorie alimentaire</FONT><br><br>");
                                 }
                                 
                                 echo("<input type='submit' name='SubRequest' value='Ajouter'>
@@ -637,7 +656,10 @@
                             }
                             else
                             {
-                                echo"Le régime ".$_GET['categorie']." a bien été mis à jour";
+                                echo"La catégorie alimentaire ".$_GET['categorie']." a bien été mis à jour
+                                <p><form action='Index.php' method='get'>
+                                <input type='hidden' name='page' value='Catégories Alimentaires'>
+                                <input type='submit' value='Retour'></form>";
                             }
                         }
                         else if($_GET['SubRequest'] == "+"
@@ -647,7 +669,7 @@
                             <input type='hidden' name='page' value='Catégories Alimentaires'>
                             <input type='hidden' name='id' value='".$_GET['id']."'>
                             <input type='hidden' name='categorie' value='".$_GET['categorie']."'>
-                            <p>Choisissez un ou des aliments avec lesquelles votre catégorie est compatible:<br><br>");
+                            <p>Choisissez un ou des aliments que vous voulez ajouter à votre catégorie :<br><br>");
                             
                     
                             for($j = 0 ; $j < $Menu2 ; $j++ )

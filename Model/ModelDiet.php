@@ -84,7 +84,7 @@
                 JOIN diets D 
                 WHERE KF.ID_kind_of_food LIKE CE.ID_kind_of_food 
                 AND CE.ID_diet LIKE D.ID_diet 
-                ORDER BY D.name_d ;");
+                ORDER BY D.name_d,KF.name_k  ;");
             }
             else if($_GET['Request'] == "Search")
             {
@@ -95,7 +95,7 @@
                 WHERE KF.ID_kind_of_food LIKE CE.ID_kind_of_food 
                 AND CE.ID_diet LIKE D.ID_diet
                 AND D.name_d LIKE "%'.$_GET['Search'].'%" 
-                ORDER BY D.name_d ;');
+                ORDER BY D.name_d,KF.name_k ;');
             }
             $Req -> execute();
             $PrintDiet = array(array(),array(),array(),array());
@@ -108,10 +108,6 @@
                     array_push($PrintDiet[2], $n[2]);
                     array_push($PrintDiet[3], $n[3]);               
                 }
-            }
-            else
-            {
-                $PrintDiet = false;
             }
  
             //print_r($PrintDiet);
@@ -132,7 +128,11 @@
                     $Req = $Bdd -> prepare("DELETE FROM `can_t_eat` WHERE `can_t_eat`.`ID_diet` = :iddiet AND `can_t_eat`.`ID_kind_of_food` = :idcat ");
                     $Req -> bindParam(':iddiet',$_GET['iddiet'],PDO::PARAM_INT);
                     $Req -> bindParam(':idcat',$_GET['idcat'],PDO::PARAM_INT);
-                    $Req -> execute();                    
+                    $Req -> execute();
+                    if ($Req->rowCount() > 0)
+                    {
+                        $_SESSION['reload'] = true;
+                    }                    
                 }
             }
         }
@@ -166,17 +166,23 @@
                 && preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['newdiet'])
                 )
                 {
+                    echo($_GET['newdiet']);
                     require("Model/ModelNewPDO.php");
                     $Req = $Bdd -> prepare("SELECT count(ID_diet) FROM diets WHERE name_d LIKE :diet");
-                    $Req -> bindParam(':diet',$_GET['newdiet'],PDO::PARAM_INT);
+                    $Req -> bindParam(':diet',$_GET['newdiet'],PDO::PARAM_STR);
                     $Req -> execute();
+                    /*if ($Req->rowCount() > 0)
+                    {
+                        echo("oui");
+                    }*/
                     $n = $Req -> fetch();
                     $CheckForm2 = $n[0];
-                    
+                    print_r($n);
                     if($CheckForm2 == 0)
                     {
+                        echo("fffffff");
                         $Req = $Bdd -> prepare("UPDATE `diets` SET `name_d` = :diet WHERE `diets`.`ID_diet` = :iddiet ;");
-                        $Req -> bindParam(':diet',$_GET['newdiet'],PDO::PARAM_INT);
+                        $Req -> bindParam(':diet',$_GET['newdiet'],PDO::PARAM_STR);
                         $Req -> bindParam(':iddiet',$_GET['iddiet'],PDO::PARAM_INT);
                         $Req -> execute();
                     }
@@ -220,7 +226,7 @@
                         $Req -> execute();
                     }
                 }
-                echo $CheckForm;
+                
                 return $CheckForm;
             }
         }

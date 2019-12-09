@@ -147,16 +147,11 @@
 
     function PrintListe($Liste)
     {
-        //print_r($Liste);
+        
         $ListeFini=array(array(),array(),array(),array());
-        //echo(count($Liste[2]));
         for ($i = 0 ; $i < count($Liste[2]) ; $i++)
         {
-            //echo($Liste[0][$i]."  ");
-            
-      
-            //print_r($Liste);
-            //echo($Liste[0][0]);
+           
             if ($i > 0)
             {
                 for ($j = 0 ; $j < count($ListeFini[1]) ; $j++)
@@ -202,16 +197,14 @@
         }
         return $ListeFini;
     }
-
+ 
     require('Controller/ControllerStaple.php');
     CheckSesion();
     CheckLogOut();
     require('Model/ModelFoodCategories.php');
+    Verif();
     $Categories = Categorie();
     $FoodPrint=CheckFood();
-    //print_r($FoodPrint);
-    //$Liste = PrintListe($FoodPrint);
-    //print_r($Liste);
     $Foods = Food();
     $ID=CheckID();
     $CheckMenu=CheckMenu();
@@ -227,6 +220,8 @@
         
         DeletCategorie();
         DeletFood();
+        DeletFoods();
+        DeletOneFood();
         
         $CheckFormUpdate = ModifCategorie($Cat);
         $Categories = SearchCategorie();
