@@ -74,7 +74,7 @@
                         echo "<p><form action='Index.php' method='get'>
                         <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/></p>
                         <input type='hidden' name='page' value='Origines'>
-                        <FONT color='red'>Cette origine doit faire plus de 2 charactères</FONT><br>
+                        <FONT color='red'>Cette origine doit faire plus de 2 caractères</FONT><br>
                         <br><input type='submit' name='Request' value='Ajouter'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
@@ -86,7 +86,7 @@
                         echo "<p><form action='Index.php' method='get'>
                         <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/></p>
                         <input type='hidden' name='page' value='Origines'>
-                        <FONT color='red'>Cette origine doit faire moins de 40 charactères</FONT><br>
+                        <FONT color='red'>Cette origine doit faire moins de 40 caractères</FONT><br>
                         <br><input type='submit' name='Request' value='Ajouter'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
@@ -187,7 +187,7 @@
                         <input type='hidden' name='page' value='Origines'>
                         <input type='hidden' name='id' value='".$_GET['id']."'>
                         <input type='hidden' name='origin' value='".$_GET['origin']."'>
-                        <FONT color='red'>Cette origine doit faire plus de 2 charactères</FONT><br>
+                        <FONT color='red'>Cette origine doit faire plus de 2 caractères</FONT><br>
                         <input type='submit' name='Request' value='Modifier cette origine'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
@@ -201,7 +201,7 @@
                         <input type='hidden' name='page' value='Origines'>
                         <input type='hidden' name='id' value='".$_GET['id']."'>
                         <input type='hidden' name='origin' value='".$_GET['origin']."'>
-                        <FONT color='red'>Cette origine doit faire moins de 40 charactères</FONT><br>
+                        <FONT color='red'>Cette origine doit faire moins de 40 caractères</FONT><br>
                         <input type='submit' name='Request' value='Modifier cette origine'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
@@ -226,7 +226,7 @@
                     {
                         if($CheckFormUpdate == 0)
                         {
-                            echo "L'origine ".$_GET['origin']." à bien été modifier en ".mb_strtolower($_GET['Org'],"UTF-8");
+                            echo "L'origine ".$_GET['origin']." à bien été modifiée en ".mb_strtolower($_GET['Org'],"UTF-8");
                         }
                         else
                         {
