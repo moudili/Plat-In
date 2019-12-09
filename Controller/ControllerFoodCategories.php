@@ -197,11 +197,12 @@
         }
         return $ListeFini;
     }
-
+ 
     require('Controller/ControllerStaple.php');
     CheckSesion();
     CheckLogOut();
     require('Model/ModelFoodCategories.php');
+    Verif();
     $Categories = Categorie();
     $FoodPrint=CheckFood();
     $Foods = Food();
@@ -219,6 +220,8 @@
         
         DeletCategorie();
         DeletFood();
+        DeletFoods();
+        DeletOneFood();
         
         $CheckFormUpdate = ModifCategorie($Cat);
         $Categories = SearchCategorie();
