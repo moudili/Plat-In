@@ -6,7 +6,7 @@
     {
         if(empty($_GET['Request']))
         {
-            require("View/ViewSignIn.php");
+            require('View/ViewSignIn.php');
         }
     }
 
@@ -51,7 +51,7 @@
                 }
                 else
                 {
-                    header("Location:View\ViewPreferences.php");
+                    header("Location:Controller\ControllerPreferences.php");
                 }
             }
             else

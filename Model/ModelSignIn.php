@@ -39,14 +39,11 @@
             if($Req->rowCount() > 0)
             {
                 return true;
-                //$test = "oui";
             }
             else
             {
                 return false;
-                //$test = "non";
             }
-            //return $test;
         }
     }
 
