@@ -36,7 +36,7 @@
 
     /* vérifie les champs si ils sont rempli et si le compte de l'utilisateur est dans la bdd le connecte */
 
-    function Con($Check,$Query)
+    function Con($Check,$Query,$Preferences)
     {
         if(!empty($_GET['Request'])
             && $Query == true)
@@ -45,7 +45,14 @@
             {   
                 $_SESSION['Co'] = true;
                 unset($_SESSION['Pwd']);
-                header("Location:Index.php");
+                if($Preferences == "oui" || $_SESSION['status_u'] == 'admin')
+                {
+                    header("Location:Index.php");
+                }
+                else
+                {
+                    header("Location:View\ViewPreferences.php");
+                }
             }
             else
             {
@@ -64,8 +71,8 @@
         $Query = GetQuery();
         require('Model/ModelSignIn.php');
         $Check = CheckIdent($Query);
-        GetID($Check);
+        $Preferences = GetID($Check);
         ConBDD($Check);
-        Con($Check,$Query); 
+        Con($Check,$Query,$Preferences); 
 
 ?>

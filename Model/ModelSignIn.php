@@ -33,6 +33,20 @@
             $n = $Req -> fetch();
             $_SESSION['id'] = $n[0];
             $_SESSION['status_u'] = $n[1];
+            $Req = $Bdd -> prepare("SELECT ID_user FROM preferences WHERE ID_user LIKE :user");
+            $Req->bindParam(':user',$_SESSION['id'],PDO::PARAM_STR);
+            $Req->execute();
+            if($Req->rowCount() > 0)
+            {
+                return true;
+                //$test = "oui";
+            }
+            else
+            {
+                return false;
+                //$test = "non";
+            }
+            //return $test;
         }
     }
 
@@ -40,7 +54,7 @@
     
     function ConBDD ($Check)
     {
-        if($Check == 1 )
+        if($Check == 1 && $_SESSION['status_u'] != "ban")
         {
             require("Model/ModelNewPDO.php");
             $ID = $_SESSION['id'];
