@@ -5,7 +5,7 @@
     
     <body>
         <?php
-            
+             
             require("View/ViewBanner.php"); 
 
 
@@ -28,13 +28,23 @@
                 else if ($_GET['Request']=='Ajouter une recette')
                 {
                     echo("<p>Créer une recette</p>
+                    <form action='Index.php' method='get'>
                     <p>image : <input id='get_compte' type='text' name='img' value=''></p>
                     <p> Nom de la recette : <input id='get_compte' type='text' name='name' value=''></p>
                     <p> Aliments : <input id='get_compte' type='text' name='food' value=''></p>
-                    <p> Temps de préparation : <input id='get_compte' type='text' name='time' value=''></p>
-                    <p> Origine de la recette : <input id='get_compte' type='text' name='origin' value=''></p>
+                    <p> Temps de préparation : <input id='get_compte' type='number' name='time' value='' min=1></p>
+
+                    <p>Origine de la recette : <select name='origine'>
+                            <option value=''>--Choisissez une origine--</option>");
+                            for($i = 0 ; $i < count($Origines[0]) ; $i++)
+                            {
+                                echo("<option value=".$Origines[0][$i].">".$Origines[1][$i]."</option>"); 
+                            }                
+                            echo("</select></p>
+
+                    
                     <p> Recette : <br><TEXTAREA name='text' rows=4 cols=40></TEXTAREA></p>
-                    <p><form action='Index.php' method='get'>
+                    <p>
                     <input type='hidden' name='page' value='Recette'>
                     <br><input type='submit' name='Request'value='Valider'></form>");
 
