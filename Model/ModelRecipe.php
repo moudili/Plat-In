@@ -14,6 +14,42 @@
         return $Origins;
     }
 
+    function Food()
+    {
+        require('Model\ModelNewPDO.php');
+        $Req = $Bdd -> prepare("SELECT ID_food, food_name FROM foods ORDER BY food_name");
+        $Req -> execute();
+        $Foods = array(array(),array());
+        while($n = $Req -> fetch())
+        {
+            array_push($Foods[0], $n[0]);
+            array_push($Foods[1], $n[1]);               
+        }
+        return $Foods;
+    }
+
+    function InsertFood($Menu)
+    {
+        if (!empty($_GET['Request']) AND $_GET['Request']=='Valider')
+        {
+            require('Model\ModelNewPDO.php');
+            $Req = $Bdd -> prepare("SELECT MAX(ID_recipes) FROM recipes");
+            $Req -> execute();
+            $n=$Req -> fetch();
+            $Max=$n[0];
+            echo($Max);
+            for ($i=0;$i<$Menu;$i++)
+            {
+                echo($_GET['food'.$i]);
+                $Req = $Bdd -> prepare("INSERT INTO `ingredients` (`ID_recipes`, `ID_food`) 
+                VALUES (:recipe, :name_f)");
+                $Req -> bindParam(':recipe',$Max,PDO::PARAM_INT);
+                $Req -> bindParam(':name_f',$_GET['food'.$i],PDO::PARAM_INT);
+                $Req -> execute();
+            }
+        }
+    }
+
     function InsertRecipe()
     {
         if (!empty($_GET['Request']) AND $_GET['Request']=='Valider')
