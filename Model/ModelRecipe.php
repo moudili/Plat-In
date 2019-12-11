@@ -1,5 +1,21 @@
 <?php
 
+    function Recipe()
+    {
+        require('Model\ModelNewPDO.php');
+        $Req = $Bdd -> prepare("SELECT name_r,text,date_r,cooking_time FROM recipes ORDER BY name_r");
+        $Req -> execute();
+        $Recipes = array(array(),array(),array(),array());
+        while($n = $Req -> fetch())
+        {
+            array_push($Recipes[0], $n[0]);
+            array_push($Recipes[1], $n[1]); 
+            array_push($Recipes[2], $n[2]);
+            array_push($Recipes[3], $n[3]);               
+        }
+        return $Recipes;
+    }
+
     function Origin()
     {
         require('Model\ModelNewPDO.php');
@@ -28,7 +44,7 @@
         return $Foods;
     }
 
-    function InsertFood($Menu)
+    /*function InsertFood($Menu)
     {
         if (!empty($_GET['Request']) AND $_GET['Request']=='Valider')
         {
@@ -37,7 +53,6 @@
             $Req -> execute();
             $n=$Req -> fetch();
             $Max=$n[0];
-            echo($Max);
             for ($i=0;$i<$Menu;$i++)
             {
                 echo($_GET['food'.$i]);
@@ -48,9 +63,9 @@
                 $Req -> execute();
             }
         }
-    }
+    }*/
 
-    function InsertRecipe()
+    function InsertRecipe($Menu)
     {
         if (!empty($_GET['Request']) AND $_GET['Request']=='Valider')
         {
@@ -81,6 +96,18 @@
                 $Req -> bindParam(':origin',$Origin,PDO::PARAM_INT);
                 $Req -> bindParam(':user',$User1,PDO::PARAM_INT);
                 $Req -> execute();
+                $Req = $Bdd -> prepare("SELECT MAX(ID_recipes) FROM recipes");
+                $Req -> execute();
+                $n=$Req -> fetch();
+                $Max=$n[0];
+                for ($i=0;$i<$Menu;$i++)
+                {
+                    $Req = $Bdd -> prepare("INSERT INTO `ingredients` (`ID_recipes`, `ID_food`) 
+                    VALUES (:recipe, :name_f)");
+                    $Req -> bindParam(':recipe',$Max,PDO::PARAM_INT);
+                    $Req -> bindParam(':name_f',$_GET['food'.$i],PDO::PARAM_INT);
+                    $Req -> execute();
+                }
             }
 
             return $CheckForm;

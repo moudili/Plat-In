@@ -3,12 +3,12 @@
     {
         if(!empty($_GET['Request']))
         {
-            if($_GET['Request'] == "Ajouter")
+            if($_GET['Request'] == "Valider")
             {
                 $CheckMenu = "true";
                 for($i = 0 ; $i < $_GET['Menu'] ; $i++)
                 {
-                    if(empty($_GET['Kind'.$i]))
+                    if(empty($_GET['food'.$i]))
                     {
                         $CheckMenu = "void";
                         break;
@@ -17,7 +17,7 @@
                     $Check = 0;
                     for($j = 0 ; $j < $_GET['Menu'] ; $j++)
                     {
-                        if($_GET['Kind'.$i] == $_GET['Kind'.$j])
+                        if($_GET['food'.$i] == $_GET['food'.$j])
                         {
                             $Check++ ;
                         }
@@ -67,7 +67,9 @@
     $Menu=ManageMenu();
     $Origines=Origin();
     $Foods=Food();
-    $CheckForm=InsertRecipe();
-    InsertFood($Menu);
+    $CheckForm=InsertRecipe($Menu);
+    $CheckMenu=CheckMenu();
+    //InsertFood($Menu);
+    $Recipes=Recipe();
     require("View/ViewRecipe.php");
 ?>     
