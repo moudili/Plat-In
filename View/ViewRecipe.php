@@ -13,7 +13,22 @@
             {
                 echo("<div class='text-center mt-5'>
                 Veuillez vous <a href='Index.php?page=Inscription'> inscrire</a> ou 
-                vous <a href='Index.php?page=Connexion'> connecter</a> pour ajouter des recettes");   
+                vous <a href='Index.php?page=Connexion'> connecter</a> pour ajouter des recettes");
+                echo("<div class='text-center mt-5'>
+                    <form action='Index.php' method='get'>
+                    <input type='hidden' name='Menu' value=1>
+                    <input type='submit' name='Request' value='Ajouter une recette'>
+                    </br></br>
+                    <input type='hidden' name='page' value='Recette'>
+                    <table border=4 align='center'>
+                    <p>Recettes");
+                    for ($i=0;$i<count($Recipes[0]);$i++)
+                    {
+                        echo("<tr><td><p>".$Recipes[0][$i]."</p>
+                        <p>Créer par : ".$Recipes[5][$i]."</td>
+                        </tr></p>");
+                    }
+                    echo("</table></form>");   
             } 
             else if ($_SESSION['Co']!=false)
             {
@@ -25,13 +40,32 @@
                     <input type='submit' name='Request' value='Ajouter une recette'>
                     </br></br>
                     <input type='hidden' name='page' value='Recette'>
-                    <table border");
+                    </form>
+                    <table border=4 align='center'>
+                    <p>Recettes");
                     for ($i=0;$i<count($Recipes[0]);$i++)
                     {
-                        echo("<tr><td><p>Nom de la recette </td><td>".$Recipes[0][$i]." 
-                        <input type='submit' name='Request' value='Supprimer'></td></tr></p>");
+                        if ($Recipes[4][$i]==$_SESSION['id'])
+                        {
+                            echo("<form action='Index.php' method='get'>
+                            <tr><td><p>".$Recipes[0][$i]."</p>
+                            <p>Créer par : ".$Recipes[5][$i]."</td>
+                            <td><input type='submit' name='Request' value='Afficher'></br>
+                            <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
+                            <input type='hidden' name='page' value='Recette'>
+                            <input type='submit' name='Request' value='Supprimer'></td></tr></p>
+                            </form>");   
+                        } 
+                        else 
+                        {
+                            echo("<form action='Index.php' method='get'>
+                            <tr><td><p>".$Recipes[0][$i]."</p>
+                            <p>Créer par : ".$Recipes[5][$i]."</td>
+                            <td><input type='submit' name='Request' value='Afficher'></td></tr></p>
+                            </form>");
+                        }
                     }
-                    echo("</table></form>");
+                    echo("</table>");
                 } 
                 else if ($_GET['Request']=='Ajouter une recette')
                 {
@@ -137,10 +171,20 @@
                 }
                 else if ($_GET['Request']=='Valider')
                 {
-                    if (empty($_GET['name']) 
-                    OR empty($_GET['food0']) 
-                    OR empty($_GET['time'])
-                    OR empty($_GET['origine']) OR $CheckForm!=0)
+                    if (!empty($_GET['name']) 
+                    AND !empty($_GET['food0']) 
+                    AND !empty($_GET['time'])
+                    AND !empty($_GET['origine'])
+                    AND !empty($_GET['text']))
+                    {
+                        echo("<div class='text-center mt-5'>
+                        Votre recette est maintenant en ligne !");
+                        echo("<p><form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Recette'>
+                        <input type='hidden' name='succes' value='reussi'>
+                        <br><input type='submit' value='Retour'></form>");
+                    }
+                    else
                     {
                         echo("<div class='text-center mt-5'>
                         Votre recette n'as pas pu être mise en ligne !<br></br>");
@@ -173,6 +217,7 @@
                                 echo("<br><br>");
                             }
                         }
+
                         echo("<input type='hidden' name='Menu' value=".$Menu.">
                         <input type='submit' name='Request' value='+'>");
 
@@ -183,9 +228,9 @@
 
                         echo("</p></p>
                         <p> Temps de préparation : <input id='get_compte' type='number' name='time' value='".$_GET['time']."' min=1></p>
-
                         <p>Origine de la recette : <select name='origine'>
                                 <option value=''>--Choisissez une origine--</option>");
+
                                 for($i = 0 ; $i < count($Origines[0]) ; $i++)
                                 {
                                     if($Origines[0][$i] == $_GET['origine'])
@@ -196,13 +241,13 @@
                                     {
                                         echo("<option value=".$Origines[0][$i].">".$Origines[1][$i]."</option>"); 
                                     }
-                                }                
-                                echo("</select></p>
+                                }      
 
-                        
+                        echo("</select></p>
                         <p> Recette : <br><TEXTAREA name='text' rows=4 cols=40></TEXTAREA></p>
                         <p>
                         <input type='hidden' name='page' value='Recette'>");
+
                         if(strlen($_GET['name']) < 3)
                         {
                             echo("<FONT color='red'>Le nom de votre recette est trop petite<br><br></FONT>");
@@ -227,26 +272,41 @@
                         {
                             echo("<FONT color='red'>Veuillez séléctionner une valeur dans chacun des formulaires</FONT><br><br>");
                         } 
+                        else if (empty($_GET['time']))
+                        {
+                            echo("<FONT color='red'>Veuillez entrer un temps de préparation à votre recette.</FONT><br><br>");
+                        }
                         else if (empty($_GET['origine']))
                         {
                             echo("<FONT color='red'>Veuillez entrer une origine à votre recette.</FONT><br><br>");
-                        }
-                        
+                        }   
+                        else if (empty($_GET['text']))
+                        {
+                            echo("<FONT color='red'>Veuillez entrer une description de votre recette.</FONT><br><br>");
+                        }                        
                         echo("<br><input type='submit' name='Request'value='Valider'></form>");
-
-
                         echo("<p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Recette'>
                         <br><input type='submit' value='Retour'></form>");
-                        }
-                    else
+                    }
+                }
+                else if ($_GET['Request']=='Afficher')
+                {
+                    for ($i=0;$i<count($Recipes[0]);$i++)
                     {
-                        echo("<div class='text-center mt-5'>
-                        Votre recette est maintenant en ligne !");
-                        echo("<p><form action='Index.php' method='get'>
-                        <input type='hidden' name='page' value='Recette'>
-                        <input type='hidden' name='succes' value='reussi'>
-                        <br><input type='submit' value='Retour'></form>");
+                        if ($Recipes[6][$i]==$_GET['id'])
+                        {
+                            echo("<div class='text-center mt-5'>
+                            <form action='Index.php' method='get'>
+                            <p align=center>".$Recipes[0][$i]."</p>
+                            <p align=center>Date de création : ".$Recipes[2][$i]."</p>
+                            <p align=center>Temps de préparation : ".$Recipes[3][$i]."</p>
+                            <p align=center>Créer par : ".$Recipes[5][$i]."</p>
+                            <p align=center> Description : ".$Recipes[1][$i]."</p>
+                            <input type='hidden' name='page' value='Recette'>
+                            <br><input type='submit' value='Retour'>
+                            </form>");
+                        }
                     }
                 }
             }

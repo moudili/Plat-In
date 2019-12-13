@@ -37,14 +37,13 @@
     function ManageMenu()
     {
         if(!empty($_GET['Request'])
+        AND $_GET['Request']!='Afficher'
         )
         {
             
             if($_GET['Request'] == "+")
             {
-                //echo($_GET['Menu']);
                 $Menu = $_GET['Menu'] + 1;
-                //echo($Menu);
                 return $Menu;
             }
             else if($_GET['Request'] == "-")
@@ -69,7 +68,6 @@
     $Foods=Food();
     $CheckForm=InsertRecipe($Menu);
     $CheckMenu=CheckMenu();
-    //InsertFood($Menu);
     $Recipes=Recipe();
     require("View/ViewRecipe.php");
 ?>     
