@@ -24,7 +24,49 @@
         require('Model/ModelSocial.php');
         $Search = SearchUser($User);
         
-        require("View/ViewSocial.php");    
+        var_dump($_SESSION);
+
+
+
+
+
+        if($_GET['Request'] == "Search")
+        {
+            if ($_GET['Answer']=='Oui')
+            {
+                echo("oui");
+                RequestToBeFriend();
+
+            }
+            elseif ($_GET['Answer']=='Non') 
+            {
+                echo("non");
+            }
+
+        }elseif ($_GET['Request'] == "Amis")
+        {
+            $Myfriends = MyFriend();
+            if ($_GET['Answer'] == 'Oui') 
+            {
+                echo("oui");
+                DeleteFriend();
+
+                
+            }
+            elseif ($_GET['Answer'] == 'Non')
+            {
+                
+            }
+            
+        }
+
+
+    require("View/ViewSocial.php"); 
     }
+
+
+
+
+
 ?>
        
