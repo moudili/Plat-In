@@ -88,13 +88,35 @@
         }
     }
 
-    function redirect($Check1,$Check2)
+    function CheckSubMenu3($DataCheck3)
     {
-        if($Check1 == "true" && $Check2 == "true")
+        if(!empty($_GET['Request']))
+        {
+            $Check3 = "true";
+            for($i = 0 ; $i < count($DataCheck3) ; $i++)
+            {
+                for($j = 0 ; $j < 3 ; $j++)
+                {
+                    if($DataCheck3[$i] == $_GET['Food'.$j])
+                    {
+                        $Check3 = "false";
+                        break;
+                    }
+                }
+            }
+            return $Check3;
+        }
+    }
+
+    function redirect($Check1,$Check2,$Check3)
+    {
+        if($Check1 == "true" && $Check2 == "true" && $Check3 == "true")
         {
             header("Location:../Index.php");
         }
     }
+    require('../Controller/ControllerStaple.php');
+    CheckSesion();
 
     require('../Model/ModelPreferences.php');
     $PrintDiet = PrintDiet();
@@ -102,6 +124,9 @@
     $Menu = CheckMenu();
     $CheckMenu1 = CheckSubMenu1();
     $CheckMenu2 = CheckSubMenu2();
-    redirect($CheckMenu1,$CheckMenu2);
+    $DataCheck3 =  DataCheck3($CheckMenu1,$CheckMenu2);
+    $CheckMenu3 = CheckSubMenu3($DataCheck3);
+    Preferences($CheckMenu1,$CheckMenu2,$CheckMenu3);
+    redirect($CheckMenu1,$CheckMenu2,$CheckMenu3);
     require('../View/ViewPreferences.php');
 ?>

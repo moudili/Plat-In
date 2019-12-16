@@ -44,7 +44,7 @@
                 }
                 echo"<input type='submit' name='Request' value='+' >
                 <input type='hidden' name='Menu' value= ".$Menu." ><br><br>
-                Choississez vos trois aliments préférés:<br><br>";
+                Choississez vos trois catégories alimentaires préférés:<br><br>";
             
                 for($j = 0 ; $j < 3 ; $j++)
                 {
@@ -74,11 +74,15 @@
                 }
                 else if($_GET['Request'] == 'Valider' && $CheckMenu2 == "void")
                 {
-                    echo "<br><br><FONT color='red'>Vous devez séléctionner un aliment pour chaque menu déroulant</FONT>";
+                    echo "<br><br><FONT color='red'>Vous devez séléctionner une catégorie alimentaire pour chaque menu déroulant</FONT>";
                 }
                 else if($_GET['Request'] == 'Valider' && $CheckMenu2 == "double")
                 {
-                    echo "<br><br><FONT color='red'>Vous ne pouvez pas séléctionner plusieurs fois le même aliment</FONT>";
+                    echo "<br><br><FONT color='red'>Vous ne pouvez pas séléctionner plusieurs fois la même catégorie alimentaire</FONT>";
+                }
+                else if($_GET['Request'] == 'Valider' && $CheckMenu3 == "false")
+                {
+                    echo "<br><br><FONT color='red'>Vous avez sélectionné un régime alimentaire et une catégorie aliemntaire incompatibles</FONT>";
                 }
 
                 echo "<br><br><input type='submit' name='Request' value='Valider'></form>
@@ -101,7 +105,7 @@
             <input type='submit' name='Request' value='+'>
             <input type='hidden' name='Menu' value= 1 >
 
-            <br><br>Choississez vos trois aliments préférés:<br><br>";
+            <br><br>Choississez vos trois catégories alimentaires préférés:<br><br>";
             
             for($j = 0 ; $j < 3 ; $j++)
             {
