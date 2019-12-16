@@ -28,11 +28,13 @@ CREATE TABLE IF NOT EXISTS `Plat_In`.`foods` (
   PRIMARY KEY (`ID_food`))
 ENGINE = InnoDB;
 
+
 CREATE TABLE IF NOT EXISTS `Plat_In`.`kinds_of_food` (
   `ID_kind_of_food` INT NOT NULL AUTO_INCREMENT,
   `name_k` VARCHAR(45) NULL,
   PRIMARY KEY (`ID_kind_of_food`))
 ENGINE = InnoDB;
+
 
 CREATE TABLE IF NOT EXISTS `Plat_In`.`food_categories` (
   `ID_food_categorie` INT NOT NULL AUTO_INCREMENT,
@@ -70,12 +72,18 @@ CREATE TABLE IF NOT EXISTS `Plat_In`.`preferences` (
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `Plat_In`.`friends` (
-  `ID_friend` INT NOT NULL AUTO_INCREMENT,
-  `ID_user` INT NOT NULL,
-  `status_f` ENUM('accepted', 'requested', 'blocked') NULL,
-  PRIMARY KEY (`ID_friend`),
-  CONSTRAINT `fk_friends_users1`
-    FOREIGN KEY (`ID_user`)
+  `ID__friend` INT NOT NULL AUTO_INCREMENT,
+  `ID_user_sender` INT NOT NULL,
+  `status_f` ENUM('friend', 'requested', 'blocked') NULL,
+  `ID_user_receiver` INT NOT NULL,
+  PRIMARY KEY (`ID__friend`),
+  CONSTRAINT `fk_users_has_users_users1`
+    FOREIGN KEY (`ID_user_sender`)
+    REFERENCES `Plat_In`.`users` (`ID_user`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_users_has_users_users2`
+    FOREIGN KEY (`ID_user_receiver`)
     REFERENCES `Plat_In`.`users` (`ID_user`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
@@ -120,11 +128,11 @@ CREATE TABLE IF NOT EXISTS `Plat_In`.`recipes` (
   `picture` BLOB NULL,
   `date_r` DATE NULL,
   `cooking_time` TIME NULL,
-  `ID_origin` INT NOT NULL,
+  `ID_origins` INT NOT NULL,
   `ID_user` INT NOT NULL,
   PRIMARY KEY (`ID_recipes`),
   CONSTRAINT `fk_recipes_origins1`
-    FOREIGN KEY (`ID_origin`)
+    FOREIGN KEY (`ID_origins`)
     REFERENCES `Plat_In`.`origins` (`ID_origin`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
@@ -207,6 +215,24 @@ CREATE TABLE IF NOT EXISTS `Plat_In`.`can_t_eat` (
   CONSTRAINT `fk_diets_has_kinds_of_food_kinds_of_food1`
     FOREIGN KEY (`ID_kind_of_food`)
     REFERENCES `Plat_In`.`kinds_of_food` (`ID_kind_of_food`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `Plat_In`.`friends` (
+  `ID__friend` INT NOT NULL,
+  `ID_user_sender` INT NOT NULL,
+  `status_f` ENUM('friend', 'requested', 'blocked') NULL,
+  `ID_user_receiver` INT NOT NULL,
+  PRIMARY KEY (`ID__friend`),
+  CONSTRAINT `fk_users_has_users_users1`
+    FOREIGN KEY (`ID_user_sender`)
+    REFERENCES `Plat_In`.`users` (`ID_user`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_users_has_users_users2`
+    FOREIGN KEY (`ID_user_receiver`)
+    REFERENCES `Plat_In`.`users` (`ID_user`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
