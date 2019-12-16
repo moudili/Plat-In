@@ -123,4 +123,47 @@
         }
     }
 
+    function ModifRecipes($Menu2)
+    {
+        if (!empty($_GET['RequestModif']) AND $_GET['RequestModif']=='Confirmation')
+        {
+            if (!empty($_GET['name']) 
+            AND !empty($_GET['food1']) 
+            AND !empty($_GET['time'])
+            AND !empty($_GET['origine'])
+            AND !empty($_GET['text']))
+            {
+                $Name=$_GET['name'];
+                $Text=$_GET['text'];
+                $Time=$_GET['time'];
+                $Origin=$_GET['origine'];
+                $Id=$_GET['id'];
+
+                require('Model\ModelNewPDO.php');
+
+                $Req = $Bdd -> prepare("UPDATE `recipes` SET `name_r` = :name_r, `text` = :texte, `date_r`=NOW(), `cooking_time`=:time_r WHERE `recipes`.`ID_recipes` = :id;");
+                $Req -> bindParam(':name_r',$Name,PDO::PARAM_STR);
+                $Req -> bindParam(':texte',$Text,PDO::PARAM_STR);
+                $Req -> bindParam(':time_r',$Time,PDO::PARAM_INT);
+                $Req -> bindParam(':id',$Id,PDO::PARAM_INT);
+                $Req -> execute(); 
+
+                $Req2 = $Bdd -> prepare("DELETE FROM `ingredients` WHERE `ingredients`.`ID_recipes` = :resultat");
+                $Req2 -> bindParam(':resultat',$Id,PDO::PARAM_INT);
+                $Req2 -> execute();
+
+                for ($i=0;$i<$Menu2;$i++)
+                {
+
+                    $Req = $Bdd -> prepare("INSERT INTO `ingredients` (`ID_recipes`, `ID_food`) 
+                    VALUES (:recipe, :name_f)");
+                    $Req -> bindParam(':recipe',$Id,PDO::PARAM_INT);
+                    $Req -> bindParam(':name_f',$_GET['food'.$i],PDO::PARAM_INT);
+                    $Req -> execute();
+                }
+            }
+            
+        }
+    }
+
 ?>
