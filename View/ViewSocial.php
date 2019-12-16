@@ -14,6 +14,10 @@
         <input type='hidden' name='page' value='Sociale'>
         <input type='hidden' name='Request' value='Amis'>
         <input type='submit' value="Amis"></form>
+        <form action='Index.php' method='get'>
+        <input type='hidden' name='page' value='Sociale'>
+        <input type='hidden' name='Request' value="Demande amis">
+        <input type='submit' value="Demande d'amis"></form>
         
 
         <div class="text-center mt-5">
@@ -48,11 +52,15 @@
 
                             }
 
-                            echo "<form action='Index.php' method='get'>
+                            echo "
+                            <form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Sociale'>
                             <input type='hidden' name='User' value='".$Search[1][$i]."'>
                             <input type='hidden' name='id' value='".$Search[0][$i]."'>
                             <input type='submit' name='Request' value='Ajouter un ami'></form>
+                            ";
+
+                            echo"
                             <form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Sociale'>
                             <input type='hidden' name='User' value='".$Search[1][$i]."'>
@@ -98,12 +106,8 @@
                 {
 
                     foreach ($Myfriends as $Myfriend) {
-                        var_dump($Myfriend);
-                        echo("<br> <br>");
 
                     echo ($Myfriend["user"]);
-
-
                     echo("
                     <p><form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Sociale'>
@@ -113,18 +117,16 @@
                     <input type='hidden' name='User' value='".$Myfriend["user"]."'>
 
                     <br><input type='submit' name='' value='Supprimer'></form>
-                    
-                    
-                    
-                    
-                    
+
                     <br> <br>");
 
 
 
                     }
             
-                }elseif ($_GET['Request'] == "Supprimer un ami") {
+                }
+                elseif ($_GET['Request'] == "Supprimer un ami")
+                {
 
                     if (empty($_GET['Answer'])) {
                         
@@ -136,6 +138,57 @@
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Sociale'>
                         <input type='hidden' name='Request' value='Amis'>
+                     
+                        <input type='hidden' name='User' value='".$_GET['User']."'>
+                        <input type='hidden' name='id' value='".$_GET['id']."'>
+                        <br><input type='submit' name='Answer' value='Oui'></form>
+                        
+                        
+                        <p><form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Sociale'>
+                        <input type='hidden' name='Request' value='Amis'>
+                        <br><input type='submit' name='Answer' value='Non'></form>
+                        ");
+                    }
+                }
+                elseif ($_GET['Request'] == "Demande amis")
+                {
+                    foreach ($MesRequetes as $Requete) {
+                    echo ($Requete["user"]);
+
+                    echo("
+                    <p><form action='Index.php' method='get'>
+                    <input type='hidden' name='page' value='Sociale'>
+                    <input type='hidden' name='Request' value='Accepter ami'>
+                 
+                    <input type='hidden' name='id' value='".$Requete["ID"]."'>
+                    <input type='hidden' name='User' value='".$Requete["user"]."'>
+
+                    <br><input type='submit' name='' value='Accepter'></form>
+                    
+                    
+                    
+                    
+                    
+                    <br> <br>");
+
+                 }
+                
+                
+                }
+                elseif ($_GET['Request'] == "Accepter ami")
+                {
+
+                    if (empty($_GET['Answer'])) {
+                        
+                        echo("
+                        Voulez-vous accepter  ".$_GET['User']." à votre liste d'ami ?
+                        
+                        
+    
+                        <p><form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Sociale'>
+                        <input type='hidden' name='Request' value='Demande amis'>
                      
                         <input type='hidden' name='User' value='".$_GET['User']."'>
                         <input type='hidden' name='id' value='".$_GET['id']."'>

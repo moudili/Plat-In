@@ -32,9 +32,9 @@
 
         if($_GET['Request'] == "Search")
         {
+            $Myfriends = MyFriend();
             if ($_GET['Answer']=='Oui')
             {
-                echo("oui");
                 RequestToBeFriend();
 
             }
@@ -48,16 +48,29 @@
             $Myfriends = MyFriend();
             if ($_GET['Answer'] == 'Oui') 
             {
-                echo("oui");
                 DeleteFriend();
-
                 
+                                
             }
             elseif ($_GET['Answer'] == 'Non')
             {
                 
             }
             
+        }
+        elseif ($_GET['Request'] == "Demande amis") {
+        
+            $MesRequetes = ShowRequest();
+            if ($_GET['Answer'] == 'Oui') 
+            {
+                echo("oui");
+                AcceptRequest();
+                                
+            }
+            elseif ($_GET['Answer'] == 'Non')
+            {
+                
+            }
         }
 
 

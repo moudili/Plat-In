@@ -60,13 +60,38 @@
     function DeleteFriend()
     {
         require("Model/ModelNewPDO.php");
-        
-
-
-
+        $Req = $Bdd -> prepare("DELETE FROM friends WHERE (ID_user_receiver = :ID_user AND ID_user = :ID_user_server ) 
+                                                       OR (ID_user_receiver = :ID_user_server AND ID_user = :ID_user )");
+        $Req -> bindParam(':ID_user_server',$_SESSION['id'],PDO::PARAM_INT);
+        $Req -> bindParam(':ID_user',$_GET['id'],PDO::PARAM_INT);
+        $Req -> execute();
 
 
     }
 
+    function ShowRequest()
+    {
+        require("Model/ModelNewPDO.php");
+        $Req = $Bdd -> prepare("SELECT DISTINCT T1.ID, user FROM (
+            SELECT ID_user AS ID FROM Plat_In.friends WHERE (ID_user_receiver = :ID_user  AND status_f = 'requested')
+            ) AS T1
+            INNER JOIN Plat_In.users ON T1.ID = ID_user
+            ;");
+            $Req -> bindParam(':ID_user',$_SESSION['id'],PDO::PARAM_INT);
+        $Req -> execute();
+        $Mesrequetes = $Req -> fetchall();
+        return $Mesrequetes;
+        
+    }
+
+    Function AcceptRequest()
+    {
+        require("Model/ModelNewPDO.php");
+        $Req = $Bdd -> prepare("UPDATE friends SET status_f = 'accepted' WHERE ID_user_receiver = :ID_user AND id_user = :ID_sender AND status_f = 'requested'");
+        $Req -> bindParam(':ID_user',$_SESSION['id'],PDO::PARAM_INT);
+        $Req -> bindParam(':ID_sender',$_GET['id'],PDO::PARAM_INT);
+        $Req -> execute();
+    
+    }
 
 ?>
