@@ -53,6 +53,8 @@
                             <td><input type='submit' name='Request' value='Afficher'></br>
                             <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
                             <input type='hidden' name='page' value='Recette'>
+                            <input type='submit' name='Request' value='Modifier'>
+                            <input type='hidden' name='Menu' value=1>
                             <input type='submit' name='Request' value='Supprimer'></td></tr></p>
                             </form>");   
                         } 
@@ -61,7 +63,9 @@
                             echo("<form action='Index.php' method='get'>
                             <tr><td><p>".$Recipes[0][$i]."</p>
                             <p>Créer par : ".$Recipes[5][$i]."</td>
-                            <td><input type='submit' name='Request' value='Afficher'></td></tr></p>
+                            <td><input type='submit' name='Request' value='Afficher'>
+                            <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
+                            <input type='hidden' name='page' value='Recette'></td></tr></p>
                             </form>");
                         }
                     }
@@ -306,7 +310,78 @@
                             <input type='hidden' name='page' value='Recette'>
                             <br><input type='submit' value='Retour'>
                             </form>");
+                        } 
+                    }
+                }
+                else if ($_GET['Request']=='Modifier')
+                {
+                    if (empty($_GET['RequestModif']))
+                    {
+                        for ($i=0;$i<count($Recipes[0]);$i++)
+                        {
+                            if ($Recipes[6][$i]==$_GET['id'])
+                            {
+                                echo("<div class='text-center mt-5'>
+                                    <form action='Index.php' method='get'>
+                                    <p align=center><input type='texte' name='name' value='".$Recipes[0][$i]."'></p>
+                                    <p align=center>
+                                    Votre recette contenait le ou les aliments suivants : ");
+                                    for ($j=0;$j<count($NewFoods[0]);$j++)
+                                    {
+                                        echo($NewFoods[2][$j]." ");
+                                    }
+                                    echo("</p>
+                                    <p align=center>Aliment(s) : ");
+                                    echo("<select name='food'> 
+                                    <option value=''>--Choisissez un aliment--</option>");
+                                    for($j = 0 ; $j < count($Foods[0]) ; $j++)
+                                    {
+                                        echo("<option value=".$Foods[0][$j].">".$Foods[1][$j]."</option>"); 
+                                    }       
+                                    echo("<input type='hidden' name='Menu' value=".$Menu.">
+                                    <input type='hidden' name='page' value='Recette'>
+                                    <input type='hidden' name='Request' value='Modifier'>
+                                    <input type='submit' name='RequestModif' value='+'>");
+
+                                    if( $Menu > 1 )
+                                    {
+                                        echo("
+                                        <input type='hidden' name='Request' value='Modifier'>
+                                        <input type='submit' name='RequestModif' value='-'>");
+                                    }
+                                    echo("</select></p>
+                                    <p align=center>Date de création : ".$Recipes[2][$i]."</p>
+                                    <p align=center>Temps de préparation : <input type='texte' name='time' value='".$Recipes[3][$i]."'></p>
+                                    <p align=center>Créer par : ".$Recipes[5][$i]."</p>
+                                    Origine de la recette : <select name='origine'>
+                                    <option value=''>--Choisissez une origine--</option>");
+                                    for($j = 0 ; $j < count($Origines[0]) ; $j++)
+                                    {
+                                        if($Origines[0][$j] == $Recipes[7][$i])
+                                        {
+                                            echo("<option selected='selected' value=".$Origines[0][$j].">".$Origines[1][$j]."</option>");
+                                        }
+                                        else
+                                        {
+                                            echo("<option value=".$Origines[0][$j].">".$Origines[1][$j]."</option>"); 
+                                        }
+                                    }                
+                                    echo("</select></p>
+                                    <p align=center> Description : <TEXTAREA name='text' rows=4 cols=40>".$Recipes[1][$i]."</TEXTAREA></p>
+                                    <input type='hidden' name='page' value='Recette'>
+                                    <br><input type='submit' value='Confirmation'>
+                                    </form>
+                                    <form action='Index.php' method='get'>
+                                    <input type='hidden' name='page' value='Recette'>
+                                    <input type='submit' value='Retour'>
+                                    </form>");
+                            }
                         }
+                    }
+                    else if ($_GET['RequestModif'] == "+"
+                    || $_GET['RequestModif'] == "-")
+                    {
+
                     }
                 }
             }

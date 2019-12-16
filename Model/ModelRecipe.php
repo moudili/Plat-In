@@ -3,9 +3,9 @@
     function Recipe()
     {
         require('Model\ModelNewPDO.php');
-        $Req = $Bdd -> prepare("SELECT R.name_r,R.text,R.date_r,R.cooking_time,R.ID_user,U.user,R.ID_recipes FROM recipes R JOIN users U WHERE R.ID_user LIKE U.ID_user ORDER BY R.name_r");
+        $Req = $Bdd -> prepare("SELECT R.name_r,R.text,R.date_r,R.cooking_time,R.ID_user,U.user,R.ID_recipes,R.ID_origin FROM recipes R JOIN users U WHERE R.ID_user LIKE U.ID_user ORDER BY R.name_r");
         $Req -> execute();
-        $Recipes = array(array(),array(),array(),array(),array(),array(),array());
+        $Recipes = array(array(),array(),array(),array(),array(),array(),array(),array());
         while($n = $Req -> fetch())
         {
             array_push($Recipes[0], $n[0]);
@@ -15,6 +15,7 @@
             array_push($Recipes[4], $n[4]);
             array_push($Recipes[5], $n[5]);
             array_push($Recipes[6], $n[6]);
+            array_push($Recipes[7], $n[7]);
         }
         return $Recipes;
     }
@@ -45,6 +46,25 @@
             array_push($Foods[1], $n[1]);               
         }
         return $Foods;
+    }
+
+    function ModifFood()
+    {
+        if (!empty($_GET['Request']) AND $_GET['Request']=='Modifier')
+        {
+            require('Model\ModelNewPDO.php');
+            $Req = $Bdd -> prepare("SELECT I.ID_recipes,I.ID_food, F.food_name FROM ingredients I JOIN foods F WHERE I.ID_food LIKE F.ID_food AND I.ID_recipes LIKE :id ORDER BY food_name");
+            $Req -> bindParam(':id',$_GET['id'],PDO::PARAM_INT);
+            $Req -> execute();
+            $NewFoods = array(array(),array(),array());
+            while($n = $Req -> fetch())
+            {
+                array_push($NewFoods[0], $n[0]);
+                array_push($NewFoods[1], $n[1]);
+                array_push($NewFoods[2], $n[2]);               
+            }
+            return $NewFoods;
+        }
     }
 
     function InsertRecipe($Menu)

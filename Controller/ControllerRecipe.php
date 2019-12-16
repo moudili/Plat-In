@@ -38,6 +38,7 @@
     {
         if(!empty($_GET['Request'])
         AND $_GET['Request']!='Afficher'
+        AND $_GET['Request']!='Supprimer'
         )
         {
             
@@ -69,5 +70,6 @@
     $CheckForm=InsertRecipe($Menu);
     $CheckMenu=CheckMenu();
     $Recipes=Recipe();
+    $NewFoods=ModifFood();
     require("View/ViewRecipe.php");
 ?>     
