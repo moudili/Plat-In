@@ -128,11 +128,11 @@ CREATE TABLE IF NOT EXISTS `Plat_In`.`recipes` (
   `picture` BLOB NULL,
   `date_r` DATE NULL,
   `cooking_time` TIME NULL,
-  `ID_origins` INT NOT NULL,
+  `ID_origin` INT NOT NULL,
   `ID_user` INT NOT NULL,
   PRIMARY KEY (`ID_recipes`),
   CONSTRAINT `fk_recipes_origins1`
-    FOREIGN KEY (`ID_origins`)
+    FOREIGN KEY (`ID_origin`)
     REFERENCES `Plat_In`.`origins` (`ID_origin`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
