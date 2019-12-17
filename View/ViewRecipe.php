@@ -179,7 +179,8 @@
                     AND !empty($_GET['food0']) 
                     AND !empty($_GET['time'])
                     AND !empty($_GET['origine'])
-                    AND !empty($_GET['text']))
+                    AND !empty($_GET['text'])
+                    AND $_GET['time']>=1)
                     {
                         echo("<div class='text-center mt-5'>
                         Votre recette est maintenant en ligne !");
@@ -464,13 +465,14 @@
                     else if ($_GET['RequestModif'] == 'Confirmation')
                     {
                         if (!empty($_GET['name']) 
-                        AND !empty($_GET['food1']) 
+                        AND !empty($_GET['food0']) 
                         AND !empty($_GET['time'])
                         AND !empty($_GET['origine'])
-                        AND !empty($_GET['text']))
+                        AND !empty($_GET['text'])
+                        AND $_GET['time']>=1)
                         {
                             echo("<div class='text-center mt-5'>
-                            Votre recette est maintenant en ligne !");
+                            Votre recette est bien modifié !");
                             echo("<p><form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Recette'>
                             <input type='hidden' name='succes' value='modifier'>
@@ -545,13 +547,7 @@
                                         }                
                                         echo("</select></p>
                                         <p align=center> Description : <TEXTAREA name='text' rows=4 cols=40>".$Recipes[1][$i]."</TEXTAREA></p>
-                                        <input type='hidden' name='page' value='Recette'>
-                                        <br><input type='submit' name='RequestModif' value='Confirmation'>
-                                        </form>
-                                        <form action='Index.php' method='get'>
-                                        <input type='hidden' name='page' value='Recette'>
-                                        <input type='submit' value='Retour'>
-                                        </form>");
+                                        <input type='hidden' name='page' value='Recette'>");
                                 }
                             }
 
@@ -583,6 +579,10 @@
                             {
                                 echo("<FONT color='red'>Veuillez entrer un temps de préparation à votre recette.</FONT><br><br>");
                             }
+                            else if ($_GET['text']<=0)
+                            {
+                                echo("<FONT color='red'>Veuillez entrer une valeur au moins supérieur à 1 en temps de préparation de votre recette.</FONT><br><br>");
+                            }
                             else if (empty($_GET['origine']))
                             {
                                 echo("<FONT color='red'>Veuillez entrer une origine à votre recette.</FONT><br><br>");
@@ -591,7 +591,38 @@
                             {
                                 echo("<FONT color='red'>Veuillez entrer une description de votre recette.</FONT><br><br>");
                             }
+                            echo("<br><input type='submit' name='RequestModif' value='Confirmation'>
+                            </form>
+                            <form action='Index.php' method='get'>
+                            <input type='hidden' name='page' value='Recette'>
+                            <input type='submit' value='Retour'>
+                            </form>");
                             
+                        }
+                    }
+                }
+                else if ($_GET['Request']=='Supprimer')
+                {
+                    if (empty($_GET['RequestSupp']))
+                    {
+                        for ($i=0; $i < count($Recipes[0]);$i++)
+                        {
+                            if ($Recipes[6][$i]==$_GET['id'])
+                            {
+                                echo("<div class='text-center mt-5'>
+                                Voulez-vous vraiment supprimer la recette ".$Recipes[0][$i]." de Plat-In ?
+                                </br></br>
+                                <form action='Index.php' method='get'>
+                                <input type='hidden' name='page' value='Recette'>
+                                <input type='hidden' name='Request' value='Supprimer'>
+                                <input type='submit' name='RequestSupp' value='Oui'>
+                                </form>
+                                </br>
+                                <form action='Index.php' method='get'>
+                                <input type='hidden' name='page' value='Recette'>
+                                <input type='submit' value='Retour'>
+                                </form>");
+                            }
                         }
                     }
                 }

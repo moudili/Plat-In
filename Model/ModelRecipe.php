@@ -128,7 +128,7 @@
         if (!empty($_GET['RequestModif']) AND $_GET['RequestModif']=='Confirmation')
         {
             if (!empty($_GET['name']) 
-            AND !empty($_GET['food1']) 
+            AND !empty($_GET['food0']) 
             AND !empty($_GET['time'])
             AND !empty($_GET['origine'])
             AND !empty($_GET['text']))
