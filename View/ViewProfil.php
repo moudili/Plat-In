@@ -22,8 +22,11 @@
             echo("<form action='Index.php' method='get'>
             <input type='submit' name='modif' value='Modifier mon profil'>
             <input type='hidden' name='page' value='Profil'>
-            </form>");
-            echo("<form action='Index.php' method='get'>
+            </form>
+            <form action='Controller\ControllerPreferences.php' method='get'>
+            <input type='submit' value='Modifier mes préférences'>
+            </form>
+            <form action='Index.php' method='get'>
             <input type='hidden' name='modif' value='Supprimer mon profil'>
             <input type='submit' value='Supprimer mon compte'>
             <input type='hidden' name='page' value='Profil'>
