@@ -615,6 +615,7 @@
                                 <form action='Index.php' method='get'>
                                 <input type='hidden' name='page' value='Recette'>
                                 <input type='hidden' name='Request' value='Supprimer'>
+                                <input type='hidden' name='id' value='".$_GET['id']."'>
                                 <input type='submit' name='RequestSupp' value='Oui'>
                                 </form>
                                 </br>
@@ -624,6 +625,16 @@
                                 </form>");
                             }
                         }
+                    }
+                    else if ($_GET['RequestSupp']=='Oui')
+                    {
+                        echo("<div class='text-center mt-5'>
+                        Vous avez bien supprimé votre recette 
+                        <br>
+                        <form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Recette'>
+                        <input type='submit' value='Retour'>
+                        </form>");
                     }
                 }
             }

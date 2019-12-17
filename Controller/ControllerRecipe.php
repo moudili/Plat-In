@@ -131,5 +131,6 @@
     $Recipes=Recipe();
     $NewFoods=ModifFood();
     ModifRecipes($Menu2);
+    SuppRecipe();
     require("View/ViewRecipe.php");
 ?>     

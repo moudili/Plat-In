@@ -166,4 +166,16 @@
         }
     }
 
+    function SuppRecipe()
+    {
+        if (!empty($_GET['RequestSupp']) AND $_GET['RequestSupp']=='Oui')
+        {
+            $Id = $_GET['id'];
+            require('Model\ModelNewPDO.php');
+            $Req = $Bdd -> prepare("DELETE FROM `recipes` WHERE `recipes`.`ID_recipes` = :resultat");
+            $Req -> bindParam(':resultat',$Id,PDO::PARAM_INT);
+            $Req -> execute();
+        }
+    }
+
 ?>
