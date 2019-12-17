@@ -64,6 +64,20 @@
         if(!empty($_GET['Request']) && $_GET['Request'] == 'Valider' && $Check1 == "true" && $Check2 == "true" && $Check3 == "true")
         {
             require('../Model/ModelNewPDO.php');
+
+            $Req = $Bdd -> prepare("SELECT COUNT(ID_preference) FROM preferences WHERE ID_user LIKE :IdUser");
+            $Req -> bindParam(':IdUser',$_SESSION['id'],PDO::PARAM_INT);
+            $Req -> execute();
+            $n = $Req -> fetch();
+            $Check = $n[0];
+
+            if($Check > 0)
+            {
+                $Req = $Bdd -> prepare("DELETE FROM `preferences` WHERE `preferences`.`ID_user` = :IdUser");
+                $Req -> bindParam(':IdUser',$_SESSION['id'],PDO::PARAM_INT);
+                $Req -> execute();                
+            }
+
             for($i = 0 ; $i < $_GET['Menu'] ; $i++)
             {
                 $Req1 = $Bdd -> prepare("SELECT KF.ID_kind_of_food 
