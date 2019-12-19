@@ -53,7 +53,8 @@
         if (!empty($_GET['Request']) AND $_GET['Request']=='Modifier')
         {
             require('Model\ModelNewPDO.php');
-            $Req = $Bdd -> prepare("SELECT I.ID_recipes,I.ID_food, F.food_name FROM ingredients I JOIN foods F WHERE I.ID_food LIKE F.ID_food AND I.ID_recipes LIKE :id ORDER BY food_name");
+            $Req = $Bdd -> prepare("SELECT I.ID_recipes,I.ID_food, F.food_name FROM ingredients I 
+            JOIN foods F WHERE I.ID_food LIKE F.ID_food AND I.ID_recipes LIKE :id ORDER BY food_name");
             $Req -> bindParam(':id',$_GET['id'],PDO::PARAM_INT);
             $Req -> execute();
             $NewFoods = array(array(),array(),array());

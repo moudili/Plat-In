@@ -137,13 +137,16 @@
                             echo("<br><br>");
                         }
                     }
-                    echo("<input type='hidden' name='Menu' value=".$Menu.">
-                    <input type='submit' name='Request' value='+'>");
 
                     if( $Menu > 1 )
                     {
                         echo("<input type='submit' name='Request' value='-'>");
                     }
+
+                    echo("<input type='hidden' name='Menu' value=".$Menu.">
+                    <input type='submit' name='Request' value='+'>");
+
+
 
                     echo("</p></p>
                     <p> Temps de préparation : <input id='get_compte' type='number' name='time' value='".$_GET['time']."' min=1></p>
@@ -222,14 +225,15 @@
                                 echo("<br><br>");
                             }
                         }
-
-                        echo("<input type='hidden' name='Menu' value=".$Menu.">
-                        <input type='submit' name='Request' value='+'>");
-
                         if( $Menu > 1 )
                         {
                             echo("<input type='submit' name='Request' value='-'>");
                         }
+                        
+                        echo("<input type='hidden' name='Menu' value=".$Menu.">
+                        <input type='submit' name='Request' value='+'>");
+
+
 
                         echo("</p></p>
                         <p> Temps de préparation : <input id='get_compte' type='number' name='time' value='".$_GET['time']."' min=1></p>
