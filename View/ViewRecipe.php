@@ -11,25 +11,51 @@
 
             if ($_SESSION['Co']==false)
             {
-                echo("<div class='text-center mt-5'>
-                Veuillez vous <a href='Index.php?page=Inscription'> inscrire</a> ou 
-                vous <a href='Index.php?page=Connexion'> connecter</a> pour ajouter des recettes");
-                echo("<div class='text-center mt-5'>
-                    <form action='Index.php' method='get'>
-                    <input type='hidden' name='Menu' value=1>
-                    <input type='submit' name='Request' value='Ajouter une recette'>
-                    </br></br>
-                    <input type='hidden' name='page' value='Recette'>
-                    <table border=4 align='center'>
-                    <p>Recettes");
+                if (empty($_GET['Request']))
+                {
+                    echo("<div class='text-center mt-5'>
+                    Veuillez vous <a href='Index.php?page=Inscription'> inscrire</a> ou 
+                    vous <a href='Index.php?page=Connexion'> connecter</a> pour ajouter des recettes");
+                    echo("<div class='text-center mt-5'>
+                        <form action='Index.php' method='get'>
+                        <input type='hidden' name='Menu' value=1>
+                        </br></br>
+                        <input type='hidden' name='page' value='Recette'>
+                        <table border=4 align='center'>
+                        <p>Recettes
+                        </form>");
                     for ($i=0;$i<count($Recipes[0]);$i++)
                     {
-                        echo("<tr><td><p>".$Recipes[0][$i]."</p>
+                        echo("<form action='Index.php' method='get'>
+                        <tr><td><p>".$Recipes[0][$i]."</p>
                         <p>Créer par : ".$Recipes[5][$i]."</td>
-                        </tr></p>");
+                        <td><input type='submit' name='Request' value='Afficher'>
+                        <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
+                        <input type='hidden' name='page' value='Recette'></td>
+                        </tr></p></form>");
                     }
-                    echo("</table></form>");   
-            } 
+                    echo("</table>");  
+                } 
+                else if ($_GET['Request']=='Afficher')
+                {
+                    for ($i=0;$i<count($Recipes[0]);$i++)
+                    {
+                        if ($Recipes[6][$i]==$_GET['id'])
+                        {
+                            echo("<div class='text-center mt-5'>
+                            <form action='Index.php' method='get'>
+                            <p align=center>".$Recipes[0][$i]."</p>
+                            <p align=center>Date de création : ".$Recipes[2][$i]."</p>
+                            <p align=center>Temps de préparation : ".$Recipes[3][$i]."</p>
+                            <p align=center>Créer par : ".$Recipes[5][$i]."</p>
+                            <p align=center> Description : ".$Recipes[1][$i]."</p>
+                            <input type='hidden' name='page' value='Recette'>
+                            <br><input type='submit' value='Retour'>
+                            </form>");
+                        } 
+                    }
+                }
+            }
             else if ($_SESSION['Co']!=false)
             {
                 if (empty($_GET['Request']))
@@ -86,8 +112,16 @@
                         }                
                     echo("</select> <input type='submit' name='Request' value='+'></p></p>
                     <input type='hidden' name='Menu' value=".$_GET['Menu'].">
-                    <p> Temps de préparation : <input id='get_compte' type='number' name='time' value='' min=1></p>
-
+                    <p> Temps de préparation : <SELECT name='time' size='1'>
+                    <OPTION value='00:05:00'>5
+                    <OPTION value='00:10:00'>10
+                    <OPTION value='00:20:00'>20
+                    <OPTION value='00:30:00'>30
+                    <OPTION value='00:45:00'>45
+                    <OPTION value='01:30:00'>1h30
+                    <OPTION value='02:00:00'>2h
+                    <OPTION value='03:00:00'>2h+
+                    </SELECT></p>
                     <p>Origine de la recette : <select name='origine'>
                             <option value=''>--Choisissez une origine--</option>");
                             for($i = 0 ; $i < count($Origines[0]) ; $i++)
@@ -149,8 +183,72 @@
 
 
                     echo("</p></p>
-                    <p> Temps de préparation : <input id='get_compte' type='number' name='time' value='".$_GET['time']."' min=1></p>
-
+                    <p> Temps de préparation : <SELECT name='time' size='1'>");
+                    if ($_GET['time']=="00:05:00")
+                    {
+                        echo("<OPTION selected='selected' value='00:05:00'>5");
+                    }
+                    else
+                    {
+                        echo("<OPTION value='00:05:00'>5");
+                    }
+                    if ($_GET['time']=="00:10:00")
+                    {
+                        echo("<OPTION selected='selected' value='00:10:00'>10");
+                    }
+                    else
+                    {
+                        echo("<OPTION value='00:10:00'>10");
+                    }
+                    if ($_GET['time']=="00:20:00")
+                    {
+                        echo("<OPTION selected='selected' value='00:20:00'>20");
+                    }
+                    else
+                    {
+                        echo("<OPTION value='00:20:00'>20");
+                    }
+                    if ($_GET['time']=="00:30:00")
+                    {
+                        echo("<OPTION selected='selected' value='00:30:00'>30");
+                    }
+                    else
+                    {
+                        echo("<OPTION value='00:30:00'>30");
+                    }
+                    if ($_GET['time']=="00:45:00")
+                    {
+                        echo("<OPTION selected='selected' value='00:45:00'>45");
+                    }
+                    else
+                    {
+                        echo("<OPTION value='00:45:00'>45");
+                    }
+                    if ($_GET['time']=="01:30:00")
+                    {
+                        echo("<OPTION selected='selected' value='01:30:00'>1H30");
+                    }
+                    else
+                    {
+                        echo("<OPTION value='01:30:00'>1H30");
+                    }
+                    if ($_GET['time']=="02:00:00")
+                    {
+                        echo("<OPTION selected='selected' value='02:00:00'>2H");
+                    }
+                    else
+                    {
+                        echo("<OPTION value='02:00:00'>2H");
+                    }
+                    if ($_GET['time']=="03:00:00")
+                    {
+                        echo("<OPTION selected='selected' value='03:00:00'>2H+");
+                    }
+                    else
+                    {
+                        echo("<OPTION value='03:00:00'>2H+");
+                    }
+                    echo("</SELECT></p></p>
                     <p>Origine de la recette : <select name='origine'>
                             <option value=''>--Choisissez une origine--</option>");
                             for($i = 0 ; $i < count($Origines[0]) ; $i++)
@@ -182,8 +280,7 @@
                     AND !empty($_GET['food0']) 
                     AND !empty($_GET['time'])
                     AND !empty($_GET['origine'])
-                    AND !empty($_GET['text'])
-                    AND $_GET['time']>=1)
+                    AND !empty($_GET['text']))
                     {
                         echo("<div class='text-center mt-5'>
                         Votre recette est maintenant en ligne !");
@@ -236,7 +333,72 @@
 
 
                         echo("</p></p>
-                        <p> Temps de préparation : <input id='get_compte' type='number' name='time' value='".$_GET['time']."' min=1></p>
+                        <p> Temps de préparation : <SELECT name='time' size='1'>");
+                        if ($_GET['time']=="00:05:00")
+                        {
+                            echo("<OPTION selected='selected' value='00:05:00'>5");
+                        }
+                        else
+                        {
+                            echo("<OPTION value='00:05:00'>5");
+                        }
+                        if ($_GET['time']=="00:10:00")
+                        {
+                            echo("<OPTION selected='selected' value='00:10:00'>10");
+                        }
+                        else
+                        {
+                            echo("<OPTION value='00:10:00'>10");
+                        }
+                        if ($_GET['time']=="00:20:00")
+                        {
+                            echo("<OPTION selected='selected' value='00:20:00'>20");
+                        }
+                        else
+                        {
+                            echo("<OPTION value='00:20:00'>20");
+                        }
+                        if ($_GET['time']=="00:30:00")
+                        {
+                            echo("<OPTION selected='selected' value='00:30:00'>30");
+                        }
+                        else
+                        {
+                            echo("<OPTION value='00:30:00'>30");
+                        }
+                        if ($_GET['time']=="00:45:00")
+                        {
+                            echo("<OPTION selected='selected' value='00:45:00'>45");
+                        }
+                        else
+                        {
+                            echo("<OPTION value='00:45:00'>45");
+                        }
+                        if ($_GET['time']=="01:30:00")
+                        {
+                            echo("<OPTION selected='selected' value='01:30:00'>1H30");
+                        }
+                        else
+                        {
+                            echo("<OPTION value='01:30:00'>1H30");
+                        }
+                        if ($_GET['time']=="02:00:00")
+                        {
+                            echo("<OPTION selected='selected' value='02:00:00'>2H");
+                        }
+                        else
+                        {
+                            echo("<OPTION value='02:00:00'>2H");
+                        }
+                        if ($_GET['time']=="03:00:00")
+                        {
+                            echo("<OPTION selected='selected' value='03:00:00'>2H+");
+                        }
+                        else
+                        {
+                            echo("<OPTION value='03:00:00'>2H+");
+                        }
+                        echo("</SELECT></p></p>
                         <p>Origine de la recette : <select name='origine'>
                                 <option value=''>--Choisissez une origine--</option>");
 
@@ -264,14 +426,6 @@
                         else if(strlen($_GET['name']) > 39)
                         {
                             echo("<FONT color='red'>Le nom de votre recette doit faire moins de 40 caractères</FONT><br><br>");
-                        }
-                        else if ($CheckForm!=0)
-                        {
-                            echo("<FONT color='red'>Le nom de votre recette existe déja</FONT><br><br>");
-                        }
-                        else if(!preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['name']))
-                        {
-                            echo("<FONT color='red'>Ce nom de recette est incorrecte</FONT><br><br>");
                         }
                         else if($CheckMenu == "double")
                         {
@@ -360,7 +514,72 @@
 
                                     echo("
                                     <p align=center>Date de création : ".$Recipes[2][$i]."</p>
-                                    <p align=center>Temps de préparation : <input type='number' name='time' value='".$Recipes[3][$i]."'></p>
+                                    <p align=center>Temps de préparation : <SELECT name='time' size='1'>");
+                                    if ($Recipes[3][$i]=="00:05:00")
+                                    {
+                                        echo("<OPTION selected='selected' value='00:05:00'>5");
+                                    }
+                                    else
+                                    {
+                                        echo("<OPTION value='00:05:00'>5");
+                                    }
+                                    if ($Recipes[3][$i]=="00:10:00")
+                                    {
+                                        echo("<OPTION selected='selected' value='00:10:00'>10");
+                                    }
+                                    else
+                                    {
+                                        echo("<OPTION value='00:10:00'>10");
+                                    }
+                                    if ($Recipes[3][$i]=="00:20:00")
+                                    {
+                                        echo("<OPTION selected='selected' value='00:20:00'>20");
+                                    }
+                                    else
+                                    {
+                                        echo("<OPTION value='00:20:00'>20");
+                                    }
+                                    if ($Recipes[3][$i]=="00:30:00")
+                                    {
+                                        echo("<OPTION selected='selected' value='00:30:00'>30");
+                                    }
+                                    else
+                                    {
+                                        echo("<OPTION value='00:30:00'>30");
+                                    }
+                                    if ($Recipes[3][$i]=="00:45:00")
+                                    {
+                                        echo("<OPTION selected='selected' value='00:45:00'>45");
+                                    }
+                                    else
+                                    {
+                                        echo("<OPTION value='00:45:00'>45");
+                                    }
+                                    if ($Recipes[3][$i]=="01:30:00")
+                                    {
+                                        echo("<OPTION selected='selected' value='01:30:00'>1H30");
+                                    }
+                                    else
+                                    {
+                                        echo("<OPTION value='01:30:00'>1H30");
+                                    }
+                                    if ($Recipes[3][$i]=="02:00:00")
+                                    {
+                                        echo("<OPTION selected='selected' value='02:00:00'>2H");
+                                    }
+                                    else
+                                    {
+                                        echo("<OPTION value='02:00:00'>2H");
+                                    }
+                                    if ($Recipes[3][$i]=="03:00:00")
+                                    {
+                                        echo("<OPTION selected='selected' value='03:00:00'>2H+");
+                                    }
+                                    else
+                                    {
+                                        echo("<OPTION value='03:00:00'>2H+");
+                                    }
+                                    echo("</SELECT></p>
                                     <p align=center>Créer par : ".$Recipes[5][$i]."</p>
                                     Origine de la recette : <select name='origine'>
                                     <option value=''>--Choisissez une origine--</option>");
@@ -439,7 +658,72 @@
 
                                     echo("
                                     <p align=center>Date de création : ".$Recipes[2][$i]."</p>
-                                    <p align=center>Temps de préparation : <input type='number' name='time' value='".$Recipes[3][$i]."'></p>
+                                    <p align=center>Temps de préparation : <SELECT name='time' size='1'>");
+                                    if ($_GET['time']=="00:05:00")
+                                    {
+                                        echo("<OPTION selected='selected' value='00:05:00'>5");
+                                    }
+                                    else
+                                    {
+                                        echo("<OPTION value='00:05:00'>5");
+                                    }
+                                    if ($_GET['time']=="00:10:00")
+                                    {
+                                        echo("<OPTION selected='selected' value='00:10:00'>10");
+                                    }
+                                    else
+                                    {
+                                        echo("<OPTION value='00:10:00'>10");
+                                    }
+                                    if ($_GET['time']=="00:20:00")
+                                    {
+                                        echo("<OPTION selected='selected' value='00:20:00'>20");
+                                    }
+                                    else
+                                    {
+                                        echo("<OPTION value='00:20:00'>20");
+                                    }
+                                    if ($_GET['time']=="00:30:00")
+                                    {
+                                        echo("<OPTION selected='selected' value='00:30:00'>30");
+                                    }
+                                    else
+                                    {
+                                        echo("<OPTION value='00:30:00'>30");
+                                    }
+                                    if ($_GET['time']=="00:45:00")
+                                    {
+                                        echo("<OPTION selected='selected' value='00:45:00'>45");
+                                    }
+                                    else
+                                    {
+                                        echo("<OPTION value='00:45:00'>45");
+                                    }
+                                    if ($_GET['time']=="01:30:00")
+                                    {
+                                        echo("<OPTION selected='selected' value='01:30:00'>1H30");
+                                    }
+                                    else
+                                    {
+                                        echo("<OPTION value='01:30:00'>1H30");
+                                    }
+                                    if ($_GET['time']=="02:00:00")
+                                    {
+                                        echo("<OPTION selected='selected' value='02:00:00'>2H");
+                                    }
+                                    else
+                                    {
+                                        echo("<OPTION value='02:00:00'>2H");
+                                    }
+                                    if ($_GET['time']=="03:00:00")
+                                    {
+                                        echo("<OPTION selected='selected' value='03:00:00'>2H+");
+                                    }
+                                    else
+                                    {
+                                        echo("<OPTION value='03:00:00'>2H+");
+                                    }
+                                    echo("</SELECT></p>
                                     <p align=center>Créer par : ".$Recipes[5][$i]."</p>
                                     Origine de la recette : <select name='origine'>
                                     <option value=''>--Choisissez une origine--</option>");
@@ -472,8 +756,7 @@
                         AND !empty($_GET['food0']) 
                         AND !empty($_GET['time'])
                         AND !empty($_GET['origine'])
-                        AND !empty($_GET['text'])
-                        AND $_GET['time']>=1)
+                        AND !empty($_GET['text']))
                         {
                             echo("<div class='text-center mt-5'>
                             Votre recette est bien modifié !");
@@ -534,7 +817,72 @@
 
                                         echo("
                                         <p align=center>Date de création : ".$Recipes[2][$i]."</p>
-                                        <p align=center>Temps de préparation : <input type='number' name='time' value='".$Recipes[3][$i]."'></p>
+                                        <p align=center>Temps de préparation : <SELECT name='time' size='1'>");
+                                        if ($_GET['time']=="00:05:00")
+                                        {
+                                            echo("<OPTION selected='selected' value='00:05:00'>5");
+                                        }
+                                        else
+                                        {
+                                            echo("<OPTION value='00:05:00'>5");
+                                        }
+                                        if ($_GET['time']=="00:10:00")
+                                        {
+                                            echo("<OPTION selected='selected' value='00:10:00'>10");
+                                        }
+                                        else
+                                        {
+                                            echo("<OPTION value='00:10:00'>10");
+                                        }
+                                        if ($_GET['time']=="00:20:00")
+                                        {
+                                            echo("<OPTION selected='selected' value='00:20:00'>20");
+                                        }
+                                        else
+                                        {
+                                            echo("<OPTION value='00:20:00'>20");
+                                        }
+                                        if ($_GET['time']=="00:30:00")
+                                        {
+                                            echo("<OPTION selected='selected' value='00:30:00'>30");
+                                        }
+                                        else
+                                        {
+                                            echo("<OPTION value='00:30:00'>30");
+                                        }
+                                        if ($_GET['time']=="00:45:00")
+                                        {
+                                            echo("<OPTION selected='selected' value='00:45:00'>45");
+                                        }
+                                        else
+                                        {
+                                            echo("<OPTION value='00:45:00'>45");
+                                        }
+                                        if ($_GET['time']=="01:30:00")
+                                        {
+                                            echo("<OPTION selected='selected' value='01:30:00'>1H30");
+                                        }
+                                        else
+                                        {
+                                            echo("<OPTION value='01:30:00'>1H30");
+                                        }
+                                        if ($_GET['time']=="02:00:00")
+                                        {
+                                            echo("<OPTION selected='selected' value='02:00:00'>2H");
+                                        }
+                                        else
+                                        {
+                                            echo("<OPTION value='02:00:00'>2H");
+                                        }
+                                        if ($_GET['time']=="03:00:00")
+                                        {
+                                            echo("<OPTION selected='selected' value='03:00:00'>2H+");
+                                        }
+                                        else
+                                        {
+                                            echo("<OPTION value='03:00:00'>2H+");
+                                        }
+                                        echo("</SELECT></p>
                                         <p align=center>Créer par : ".$Recipes[5][$i]."</p>
                                         Origine de la recette : <select name='origine'>
                                         <option value=''>--Choisissez une origine--</option>");
@@ -562,14 +910,6 @@
                             else if(strlen($_GET['name']) > 39)
                             {
                                 echo("<FONT color='red'>Le nom de votre recette doit faire moins de 40 caractères</FONT><br><br>");
-                            }
-                            else if ($CheckForm!=0)
-                            {
-                                echo("<FONT color='red'>Le nom de votre recette existe déja</FONT><br><br>");
-                            }
-                            else if(!preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['name']))
-                            {
-                                echo("<FONT color='red'>Ce nom de recette est incorrecte</FONT><br><br>");
                             }
                             else if($CheckMenu2 == "double")
                             {

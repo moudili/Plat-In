@@ -90,35 +90,27 @@
                 $n=$Req -> fetch();
                 $User1=$n[0];
 
-                $Req = $Bdd -> prepare("SELECT count(name_r) FROM recipes WHERE name_r LIKE :origin");
-                $Req -> bindParam(':origin',$Name,PDO::PARAM_STR);
+                $Req = $Bdd -> prepare("INSERT INTO `recipes` (`ID_recipes`, `name_r`, `text`, `picture`, `date_r`, `cooking_time`, 
+                `ID_origin`, `ID_user`) VALUES (NULL, :name_r, :texte, NULL,  NOW(), :cooking_time, :origin, :user);");
+                $Req -> bindParam(':name_r',$Name,PDO::PARAM_STR);
+                $Req -> bindParam(':texte',$Text,PDO::PARAM_STR);
+                $Req -> bindParam(':cooking_time',$Time,PDO::PARAM_STR);
+                $Req -> bindParam(':origin',$Origin,PDO::PARAM_INT);
+                $Req -> bindParam(':user',$User1,PDO::PARAM_INT);
                 $Req -> execute();
-                $n = $Req -> fetch();
-                $CheckForm = $n[0];
-                if($CheckForm == 0)
+                $Req = $Bdd -> prepare("SELECT MAX(ID_recipes) FROM recipes");
+                $Req -> execute();
+                $n=$Req -> fetch();
+                $Max=$n[0];
+                for ($i=0;$i<$Menu;$i++)
                 {
-                    $Req = $Bdd -> prepare("INSERT INTO `recipes` (`ID_recipes`, `name_r`, `text`, `picture`, `date_r`, `cooking_time`, 
-                    `ID_origin`, `ID_user`) VALUES (NULL, :name_r, :texte, NULL,  NOW(), :cooking_time, :origin, :user);");
-                    $Req -> bindParam(':name_r',$Name,PDO::PARAM_STR);
-                    $Req -> bindParam(':texte',$Text,PDO::PARAM_STR);
-                    $Req -> bindParam(':cooking_time',$Time,PDO::PARAM_INT);
-                    $Req -> bindParam(':origin',$Origin,PDO::PARAM_INT);
-                    $Req -> bindParam(':user',$User1,PDO::PARAM_INT);
+                    $Req = $Bdd -> prepare("INSERT INTO `ingredients` (`ID_recipes`, `ID_food`) 
+                    VALUES (:recipe, :name_f)");
+                    $Req -> bindParam(':recipe',$Max,PDO::PARAM_INT);
+                    $Req -> bindParam(':name_f',$_GET['food'.$i],PDO::PARAM_INT);
                     $Req -> execute();
-                    $Req = $Bdd -> prepare("SELECT MAX(ID_recipes) FROM recipes");
-                    $Req -> execute();
-                    $n=$Req -> fetch();
-                    $Max=$n[0];
-                    for ($i=0;$i<$Menu;$i++)
-                    {
-                        $Req = $Bdd -> prepare("INSERT INTO `ingredients` (`ID_recipes`, `ID_food`) 
-                        VALUES (:recipe, :name_f)");
-                        $Req -> bindParam(':recipe',$Max,PDO::PARAM_INT);
-                        $Req -> bindParam(':name_f',$_GET['food'.$i],PDO::PARAM_INT);
-                        $Req -> execute();
-                    }
                 }
-                return $CheckForm;
+
             }
             
         }
@@ -145,7 +137,7 @@
                 $Req = $Bdd -> prepare("UPDATE `recipes` SET `name_r` = :name_r, `text` = :texte, `date_r`=NOW(), `cooking_time`=:time_r WHERE `recipes`.`ID_recipes` = :id;");
                 $Req -> bindParam(':name_r',$Name,PDO::PARAM_STR);
                 $Req -> bindParam(':texte',$Text,PDO::PARAM_STR);
-                $Req -> bindParam(':time_r',$Time,PDO::PARAM_INT);
+                $Req -> bindParam(':time_r',$Time,PDO::PARAM_STR);
                 $Req -> bindParam(':id',$Id,PDO::PARAM_INT);
                 $Req -> execute(); 
 
