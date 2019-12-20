@@ -1,6 +1,45 @@
 <html>
     <head>
         <title>Recette</title>
+        <style> 
+        .rating {
+			width: 226px;
+			margin: 0 auto 1em;
+			font-size: 45px;
+			overflow:hidden;
+		}
+        .rating input {
+        float: right;
+        opacity: 0;
+        position: absolute;
+        }
+                .rating a,
+            .rating label {
+                    float:right;
+                    color: #aaa;
+                    text-decoration: none;
+                    -webkit-transition: color .4s;
+                    -moz-transition: color .4s;
+                    -o-transition: color .4s;
+                    transition: color .4s;
+                }
+        .rating label:hover ~ label,
+        .rating input:focus ~ label,
+        .rating label:hover,
+                .rating a:hover,
+                .rating a:hover ~ a,
+                .rating a:focus,
+                .rating a:focus ~ a		{
+                    color: orange;
+                    cursor: pointer;
+                }
+                .rating2 {
+                    direction: rtl;
+                }
+                .rating2 a {
+                    float:none
+                }
+        </style>
     </head>
     
     <body>
@@ -451,21 +490,67 @@
                 }
                 else if ($_GET['Request']=='Afficher')
                 {
-                    for ($i=0;$i<count($Recipes[0]);$i++)
+                    if (empty($_GET['RequestReview']))
                     {
-                        if ($Recipes[6][$i]==$_GET['id'])
+                        for ($i=0;$i<count($Recipes[0]);$i++)
                         {
-                            echo("<div class='text-center mt-5'>
-                            <form action='Index.php' method='get'>
-                            <p align=center>".$Recipes[0][$i]."</p>
-                            <p align=center>Date de création : ".$Recipes[2][$i]."</p>
-                            <p align=center>Temps de préparation : ".$Recipes[3][$i]."</p>
-                            <p align=center>Créer par : ".$Recipes[5][$i]."</p>
-                            <p align=center> Description : ".$Recipes[1][$i]."</p>
-                            <input type='hidden' name='page' value='Recette'>
-                            <br><input type='submit' value='Retour'>
-                            </form>");
-                        } 
+                            if ($Recipes[6][$i]==$_GET['id'])
+                            {
+                                echo("<div class='text-center mt-5'>
+                                <form action='Index.php' method='get'>
+                                <p align=center>".$Recipes[0][$i]."</p>
+                                <p align=center>Date de création : ".$Recipes[2][$i]."</p>
+                                <p align=center>Temps de préparation : ".$Recipes[3][$i]."</p>
+                                <p align=center>Créer par : ".$Recipes[5][$i]."</p>
+                                <p align=center> Description : ".$Recipes[1][$i]."</p>
+                                <input type='hidden' name='page' value='Recette'>
+                                <input type='hidden' name='id' value='".$_GET['id']."'>
+                                <br>
+                                <input type='hidden' name='Request' value='Afficher'>
+                                <input type='submit' name='RequestReview'value='Donner une note'>
+                                </form>
+                                <form action='Index.php' method='get'>
+                                <input type='hidden' name='page' value='Recette'>
+                                <input type='submit' value='Retour'>
+                                </form>");
+                            } 
+                        }
+                    }
+                    else if ($_GET['RequestReview']=='Donner une note')
+                    {
+                        echo("<div class='text-center mt-5'>
+                        Merci de rentrer votre notre pour cette recette.
+                        <form action='Index.php' method='get'>
+                        <div class='rating'>
+                        <input name='stars' id='e5' type='radio' value='5'></a><label for='e5'>☆</label>
+                        <input name='stars' id='e4' type='radio' value='4'></a><label for='e4'>☆</label>
+                        <input name='stars' id='e3' type='radio' value='3'></a><label for='e3'>☆</label>
+                        <input name='stars' id='e2' type='radio' value='2'></a><label for='e2'>☆</label>
+                        <input name='stars' id='e1' type='radio' value='1'></a><label for='e1'>☆</label>
+                        </div>
+                        <input type='hidden' name='page' value='Recette'>
+                        <input type='hidden' name='Request' value='Afficher'>
+                        <input type='hidden' name='id' value='".$_GET['id']."'>
+                        <input type='submit' name='RequestReview' value='Valider'>
+                        </form>
+                        <form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Recette'>
+                        <input type='hidden' name='Request' value='Afficher'>
+                        <input type='hidden' name='id' value='".$_GET['id']."'>
+                        <input type='submit' value='Retour'>
+                        </form>");
+                    }
+                    else if ($_GET['RequestReview']=='Valider')
+                    {
+                        echo("<div class='text-center mt-5'>
+                        Nous avons bien enregistrer votre note
+                        </br></br>
+                        <form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Recette'>
+                        <input type='hidden' name='Request' value='Afficher'>
+                        <input type='hidden' name='id' value='".$_GET['id']."'>
+                        <input type='submit' value='Retour'>
+                        </form>");
                     }
                 }
                 else if ($_GET['Request']=='Modifier')

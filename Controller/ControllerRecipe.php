@@ -132,5 +132,6 @@
     $NewFoods=ModifFood();
     ModifRecipes($Menu2);
     SuppRecipe();
+    starts();
     require("View/ViewRecipe.php");
 ?>     

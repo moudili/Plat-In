@@ -115,6 +115,46 @@
         }
     }
 
+    function starts()
+    {
+        if (!empty($_GET['RequestReview']) AND $_GET['RequestReview']=='Valider')
+        {
+            require('Model\ModelNewPDO.php');
+            $Id_r=$_GET['id'];
+            $Id_u=$_SESSION['id'];
+            $Stars=$_GET['stars'];
+
+            $Req = $Bdd -> prepare("SELECT count(ID_user) FROM reviews WHERE ID_user LIKE :user");
+            $Req -> bindParam(':user',$Id_u,PDO::PARAM_INT);
+            $Req -> execute();
+            $n=$Req -> fetch();
+            $Check=$n[0];
+            
+            if ($Check == 0)
+            {
+                $Req = $Bdd -> prepare("INSERT INTO `reviews` (`review`, `ID_user`, `ID_recipes`) 
+                VALUES (:review, :id_u, :id_r)");
+                $Req -> bindParam(':review',$Stars,PDO::PARAM_INT);
+                $Req -> bindParam(':id_u',$Id_u,PDO::PARAM_INT);
+                $Req -> bindParam(':id_r',$Id_r,PDO::PARAM_INT);
+                $Req -> execute();
+            } 
+            else
+            {
+                $Req = $Bdd -> prepare("DELETE FROM `reviews` WHERE `reviews`.`ID_user` = :resultat");
+                $Req -> bindParam(':resultat',$Id_u,PDO::PARAM_INT);
+                $Req -> execute();
+
+                $Req2 = $Bdd -> prepare("INSERT INTO `reviews` (`review`, `ID_user`, `ID_recipes`) 
+                VALUES (:review, :id_u, :id_r)");
+                $Req2 -> bindParam(':review',$Stars,PDO::PARAM_INT);
+                $Req2 -> bindParam(':id_u',$Id_u,PDO::PARAM_INT);
+                $Req2 -> bindParam(':id_r',$Id_r,PDO::PARAM_INT);
+                $Req2 -> execute();
+            }
+        }
+    }
+
     function ModifRecipes($Menu2)
     {
         if (!empty($_GET['RequestModif']) AND $_GET['RequestModif']=='Confirmation')
