@@ -67,7 +67,8 @@
                     {
                         echo("<form action='Index.php' method='get'>
                         <tr><td><p>".$Recipes[0][$i]."</p>
-                        <p>Créer par : ".$Recipes[5][$i]."</td>
+                        <p>Créer par : ".$Recipes[5][$i]."
+                        <p>Note des utilisateurs : ".$Note[$i]."/5</p></td>
                         <td><input type='submit' name='Request' value='Afficher'>
                         <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
                         <input type='hidden' name='page' value='Recette'></td>
@@ -114,7 +115,8 @@
                         {
                             echo("<form action='Index.php' method='get'>
                             <tr><td><p>".$Recipes[0][$i]."</p>
-                            <p>Créer par : ".$Recipes[5][$i]."</td>
+                            <p>Créer par : ".$Recipes[5][$i]."</p>
+                            <p>Note des utilisateurs : ".$Note[$i]."/5</p></td>
                             <td><input type='submit' name='Request' value='Afficher'></br>
                             <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
                             <input type='hidden' name='page' value='Recette'>
@@ -127,7 +129,8 @@
                         {
                             echo("<form action='Index.php' method='get'>
                             <tr><td><p>".$Recipes[0][$i]."</p>
-                            <p>Créer par : ".$Recipes[5][$i]."</td>
+                            <p>Créer par : ".$Recipes[5][$i]."</p>
+                            <p>Note des utilisateurs : ".$Note[$i]."/5</p></td>
                             <td><input type='submit' name='Request' value='Afficher'>
                             <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
                             <input type='hidden' name='page' value='Recette'></td></tr></p>

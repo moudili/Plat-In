@@ -133,5 +133,7 @@
     ModifRecipes($Menu2);
     SuppRecipe();
     starts();
+    $Note=PrintStarts($Recipes[6]);
+    //print_r(PrintStarts($Recipes[6]));
     require("View/ViewRecipe.php");
 ?>     
