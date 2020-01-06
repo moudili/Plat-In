@@ -9,7 +9,7 @@
         while($n = $Req -> fetch())
         {
             array_push($Recipes[0], $n[0]);
-            array_push($Recipes[1], $n[1]); 
+            array_push($Recipes[1], $n[1]);
             array_push($Recipes[2], $n[2]);
             array_push($Recipes[3], $n[3]);
             array_push($Recipes[4], $n[4]);
