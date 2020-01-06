@@ -65,14 +65,29 @@
                         </form>");
                     for ($i=0;$i<count($Recipes[0]);$i++)
                     {
-                        echo("<form action='Index.php' method='get'>
-                        <tr><td><p>".$Recipes[0][$i]."</p>
-                        <p>Créer par : ".$Recipes[5][$i]."
-                        <p>Note des utilisateurs : ".$Note[$i]."/5</p></td>
-                        <td><input type='submit' name='Request' value='Afficher'>
-                        <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
-                        <input type='hidden' name='page' value='Recette'></td>
-                        </tr></p></form>");
+                        if ($Note[$i]>0 AND $Note[$i]<=5)
+                        {
+                            $Note[$i]=round($Note[$i], 1);
+                            echo("<form action='Index.php' method='get'>
+                            <tr><td><p>".$Recipes[0][$i]."</p>
+                            <p>Créer par : ".$Recipes[5][$i]."
+                            <p>Note des utilisateurs : ".$Note[$i]."/5</p></td>
+                            <td><input type='submit' name='Request' value='Afficher'>
+                            <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
+                            <input type='hidden' name='page' value='Recette'></td>
+                            </tr></p></form>");
+                        }
+                        else
+                        {
+                            echo("<form action='Index.php' method='get'>
+                            <tr><td><p>".$Recipes[0][$i]."</p>
+                            <p>Créer par : ".$Recipes[5][$i]."
+                            <p>Note des utilisateurs : ".$Note[$i]."</p></td>
+                            <td><input type='submit' name='Request' value='Afficher'>
+                            <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
+                            <input type='hidden' name='page' value='Recette'></td>
+                            </tr></p></form>");
+                        }
                     }
                     echo("</table>");  
                 } 
@@ -113,28 +128,61 @@
                     {
                         if ($Recipes[4][$i]==$_SESSION['id'])
                         {
-                            echo("<form action='Index.php' method='get'>
-                            <tr><td><p>".$Recipes[0][$i]."</p>
-                            <p>Créer par : ".$Recipes[5][$i]."</p>
-                            <p>Note des utilisateurs : ".$Note[$i]."/5</p></td>
-                            <td><input type='submit' name='Request' value='Afficher'></br>
-                            <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
-                            <input type='hidden' name='page' value='Recette'>
-                            <input type='submit' name='Request' value='Modifier'>
-                            <input type='hidden' name='Menu' value=1>
-                            <input type='submit' name='Request' value='Supprimer'></td></tr></p>
-                            </form>");   
+                            if ($Note[$i]>0 AND $Note[$i]<=5)
+                            {
+                                $Note[$i]=round($Note[$i], 1);
+                                echo("<form action='Index.php' method='get'>
+                                <tr><td><p>".$Recipes[0][$i]."</p>
+                                <p>Créer par : ".$Recipes[5][$i]."</p>
+                                <p>Note des utilisateurs : ".$Note[$i]."/5</p></td>
+                                <td><input type='submit' name='Request' value='Afficher'></br>
+                                <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
+                                <input type='hidden' name='page' value='Recette'>
+                                <input type='submit' name='Request' value='Modifier'>
+                                <input type='hidden' name='Menu' value=1>
+                                <input type='submit' name='Request' value='Supprimer'></td></tr></p>
+                                </form>");   
+                            }
+                            else
+                            {
+                                echo("<form action='Index.php' method='get'>
+                                <tr><td><p>".$Recipes[0][$i]."</p>
+                                <p>Créer par : ".$Recipes[5][$i]."</p>
+                                <p>Note des utilisateurs : ".$Note[$i]."</p></td>
+                                <td><input type='submit' name='Request' value='Afficher'></br>
+                                <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
+                                <input type='hidden' name='page' value='Recette'>
+                                <input type='submit' name='Request' value='Modifier'>
+                                <input type='hidden' name='Menu' value=1>
+                                <input type='submit' name='Request' value='Supprimer'></td></tr></p>
+                                </form>");
+                            }
                         } 
                         else 
                         {
-                            echo("<form action='Index.php' method='get'>
-                            <tr><td><p>".$Recipes[0][$i]."</p>
-                            <p>Créer par : ".$Recipes[5][$i]."</p>
-                            <p>Note des utilisateurs : ".$Note[$i]."/5</p></td>
-                            <td><input type='submit' name='Request' value='Afficher'>
-                            <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
-                            <input type='hidden' name='page' value='Recette'></td></tr></p>
-                            </form>");
+                            if ($Note[$i]>0 AND $Note[$i]<=5)
+                            {
+                                $Note[$i]=round($Note[$i], 1);
+                                echo("<form action='Index.php' method='get'>
+                                <tr><td><p>".$Recipes[0][$i]."</p>
+                                <p>Créer par : ".$Recipes[5][$i]."</p>
+                                <p>Note des utilisateurs : ".$Note[$i]."/5</p></td>
+                                <td><input type='submit' name='Request' value='Afficher'>
+                                <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
+                                <input type='hidden' name='page' value='Recette'></td></tr></p>
+                                </form>");
+                            }
+                            else
+                            {
+                                echo("<form action='Index.php' method='get'>
+                                <tr><td><p>".$Recipes[0][$i]."</p>
+                                <p>Créer par : ".$Recipes[5][$i]."</p>
+                                <p>Note des utilisateurs : ".$Note[$i]."</p></td>
+                                <td><input type='submit' name='Request' value='Afficher'>
+                                <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
+                                <input type='hidden' name='page' value='Recette'></td></tr></p>
+                                </form>");
+                            }
                         }
                     }
                     echo("</table>");
@@ -148,10 +196,10 @@
                     <p> Nom de la recette : <input id='get_compte' type='text' name='name' value=''></p>
                     <p> Aliments : <select name='food0'>
                     <option value=''>--Choisissez un aliment--</option>");
-                        for($i = 0 ; $i < count($Foods[0]) ; $i++)
-                        {
-                            echo("<option value=".$Foods[0][$i].">".$Foods[1][$i]."</option>"); 
-                        }                
+                    for($i = 0 ; $i < count($Foods[0]) ; $i++)
+                    {
+                        echo("<option value=".$Foods[0][$i].">".$Foods[1][$i]."</option>"); 
+                    }                
                     echo("</select> <input type='submit' name='Request' value='+'></p></p>
                     <input type='hidden' name='Menu' value=".$_GET['Menu'].">
                     <p> Temps de préparation : <SELECT name='time' size='1'>
@@ -543,11 +591,35 @@
                         <input type='submit' value='Retour'>
                         </form>");
                     }
-                    else if ($_GET['RequestReview']=='Valider')
+                    else if ($_GET['RequestReview']=='Valider' AND !empty($_GET['stars']))
                     {
                         echo("<div class='text-center mt-5'>
                         Nous avons bien enregistrer votre note
                         </br></br>
+                        <form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Recette'>
+                        <input type='hidden' name='Request' value='Afficher'>
+                        <input type='hidden' name='id' value='".$_GET['id']."'>
+                        <input type='submit' value='Retour'>
+                        </form>");
+                    }
+                    else if ($_GET['RequestReview']=='Valider' AND empty($_GET['stars']))
+                    {
+                        echo("<div class='text-center mt-5'>
+                        Merci de rentrer votre notre pour cette recette.
+                        <form action='Index.php' method='get'>
+                        <div class='rating'>
+                        <input name='stars' id='e5' type='radio' value='5'></a><label for='e5'>☆</label>
+                        <input name='stars' id='e4' type='radio' value='4'></a><label for='e4'>☆</label>
+                        <input name='stars' id='e3' type='radio' value='3'></a><label for='e3'>☆</label>
+                        <input name='stars' id='e2' type='radio' value='2'></a><label for='e2'>☆</label>
+                        <input name='stars' id='e1' type='radio' value='1'></a><label for='e1'>☆</label>
+                        </div>
+                        <input type='hidden' name='page' value='Recette'>
+                        <input type='hidden' name='Request' value='Afficher'>
+                        <input type='hidden' name='id' value='".$_GET['id']."'>
+                        <input type='submit' name='RequestReview' value='Valider'>
+                        </form>
                         <form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Recette'>
                         <input type='hidden' name='Request' value='Afficher'>

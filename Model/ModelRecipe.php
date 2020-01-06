@@ -133,7 +133,7 @@
             $n=$Req -> fetch();
             $Check=$n[0];
             
-            if ($Check == 0)
+            if ($Check == 0 AND !empty($_GET['stars']))
             {
                 $Req = $Bdd -> prepare("INSERT INTO `reviews` (`review`, `ID_user`, `ID_recipes`) 
                 VALUES (:review, :id_u, :id_r)");
@@ -142,7 +142,7 @@
                 $Req -> bindParam(':id_r',$Id_r,PDO::PARAM_INT);
                 $Req -> execute();
             } 
-            else
+            else if ($Check != 0 AND !empty($_GET['stars']))
             {
                 $Req = $Bdd -> prepare("DELETE FROM `reviews` WHERE `reviews`.`ID_user` = :resultat AND ID_recipes LIKE :id_r");
                 $Req -> bindParam(':resultat',$Id_u,PDO::PARAM_INT);
