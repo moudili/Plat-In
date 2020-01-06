@@ -203,11 +203,12 @@
                     echo("</select> <input type='submit' name='Request' value='+'></p></p>
                     <input type='hidden' name='Menu' value=".$_GET['Menu'].">
                     <p> Temps de préparation : <SELECT name='time' size='1'>
-                    <OPTION value='00:05:00'>5
-                    <OPTION value='00:10:00'>10
-                    <OPTION value='00:20:00'>20
-                    <OPTION value='00:30:00'>30
-                    <OPTION value='00:45:00'>45
+                    <OPTION value='00:05:00'>5 min
+                    <OPTION value='00:10:00'>10 min
+                    <OPTION value='00:20:00'>20 min
+                    <OPTION value='00:30:00'>30 min
+                    <OPTION value='00:45:00'>45 min
+                    <OPTION value='01:00:00'>1h
                     <OPTION value='01:30:00'>1h30
                     <OPTION value='02:00:00'>2h
                     <OPTION value='03:00:00'>2h+
@@ -261,43 +262,46 @@
                             echo("<br><br>");
                         }
                     }
-                    echo("<input type='hidden' name='Menu' value=".$Menu.">
-                    <input type='submit' name='Request' value='+'>");
 
                     if( $Menu > 1 )
                     {
                         echo("<input type='submit' name='Request' value='-'>");
                     }
 
+                    echo("<input type='hidden' name='Menu' value=".$Menu.">
+                    <input type='submit' name='Request' value='+'>");
+
+
+
                     echo("</p></p>
                     <p> Temps de préparation : <SELECT name='time' size='1'>");
                     if ($_GET['time']=="00:05:00")
                     {
-                        echo("<OPTION selected='selected' value='00:05:00'>5");
+                        echo("<OPTION selected='selected' value='00:05:00'>5 min");
                     }
                     else
                     {
-                        echo("<OPTION value='00:05:00'>5");
+                        echo("<OPTION value='00:05:00'>5 min");
                     }
                     if ($_GET['time']=="00:10:00")
                     {
-                        echo("<OPTION selected='selected' value='00:10:00'>10");
+                        echo("<OPTION selected='selected' value='00:10:00'>10 min");
                     }
                     else
                     {
-                        echo("<OPTION value='00:10:00'>10");
+                        echo("<OPTION value='00:10:00'>10 min");
                     }
                     if ($_GET['time']=="00:20:00")
                     {
-                        echo("<OPTION selected='selected' value='00:20:00'>20");
+                        echo("<OPTION selected='selected' value='00:20:00'>20 min");
                     }
                     else
                     {
-                        echo("<OPTION value='00:20:00'>20");
+                        echo("<OPTION value='00:20:00'>20 min");
                     }
                     if ($_GET['time']=="00:30:00")
                     {
-                        echo("<OPTION selected='selected' value='00:30:00'>30");
+                        echo("<OPTION selected='selected' value='00:30:00'>30 min");
                     }
                     else
                     {
@@ -305,11 +309,19 @@
                     }
                     if ($_GET['time']=="00:45:00")
                     {
-                        echo("<OPTION selected='selected' value='00:45:00'>45");
+                        echo("<OPTION selected='selected' value='00:45:00'>45 min");
                     }
                     else
                     {
-                        echo("<OPTION value='00:45:00'>45");
+                        echo("<OPTION value='00:45:00'>45 min");
+                    }
+                    if($_GET['time']=="01:00:00")
+                    {
+                        echo("<OPTION selected='selected' value='01:00:00'>1h");
+                    }
+                    else
+                    {
+                        echo("<OPTION value='01:00:00'>1h");
                     }
                     if ($_GET['time']=="01:30:00")
                     {
@@ -409,44 +421,45 @@
                                 echo("<br><br>");
                             }
                         }
-
-                        echo("<input type='hidden' name='Menu' value=".$Menu.">
-                        <input type='submit' name='Request' value='+'>");
-
                         if( $Menu > 1 )
                         {
                             echo("<input type='submit' name='Request' value='-'>");
                         }
+                        
+                        echo("<input type='hidden' name='Menu' value=".$Menu.">
+                        <input type='submit' name='Request' value='+'>");
+
+
 
                         echo("</p></p>
                         <p> Temps de préparation : <SELECT name='time' size='1'>");
                         if ($_GET['time']=="00:05:00")
                         {
-                            echo("<OPTION selected='selected' value='00:05:00'>5");
+                            echo("<OPTION selected='selected' value='00:05:00'>5 min");
                         }
                         else
                         {
-                            echo("<OPTION value='00:05:00'>5");
+                            echo("<OPTION value='00:05:00'>5 min");
                         }
                         if ($_GET['time']=="00:10:00")
                         {
-                            echo("<OPTION selected='selected' value='00:10:00'>10");
+                            echo("<OPTION selected='selected' value='00:10:00'>10 min");
                         }
                         else
                         {
-                            echo("<OPTION value='00:10:00'>10");
+                            echo("<OPTION value='00:10:00'>10 min");
                         }
                         if ($_GET['time']=="00:20:00")
                         {
-                            echo("<OPTION selected='selected' value='00:20:00'>20");
+                            echo("<OPTION selected='selected' value='00:20:00'>20 min");
                         }
                         else
                         {
-                            echo("<OPTION value='00:20:00'>20");
+                            echo("<OPTION value='00:20:00'>20 min");
                         }
                         if ($_GET['time']=="00:30:00")
                         {
-                            echo("<OPTION selected='selected' value='00:30:00'>30");
+                            echo("<OPTION selected='selected' value='00:30:00'>30 min");
                         }
                         else
                         {
@@ -454,11 +467,19 @@
                         }
                         if ($_GET['time']=="00:45:00")
                         {
-                            echo("<OPTION selected='selected' value='00:45:00'>45");
+                            echo("<OPTION selected='selected' value='00:45:00'>45 min");
                         }
                         else
                         {
-                            echo("<OPTION value='00:45:00'>45");
+                            echo("<OPTION  value='00:45:00'>45 min");
+                        }
+                        if($_GET['time']=="01:00:00")
+                        {
+                            echo("<OPTION selected='selected' value='01:00:00'>1h");
+                        }
+                        else
+                        {
+                            echo("<OPTION value='01:00:00'>1h");
                         }
                         if ($_GET['time']=="01:30:00")
                         {
@@ -673,43 +694,51 @@
                                     <p align=center>Temps de préparation : <SELECT name='time' size='1'>");
                                     if ($Recipes[3][$i]=="00:05:00")
                                     {
-                                        echo("<OPTION selected='selected' value='00:05:00'>5");
+                                        echo("<OPTION selected='selected' value='00:05:00'>5min");
                                     }
                                     else
                                     {
-                                        echo("<OPTION value='00:05:00'>5");
+                                        echo("<OPTION value='00:05:00'>5min");
                                     }
                                     if ($Recipes[3][$i]=="00:10:00")
                                     {
-                                        echo("<OPTION selected='selected' value='00:10:00'>10");
+                                        echo("<OPTION selected='selected' value='00:10:00'>10min");
                                     }
                                     else
                                     {
-                                        echo("<OPTION value='00:10:00'>10");
+                                        echo("<OPTION value='00:10:00'>10min");
                                     }
                                     if ($Recipes[3][$i]=="00:20:00")
                                     {
-                                        echo("<OPTION selected='selected' value='00:20:00'>20");
+                                        echo("<OPTION selected='selected' value='00:20:00'>20min");
                                     }
                                     else
                                     {
-                                        echo("<OPTION value='00:20:00'>20");
+                                        echo("<OPTION value='00:20:00'>20min");
                                     }
                                     if ($Recipes[3][$i]=="00:30:00")
                                     {
-                                        echo("<OPTION selected='selected' value='00:30:00'>30");
+                                        echo("<OPTION selected='selected' value='00:30:00'>30min");
                                     }
                                     else
                                     {
-                                        echo("<OPTION value='00:30:00'>30");
+                                        echo("<OPTION value='00:30:00'>30min");
                                     }
                                     if ($Recipes[3][$i]=="00:45:00")
                                     {
-                                        echo("<OPTION selected='selected' value='00:45:00'>45");
+                                        echo("<OPTION selected='selected' value='00:45:00'>45min");
                                     }
                                     else
                                     {
-                                        echo("<OPTION value='00:45:00'>45");
+                                        echo("<OPTION value='00:45:00'>45min");
+                                    }
+                                    if($Recipes[3][$i]=="01:00:00")
+                                    {
+                                        echo("<OPTION selected='selected' value='01:00:00'>1h");
+                                    }
+                                    else
+                                    {
+                                        echo("<OPTION selected='selected' value='01:00:00'>1h");
                                     }
                                     if ($Recipes[3][$i]=="01:30:00")
                                     {
@@ -817,43 +846,51 @@
                                     <p align=center>Temps de préparation : <SELECT name='time' size='1'>");
                                     if ($_GET['time']=="00:05:00")
                                     {
-                                        echo("<OPTION selected='selected' value='00:05:00'>5");
+                                        echo("<OPTION selected='selected' value='00:05:00'>5min");
                                     }
                                     else
                                     {
-                                        echo("<OPTION value='00:05:00'>5");
+                                        echo("<OPTION value='00:05:00'>5min");
                                     }
                                     if ($_GET['time']=="00:10:00")
                                     {
-                                        echo("<OPTION selected='selected' value='00:10:00'>10");
+                                        echo("<OPTION selected='selected' value='00:10:00'>10min");
                                     }
                                     else
                                     {
-                                        echo("<OPTION value='00:10:00'>10");
+                                        echo("<OPTION value='00:10:00'>10min");
                                     }
                                     if ($_GET['time']=="00:20:00")
                                     {
-                                        echo("<OPTION selected='selected' value='00:20:00'>20");
+                                        echo("<OPTION selected='selected' value='00:20:00'>20min");
                                     }
                                     else
                                     {
-                                        echo("<OPTION value='00:20:00'>20");
+                                        echo("<OPTION value='00:20:00'>20min");
                                     }
                                     if ($_GET['time']=="00:30:00")
                                     {
-                                        echo("<OPTION selected='selected' value='00:30:00'>30");
+                                        echo("<OPTION selected='selected' value='00:30:00'>30min");
                                     }
                                     else
                                     {
-                                        echo("<OPTION value='00:30:00'>30");
+                                        echo("<OPTION value='00:30:00'>30min");
                                     }
                                     if ($_GET['time']=="00:45:00")
                                     {
-                                        echo("<OPTION selected='selected' value='00:45:00'>45");
+                                        echo("<OPTION selected='selected' value='00:45:00'>45min");
                                     }
                                     else
                                     {
-                                        echo("<OPTION value='00:45:00'>45");
+                                        echo("<OPTION value='00:45:00'>45min");
+                                    }
+                                    if($_GET['time']=="01:00:00")
+                                    {
+                                        echo("<OPTION selected='selected' value='01:00:00'>1h");
+                                    }
+                                    else
+                                    {
+                                        echo("<OPTION value='01:00:00'>1h");
                                     }
                                     if ($_GET['time']=="01:30:00")
                                     {
@@ -976,44 +1013,52 @@
                                         <p align=center>Temps de préparation : <SELECT name='time' size='1'>");
                                         if ($_GET['time']=="00:05:00")
                                         {
-                                            echo("<OPTION selected='selected' value='00:05:00'>5");
+                                            echo("<OPTION selected='selected' value='00:05:00'>5min");
                                         }
                                         else
                                         {
-                                            echo("<OPTION value='00:05:00'>5");
+                                            echo("<OPTION value='00:05:00'>5min");
                                         }
                                         if ($_GET['time']=="00:10:00")
                                         {
-                                            echo("<OPTION selected='selected' value='00:10:00'>10");
+                                            echo("<OPTION selected='selected' value='00:10:00'>10min");
                                         }
                                         else
                                         {
-                                            echo("<OPTION value='00:10:00'>10");
+                                            echo("<OPTION value='00:10:00'>10min");
                                         }
                                         if ($_GET['time']=="00:20:00")
                                         {
-                                            echo("<OPTION selected='selected' value='00:20:00'>20");
+                                            echo("<OPTION selected='selected' value='00:20:00'>20min");
                                         }
                                         else
                                         {
-                                            echo("<OPTION value='00:20:00'>20");
+                                            echo("<OPTION value='00:20:00'>20min");
                                         }
                                         if ($_GET['time']=="00:30:00")
                                         {
-                                            echo("<OPTION selected='selected' value='00:30:00'>30");
+                                            echo("<OPTION selected='selected' value='00:30:00'>30min");
                                         }
                                         else
                                         {
-                                            echo("<OPTION value='00:30:00'>30");
+                                            echo("<OPTION value='00:30:00'>30min");
                                         }
                                         if ($_GET['time']=="00:45:00")
                                         {
-                                            echo("<OPTION selected='selected' value='00:45:00'>45");
+                                            echo("<OPTION selected='selected' value='00:45:00'>45min");
                                         }
                                         else
                                         {
-                                            echo("<OPTION value='00:45:00'>45");
+                                            echo("<OPTION value='00:45:00'>45min");
                                         }
+                                        if($_GET['time']=="01:00:00")
+                                        {
+                                            echo("<OPTION selected='selected' value='01:00:00'>1h");
+                                        }
+                                        else
+                                        {
+                                            echo("<OPTION value='01:00:00'>1h");
+                        }
                                         if ($_GET['time']=="01:30:00")
                                         {
                                             echo("<OPTION selected='selected' value='01:30:00'>1H30");
