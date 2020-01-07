@@ -23,8 +23,11 @@
         $User = CheckUser();
         require('Model/ModelSocial.php');
         $Search = SearchUser($User);
+        $MesRequetes = ShowRequest();
+        $MesInvitations = MyRequest();
+
         
-        var_dump($_SESSION);
+        //var_dump($_SESSION);
 
 
 
@@ -32,6 +35,10 @@
 
         if($_GET['Request'] == "Search")
         {
+            $MesBloques = BlockPeople();
+            $MoiBloquer = Myblocked();
+            var_dump ($MoiBloquer);
+
             $Myfriends = MyFriend();
             if ($_GET['Answer']=='Oui')
             {
@@ -48,9 +55,7 @@
             $Myfriends = MyFriend();
             if ($_GET['Answer'] == 'Oui') 
             {
-                DeleteFriend();
-                
-                                
+                DeleteFriend();            
             }
             elseif ($_GET['Answer'] == 'Non')
             {
@@ -58,20 +63,51 @@
             }
             
         }
-        elseif ($_GET['Request'] == "Demande amis") {
-        
-            $MesRequetes = ShowRequest();
+        elseif ($_GET['Request'] == "Accepter amis")
+        {
             if ($_GET['Answer'] == 'Oui') 
             {
-                echo("oui");
                 AcceptRequest();
-                                
+            }
+            elseif ($_GET['Answer'] == 'Non')
+            {
+            
+            }
+        }
+        elseif ($_GET['Request'] == "Refuser ami") {
+            if ($_GET['Answer'] == 'Oui') 
+            {
+                DeclineRequest();
             }
             elseif ($_GET['Answer'] == 'Non')
             {
                 
             }
         }
+        elseif ($_GET['Request'] == "Bloquer")
+        {
+            if ($_GET['Answer'] == 'Oui') 
+            {
+                Block();
+            }
+            elseif ($_GET['Answer'] == 'Non')
+            {
+                
+            }
+            
+        }
+        elseif ($_GET['Request'] == "Debloquer") 
+        {
+            if ($_GET['Answer'] == 'Oui') 
+            {
+                Debloquer();
+            }
+            elseif ($_GET['Answer'] == 'Non')
+            {
+                
+            }
+        }
+
 
 
     require("View/ViewSocial.php"); 
