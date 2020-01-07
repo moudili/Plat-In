@@ -1165,7 +1165,7 @@
                                 </form>
                                 </br>
                                 <form action='Index.php' method='get'>
-                                <input type='hidden' name='page' value='Recette'>
+                                <input type='hidden' name='page' value='Recettes'>
                                 <input type='submit' value='Retour'>
                                 </form>");
                             }
@@ -1177,7 +1177,7 @@
                         Vous avez bien supprimé votre recette 
                         <br>
                         <form action='Index.php' method='get'>
-                        <input type='hidden' name='page' value='Recette'>
+                        <input type='hidden' name='page' value='Recettes'>
                         <input type='submit' value='Retour'>
                         </form>");
                     }

@@ -251,7 +251,7 @@
                                     }
                                     else
                                     {
-                                        echo("<OPTION selected='selected' value='01:00:00'>1h");
+                                        echo("<OPTION value='01:00:00'>1h");
                                     }
                                     if ($Recipes[3][$i]=="01:30:00")
                                     {
@@ -661,7 +661,39 @@
             }
             else if ($_GET['Request']=='Supprimer')
             {
-
+                if (empty($_GET['RequestSupp']))
+                {
+                    for ($i=0; $i < count($Recipes[0]);$i++)
+                    {
+                        if ($Recipes[6][$i]==$_GET['id'])
+                        {
+                            echo("<div class='text-center mt-5'>
+                            Voulez-vous vraiment supprimer la recette ".$Recipes[0][$i]." de Plat-In ?
+                            </br></br>
+                            <form action='Index.php' method='get'>
+                            <input type='hidden' name='page' value='Recettes'>
+                            <input type='hidden' name='Request' value='Supprimer'>
+                            <input type='hidden' name='id' value='".$_GET['id']."'>
+                            <input type='submit' name='RequestSupp' value='Oui'>
+                            </form>
+                            </br>
+                            <form action='Index.php' method='get'>
+                            <input type='hidden' name='page' value='Recettes'>
+                            <input type='submit' value='Retour'>
+                            </form>");
+                        }
+                    }
+                }
+                else if ($_GET['RequestSupp']=='Oui')
+                {
+                    echo("<div class='text-center mt-5'>
+                    Vous avez bien supprimé votre recette 
+                    <br>
+                    <form action='Index.php' method='get'>
+                    <input type='hidden' name='page' value='Recettes'>
+                    <input type='submit' value='Retour'>
+                    </form>");
+                }
             }
             else if ($_GET['Request']=='Ajouter une recette')
             {
@@ -690,21 +722,21 @@
                 <OPTION value='03:00:00'>2h+
                 </SELECT></p>
                 <p>Origine de la recette : <select name='origine'>
-                        <option value=''>--Choisissez une origine--</option>");
-                        for($i = 0 ; $i < count($Origines[0]) ; $i++)
-                        {
-                            echo("<option value=".$Origines[0][$i].">".$Origines[1][$i]."</option>"); 
-                        }                
-                        echo("</select></p>
+                <option value=''>--Choisissez une origine--</option>");
+                for($i = 0 ; $i < count($Origines[0]) ; $i++)
+                {
+                    echo("<option value=".$Origines[0][$i].">".$Origines[1][$i]."</option>"); 
+                }                
+                echo("</select></p>
 
                 
                 <p> Recette : <br><TEXTAREA name='text' rows=4 cols=40></TEXTAREA></p>
                 <p>
-                <input type='hidden' name='page' value='Recette'>
+                <input type='hidden' name='page' value='Recettes'>
                 <br><input type='submit' name='Request'value='Valider'></form>");
 
                 echo("<p><form action='Index.php' method='get'>
-                <input type='hidden' name='page' value='Recette'>
+                <input type='hidden' name='page' value='Recettes'>
                 <br><input type='submit' value='Retour'></form>");
             } 
             else if ($_GET['Request'] == "+"
