@@ -3,9 +3,18 @@
     function Recipe()
     {
         require('Model\ModelNewPDO.php');
-        $Req = $Bdd -> prepare("SELECT R.name_r,R.text,R.date_r,R.cooking_time,R.ID_user,U.user,R.ID_recipes,R.ID_origin FROM recipes R JOIN users U WHERE R.ID_user LIKE U.ID_user ORDER BY R.name_r");
+        $Req = $Bdd -> prepare("SELECT R.name_r,R.text,R.date_r,R.cooking_time,R.ID_user,U.user,R.ID_recipes,R.ID_origin,F.food_name,R.ID_recipes
+        FROM recipes R 
+        JOIN users U 
+        JOIN ingredients I 
+        JOIN foods F 
+        WHERE R.ID_user LIKE U.ID_user 
+        AND I.ID_recipes LIKE R.ID_recipes 
+        AND I.ID_food LIKE F.ID_food
+        ORDER BY FIELD (U.user, :user) DESC");
+        $Req -> bindParam(':user',$_SESSION['User'],PDO::PARAM_INT);
         $Req -> execute();
-        $Recipes = array(array(),array(),array(),array(),array(),array(),array(),array());
+        $Recipes = array(array(),array(),array(),array(),array(),array(),array(),array(),array(),array());
         while($n = $Req -> fetch())
         {
             array_push($Recipes[0], $n[0]);
@@ -16,6 +25,8 @@
             array_push($Recipes[5], $n[5]);
             array_push($Recipes[6], $n[6]);
             array_push($Recipes[7], $n[7]);
+            array_push($Recipes[8], $n[8]);
+            array_push($Recipes[9], $n[9]);
         }
         return $Recipes;
     }

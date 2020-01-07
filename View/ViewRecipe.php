@@ -14,6 +14,11 @@
                 if (empty($_GET['Request']))
                 {
                     echo("<div class='text-center mt-5'>
+                    <form action='Index.php' method='get'>
+                    <input type='search' placeholder = 'Rechercher une recette...' name='Org'/>
+                    <input type='hidden' name='page' value='Recette'>
+                    <input type='hidden' name='Request' value='Search'>
+                    <input type='submit' value=' '></form>
                     Veuillez vous <a href='Index.php?page=Inscription'> inscrire</a> ou 
                     vous <a href='Index.php?page=Connexion'> connecter</a> pour ajouter des recettes");
                     echo("<div class='text-center mt-5'>
@@ -26,13 +31,16 @@
                         </form>");
                     for ($i=0;$i<count($Recipes[0]);$i++)
                     {
-                        echo("<form action='Index.php' method='get'>
-                        <tr><td><p>".$Recipes[0][$i]."</p>
-                        <p>Créer par : ".$Recipes[5][$i]."</td>
-                        <td><input type='submit' name='Request' value='Afficher'>
-                        <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
-                        <input type='hidden' name='page' value='Recette'></td>
-                        </tr></p></form>");
+                        if($i == 0 || $Recipes[9][$i] != $Recipes[9][$i-1])
+                        {
+                            echo("<form action='Index.php' method='get'>
+                            <tr><td><p>".$Recipes[0][$i]."</p>
+                            <p>Créer par : ".$Recipes[5][$i]."</td>
+                            <td><input type='submit' name='Request' value='Afficher'>
+                            <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
+                            <input type='hidden' name='page' value='Recette'></td>
+                            </tr></p></form>");
+                        }
                     }
                     echo("</table>");  
                 } 
@@ -71,28 +79,31 @@
                     <p>Recettes");
                     for ($i=0;$i<count($Recipes[0]);$i++)
                     {
-                        if ($Recipes[4][$i]==$_SESSION['id'])
+                        if($i == 0 || $Recipes[9][$i] != $Recipes[9][$i-1])
                         {
-                            echo("<form action='Index.php' method='get'>
-                            <tr><td><p>".$Recipes[0][$i]."</p>
-                            <p>Créer par : ".$Recipes[5][$i]."</td>
-                            <td><input type='submit' name='Request' value='Afficher'></br>
-                            <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
-                            <input type='hidden' name='page' value='Recette'>
-                            <input type='submit' name='Request' value='Modifier'>
-                            <input type='hidden' name='Menu' value=1>
-                            <input type='submit' name='Request' value='Supprimer'></td></tr></p>
-                            </form>");   
-                        } 
-                        else 
-                        {
-                            echo("<form action='Index.php' method='get'>
-                            <tr><td><p>".$Recipes[0][$i]."</p>
-                            <p>Créer par : ".$Recipes[5][$i]."</td>
-                            <td><input type='submit' name='Request' value='Afficher'>
-                            <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
-                            <input type='hidden' name='page' value='Recette'></td></tr></p>
-                            </form>");
+                            if ($Recipes[4][$i]==$_SESSION['id'])
+                            {
+                                echo("<form action='Index.php' method='get'>
+                                <tr><td><p>".$Recipes[0][$i]."</p>
+                                <p>Créer par : ".$Recipes[5][$i]."</td>
+                                <td><input type='submit' name='Request' value='Afficher'></br>
+                                <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
+                                <input type='hidden' name='page' value='Recette'>
+                                <input type='submit' name='Request' value='Modifier'>
+                                <input type='hidden' name='Menu' value=1>
+                                <input type='submit' name='Request' value='Supprimer'></td></tr></p>
+                                </form>");   
+                            } 
+                            else 
+                            {
+                                echo("<form action='Index.php' method='get'>
+                                <tr><td><p>".$Recipes[0][$i]."</p>
+                                <p>Créer par : ".$Recipes[5][$i]."</td>
+                                <td><input type='submit' name='Request' value='Afficher'>
+                                <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
+                                <input type='hidden' name='page' value='Recette'></td></tr></p>
+                                </form>");
+                            }
                         }
                     }
                     echo("</table>");
@@ -215,7 +226,7 @@
                     }
                     else
                     {
-                        echo("<OPTION value='00:30:00'>30");
+                        echo("<OPTION value='00:30:00'>30 min");
                     }
                     if ($_GET['time']=="00:45:00")
                     {
