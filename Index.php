@@ -28,8 +28,10 @@
                 require('Controller/ControllerDiet.php');
             else if ($_GET['page'] == 'Catégories Alimentaires')
                 require('Controller/ControllerFoodCategories.php');
-
-        
+            else if ($_GET['page'] == 'Notes recettes')
+                require('Controller/ControllerNotesRecettes.php');
+            else if ($_GET['page'] == 'Recettes')
+                require('Controller/ControllerRecettes.php'); 
         ?>
     </body>
 </html>        
