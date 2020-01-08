@@ -64,21 +64,21 @@
         }
         elseif ($_GET['Request'] == "Accepter amis")
         {
-            if ($_GET['Answer'] == 'Oui') 
+            if (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Oui') 
             {
                 AcceptRequest();
             }
-            elseif ($_GET['Answer'] == 'Non')
+            elseif (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Non')
             {
             
             }
         }
         elseif ($_GET['Request'] == "Refuser ami") {
-            if ($_GET['Answer'] == 'Oui') 
+            if (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Oui') 
             {
                 DeclineRequest();
             }
-            elseif ($_GET['Answer'] == 'Non')
+            elseif (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Non')
             {
                 
             }
