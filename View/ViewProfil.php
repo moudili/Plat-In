@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" href="Css\ErrorChamp.css">
+        <link rel="stylesheet" href="Css/ErrorChamp.css">
         <title>Profile</title>
     </head>
     
@@ -23,7 +23,7 @@
             <input type='submit' name='modif' value='Modifier mon profil'>
             <input type='hidden' name='page' value='Profil'>
             </form>
-            <form action='Controller\ControllerPreferences.php' method='get'>
+            <form action='Controller/ControllerPreferences.php' method='get'>
             <input type='submit' value='Modifier mes préférences'>
             </form>
             <form action='Index.php' method='get'>

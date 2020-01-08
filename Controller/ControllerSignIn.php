@@ -51,7 +51,7 @@
                 }
                 else
                 {
-                    header("Location:Controller\ControllerPreferences.php");
+                    header("Location:Controller/ControllerPreferences.php");
                 }
             }
             else

@@ -2,7 +2,7 @@
 
 function Recipe()
 {
-    require('Model\ModelNewPDO.php');
+    require('Model/ModelNewPDO.php');
     $Req = $Bdd -> prepare("SELECT R.name_r,R.text,R.date_r,R.cooking_time,R.ID_user,U.user,R.ID_recipes,R.ID_origin FROM recipes R JOIN users U WHERE R.ID_user LIKE U.ID_user ORDER BY R.name_r");
     $Req -> execute();
     $Recipes = array(array(),array(),array(),array(),array(),array(),array(),array());
@@ -24,7 +24,7 @@ function PrintStarts()
 {
     if (empty($_GET['Request']))
     {
-        require('Model\ModelNewPDO.php');
+        require('Model/ModelNewPDO.php');
         $Note=array(array(),array(),array(),array(),array(),array());
         $Req = $Bdd -> prepare("SELECT count(review) FROM reviews");
         $Req -> execute();
@@ -51,7 +51,7 @@ function Delet()
 {
     if ($_GET['RequestSupp']=='ok')
     {
-        require('Model\ModelNewPDO.php');
+        require('Model/ModelNewPDO.php');
         $Req = $Bdd -> prepare("DELETE FROM `reviews` WHERE `reviews`.`ID_recipes` = :resultat");
         $Req -> bindParam(':resultat',$Id,PDO::PARAM_INT);
         $Req -> execute(); 

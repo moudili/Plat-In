@@ -1,4 +1,5 @@
 <?php
+    echo("chatte");
     function CheckMenu()
     {
         if(!empty($_GET['Request']))
@@ -116,8 +117,9 @@
             }
         }
     }
-
+    
     require('Controller/ControllerStaple.php');
+    
     CheckSesion();
     CheckLogOut();
     require('Model/ModelRecipe.php');
