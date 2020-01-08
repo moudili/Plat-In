@@ -4,7 +4,7 @@
     {
         if(!empty($_GET['Request']))
         {
-            if($_GET['Request'] == "Search")
+            if(isset($_GET['Usr']) && $_GET['Request'] == "Search")
             {
                 $Usr = $_GET['Usr'];
                 $Usr = strtolower($Usr);
@@ -39,12 +39,12 @@
             $MoiBloquer = Myblocked();
             $Myfriends = MyFriend();
             
-            if ($_GET['Answer']=='Oui')
+            if (isset($_GET['Answer']) && $_GET['Answer']=='Oui')
             {
                 RequestToBeFriend();
 
             }
-            elseif ($_GET['Answer']=='Non') 
+            elseif (isset($_GET['Answer']) && $_GET['Answer']=='Non') 
             {
                 echo("non");
             }
@@ -52,11 +52,11 @@
         }elseif ($_GET['Request'] == "Amis")
         {
             $Myfriends = MyFriend();
-            if ($_GET['Answer'] == 'Oui') 
+            if (isset($_GET['Answer']) && $_GET['Answer'] == 'Oui') 
             {
                 DeleteFriend();            
             }
-            elseif ($_GET['Answer'] == 'Non')
+            elseif (isset($_GET['Answer']) && $_GET['Answer'] == 'Non')
             {
                 
             }
@@ -85,11 +85,11 @@
         }
         elseif ($_GET['Request'] == "Bloquer")
         {
-            if ($_GET['Answer'] == 'Oui') 
+            if (isset($_GET['Answer']) && $_GET['Answer'] == 'Oui') 
             {
                 Block();
             }
-            elseif ($_GET['Answer'] == 'Non')
+            elseif (isset($_GET['Answer']) && $_GET['Answer'] == 'Non')
             {
                 
             }
@@ -97,11 +97,11 @@
         }
         elseif ($_GET['Request'] == "Debloquer") 
         {
-            if ($_GET['Answer'] == 'Oui') 
+            if (isset($_GET['Answer']) && $_GET['Answer'] == 'Oui') 
             {
                 Debloquer();
             }
-            elseif ($_GET['Answer'] == 'Non')
+            elseif (isset($_GET['Answer']) && $_GET['Answer'] == 'Non')
             {
                 
             }

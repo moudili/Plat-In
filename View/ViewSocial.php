@@ -33,9 +33,16 @@
                 {
                     if($Search != false)
                     {
-                        echo"<form action='Index.php' method='get'>
-                        <input type='search' value='".htmlspecialchars($_GET['Usr'], ENT_QUOTES)."' name='Usr'/>
-                        <input type='hidden' name='page' value='Sociale'>
+                        echo"<form action='Index.php' method='get'>";
+                        if(isset($_GET['Usr']))
+                        {
+                            echo "<input type='search' value='".htmlspecialchars($_GET['Usr'], ENT_QUOTES)."' name='Usr'/>";
+                        }
+                        else
+                        {
+                            echo "<input type='search' value='' name='Usr'/>";
+                        }
+                        echo "<input type='hidden' name='page' value='Sociale'>
                         <input type='hidden' name='Request' value='Search'>
                         <input type='submit' value=' '></form>";
 
@@ -175,7 +182,7 @@
                     {
                         echo("<form action='Index.php' method='get'>
                         <input type='search' name='Usr' value='".htmlspecialchars($_GET['Usr'], ENT_QUOTES)."'/>
-                        <input type='hidden' name='page' value='Gestion des droits'>
+                        <input type='hidden' name='page' value='Sociale'>
                         <input type='hidden' name='Request' value='Search'>
                         <input type='submit' value=' '></form>
                         <br>aucun résultat pour la recherche ".$_GET['Usr'].".");                         
@@ -356,7 +363,7 @@
                         
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Sociale'>
-                        <input type='hidden' name='Request' value='Bloquer'>
+                        <input type='hidden' name='Request' value='Search'>
                         <br><input type='submit' name='Answer' value='Non'></form>
                         ");
                     }

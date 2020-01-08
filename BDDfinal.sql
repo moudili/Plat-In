@@ -74,7 +74,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Plat_In`.`friends` (
   `ID_friend` INT NOT NULL AUTO_INCREMENT,
   `ID_user` INT NOT NULL,
-  `status_f` ENUM('friend', 'requested', 'blocked') NULL,
+  `status_f` ENUM('friend', 'requested', 'block') NULL,
   `ID_user_receiver` INT NOT NULL,
   PRIMARY KEY (`ID_friend`),
   CONSTRAINT `fk_users_has_users_users1`
@@ -222,7 +222,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Plat_In`.`friends` (
   `ID_friend` INT NOT NULL,
   `ID_user` INT NOT NULL,
-  `status_f` ENUM('friend', 'requested', 'blocked') NULL,
+  `status_f` ENUM('friend', 'requested', 'block') NULL,
   `ID_user_receiver` INT NOT NULL,
   PRIMARY KEY (`ID_friend`),
   CONSTRAINT `fk_users_has_users_users1`
