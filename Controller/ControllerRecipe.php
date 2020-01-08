@@ -87,7 +87,7 @@
                 $Menu = $_GET['Menu'] - 1;
                 return $Menu; 
             }
-            else
+            else if($_GET['Request']!='Search')
             {
                 $Menu = $_GET['Menu'];
                 return $Menu;
@@ -109,7 +109,7 @@
                 $Menu = $_GET['Menu'] - 1;
                 return $Menu; 
             }
-            else
+            else if($_GET['Request']!='Search')
             {
                 $Menu = $_GET['Menu'];
                 return $Menu;

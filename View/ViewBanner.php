@@ -101,9 +101,13 @@
                             <form action='Index.php' method='get'>
                             <input type='submit' name="page" value="Aliments"></form>
                             <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Catégories Alimentaires"></form>
+                            <input type='submit' name="page" value="Catégories Alimentaires"></form>     
                             <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Régimes"></form>                                        
+                            <input type='submit' name="page" value="Notes recettes"></form>   
+                            <form action='Index.php' method='get'>
+                            <input type='submit' name="page" value="Recettes"></form>
+                            <form action='Index.php' method='get'>
+                            <input type='submit' name="page" value="Régimes"></form>                         
                             <form action='Index.php' method='get'>
                             <input type='submit' name="page" value="Origines"></form>
                             <form action='Index.php' method='get'>
