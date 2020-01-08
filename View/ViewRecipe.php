@@ -1173,22 +1173,25 @@
                     {
                         for ($i=0; $i < count($Recipes[0]);$i++)
                         {
-                            if ($Recipes[6][$i]==$_GET['id'])
+                            if($i == 0 || $Recipes[6][$i] != $Recipes[6][$i-1])
                             {
-                                echo("<div class='text-center mt-5'>
-                                Voulez-vous vraiment supprimer la recette ".$Recipes[0][$i]." de Plat-In ?
-                                </br></br>
-                                <form action='Index.php' method='get'>
-                                <input type='hidden' name='page' value='Recette'>
-                                <input type='hidden' name='Request' value='Supprimer'>
-                                <input type='hidden' name='id' value='".$_GET['id']."'>
-                                <input type='submit' name='RequestSupp' value='Oui'>
-                                </form>
-                                </br>
-                                <form action='Index.php' method='get'>
-                                <input type='hidden' name='page' value='Recettes'>
-                                <input type='submit' value='Retour'>
-                                </form>");
+                                if ($Recipes[6][$i]==$_GET['id'])
+                                {
+                                    echo("<div class='text-center mt-5'>
+                                    Voulez-vous vraiment supprimer la recette ".$Recipes[0][$i]." de Plat-In ?
+                                    </br></br>
+                                    <form action='Index.php' method='get'>
+                                    <input type='hidden' name='page' value='Recette'>
+                                    <input type='hidden' name='Request' value='Supprimer'>
+                                    <input type='hidden' name='id' value='".$_GET['id']."'>
+                                    <input type='submit' name='RequestSupp' value='Oui'>
+                                    </form>
+                                    </br>
+                                    <form action='Index.php' method='get'>
+                                    <input type='hidden' name='page' value='Recettes'>
+                                    <input type='submit' value='Retour'>
+                                    </form>");
+                                }
                             }
                         }
                     }
