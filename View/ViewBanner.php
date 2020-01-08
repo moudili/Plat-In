@@ -130,7 +130,10 @@
                             <form action='Index.php' method='get'>
                             <input type='submit' name="page" value="Profil"></form>
                             <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Sociale"></form>
+                            <input type='hidden' name='Usr' value=''>
+                            <input type='submit' name="page" value="Sociale">
+                            <input type='hidden' name='Request' value='Search'>
+                            </form>
                         </div>
                     <?php
                 }
