@@ -37,9 +37,8 @@
         {
             $MesBloques = BlockPeople();
             $MoiBloquer = Myblocked();
-            var_dump ($MoiBloquer);
-
             $Myfriends = MyFriend();
+            
             if ($_GET['Answer']=='Oui')
             {
                 RequestToBeFriend();

@@ -139,7 +139,7 @@
                                 {
                                     echo("<br>Vous avez déja une demande d'ami qui vous attend avec ".$Search[1][$i]."<br><form action='Index.php' method='get'>
                                     <input type='hidden' name='page' value='Sociale'>
-                                    <input type='hidden' name='Request' value='Demande amis'>
+                                    <input type='hidden' name='Request' value='Demande amis'><br>
                                     <input type='submit' value='Demande d&#39;amis'></form>
                                     <br>");
 
@@ -180,28 +180,30 @@
                         <input type='submit' value=' '></form>
                         <br>aucun résultat pour la recherche ".$_GET['Usr'].".");                         
                     }
-                }elseif ($_GET['Request'] == 'Ajouter un ami') {
-                    if (empty($_GET['Answer'])) {
-                    
-                    echo("
-                    Voulez-vous ajouter ".$_GET['User']." à votre liste d'ami ?
-                    
-                    
+                }
+                elseif ($_GET['Request'] == 'Ajouter un ami') 
+                {
+                    if (empty($_GET['Answer'])) 
+                    {
+                        echo("
+                        Voulez-vous ajouter ".$_GET['User']." à votre liste d'ami ?
+                        
+                        
 
-                    <p><form action='Index.php' method='get'>
-                    <input type='hidden' name='page' value='Sociale'>
-                    <input type='hidden' name='Request' value='Search'>
-                 
-                    <input type='hidden' name='User' value='".$_GET['User']."'>
-                    <input type='hidden' name='id' value='".$_GET['id']."'>
-                    <br><input type='submit' name='Answer' value='Oui'></form>
+                        <p><form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Sociale'>
+                        <input type='hidden' name='Request' value='Search'>
                     
-                    
-                    <p><form action='Index.php' method='get'>
-                    <input type='hidden' name='page' value='Sociale'>
-                    <input type='hidden' name='Request' value='Search'>
-                    <br><input type='submit' name='Answer' value='Non'></form>
-                    ");
+                        <input type='hidden' name='User' value='".$_GET['User']."'>
+                        <input type='hidden' name='id' value='".$_GET['id']."'>
+                        <br><input type='submit' name='Answer' value='Oui'></form>
+                        
+                        
+                        <p><form action='Index.php' method='get'>
+                        <input type='hidden' name='page' value='Sociale'>
+                        <input type='hidden' name='Request' value='Search'>
+                        <br><input type='submit' name='Answer' value='Non'></form>
+                        ");
                     }
 
                 }
