@@ -127,6 +127,92 @@
         }
     }
 
+    function starts()
+    {
+        if (!empty($_GET['RequestReview']) AND $_GET['RequestReview']=='Valider')
+        {
+            require('Model\ModelNewPDO.php');
+            $Id_r=$_GET['id'];
+            $Id_u=$_SESSION['id'];
+            if (!empty($_GET['stars']))
+            {
+                $Stars=$_GET['stars'];
+            }
+            $Req = $Bdd -> prepare("SELECT count(ID_user) FROM reviews WHERE ID_user LIKE :user AND ID_recipes LIKE :id_r");
+            $Req -> bindParam(':user',$Id_u,PDO::PARAM_INT);
+            $Req -> bindParam(':id_r',$Id_r,PDO::PARAM_INT);
+            $Req -> execute();
+            $n=$Req -> fetch();
+            $Check=$n[0];
+            
+            if ($Check == 0 AND !empty($_GET['stars']))
+            {
+                $Req = $Bdd -> prepare("INSERT INTO `reviews` (`review`, `ID_user`, `ID_recipes`) 
+                VALUES (:review, :id_u, :id_r)");
+                $Req -> bindParam(':review',$Stars,PDO::PARAM_INT);
+                $Req -> bindParam(':id_u',$Id_u,PDO::PARAM_INT);
+                $Req -> bindParam(':id_r',$Id_r,PDO::PARAM_INT);
+                $Req -> execute();
+            } 
+            else if ($Check != 0 AND !empty($_GET['stars']))
+            {
+                $Req = $Bdd -> prepare("DELETE FROM `reviews` WHERE `reviews`.`ID_user` = :resultat AND ID_recipes LIKE :id_r");
+                $Req -> bindParam(':resultat',$Id_u,PDO::PARAM_INT);
+                $Req -> bindParam(':id_r',$Id_r,PDO::PARAM_INT);
+                $Req -> execute();
+
+                $Req2 = $Bdd -> prepare("INSERT INTO `reviews` (`review`, `ID_user`, `ID_recipes`) 
+                VALUES (:review, :id_u, :id_r)");
+                $Req2 -> bindParam(':review',$Stars,PDO::PARAM_INT);
+                $Req2 -> bindParam(':id_u',$Id_u,PDO::PARAM_INT);
+                $Req2 -> bindParam(':id_r',$Id_r,PDO::PARAM_INT);
+                $Req2 -> execute();
+            }
+        }
+    }
+
+    function PrintStarts($Id_R)
+    {
+        if (empty($_GET['Request']))
+        {
+            require('Model\ModelNewPDO.php');
+            $Note=array();
+            $NoteF=array();;
+            for ($i=0;$i<count($Id_R);$i++)
+            {
+                $Req = $Bdd -> prepare("SELECT count(review) FROM reviews WHERE ID_recipes LIKE :id");
+                $Req -> bindParam(':id',$Id_R[$i],PDO::PARAM_INT);
+                $Req -> execute();
+                $n=$Req -> fetch();
+                $Check=$n[0];
+
+                $Req = $Bdd -> prepare("SELECT review FROM reviews WHERE ID_recipes LIKE :id");
+                $Req -> bindParam(':id',$Id_R[$i],PDO::PARAM_INT);
+                $Req -> execute();
+                array_push($Note, array());
+                for($j=0;$j<$Check;$j++)
+                {
+                    $n=$Req -> fetch();
+                    array_push($Note[$i], $n[0]);           
+                }
+                array_push($NoteF, 0);
+                for($j=0;$j<count($Note[$i]);$j++)
+                {
+                    $NoteF[$i]=$NoteF[$i]+$Note[$i][$j];
+                }
+                if (count($Note[$i])!=0)
+                {
+                $NoteF[$i]=$NoteF[$i]/count($Note[$i]);
+                }
+                else 
+                {
+                    $NoteF[$i]='Pas de note pour cette recette'; 
+                }
+            }            
+            return $NoteF;
+        }
+    }
+
     function ModifRecipes($Menu2)
     {
         if (!empty($_GET['RequestModif']) AND $_GET['RequestModif']=='Confirmation')
