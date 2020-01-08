@@ -70,7 +70,7 @@
                         </form>");
                     for ($i=0;$i<count($Recipes[0]);$i++)
                     {
-                        if($i == 0 || $Recipes[7][$i] != $Recipes[7][$i-1])
+                        if($i == 0 || $Recipes[6][$i] != $Recipes[6][$i-1])
                         {
                             if ($Note[$i]>0 AND $Note[$i]<=5)
                             {
@@ -134,7 +134,7 @@
                     <p>Recettes");
                     for ($i=0;$i<count($Recipes[0]);$i++)
                     {
-                        if($i == 0 || $Recipes[7][$i] != $Recipes[7][$i-1])
+                        if($i == 0 || $Recipes[6][$i] != $Recipes[6][$i-1])
                         {
 
                             if ($Recipes[4][$i]==$_SESSION['id'])
