@@ -31,7 +31,7 @@ function PrintStarts()
         $n=$Req -> fetch();
         $Check=$n[0];
 
-        $Req = $Bdd -> prepare("SELECT S.review, S.ID_recipes, R.name_r,S.ID_reviews, S.ID_user, U.user FROM reviews S JOIN recipes R AND users U");
+        $Req = $Bdd -> prepare("SELECT S.review, S.ID_recipes, R.name_r,S.ID_reviews FROM reviews S JOIN recipes R");
         $Req -> execute();
         for($j=0;$j<$Check;$j++)
         {
@@ -40,8 +40,7 @@ function PrintStarts()
             array_push($Note[1], $n[1]);
             array_push($Note[2], $n[2]); 
             array_push($Note[3], $n[3]);  
-            array_push($Note[4], $n[4]);
-            array_push($Note[5], $n[5]);        
+                    
         }    
 
         return $Note;
