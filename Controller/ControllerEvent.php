@@ -1,5 +1,5 @@
 <?php
-
+ 
     require('Controller/ControllerStaple.php');
     CheckSesion();
     CheckLogOut();
@@ -9,6 +9,7 @@
     {
         require("Model/ModelEvent.php");
         $Events=SelectEvent();
+        $Recipes=SelectRecipe();
         require("View/ViewEvent.php");
     }
 ?>
