@@ -20,21 +20,17 @@ CREATE TABLE IF NOT EXISTS `Plat_In`.`users` (
   PRIMARY KEY (`ID_user`))
 ENGINE = InnoDB;
 
-INSERT INTO `users` (`ID_user`, `user`, `u_password`, `first_name`, `last_name`, `adress`, `mail`, `phone_number`, `picture`, `status_u`, `connection`) VALUES (NULL, 'admin', 'YWJjZGU=', NULL, NULL, NULL, NULL, NULL, NULL, 'admin', 'dc');
-
 CREATE TABLE IF NOT EXISTS `Plat_In`.`foods` (
   `ID_food` INT NOT NULL AUTO_INCREMENT,
   `food_name` VARCHAR(45) NULL,
   PRIMARY KEY (`ID_food`))
 ENGINE = InnoDB;
 
-
 CREATE TABLE IF NOT EXISTS `Plat_In`.`kinds_of_food` (
   `ID_kind_of_food` INT NOT NULL AUTO_INCREMENT,
   `name_k` VARCHAR(45) NULL,
   PRIMARY KEY (`ID_kind_of_food`))
 ENGINE = InnoDB;
-
 
 CREATE TABLE IF NOT EXISTS `Plat_In`.`food_categories` (
   `ID_food_categorie` INT NOT NULL AUTO_INCREMENT,
@@ -72,10 +68,10 @@ CREATE TABLE IF NOT EXISTS `Plat_In`.`preferences` (
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `Plat_In`.`friends` (
-  `ID_friend` INT NOT NULL AUTO_INCREMENT,
+  `ID_friend` INT NOT NULL,
   `ID_user` INT NOT NULL,
-  `status_f` ENUM('friend', 'requested', 'block') NULL,
   `ID_user_receiver` INT NOT NULL,
+  `status_f` ENUM('friend', 'requested', 'block') NULL,
   PRIMARY KEY (`ID_friend`),
   CONSTRAINT `fk_users_has_users_users1`
     FOREIGN KEY (`ID_user`)
@@ -93,7 +89,6 @@ CREATE TABLE IF NOT EXISTS `Plat_In`.`meals` (
   `ID_meal` INT NOT NULL AUTO_INCREMENT,
   `name_m` VARCHAR(45) NULL,
   `date_m` DATETIME NULL,
-  `statut_m` ENUM('requested', 'accepted') NULL,
   PRIMARY KEY (`ID_meal`))
 ENGINE = InnoDB;
 
@@ -101,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `Plat_In`.`guests` (
   `ID_guest` INT NOT NULL AUTO_INCREMENT,
   `ID_user` INT NOT NULL,
   `ID_meals` INT NOT NULL,
-  `status_g` ENUM('membre', 'admin') NULL,
+  `status_g` ENUM('requested', 'membre', 'admin') NULL,
   PRIMARY KEY (`ID_guest`),
   CONSTRAINT `fk_users_has_meals_users1`
     FOREIGN KEY (`ID_user`)
@@ -222,8 +217,8 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Plat_In`.`friends` (
   `ID_friend` INT NOT NULL,
   `ID_user` INT NOT NULL,
-  `status_f` ENUM('friend', 'requested', 'block') NULL,
   `ID_user_receiver` INT NOT NULL,
+  `status_f` ENUM('friend', 'requested', 'block') NULL,
   PRIMARY KEY (`ID_friend`),
   CONSTRAINT `fk_users_has_users_users1`
     FOREIGN KEY (`ID_user`)

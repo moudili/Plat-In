@@ -133,6 +133,7 @@
                             <input type='hidden' name='Usr' value=''>
                             <input type='submit' name="page" value="Sociale">
                             <input type='hidden' name='Request' value='Search'>
+                            <input type='hidden' name='Usr' value="">
                             </form>
                         </div>
                     <?php
