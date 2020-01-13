@@ -7,6 +7,8 @@
 
     if ($_SESSION['Co']==true)
     {
+        require("Model/ModelEvent.php");
+        $Events=SelectEvent();
         require("View/ViewEvent.php");
     }
 ?>
