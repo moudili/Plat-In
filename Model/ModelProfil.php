@@ -4,7 +4,7 @@
 
     function SelectProfile()
     {
-        require('Model\ModelNewPDO.php');
+        require('Model/ModelNewPDO.php');
         $User = $_SESSION['User'];
         $Req = $Bdd -> prepare("SELECT ID_user FROM users WHERE :user LIKE user");
         $Req -> bindParam(':user',$User,PDO::PARAM_STR);
@@ -19,7 +19,7 @@
 
     function PrintProfil($Id)
     {
-        require('Model\ModelNewPDO.php');
+        require('Model/ModelNewPDO.php');
         $ID = $_SESSION['id'];
         $Req = $Bdd -> prepare("SELECT user, u_password, first_name, last_name, adress, mail, phone_number FROM users WHERE $ID LIKE ID_user");
         $Req -> execute();
@@ -44,7 +44,7 @@
     {
         if (!empty($_GET['modif']) AND $_GET['modif']=='Corriger' AND $Choix == "Oui")
         {
-            require("Model\ModelNewPDO.php");
+            require("Model/ModelNewPDO.php");
 
             $ID = $_SESSION['id'];
             $Ndu = $_GET['ndu'];
@@ -91,7 +91,7 @@
         if (!empty($_GET['supprimer']) AND $_GET['supprimer']=='Oui')
         {
             $ID = $_SESSION['id'];
-            require("Model\ModelNewPDO.php");
+            require("Model/ModelNewPDO.php");
             $Req = $Bdd -> prepare("DELETE FROM users WHERE :id LIKE ID_user");
             $Req->bindParam(':id',$ID,PDO::PARAM_STR);
             $Req->execute();

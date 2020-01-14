@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" href="Css\ErrorChamp.css">
+        <link rel="stylesheet" href="Css/ErrorChamp.css">
         <title>Inscription</title>
     </head>
     
