@@ -10,8 +10,7 @@ $(function() {
         var Phone = document.forms["FormName"]["Phone"].value;
         var Pwd = document.forms["FormName"]["Pwd"].value;
         var Cpwd = document.forms["FormName"]["Cpwd"].value;
-        
-        alert("Message à afficher");
+                
         //User
 
         if(User.length !== 0
@@ -79,8 +78,8 @@ $(function() {
 
         if(Adress.length !== 0
             && (Adress.length  < 2
-            || Adress.length > 40)
-            //|| !Adress.match(/^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ'._-]$/))
+            || Adress.length > 40
+            || !Adress.match(/^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ'._-]$/))
             )
         {
             document.getElementById("Adress").style.borderColor="red";
