@@ -2,16 +2,26 @@
 
     function Recipe()
     {
-        require('Model\ModelNewPDO.php');
-        $Req = $Bdd -> prepare("SELECT R.name_r,R.text,R.date_r,R.cooking_time,R.ID_user,U.user,R.ID_recipes,R.ID_origin,F.food_name
+        require('Model/ModelNewPDO.php');
+        $Req = $Bdd -> prepare("SELECT DISTINCT R.name_r,R.text,R.date_r,R.cooking_time,R.ID_user,U.user,R.ID_recipes,R.ID_origin,F.food_name
         FROM recipes R 
         JOIN users U 
         JOIN ingredients I 
-        JOIN foods F 
+        JOIN foods F
+        JOIN origins O
+        JOIN food_categories FC
+        JOIN kinds_of_food KF
+        JOIN preferences P
         WHERE R.ID_user LIKE U.ID_user 
         AND I.ID_recipes LIKE R.ID_recipes 
         AND I.ID_food LIKE F.ID_food
-        ORDER BY FIELD (U.user, :user) DESC");
+        AND O.ID_origin LIKE R.ID_origin
+        AND FC.ID_food LIKE F.ID_food
+        AND KF.ID_kind_of_food LIKE FC.ID_kind_of_food
+        AND P.ID_kind_of_food LIKE KF.ID_kind_of_food
+        AND P.ID_user LIKE U.ID_user
+        ORDER BY FIELD (U.user, :user ) DESC,
+        ID_recipes");
         $Req -> bindParam(':user',$_SESSION['User'],PDO::PARAM_INT);
         $Req -> execute();
         $Recipes = array(array(),array(),array(),array(),array(),array(),array(),array(),array());
@@ -32,7 +42,7 @@
 
     function Origin()
     {
-        require('Model\ModelNewPDO.php');
+        require('Model/ModelNewPDO.php');
         $Req = $Bdd -> prepare("SELECT ID_origin, origin_name FROM origins ORDER BY origin_name");
         $Req -> execute();
         $Origins = array(array(),array());
@@ -46,7 +56,7 @@
 
     function Food()
     {
-        require('Model\ModelNewPDO.php');
+        require('Model/ModelNewPDO.php');
         $Req = $Bdd -> prepare("SELECT ID_food, food_name FROM foods ORDER BY food_name");
         $Req -> execute();
         $Foods = array(array(),array());
@@ -62,7 +72,7 @@
     {
         if (!empty($_GET['Request']) AND $_GET['Request']=='Modifier')
         {
-            require('Model\ModelNewPDO.php');
+            require('Model/ModelNewPDO.php');
             $Req = $Bdd -> prepare("SELECT I.ID_recipes,I.ID_food, F.food_name FROM ingredients I 
             JOIN foods F WHERE I.ID_food LIKE F.ID_food AND I.ID_recipes LIKE :id ORDER BY food_name");
             $Req -> bindParam(':id',$_GET['id'],PDO::PARAM_INT);
@@ -93,7 +103,7 @@
                 $Time=$_GET['time'];
                 $Origin=$_GET['origine'];
                 $User=$_SESSION['User'];
-                require('Model\ModelNewPDO.php');
+                require('Model/ModelNewPDO.php');
                 $Req = $Bdd -> prepare("SELECT ID_user FROM users WHERE user LIKE :user");
                 $Req -> bindParam(':user',$User,PDO::PARAM_STR);
                 $Req -> execute();
@@ -130,7 +140,7 @@
     {
         if (!empty($_GET['RequestReview']) AND $_GET['RequestReview']=='Valider')
         {
-            require('Model\ModelNewPDO.php');
+            require('Model/ModelNewPDO.php');
             $Id_r=$_GET['id'];
             $Id_u=$_SESSION['id'];
             if (!empty($_GET['stars']))
@@ -174,7 +184,7 @@
     {
         if (empty($_GET['Request']))
         {
-            require('Model\ModelNewPDO.php');
+            require('Model/ModelNewPDO.php');
             $Note=array();
             $NoteF=array();;
             for ($i=0;$i<count($Id_R);$i++)
@@ -228,7 +238,7 @@
                 $Origin=$_GET['origine'];
                 $Id=$_GET['id'];
 
-                require('Model\ModelNewPDO.php');
+                require('Model/ModelNewPDO.php');
 
                 $Req = $Bdd -> prepare("UPDATE `recipes` SET `name_r` = :name_r, `text` = :texte, `date_r`=NOW(), `cooking_time`=:time_r WHERE `recipes`.`ID_recipes` = :id;");
                 $Req -> bindParam(':name_r',$Name,PDO::PARAM_STR);
@@ -260,7 +270,7 @@
         if (!empty($_GET['RequestSupp']) AND $_GET['RequestSupp']=='Oui')
         {
             $Id = $_GET['id'];
-            require('Model\ModelNewPDO.php');
+            require('Model/ModelNewPDO.php');
             $Req = $Bdd -> prepare("DELETE FROM `recipes` WHERE `recipes`.`ID_recipes` = :resultat");
             $Req -> bindParam(':resultat',$Id,PDO::PARAM_INT);
             $Req -> execute();
