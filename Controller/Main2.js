@@ -12,7 +12,6 @@ $(function() {
         var Cpwd = document.forms["FormName"]["cmdp"].value;
         
         //User
-        alert(User+"---"+Mail);
 
         if(User.length !== 0
             && (User.length  < 5
