@@ -139,6 +139,7 @@
                     <input type='hidden' name='page' value='Inscription'>
                     <br><br><input type='submit' id='SignUp' value='Inscription' name='SignUp'>
                     </form>
+                    ".strlen($_GET['Adress'])."
                     </div>";
                 }
             }       
