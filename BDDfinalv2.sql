@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `Plat_In`.`preferences` (
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `Plat_In`.`friends` (
-  `ID_friend` INT NOT NULL,
+  `ID_friend` INT NOT NULL  AUTO_INCREMENT,
   `ID_user` INT NOT NULL,
   `ID_user_receiver` INT NOT NULL,
   `status_f` ENUM('friend', 'requested', 'block') NULL,
@@ -88,7 +88,10 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Plat_In`.`meals` (
   `ID_meal` INT NOT NULL AUTO_INCREMENT,
   `name_m` VARCHAR(45) NULL,
-  `date_m` DATETIME NULL,
+  `date_hours` TIME NULL,
+  `date_days` DATE NULL,
+  `location` VARCHAR(45) NULL,
+  `text` BLOB NULL,
   PRIMARY KEY (`ID_meal`))
 ENGINE = InnoDB;
 
@@ -210,24 +213,6 @@ CREATE TABLE IF NOT EXISTS `Plat_In`.`can_t_eat` (
   CONSTRAINT `fk_diets_has_kinds_of_food_kinds_of_food1`
     FOREIGN KEY (`ID_kind_of_food`)
     REFERENCES `Plat_In`.`kinds_of_food` (`ID_kind_of_food`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB;
-
-CREATE TABLE IF NOT EXISTS `Plat_In`.`friends` (
-  `ID_friend` INT NOT NULL,
-  `ID_user` INT NOT NULL,
-  `ID_user_receiver` INT NOT NULL,
-  `status_f` ENUM('friend', 'requested', 'block') NULL,
-  PRIMARY KEY (`ID_friend`),
-  CONSTRAINT `fk_users_has_users_users1`
-    FOREIGN KEY (`ID_user`)
-    REFERENCES `Plat_In`.`users` (`ID_user`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_users_has_users_users2`
-    FOREIGN KEY (`ID_user_receiver`)
-    REFERENCES `Plat_In`.`users` (`ID_user`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
