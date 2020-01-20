@@ -78,8 +78,8 @@ $(function() {
 
         if(Adress.length !== 0
             && (Adress.length  < 2
-            || Adress.length > 40)
-            //|| !Adress.match(/^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ'._-]$/))
+            || Adress.length > 40
+            || !Adress.match(/[^a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]/))
             )
         {
             document.getElementById("Adress").style.borderColor="red";
