@@ -11,7 +11,6 @@ $(function() {
         var Pwd = document.forms["FormName"]["mdp"].value;
         var Cpwd = document.forms["FormName"]["cmdp"].value;
         
-        alert("Message à afficher");
         //User
 
         if(User.length !== 0
