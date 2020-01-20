@@ -34,15 +34,15 @@
         } 
         else if ($_GET['modif']=='Modifier mon profil')
         {
-            echo("<br><form action='Index.php' method='get'>
-                <p>Nom d'utilisateur : <input id='get_compte' type='text' name='ndu' value='".htmlspecialchars(PrintProfil(SelectProfile())[0], ENT_QUOTES)."' class=Aright></p>
-                <p>Prénom : <input id='get_prenom' type='text' name='first_name' value='".htmlspecialchars(PrintProfil(SelectProfile())[2], ENT_QUOTES)."' class=Aright></p>
-                <p>Nom : <input id='get_nom' type='text' name='last_name' value='".htmlspecialchars(PrintProfil(SelectProfile())[3], ENT_QUOTES)."' class=Aright></p>
-                <p>Adresse : <input id='get_adresse' type='text' name='adresse' value='".htmlspecialchars(PrintProfil(SelectProfile())[4], ENT_QUOTES)."' class=Aright></p>
-                <p>Adresse e-mail : <input id='get_mail' type='email' name='mail' value='".htmlspecialchars(PrintProfil(SelectProfile())[5], ENT_QUOTES)."' class=Aright></p>
-                <p>Numéro de téléphone : <input id='get_phone' type='text' name='phone' value='".htmlspecialchars(PrintProfil(SelectProfile())[6], ENT_QUOTES)."' class=Aright></p>
-                <p>Mot de passe : <input id='get_mdp' type='password' name='mdp' value='".htmlspecialchars(PrintProfil(SelectProfile())[1], ENT_QUOTES)."' class=Aright></p>
-                <p>Confirmation de mot de passe : <input id='get_cmdp' type='password' name='cmdp' value=''></p>
+            echo("<br><form action='Index.php' id='FormCom' name='FormName' method='get'>
+                <p>Nom d'utilisateur : <input id='User' type='text' name='ndu' value='".htmlspecialchars(PrintProfil(SelectProfile())[0], ENT_QUOTES)."' class=Aright></p>
+                <p>Prénom : <input id='FirstName' type='text' name='first_name' value='".htmlspecialchars(PrintProfil(SelectProfile())[2], ENT_QUOTES)."' class=Aright></p>
+                <p>Nom : <input id='LastName' type='text' name='last_name' value='".htmlspecialchars(PrintProfil(SelectProfile())[3], ENT_QUOTES)."' class=Aright></p>
+                <p>Adresse : <input id='Adress' type='text' name='adresse' value='".htmlspecialchars(PrintProfil(SelectProfile())[4], ENT_QUOTES)."' class=Aright></p>
+                <p>Adresse e-mail : <input id='Mail' type='email' name='mail' value='".htmlspecialchars(PrintProfil(SelectProfile())[5], ENT_QUOTES)."' class=Aright></p>
+                <p>Numéro de téléphone : <input id='Phone' type='text' name='phone' value='".htmlspecialchars(PrintProfil(SelectProfile())[6], ENT_QUOTES)."' class=Aright></p>
+                <p>Mot de passe : <input id='Pwd' type='password' name='mdp' value='".htmlspecialchars(PrintProfil(SelectProfile())[1], ENT_QUOTES)."' class=Aright></p>
+                <p>Confirmation de mot de passe : <input id='Cpwd' type='password' name='cmdp' value=''></p>
                 <input type='hidden' name='modif' value='Corriger'>
                 <input type='submit' value='Modifier'>
                 <input type='hidden' name='page' value='Profil'>
@@ -73,7 +73,7 @@
         } 
         else if ($_SESSION['modifier']==false)
         {
-            echo"<br><form action='Index.php' method='get'>";
+            echo"<br><form action='Index.php' id='FormCom' name='FormName' method='get'>";
             
             if(empty($_GET['ndu']) 
             || strlen($_GET['ndu']) < 5
@@ -81,11 +81,11 @@
             || $Valeur != 0
             )
             {
-                echo"<p>Nom d'utilisateur : <input type='text' name='ndu' value='".htmlspecialchars($_GET['ndu'], ENT_QUOTES)."' class=Error></p>";
+                echo"<p>Nom d'utilisateur : <input type='text' id='User' name='ndu' value='".htmlspecialchars($_GET['ndu'], ENT_QUOTES)."' class=Error></p>";
             }
             else
             {
-                echo"<p>Nom d'utilisateur : <input type='text' name='ndu' value='".htmlspecialchars($_GET['ndu'], ENT_QUOTES)."' class=Aright></p>";
+                echo"<p>Nom d'utilisateur : <input type='text' id='User' name='ndu' value='".htmlspecialchars($_GET['ndu'], ENT_QUOTES)."' class=Aright></p>";
             }
             
             if(empty($_GET['first_name'])
@@ -94,11 +94,11 @@
             || !preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['first_name'])
             )
             {
-                echo"<p>Prénom : <input type='text' name='first_name' value='".htmlspecialchars($_GET['first_name'], ENT_QUOTES)."'class=Error></p>";
+                echo"<p>Prénom : <input type='text' name='first_name' id='FirstName' value='".htmlspecialchars($_GET['first_name'], ENT_QUOTES)."'class=Error></p>";
             }
             else
             {
-                echo"<p>Prénom : <input type='text' name='first_name' value='".htmlspecialchars($_GET['first_name'], ENT_QUOTES)."'class=Aright></p>";
+                echo"<p>Prénom : <input type='text' name='first_name' id='FirstName' value='".htmlspecialchars($_GET['first_name'], ENT_QUOTES)."'class=Aright></p>";
             }
 
             if(empty($_GET['last_name'])
@@ -107,11 +107,11 @@
             || !preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['last_name'])
             )
             {
-                echo"<p>Nom : <input type='text' name='last_name' value='".htmlspecialchars($_GET['last_name'], ENT_QUOTES)."'class=Error></p>";
+                echo"<p>Nom : <input type='text' name='last_name' id='LastName' value='".htmlspecialchars($_GET['last_name'], ENT_QUOTES)."'class=Error></p>";
             }
             else
             {
-                echo"<p>Nom : <input type='text' name='last_name' value='".htmlspecialchars($_GET['last_name'], ENT_QUOTES)."'class=Aright></p>";
+                echo"<p>Nom : <input type='text' name='last_name' id='LastName' value='".htmlspecialchars($_GET['last_name'], ENT_QUOTES)."'class=Aright></p>";
             }
 
             if(empty($_GET['adresse'])
@@ -120,11 +120,11 @@
             || !preg_match("#^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['adresse'])
             )
             {
-                echo"<p>Adresse : <input type='text' name='adresse' value='".htmlspecialchars($_GET['adresse'], ENT_QUOTES)."'class=Error></p>";
+                echo"<p>Adresse : <input type='text' name='adresse' id='Adress' value='".htmlspecialchars($_GET['adresse'], ENT_QUOTES)."'class=Error></p>";
             }
             else
             {
-                echo"<p>Adresse : <input type='text' name='adresse' value='".htmlspecialchars($_GET['adresse'], ENT_QUOTES)."'class=Aright></p>";
+                echo"<p>Adresse : <input type='text' name='adresse' id='Adress' value='".htmlspecialchars($_GET['adresse'], ENT_QUOTES)."'class=Aright></p>";
             }
 
             if(empty($_GET['mail'])
@@ -132,43 +132,43 @@
             || $Valeur != 0
             )
             {
-                echo"<p>Adresse e-mail : <input type='email' name='mail' value='".htmlspecialchars($_GET['mail'], ENT_QUOTES)."'class=Error></p>";
+                echo"<p>Adresse e-mail : <input type='email' name='mail' id='Mail' value='".htmlspecialchars($_GET['mail'], ENT_QUOTES)."'class=Error></p>";
             }
             else
             {
-                echo"<p>Adresse e-mail : <input type='email' name='mail' value='".htmlspecialchars($_GET['mail'], ENT_QUOTES)."'class=Aright></p>";
+                echo"<p>Adresse e-mail : <input type='email' name='mail' id='Mail' value='".htmlspecialchars($_GET['mail'], ENT_QUOTES)."'class=Aright></p>";
             }
 
             if(empty($_GET['phone'])
             || !preg_match('#^(0|\+33)[1-9]{1}\d{8}$#' , $_GET['phone'])
             )
             {
-                echo"<p>Numéro de téléphone : <input type='text' name='phone' value='".htmlspecialchars($_GET['phone'], ENT_QUOTES)."'class=Error></p>";
+                echo"<p>Numéro de téléphone : <input type='text' name='phone' id='Phone' value='".htmlspecialchars($_GET['phone'], ENT_QUOTES)."'class=Error></p>";
             }
             else
             {
-                echo"<p>Numéro de téléphone : <input type='text' name='phone' value='".htmlspecialchars($_GET['phone'], ENT_QUOTES)."'class=Aright></p>";
+                echo"<p>Numéro de téléphone : <input type='text' name='phone' id='Phone' value='".htmlspecialchars($_GET['phone'], ENT_QUOTES)."'class=Aright></p>";
             }
             if(empty($_GET['mdp']) 
             || strlen($_GET['mdp']) < 5
             || strlen($_GET['mdp']) > 40    
             )
             {
-                echo"<p>Mot de passe : <input type='password' name='mdp' value='".htmlspecialchars($_GET['mdp'], ENT_QUOTES)."'class=Error></p>";
+                echo"<p>Mot de passe : <input type='password' id='Pwd' name='mdp' value='".htmlspecialchars($_GET['mdp'], ENT_QUOTES)."'class=Error></p>";
             }
             else
             {
-                echo"<p>Mot de passe : <input type='password' name='mdp' value='".htmlspecialchars($_GET['mdp'], ENT_QUOTES)."'class=Aright></p>";
+                echo"<p>Mot de passe : <input type='password' id='Pwd' name='mdp' value='".htmlspecialchars($_GET['mdp'], ENT_QUOTES)."'class=Aright></p>";
             }
             if(empty($_GET['cmdp'])
             || $_GET['mdp'] != $_GET['cmdp']
             )
             {
-                echo"<p>Confirmation de mot de passe : <input type='password' name='cmdp' value='".htmlspecialchars($_GET['cmdp'], ENT_QUOTES)."'class=Error></p>";
+                echo"<p>Confirmation de mot de passe : <input type='password' id='Cpwd' name='cmdp' value='".htmlspecialchars($_GET['cmdp'], ENT_QUOTES)."'class=Error></p>";
             }
             else
             {
-                echo"<p>Confirmation de mot de passe : <input type='password' name='cmdp' value='".htmlspecialchars($_GET['cmdp'], ENT_QUOTES)."'class=Aright></p>";
+                echo"<p>Confirmation de mot de passe : <input type='password' id='Cpwd' name='cmdp' value='".htmlspecialchars($_GET['cmdp'], ENT_QUOTES)."'class=Aright></p>";
             }
 
 
