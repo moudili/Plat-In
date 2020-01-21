@@ -86,7 +86,7 @@
                         <form action='Index.php' method='get'>
                         <input type='submit' name="page" value="Profil"></form>
                         <form action='Index.php' method='get'>
-                        <input type='submit' name="page" value="Sociale"></form>            
+                        <input type='submit' name="page" value="Social"></form>            
                     </div>
                 <?php
             }
@@ -131,7 +131,7 @@
                             <input type='submit' name="page" value="Profil"></form>
                             <form action='Index.php' method='get'>
                             <input type='hidden' name='Usr' value=''>
-                            <input type='submit' name="page" value="Sociale">
+                            <input type='submit' name="page" value="Social">
                             <input type='hidden' name='Request' value='Search'>
                             <input type='hidden' name='Usr' value="">
                             </form>

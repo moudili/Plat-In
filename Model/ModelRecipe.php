@@ -3,7 +3,9 @@
     function Recipe()
     {
         require('Model/ModelNewPDO.php');
-        $Req = $Bdd -> prepare("SELECT DISTINCT R.name_r,R.text,R.date_r,R.cooking_time,R.ID_user,U.user,R.ID_recipes,R.ID_origin,F.food_name
+
+        $Req = $Bdd -> prepare("CREATE OR REPLACE VIEW VRecipes
+        AS SELECT DISTINCT R.name_r,R.text,R.date_r,R.cooking_time,R.ID_user,U.user,R.ID_recipes,R.ID_origin,F.food_name,P.grade
         FROM recipes R 
         JOIN users U 
         JOIN ingredients I 
@@ -24,8 +26,14 @@
         ID_recipes");
         $Req -> bindParam(':user',$_SESSION['User'],PDO::PARAM_INT);
         $Req -> execute();
+
+        $Req2 = $Bdd -> prepare("SELECT * 
+        FROM VRecipes
+        ORDER BY ID_recipes IN (SELECT ID_recipes FROM VRecipes WHERE grade = 0)
+        ");
+        $Req2 -> execute();
         $Recipes = array(array(),array(),array(),array(),array(),array(),array(),array(),array());
-        while($n = $Req -> fetch())
+        while($n = $Req2 -> fetch())
         {
             array_push($Recipes[0], $n[0]);
             array_push($Recipes[1], $n[1]);
