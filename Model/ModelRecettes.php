@@ -102,6 +102,7 @@ function InsertRecipe($Menu)
             $Req -> execute();
             $n=$Req -> fetch();
             $Max=$n[0];
+
             for ($i=0;$i<$Menu;$i++)
             {
                 $Req = $Bdd -> prepare("INSERT INTO `ingredients` (`ID_recipes`, `ID_food`) 
@@ -110,7 +111,23 @@ function InsertRecipe($Menu)
                 $Req -> bindParam(':name_f',$_GET['food'.$i],PDO::PARAM_INT);
                 $Req -> execute();
             }
-
+            
+            $Req = $Bdd -> prepare("SELECT ID_user 
+            FROM users
+            WHERE status_u LIKE admin");
+            $Req -> execute();
+            $n=$Req -> fetch();
+            $Admin=$n[0];
+            $Req = $Bdd -> prepare("SELECT MAX(ID_recipes)
+            FROM recipes");
+            $Req -> execute();
+            $n=$Req -> fetch();
+            $Recette=$n[0];
+            $Req = $Bdd -> prepare("INSERT INTO `reviews` (`review`, `ID_user`, `ID_recipes`) 
+            VALUES (3, :id_u, :id_r)");
+            $Req -> bindParam(':id_u',$Admin,PDO::PARAM_INT);
+            $Req -> bindParam(':id_r',$Recette,PDO::PARAM_INT);
+            $Req -> execute();
         }
         
     }

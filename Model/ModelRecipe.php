@@ -103,7 +103,8 @@
             AND !empty($_GET['food0']) 
             AND !empty($_GET['time'])
             AND !empty($_GET['origine'])
-            AND !empty($_GET['text']))
+            AND !empty($_GET['text'])
+            AND strlen($_GET['name'])<20)
             {
                 $Name=$_GET['name'];
                 $Text=$_GET['text'];
@@ -138,8 +139,27 @@
                     $Req -> execute();
                 }
 
+                $Req = $Bdd -> prepare("SELECT ID_user 
+                FROM users
+                WHERE status_u LIKE 'admin'");
+                $Req -> execute();
+                $n=$Req -> fetch();
+                $Admin=$n[0];
+
+                $Req = $Bdd -> prepare("SELECT MAX(ID_recipes)
+                FROM recipes");
+                $Req -> execute();
+                $n=$Req -> fetch();
+                $Recette=$n[0];
+
+                echo($Admin." Recette: ");  
+                echo($Recette);
+                $Req = $Bdd -> prepare("INSERT INTO `reviews` (`review`, `ID_user`, `ID_recipes`) 
+                VALUES (3, :id_u, :id_r)");
+                $Req -> bindParam(':id_u',$Admin,PDO::PARAM_INT);
+                $Req -> bindParam(':id_r',$Recette,PDO::PARAM_INT);
+                $Req -> execute();
             }
-            
         }
     }
 
@@ -237,7 +257,8 @@
             AND !empty($_GET['food0']) 
             AND !empty($_GET['time'])
             AND !empty($_GET['origine'])
-            AND !empty($_GET['text']))
+            AND !empty($_GET['text'])
+            AND strlen($_GET['name'])<20)
             {
                 $Name=$_GET['name'];
                 $Text=$_GET['text'];
