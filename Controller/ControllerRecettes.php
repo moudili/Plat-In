@@ -124,7 +124,7 @@ CheckLogOut();
 require('Model/ModelRecettes.php');
 $Menu=ManageMenu();
 $Menu2=ManageMenu2();
-$Origines=Origin();
+$Origines=Origin(); 
 $Foods=Food();
 $CheckForm=InsertRecipe($Menu);
 $CheckMenu=CheckMenu();

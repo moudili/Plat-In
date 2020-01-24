@@ -267,7 +267,8 @@
                 AND !empty($_GET['time']) 
                 AND !empty($_GET['date'])
                 AND !empty($_GET['location'])
-                AND !empty($_GET['description']))
+                AND !empty($_GET['description'])
+                AND strlen($_GET['Name'])<20)
                 {
                     echo("<div class='text-center mt-5'>
                     Vous avez bien créé votre évènement !
@@ -283,13 +284,14 @@
                 OR empty($_GET['time']) 
                 OR empty($_GET['date'])
                 OR empty($_GET['location'])
-                OR empty($_GET['description'])))
+                OR empty($_GET['description'])
+                OR strlen($_GET['Name'])>20))
                 {
                     echo("<div class='text-center mt-5'>
                     <form action='Index.php' method='get'>
                     <h2>Ajouter un évènement</h2>
                     <br>
-                    <h3 style='color: red'>Veuillez remplir tous les champs</h3>
+                    <h3 style='color: red'>Veuillez remplir tous les champs. SI tous les champs sont remplis alors votre Nom de recette est trop long</h3>
                     <br><br>
                     <p>Titre de l'évènement : <input type='text' name='Name' value='".$_GET['Name']."'></p>
                     <p>");

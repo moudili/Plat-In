@@ -482,7 +482,8 @@
                         AND !empty($_GET['food0']) 
                         AND !empty($_GET['time'])
                         AND !empty($_GET['origine'])
-                        AND !empty($_GET['text']))
+                        AND !empty($_GET['text'])
+                        AND strlen($_GET['name'])<20)
                         {
                             echo("<div class='text-center mt-5'>
                             Votre recette est bien modifié !");
@@ -907,7 +908,8 @@
                 AND !empty($_GET['food0']) 
                 AND !empty($_GET['time'])
                 AND !empty($_GET['origine'])
-                AND !empty($_GET['text']))
+                AND !empty($_GET['text'])
+                AND strlen($_GET['name'])<20)
                 {
                     echo("<div class='text-center mt-5'>
                     Votre recette est maintenant en ligne !");
