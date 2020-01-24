@@ -97,9 +97,11 @@
         $PrintEvent=PrintEvent();
         $PrintUser=PrintUser();
         $SelectEvent=SelectModifEvent();
+        $Intolerance=Intolerance();
         InsertEvent();
         ModifEvent();
         SuppEvent();
+        AdInvitation();
         require("View/ViewEvent.php");
     }
 ?>

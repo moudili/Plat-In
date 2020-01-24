@@ -1,9 +1,29 @@
 <?php
 
+    function Intolerance()
+    {
+        require('Model\ModelNewPDO.php');
+        $Req = $Bdd -> prepare("SELECT U.ID_user,K.name_k
+        FROM users U
+        JOIN preferences P
+        JOIN kinds_of_food K
+        WHERE U.ID_user LIKE P.ID_user
+        AND P.ID_kind_of_food LIKE K.ID_kind_of_food
+        AND P.grade LIKE 0");
+        $Req -> execute();
+        $Liste=array(array(),array());
+        while($n = $Req -> fetch())
+        {
+            array_push($Liste[0], $n[0]);
+            array_push($Liste[1], $n[1]);
+        }
+        return $Liste;
+    }
+
     function Invitation()
     {
         require('Model\ModelNewPDO.php');
-        $Req = $Bdd -> prepare("SELECT G.ID_meals,M.name_m
+        $Req = $Bdd -> prepare("SELECT G.ID_meals,M.name_m,G.ID_guest
         FROM guests G
         JOIN meals M
         WHERE G.ID_user LIKE :id
@@ -11,13 +31,34 @@
         AND G.ID_meals LIKE M.ID_meal");
         $Req -> bindParam(':id',$_SESSION['id'],PDO::PARAM_INT);
         $Req -> execute();
-        $Events=array(array(),array());
+        $Events=array(array(),array(),array());
         while($n = $Req -> fetch())
         {
             array_push($Events[0], $n[0]);
             array_push($Events[1], $n[1]);
+            array_push($Events[2], $n[2]);
         }
         return $Events;
+    }
+
+    function AdInvitation()
+    {
+        if (!empty($_GET['event']) AND $_GET['event']=='Accepter')
+        {
+            require('Model\ModelNewPDO.php');
+            $Req = $Bdd -> prepare("UPDATE `guests` SET `status_g`='membre' 
+            WHERE `guests`.`ID_guest` = :id;");
+            $Req -> bindParam(':id',$_GET['ID'],PDO::PARAM_INT);
+            $Req -> execute();
+        }
+        else if (!empty($_GET['event']) AND $_GET['event']=='Refuser')
+        {
+            require('Model\ModelNewPDO.php');
+            $Req = $Bdd -> prepare("DELETE FROM `guests` 
+            WHERE `guests`.`ID_guest` = :resultat");
+            $Req -> bindParam(':resultat',$_GET['ID'],PDO::PARAM_INT);
+            $Req -> execute();
+        }
     }
 
     function SelectEvent()
