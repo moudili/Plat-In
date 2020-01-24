@@ -475,7 +475,7 @@
                         }
                         else
                         {
-                            echo("<OPTION value='00:30:00'>30");
+                            echo("<OPTION value='00:30:00'>30 min");
                         }
                         if ($_GET['time']=="00:45:00")
                         {

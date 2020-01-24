@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Sociale</title>
+        <title>Social</title>
     </head>
     
     <body>
@@ -11,11 +11,11 @@
         ?>
 
         <form action='Index.php' method='get'>
-        <input type='hidden' name='page' value='Sociale'>
+        <input type='hidden' name='page' value='Social'>
         <input type='hidden' name='Request' value='Amis'>
         <input type='submit' value="Amis"></form>
         <form action='Index.php' method='get'>
-        <input type='hidden' name='page' value='Sociale'>
+        <input type='hidden' name='page' value='Social'>
         <input type='hidden' name='Request' value="Demande amis">
         <input type='submit' value="Demande d'amis"></form>
         
@@ -33,9 +33,16 @@
                 {
                     if($Search != false)
                     {
-                        echo"<form action='Index.php' method='get'>
-                        <input type='search' value='".htmlspecialchars($_GET['Usr'], ENT_QUOTES)."' name='Usr'/>
-                        <input type='hidden' name='page' value='Sociale'>
+                        echo"<form action='Index.php' method='get'>";
+                        if(isset($_GET['Usr']))
+                        {
+                            echo "<input type='search' value='".htmlspecialchars($_GET['Usr'], ENT_QUOTES)."' name='Usr'/>";
+                        }
+                        else
+                        {
+                            echo "<input type='search' value='' name='Usr'/>";
+                        }
+                        echo "<input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Search'>
                         <input type='submit' value=' '></form>";
 
@@ -110,7 +117,7 @@
                                     {
                                         echo("
                                         <form action='Index.php' method='get'>
-                                        <input type='hidden' name='page' value='Sociale'>
+                                        <input type='hidden' name='page' value='Social'>
                                         <input type='hidden' name='User' value='".$Search[1][$i]."'>
                                         <input type='hidden' name='id' value='".$Search[0][$i]."'>
                                         <input type='submit' name='Request' value='Ajouter un ami'></form>
@@ -124,7 +131,7 @@
 
                                     echo("
                                     <form action='Index.php' method='get'>
-                                    <input type='hidden' name='page' value='Sociale'>
+                                    <input type='hidden' name='page' value='Social'>
                                     <input type='hidden' name='User' value='".$Search[1][$i]."'>
                                     <input type='hidden' name='id' value='".$Search[0][$i]."'>
                                     <input type='submit' name='Request' value='Bloquer'></form>");
@@ -138,7 +145,7 @@
                                 elseif($alreadyRequested == 1 )
                                 {
                                     echo("<br>Vous avez déja une demande d'ami qui vous attend avec ".$Search[1][$i]."<br><form action='Index.php' method='get'>
-                                    <input type='hidden' name='page' value='Sociale'>
+                                    <input type='hidden' name='page' value='Social'>
                                     <input type='hidden' name='Request' value='Demande amis'><br>
                                     <input type='submit' value='Demande d&#39;amis'></form>
                                     <br>");
@@ -148,7 +155,7 @@
                                     echo("<br>
                                     Vous êtes bloqué par cet utilisateur.<br><br>
                                     <form action='Index.php' method='get'>
-                                    <input type='hidden' name='page' value='Sociale'>
+                                    <input type='hidden' name='page' value='Social'>
                                     <input type='hidden' name='User' value='".$Search[1][$i]."'>
                                     <input type='hidden' name='id' value='".$Search[0][$i]."'>
                                     <input type='submit' name='Request' value='Bloquer'></form>
@@ -163,7 +170,7 @@
                                 echo("
                                 <br>".$Search[1][$i]." est bloqué<br><br>
                                 <form action='Index.php' method='get'>
-                                <input type='hidden' name='page' value='Sociale'>
+                                <input type='hidden' name='page' value='Social'>
                                 <input type='hidden' name='User' value='".$Search[1][$i]."'>
                                 <input type='hidden' name='id' value='".$Search[0][$i]."'>
                                 <input type='submit' name='Request' value='Debloquer'></form>");
@@ -175,7 +182,7 @@
                     {
                         echo("<form action='Index.php' method='get'>
                         <input type='search' name='Usr' value='".htmlspecialchars($_GET['Usr'], ENT_QUOTES)."'/>
-                        <input type='hidden' name='page' value='Sociale'>
+                        <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Search'>
                         <input type='submit' value=' '></form>
                         <br>aucun résultat pour la recherche ".$_GET['Usr'].".");                         
@@ -191,7 +198,7 @@
                         
 
                         <p><form action='Index.php' method='get'>
-                        <input type='hidden' name='page' value='Sociale'>
+                        <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Search'>
                     
                         <input type='hidden' name='User' value='".$_GET['User']."'>
@@ -200,7 +207,7 @@
                         
                         
                         <p><form action='Index.php' method='get'>
-                        <input type='hidden' name='page' value='Sociale'>
+                        <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Search'>
                         <br><input type='submit' name='Answer' value='Non'></form>
                         ");
@@ -215,7 +222,7 @@
                     echo ($Myfriend["user"]);
                     echo("
                     <p><form action='Index.php' method='get'>
-                    <input type='hidden' name='page' value='Sociale'>
+                    <input type='hidden' name='page' value='Social'>
                     <input type='hidden' name='Request' value='Supprimer un ami'>
                  
                     <input type='hidden' name='id' value='".$Myfriend["ID"]."'>
@@ -241,7 +248,7 @@
                         
     
                         <p><form action='Index.php' method='get'>
-                        <input type='hidden' name='page' value='Sociale'>
+                        <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Amis'>
                      
                         <input type='hidden' name='User' value='".$_GET['User']."'>
@@ -250,7 +257,7 @@
                         
                         
                         <p><form action='Index.php' method='get'>
-                        <input type='hidden' name='page' value='Sociale'>
+                        <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Amis'>
                         <br><input type='submit' name='Answer' value='Non'></form>
                         ");
@@ -263,14 +270,14 @@
 
                     echo("
                     <p><form action='Index.php' method='get'>
-                    <input type='hidden' name='page' value='Sociale'>
+                    <input type='hidden' name='page' value='Social'>
                     <input type='hidden' name='Request' value='Accepter ami'>
                     <input type='hidden' name='id' value='".$Requete["ID"]."'>
                     <input type='hidden' name='User' value='".$Requete["user"]."'>
                     <br><input type='submit' name='' value='Accepter'></form>
 
                     <form action='Index.php' method='get'>
-                    <input type='hidden' name='page' value='Sociale'>
+                    <input type='hidden' name='page' value='Social'>
                     <input type='hidden' name='Request' value='Refuser ami'>
                     <input type='hidden' name='id' value='".$Requete["ID"]."'>
                     <input type='hidden' name='User' value='".$Requete["user"]."'>
@@ -294,7 +301,7 @@
                         
     
                         <p><form action='Index.php' method='get'>
-                        <input type='hidden' name='page' value='Sociale'>
+                        <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Accepter amis'>
                      
                         <input type='hidden' name='User' value='".$_GET['User']."'>
@@ -303,7 +310,7 @@
                         
                         
                         <p><form action='Index.php' method='get'>
-                        <input type='hidden' name='page' value='Sociale'>
+                        <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Accepter amis'>
                         <br><input type='submit' name='Answer' value='Non'></form>
                         ");
@@ -320,7 +327,7 @@
                         
     
                         <p><form action='Index.php' method='get'>
-                        <input type='hidden' name='page' value='Sociale'>
+                        <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Refuser ami'>
                      
                         <input type='hidden' name='User' value='".$_GET['User']."'>
@@ -329,7 +336,7 @@
                         
                         
                         <p><form action='Index.php' method='get'>
-                        <input type='hidden' name='page' value='Sociale'>
+                        <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Refuser ami'>
                         <br><input type='submit' name='Answer' value='Non'></form>
                         ");
@@ -346,7 +353,7 @@
                         
     
                         <p><form action='Index.php' method='get'>
-                        <input type='hidden' name='page' value='Sociale'>
+                        <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Bloquer'>
                      
                         <input type='hidden' name='User' value='".$_GET['User']."'>
@@ -355,8 +362,8 @@
                         
                         
                         <p><form action='Index.php' method='get'>
-                        <input type='hidden' name='page' value='Sociale'>
-                        <input type='hidden' name='Request' value='Bloquer'>
+                        <input type='hidden' name='page' value='Social'>
+                        <input type='hidden' name='Request' value='Search'>
                         <br><input type='submit' name='Answer' value='Non'></form>
                         ");
                     }
@@ -372,7 +379,7 @@
                         
     
                         <p><form action='Index.php' method='get'>
-                        <input type='hidden' name='page' value='Sociale'>
+                        <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Debloquer'>
                         
                         <input type='hidden' name='User' value='".$_GET['User']."'>
@@ -381,7 +388,7 @@
                         
                         
                         <p><form action='Index.php' method='get'>
-                        <input type='hidden' name='page' value='Sociale'>
+                        <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Debloquer'>
                         <br><input type='submit' name='Answer' value='Non'></form>
                         ");
@@ -394,7 +401,7 @@
             {
                 echo("<form action='Index.php' method='get'>
                 <input type='search' placeholder = 'Rechercher un utilisateur...' name='Usr'/>
-                <input type='hidden' name='page' value='Sociale'>
+                <input type='hidden' name='page' value='Social'>
                 <input type='hidden' name='Request' value='Search'>
                 <input type='submit' value=' '></form>");
 
@@ -408,12 +415,12 @@
                     }
 
                     echo "<form action='Index.php' method='get'>
-                    <input type='hidden' name='page' value='Sociale'>
+                    <input type='hidden' name='page' value='Social'>
                     <input type='hidden' name='User' value='".$Search[1][$i]."'>
                     <input type='hidden' name='id' value='".$Search[0][$i]."'>
                     <input type='submit' name='Request' value='Ajouter en ami'></form>
                     <form action='Index.php' method='get'>
-                    <input type='hidden' name='page' value='Sociale'>
+                    <input type='hidden' name='page' value='Social'>
                     <input type='hidden' name='User' value='".$Search[1][$i]."'>
                     <input type='hidden' name='id' value='".$Search[0][$i]."'>
                     <input type='submit' name='Request' value='Bloquer'></form>";

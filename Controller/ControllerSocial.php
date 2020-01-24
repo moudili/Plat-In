@@ -4,7 +4,7 @@
     {
         if(!empty($_GET['Request']))
         {
-            if($_GET['Request'] == "Search")
+            if(isset($_GET['Usr']) && $_GET['Request'] == "Search")
             {
                 $Usr = $_GET['Usr'];
                 $Usr = strtolower($Usr);
@@ -39,13 +39,13 @@
             $MoiBloquer = Myblocked();
             $Myfriends = MyFriend();
             
-            if (!empty($_GET['Answer']) AND $_GET['Answer']=='Oui')
+            if (isset($_GET['Answer']) && $_GET['Answer']=='Oui')
             {
                 RequestToBeFriend();
                 header("Location:Index.php?Usr=&page=Sociale&Request=Search");
 
             }
-            elseif (!empty($_GET['Answer']) AND $_GET['Answer']=='Non') 
+            elseif (isset($_GET['Answer']) && $_GET['Answer']=='Non') 
             {
                 header("Location:Index.php?Usr=&page=Sociale&Request=Search");
             }
@@ -53,12 +53,12 @@
         }elseif ($_GET['Request'] == "Amis")
         {
             $Myfriends = MyFriend();
-            if (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Oui')
+            if (isset($_GET['Answer']) && $_GET['Answer'] == 'Oui') 
             {
                 DeleteFriend();
                 header("Location:Index.php?page=Sociale&Request=Amis");            
             }
-            elseif (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Non')
+            elseif (isset($_GET['Answer']) && $_GET['Answer'] == 'Non')
             {
                 header("Location:Index.php?page=Sociale&Request=Amis");
 
@@ -91,12 +91,12 @@
         }
         elseif ($_GET['Request'] == "Bloquer")
         {
-            if (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Oui') 
+            if (isset($_GET['Answer']) && $_GET['Answer'] == 'Oui') 
             {
                 Block();
                 header("Location:Index.php?Usr=&page=Sociale&Request=Search");
             }
-            elseif (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Non')
+            elseif (isset($_GET['Answer']) && $_GET['Answer'] == 'Non')
             {
                 header("Location:Index.php?Usr=&page=Sociale&Request=Search");
             }
@@ -104,12 +104,12 @@
         }
         elseif ($_GET['Request'] == "Debloquer") 
         {
-            if (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Oui') 
+            if (isset($_GET['Answer']) && $_GET['Answer'] == 'Oui') 
             {
                 Debloquer();
                 header("Location:Index.php?Usr=&page=Sociale&Request=Search");
             }
-            elseif (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Non')
+            elseif (isset($_GET['Answer']) && $_GET['Answer'] == 'Non')
             {
                 header("Location:Index.php?Usr=&page=Sociale&Request=Search");
             }
