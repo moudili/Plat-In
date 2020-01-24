@@ -21,8 +21,14 @@
                         <input type='hidden' name='MenuRecipe' value=1>
                         <input type='hidden' name='MenuUser' value=1>
                         <input type='hidden' name='page' value='Evènement'>
-                    </form>
-                    </div>");
+                    </form>");
+                    echo("Evenement en attente :");
+                    for ($i=0;$i<count($Invitation[0]);$i++)
+                    {
+                        echo("<br>".$Invitation[1][$i]);
+                    }
+
+                    echo("</div>");
                 }
                 else
                 {
@@ -34,12 +40,11 @@
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
                     <p>Evenement :</p>
-                    <table border=4 align='center'>
-                    ");
+                    <table border=4 align='center'>");
                     for ($i=0;$i<count($Events[1]);$i++)
                     {
                         $Moi=false;
-
+                        $Invite=false;
                         for ($j=0;$j<count($UsersSupp[0]);$j++)
                         {
                             if ($UsersSupp[0][$j]==$_SESSION['id'] 
@@ -48,8 +53,15 @@
                             {
                                 $Moi=true;
                             }
+                            else if ($UsersSupp[0][$j]==$_SESSION['id'] 
+                            AND $UsersSupp[1][$j]==$Events[0][$i] 
+                            AND $UsersSupp[2][$j]=='membre')
+                            {
+                                $Invite=true;
+                            }
                         }
-                        if ($Moi==true)
+
+                        if ($Moi==true AND $Invite!=true)
                         {
                             echo("<form action='Index.php' method='get'>
                             <tr><td>".$Events[1][$i]."</td><td>
@@ -66,13 +78,30 @@
                             </td></tr>");
 
                         }
-                        else 
+                        else if ($Invite==true AND $Moi!=true)
                         {
                             echo("<tr><td>".$Events[1][$i]."</td><td><br><input type='submit' name='event' value='Afficher'><br></td></tr>");
                         }
                     }
                     echo("</table>");
+                    echo("Evenement en attente :
+                    <table border=4 align='center'>");
+                    for ($i=0;$i<count($Invitation[0]);$i++)
+                    {
+                        echo("<tr><td>".$Invitation[1][$i]."</td><td><p><input type='submit' name='event' value='Accepter'></p>
+                        <p><input type='submit' name='event' value='Refuser'></p></td><tr>");
+                    }
+
+                    echo("</table></div>");
                 }
+            }
+            else if ($_GET['event']=='Accepter')
+            {
+                echo("Vous avez accepter cette demande d'evenement");
+            }
+            else if ($_GET['event']=='Refuser')
+            {
+                echo("Vous avez refuser cette demande d'evenement");
             }
             else if ($_GET['event']=='Ajouter un evenement')
             {
