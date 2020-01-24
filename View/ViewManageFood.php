@@ -11,8 +11,8 @@
 <?php
             if(empty($_GET['Request']))
             {
-
                 ?>
+                
                     <form action='Index.php' method='get'>
                     <input type='search' placeholder = 'Rechercher un aliment...' name='Ali'/>
                     <input type='hidden' name='page' value='Aliments'>
@@ -22,11 +22,13 @@
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Aliments'>
                     <input type='submit' name='Request' value='Ajouter un aliment'></form><br>
-                    <table border>       
+                    <table border align='center'>       
         
                 <?php
+               
                 for($i = 0 ; $i < count($Foods[0]) ; $i++ )
                 {
+
                     echo "<tr><td>".$Foods[1][$i]
                     ."<form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Aliments'>
@@ -267,7 +269,7 @@
                         <form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Aliments'>
                         <input type='submit' name='Request' value='Ajouter un aliment'></form><br>
-                        <table border>                        
+                        <table border align='center'>                        
                         ");
                         for($i = 0 ; $i < count($Foods[0]) ; $i++ )
                         {

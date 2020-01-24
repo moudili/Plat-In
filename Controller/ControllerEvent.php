@@ -90,7 +90,15 @@
         $Events=SelectEvent();
         $Recipes=SelectRecipe();
         $Users=SelectUser();
+        $UsersSupp=SelectSupp();
+        $Guests=SelectGuest();
+        $Dishes=SelectDish();
+        $PrintEvent=PrintEvent();
+        $PrintUser=PrintUser();
+        $SelectEvent=SelectModifEvent();
         InsertEvent();
+        ModifEvent();
+        SuppEvent();
         require("View/ViewEvent.php");
     }
 ?>

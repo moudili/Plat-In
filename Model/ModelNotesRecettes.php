@@ -24,7 +24,7 @@ function PrintStarts()
 {
     if (empty($_GET['Request']))
     {
-        require('ModelModelNewPDO.php');
+        require('Model/ModelNewPDO.php');
         $Note=array(array(),array(),array(),array(),array(),array());
         $Req = $Bdd -> prepare("SELECT count(review) FROM reviews");
         $Req -> execute();
