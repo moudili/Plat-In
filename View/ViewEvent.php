@@ -88,8 +88,11 @@
                     <table border=4 align='center'>");
                     for ($i=0;$i<count($Invitation[0]);$i++)
                     {
-                        echo("<tr><td>".$Invitation[1][$i]."</td><td><p><input type='submit' name='event' value='Accepter'></p>
-                        <p><input type='submit' name='event' value='Refuser'></p></td><tr>");
+                        echo("<tr><td>".$Invitation[1][$i]."</td><td><p><form action='Index.php' method='get'><input type='submit' name='event' value='Accepter'></p>
+                        <p><input type='submit' name='event' value='Refuser'>
+                        <input type='hidden' name='ID' value='".$Invitation[2][$i]."'>
+                        <input type='hidden' name='page' value='Evènement'>
+                        </form></p></td><tr>");
                     }
 
                     echo("</table></div>");
@@ -97,11 +100,23 @@
             }
             else if ($_GET['event']=='Accepter')
             {
-                echo("Vous avez accepter cette demande d'evenement");
+                echo("<div class='text-center mt-5'>
+                Vous avez accepter cette demande d'evenement
+                <form action='Index.php' method='get'>
+                    <input type='submit' value='Retour'>
+                    <input type='hidden' name='page' value='Evènement'>
+                </form>
+                </div>");
             }
             else if ($_GET['event']=='Refuser')
             {
-                echo("Vous avez refuser cette demande d'evenement");
+                echo("<div class='text-center mt-5'>
+                Vous avez refuser cette demande d'evenement
+                <form action='Index.php' method='get'>
+                    <input type='submit' value='Retour'>
+                    <input type='hidden' name='page' value='Evènement'>
+                </form>
+                </div>");
             }
             else if ($_GET['event']=='Ajouter un evenement')
             {
@@ -116,13 +131,25 @@
                     <select name='utilisateur0'>");
                     for ($i=0;$i<count($Users[0]);$i++)
                     {
-                        echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]."</option><br>");
+                        $Into=array();
+                        for ($j=0;$j<count($Intolerance[0]);$j++)
+                        {
+                            if ($Intolerance[0][$j]==$Users[0][$i])
+                            {
+                                array_push($Into,$Intolerance[1][$j]);
+                            }
+                        }
+                        $Into=implode(" ", $Into);
+                        echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
                     }
                     echo("</select>
-                    <br>
-                    <input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>
-                    <input type='submit' name='RequestUser' value='+'>
-                    </p>
+                    <br>");
+                    echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>");
+                    if ($_GET['MenuUser']<=count($Intolerance[0]))
+                    {
+                        echo("<input type='submit' name='RequestUser' value='+'>");
+                    }
+                    echo("</p>
                     <p>Recette disponible : 
                     <select name='recette0'>
                     ");
@@ -166,14 +193,26 @@
                         echo("Personne à inviter à cette évènement : 
                         <select name='utilisateur".$j."'>");
                         for ($i=0;$i<count($Users[0]);$i++)
-                         {
-                            echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]."</option>");
+                        {
+                        $Into=array();
+                        for ($k=0;$k<count($Intolerance[0]);$k++)
+                        {
+                            if ($Intolerance[0][$k]==$Users[0][$i])
+                            {
+                                array_push($Into,$Intolerance[1][$k]);
+                            }
                         }
+                        $Into=implode(" ", $Into);
+                        echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
+                    }
                         echo("</select></p>");
                     }
-                    echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>
-                    </p><input type='submit' name='RequestUser' value='+'>");
-                    
+                    echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>");
+                    if ($_GET['MenuUser']<count($Users[0]))
+                    {
+                        echo("<input type='submit' name='RequestUser' value='+'>");
+                    }
+
                     if($_GET['MenuUser'] > 1 )
                     {
                         echo("<input type='submit' name='RequestUser' value='-'>");
@@ -237,13 +276,24 @@
                         <select name='utilisateur".$j."'>");
                         for ($i=0;$i<count($Users[0]);$i++)
                         {
-                            echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]."</option>");
+                            $Into=array();
+                            for ($k=0;$k<count($Intolerance[0]);$k++)
+                            {
+                                if ($Intolerance[0][$k]==$Users[0][$i])
+                                {
+                                    array_push($Into,$Intolerance[1][$k]);
+                                }
+                            }
+                            $Into=implode(" ", $Into);
+                            echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
                         }
                         echo("</select></p>");
                     }
-                    echo("<input type='hidden' name='MenuUser' value='".$MenuUser."'>
-                    <input type='submit' name='RequestUser' value='+'>");
-                    
+                    echo("<input type='hidden' name='MenuUser' value='".$MenuUser."'>");
+                    if ($MenuUser<count($Users[0]))
+                    {
+                        echo("<input type='submit' name='RequestUser' value='+'>");
+                    }
                     if( $MenuUser > 1 )
                     {
                         echo("<input type='submit' name='RequestUser' value='-'>");
@@ -330,13 +380,24 @@
                         <select name='utilisateur".$j."'>");
                         for ($i=0;$i<count($Users[0]);$i++)
                         {
-                            echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]."</option>");
+                            $Into=array();
+                            for ($k=0;$k<count($Intolerance[0]);$k++)
+                            {
+                                if ($Intolerance[0][$k]==$Users[0][$i])
+                                {
+                                    array_push($Into,$Intolerance[1][$k]);
+                                }
+                            }
+                            $Into=implode(" ", $Into);
+                            echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
                         }
                         echo("</select></p>");
                     }
-                    echo("<input type='hidden' name='MenuUser' value='".$MenuUser."'>
-                    <input type='submit' name='RequestUser' value='+'>");
-                    
+                    echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>");
+                    if ($_GET['MenuUser']<count($Users[0]))
+                    {
+                        echo("<input type='submit' name='RequestUser' value='+'>");
+                    }
                     if( $MenuUser > 1 )
                     {
                         echo("<input type='submit' name='RequestUser' value='-'>");
@@ -495,7 +556,17 @@
 
                             if ($Guests[2][$i]==$_GET['evenement'] AND $verif==true AND $valeur==$j)
                             {
-                                echo("<option selected value='".$Guests[1][$i]."'>".$Guests[4][$i]."</option><br>");  
+                                $Into=array();
+                                for ($k=0;$k<count($Intolerance[0]);$k++)
+                                {
+                                    if ($Intolerance[0][$k]==$Guests[1][$i])
+                                    {
+                                        array_push($Into,$Intolerance[1][$k]);
+                                    }
+                                }
+                                $Into=implode(" ", $Into);
+                                echo("<option value='".$Guests[1][$i]."'>".$Guests[4][$i]." Intolérances : ".$Into."</option><br>");
+                                //echo("<option selected value='".$Guests[1][$i]."'>".$Guests[4][$i]."</option><br>");  
                                 array_push($Listes, $Guests[1][$i]);
                                 array_push($Verif, $Guests[1][$i]);
                                 $valeur++;
@@ -518,16 +589,26 @@
 
                             if ($VerifR==true)
                             {
-                                echo("<option value='".$Users[0][$h]."'>".$Users[1][$h]."</option>");
-                                
+                                $Into=array();
+                                for ($k=0;$k<count($Intolerance[0]);$k++)
+                                {
+                                    if ($Intolerance[0][$k]==$Users[0][$h])
+                                    {
+                                        array_push($Into,$Intolerance[1][$k]);
+                                    }
+                                }
+                                $Into=implode(" ", $Into);
+                                echo("<option value='".$Users[0][$h]."'>".$Users[1][$h]." Intolérances : ".$Into."</option><br>");
                             }
                         }
 
                         echo("</select>");
                     }
-                    echo("<br>
-                    <input type='hidden' name='MenuUser' value='".$MenuUser."'>
-                    <input type='submit' name='RequestUser' value='+'>");
+                    echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>");
+                    if ($_GET['MenuUser']<count($Users[0]))
+                    {
+                        echo("<input type='submit' name='RequestUser' value='+'>");
+                    }
                     if($MenuUser > 1 )
                     {
                         echo("<input type='submit' name='RequestUser' value='-'>");
@@ -652,21 +733,33 @@
                         
                         for ($i=0;$i<count($Users[0]);$i++)
                         {
+                            $Into=array();
+                            for ($k=0;$k<count($Intolerance[0]);$k++)
+                            {
+                                if ($Intolerance[0][$k]==$Users[0][$i])
+                                {
+                                    array_push($Into,$Intolerance[1][$k]);
+                                }
+                            }
+                            $Into=implode(" ", $Into);
+                            
                             if ($_GET['utilisateur'.$j]==$Users[0][$i]) 
                             {
-                                echo("<option selected value='".$Users[0][$i]."'>".$Users[1][$i]."</option><br>");
+                                echo("<option selected value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
                             }
                             else 
                             {
-                                echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]."</option><br>");
+                                echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
                             }
                         }
                     echo("</select>
                     <br>");
                     }
-                    echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>
-                    <input type='submit' name='RequestUser' value='+'>
-                    ");
+                    echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>");
+                    if ($_GET['MenuUser']<count($Users[0]))
+                    {
+                        echo("<input type='submit' name='RequestUser' value='+'>");
+                    }
                     if($_GET['MenuUser'] > 1 )
                     {
                         echo("<input type='submit' name='RequestUser' value='-'>");
@@ -720,7 +813,6 @@
                     }
                     echo("<input type='hidden' name='MenuRecipe' value='".$MenuRecipe."'>
                     <p><input type='submit' name='RequestRecipe' value='+'>");
-
                     if($MenuRecipe > 1 )
                     {
                         echo("<input type='submit' name='RequestRecipe' value='-'>");
@@ -757,21 +849,33 @@
                         
                         for ($i=0;$i<count($Users[0]);$i++)
                         {
+                            $Into=array();
+                            for ($k=0;$k<count($Intolerance[0]);$k++)
+                            {
+                                if ($Intolerance[0][$k]==$Users[0][$i])
+                                {
+                                    array_push($Into,$Intolerance[1][$k]);
+                                }
+                            }
+                            $Into=implode(" ", $Into);
+                            
                             if ($_GET['utilisateur'.$j]==$Users[0][$i]) 
                             {
-                                echo("<option selected value='".$Users[0][$i]."'>".$Users[1][$i]."</option><br>");
+                                echo("<option selected value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
                             }
                             else 
                             {
-                                echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]."</option><br>");
+                                echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
                             }
                         }
                     echo("</select>
                     <br>");
                     }
-                    echo("<input type='hidden' name='MenuUser' value='".$MenuUser."'>
-                    <input type='submit' name='RequestUser' value='+'>
-                    ");
+                    echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>");
+                    if ($_GET['MenuUser']<=count($Intolerance[0]))
+                    {
+                        echo("<input type='submit' name='RequestUser' value='+'>");
+                    }
                     if($MenuUser > 1 )
                     {
                         echo("<input type='submit' name='RequestUser' value='-'>");
@@ -825,7 +929,6 @@
                     }
                     echo("<input type='hidden' name='MenuRecipe' value='".$_GET['MenuRecipe']."'>
                     <p><input type='submit' name='RequestRecipe' value='+'>");
-
                     if($_GET['MenuRecipe'] > 1 )
                     {
                         echo("<input type='submit' name='RequestRecipe' value='-'>");
@@ -867,21 +970,34 @@
                         
                         for ($i=0;$i<count($Users[0]);$i++)
                         {
+                            $Into=array();
+                            for ($k=0;$k<count($Intolerance[0]);$k++)
+                            {
+                                if ($Intolerance[0][$k]==$Users[0][$i])
+                                {
+                                    array_push($Into,$Intolerance[1][$k]);
+                                }
+                            }
+                            $Into=implode(" ", $Into);
+                            
                             if ($_GET['utilisateur'.$j]==$Users[0][$i]) 
                             {
-                                echo("<option selected value='".$Users[0][$i]."'>".$Users[1][$i]."</option><br>");
+                                echo("<option selected value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
                             }
                             else 
                             {
-                                echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]."</option><br>");
+                                echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
                             }
                         }
                     echo("</select>
                     <br>");
                     }
-                    echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>
-                    <input type='submit' name='RequestUser' value='+'>
-                    ");
+                    echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>");
+                    if($_GET['MenuUser'] < count($Users[0]))
+                    {
+                        echo("<input type='submit' name='RequestUser' value='+'>");
+                    }
+            
                     if($_GET['MenuUser'] > 1 )
                     {
                         echo("<input type='submit' name='RequestUser' value='-'>");
@@ -935,7 +1051,6 @@
                     }
                     echo("<input type='hidden' name='MenuRecipe' value='".$_GET['MenuRecipe']."'>
                     <p><input type='submit' name='RequestRecipe' value='+'>");
-
                     if($_GET['MenuRecipe'] > 1 )
                     {
                         echo("<input type='submit' name='RequestRecipe' value='-'>");
@@ -957,7 +1072,7 @@
                     </div>");
                 }
                 else if ($_GET['Request'] == "Confirmer"
-                AND strlen($_GET['Name'])>20)
+                AND strlen($_GET['Name'])<20)
                 {
                     echo("<div class='text-center mt-5'>
                     <form action='Index.php' method='get'>
@@ -972,21 +1087,34 @@
                         
                         for ($i=0;$i<count($Users[0]);$i++)
                         {
+                            $Into=array();
+                            for ($k=0;$k<count($Intolerance[0]);$k++)
+                            {
+                                if ($Intolerance[0][$k]==$Users[0][$i])
+                                {
+                                    array_push($Into,$Intolerance[1][$k]);
+                                }
+                            }
+                            $Into=implode(" ", $Into);
+                            
                             if ($_GET['utilisateur'.$j]==$Users[0][$i]) 
                             {
-                                echo("<option selected value='".$Users[0][$i]."'>".$Users[1][$i]."</option><br>");
+                                echo("<option selected value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
                             }
                             else 
                             {
-                                echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]."</option><br>");
+                                echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
                             }
                         }
                     echo("</select>
                     <br>");
                     }
-                    echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>
-                    <input type='submit' name='RequestUser' value='+'>
-                    ");
+                    echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>");
+                    if ($_GET['MenuUser']<=count($Users[0]))
+                    {
+                        echo("<input type='submit' name='RequestUser' value='+'>");
+                    }
+
                     if($_GET['MenuUser'] > 1 )
                     {
                         echo("<input type='submit' name='RequestUser' value='-'>");
