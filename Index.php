@@ -32,6 +32,8 @@
                 require('Controller/ControllerNotesRecettes.php');
             else if ($_GET['page'] == 'Recettes')
                 require('Controller/ControllerRecettes.php'); 
+            else if ($_GET['page'] == 'Relation')
+                require('Controller/ControllerRelation.php'); 
         ?>
     </body>
 </html>        

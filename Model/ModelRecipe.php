@@ -1,5 +1,4 @@
 <?php
-    echo("poulet");
     function Recipe()
     {
         require('Model/ModelNewPDO.php');

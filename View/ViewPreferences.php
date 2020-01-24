@@ -82,7 +82,7 @@
                 }
                 else if($_GET['Request'] == 'Valider' && $CheckMenu3 == "false")
                 {
-                    echo "<br><br><FONT color='red'>Vous avez sélectionné un régime alimentaire et une catégorie aliemntaire incompatibles</FONT>";
+                    echo "<br><br><FONT color='red'>Vous avez sélectionné un régime alimentaire et une catégorie alimentaire incompatibles</FONT>";
                 }
 
                 echo "<br><br><input type='submit' name='Request' value='Valider'></form>

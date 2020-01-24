@@ -42,23 +42,26 @@
             if (!empty($_GET['Answer']) AND $_GET['Answer']=='Oui')
             {
                 RequestToBeFriend();
+                header("Location:Index.php?Usr=&page=Sociale&Request=Search");
 
             }
             elseif (!empty($_GET['Answer']) AND $_GET['Answer']=='Non') 
             {
-                echo("non");
+                header("Location:Index.php?Usr=&page=Sociale&Request=Search");
             }
 
         }elseif ($_GET['Request'] == "Amis")
         {
             $Myfriends = MyFriend();
-            if (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Oui') 
+            if (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Oui')
             {
-                DeleteFriend();            
+                DeleteFriend();
+                header("Location:Index.php?page=Sociale&Request=Amis");            
             }
             elseif (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Non')
             {
-                
+                header("Location:Index.php?page=Sociale&Request=Amis");
+
             }
             
         }
@@ -67,20 +70,23 @@
             if (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Oui') 
             {
                 AcceptRequest();
+                header("Location:Index.php?Usr=&page=Sociale&Request=Search");
+                
             }
             elseif (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Non')
             {
-            
+                header("Location:Index.php?Usr=&page=Sociale&Request=Search");
             }
         }
         elseif ($_GET['Request'] == "Refuser ami") {
             if (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Oui') 
             {
                 DeclineRequest();
+                header("Location:Index.php?page=Sociale&Request=Amis");
             }
             elseif (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Non')
             {
-                
+                header("Location:Index.php?page=Sociale&Request=Amis");
             }
         }
         elseif ($_GET['Request'] == "Bloquer")
@@ -88,23 +94,26 @@
             if (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Oui') 
             {
                 Block();
+                header("Location:Index.php?Usr=&page=Sociale&Request=Search");
             }
             elseif (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Non')
             {
-                
+                header("Location:Index.php?Usr=&page=Sociale&Request=Search");
             }
-            
+
         }
         elseif ($_GET['Request'] == "Debloquer") 
         {
             if (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Oui') 
             {
                 Debloquer();
+                header("Location:Index.php?Usr=&page=Sociale&Request=Search");
             }
             elseif (!empty($_GET['Answer']) AND $_GET['Answer'] == 'Non')
             {
-                
+                header("Location:Index.php?Usr=&page=Sociale&Request=Search");
             }
+            
         }
 
 

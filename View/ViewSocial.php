@@ -175,7 +175,7 @@
                     {
                         echo("<form action='Index.php' method='get'>
                         <input type='search' name='Usr' value='".htmlspecialchars($_GET['Usr'], ENT_QUOTES)."'/>
-                        <input type='hidden' name='page' value='Gestion des droits'>
+                        <input type='hidden' name='page' value='Sociale'>
                         <input type='hidden' name='Request' value='Search'>
                         <input type='submit' value=' '></form>
                         <br>aucun résultat pour la recherche ".$_GET['Usr'].".");                         

@@ -1,5 +1,4 @@
 <?php
-    echo("chatte");
     function CheckMenu()
     {
         if(!empty($_GET['Request']))

@@ -109,7 +109,9 @@
                             <form action='Index.php' method='get'>
                             <input type='submit' name="page" value="Régimes"></form>                         
                             <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Origines"></form>
+                            <input type='submit' name="page" value="Origines"></form>                         
+                            <form action='Index.php' method='get'>
+                            <input type='submit' name="page" value="Relation"></form>
                             <form action='Index.php' method='get'>
                             <input type='submit' name="page" value="Gestion des droits"></form>
 
