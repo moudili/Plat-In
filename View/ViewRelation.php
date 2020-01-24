@@ -83,7 +83,7 @@
                 <input type='hidden' name='page' value='Relation'>
                 <input type='hidden' name='ID' value='".$Amitier[3]."'>
                 <input type='submit' name='Relation' value='Supprimer'>
-                </td>");
+                </form></td>");
                 echo("</tr>");
 
                 

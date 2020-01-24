@@ -392,7 +392,7 @@
                     AND !empty($_GET['time'])
                     AND !empty($_GET['origine'])
                     AND !empty($_GET['text'])
-                    AND strlen($_GET['name'])<20)
+                    AND strlen($_GET['name'])<40)
                     {
                         echo("<div class='text-center mt-5'>
                         Votre recette est maintenant en ligne !");
