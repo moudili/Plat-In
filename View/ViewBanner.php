@@ -111,6 +111,8 @@
                             <form action='Index.php' method='get'>
                             <input type='submit' name="page" value="Notes recettes"></form>   
                             <form action='Index.php' method='get'>
+                            <input type='submit' name="page" value="Relation"></form>
+                            <form action='Index.php' method='get'>
                             <input type='submit' name="page" value="Recettes"></form>
                             
 

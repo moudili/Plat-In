@@ -1,11 +1,32 @@
 <?php
 
+    function Invitation()
+    {
+        require('Model\ModelNewPDO.php');
+        $Req = $Bdd -> prepare("SELECT G.ID_meals,M.name_m
+        FROM guests G
+        JOIN meals M
+        WHERE G.ID_user LIKE :id
+        AND G.status_g LIKE 'requested'
+        AND G.ID_meals LIKE M.ID_meal");
+        $Req -> bindParam(':id',$_SESSION['id'],PDO::PARAM_INT);
+        $Req -> execute();
+        $Events=array(array(),array());
+        while($n = $Req -> fetch())
+        {
+            array_push($Events[0], $n[0]);
+            array_push($Events[1], $n[1]);
+        }
+        return $Events;
+    }
+
     function SelectEvent()
     { 
         if (empty($_GET['event']))
         {
             require('Model\ModelNewPDO.php');
-            $Req = $Bdd -> prepare("SELECT ID_meal,name_m FROM meals");
+            $Req = $Bdd -> prepare("SELECT ID_meal,name_m 
+            FROM meals");
             $Req -> execute();
             $Events=array(array(),array());
             while($n = $Req -> fetch())

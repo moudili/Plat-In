@@ -93,6 +93,7 @@
         $UsersSupp=SelectSupp();
         $Guests=SelectGuest();
         $Dishes=SelectDish();
+        $Invitation=Invitation();
         $PrintEvent=PrintEvent();
         $PrintUser=PrintUser();
         $SelectEvent=SelectModifEvent();
