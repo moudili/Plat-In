@@ -2,15 +2,15 @@ $(function() {
 
     $("#User,#FirstName,#LastName,#Adress,#Mail,#Phone,#Pwd,#Cpwd,#SignUp").focusout(function() {
 
-        var User = document.forms["FormName"]["User"].value;
-        var FirstName = document.forms["FormName"]["FirstName"].value;
-        var LastName = document.forms["FormName"]["LastName"].value;
-        var Adress = document.forms["FormName"]["Adress"].value;
-        var Mail = document.forms["FormName"]["Mail"].value;
-        var Phone = document.forms["FormName"]["Phone"].value;
-        var Pwd = document.forms["FormName"]["Pwd"].value;
-        var Cpwd = document.forms["FormName"]["Cpwd"].value;
-                
+        var User = document.forms["FormName"]["ndu"].value;
+        var FirstName = document.forms["FormName"]["first_name"].value;
+        var LastName = document.forms["FormName"]["last_name"].value;
+        var Adress = document.forms["FormName"]["adresse"].value;
+        var Mail = document.forms["FormName"]["mail"].value;
+        var Phone = document.forms["FormName"]["phone"].value;
+        var Pwd = document.forms["FormName"]["mdp"].value;
+        var Cpwd = document.forms["FormName"]["cmdp"].value;
+        
         //User
 
         if(User.length !== 0
@@ -79,7 +79,7 @@ $(function() {
         if(Adress.length !== 0
             && (Adress.length  < 2
             || Adress.length > 40
-            || Adress.match(/[^a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]/))
+            || !Adress.match(/^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ'._-]$/))
             )
         {
             document.getElementById("Adress").style.borderColor="red";
