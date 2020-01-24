@@ -190,7 +190,7 @@
         AND !empty($_GET['location'])
         AND !empty($_GET['description'])
         AND $_GET['event']!='Modifier'
-        AND strlen($_GET['Name'])>20)
+        AND strlen($_GET['Name'])<20)
         {
             require('Model\ModelNewPDO.php');
             $Req1 = $Bdd -> prepare("INSERT INTO `meals` (`name_m`, `date_hours`, `date_days`, `location`, `text`) 
