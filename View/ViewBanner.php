@@ -87,7 +87,7 @@
                         <form action='Index.php' method='get'>
                         <input type='submit' name="page" value="Profil"></form>
                         <form action='Index.php' method='get'>
-                        <input type='submit' name="page" value="Social"></form>            
+                        <input type='submit' name="page" value='Social'></form>            
                     </div>
                 <?php
             }
@@ -104,17 +104,18 @@
                             <form action='Index.php' method='get'>
                             <input type='submit' name="page" value="Catégories Alimentaires"></form>     
                             <form action='Index.php' method='get'>
+                            <input type='submit' name="page" value="Régimes"></form>
+                            <form action='Index.php' method='get'>
+                            <input type='submit' name="page" value="Origines"></form>
+                            <form action='Index.php' method='get'>
+                            <input type='submit' name="page" value="Gestion des droits"></form>                         
+                            <form action='Index.php' method='get'>
                             <input type='submit' name="page" value="Notes recettes"></form>   
-                            <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Recettes"></form>
-                            <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Régimes"></form>                         
-                            <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Origines"></form>                         
                             <form action='Index.php' method='get'>
                             <input type='submit' name="page" value="Relation"></form>
                             <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Gestion des droits"></form>
+                            <input type='submit' name="page" value="Recettes"></form>
+                            
 
                             
                         </div>

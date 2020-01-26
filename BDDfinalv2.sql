@@ -20,6 +20,8 @@ CREATE TABLE IF NOT EXISTS `Plat_In`.`users` (
   PRIMARY KEY (`ID_user`))
 ENGINE = InnoDB;
 
+INSERT INTO `users` (`ID_user`, `user`, `u_password`, `first_name`, `last_name`, `adress`, `mail`, `phone_number`, `picture`, `status_u`, `connection`) VALUES ('1', 'admin', 'YWJjZGU=', 'admin', 'admin', NULL, NULL, NULL, NULL, 'admin', 'dc');
+
 CREATE TABLE IF NOT EXISTS `Plat_In`.`foods` (
   `ID_food` INT NOT NULL AUTO_INCREMENT,
   `food_name` VARCHAR(45) NULL,
