@@ -163,9 +163,10 @@
                                 <p align=center>Date de création : ".$Recipes[2][$i]."</p>
                                 <p align=center>Temps de préparation : ".$Recipes[3][$i]."</p>
                                 <p align=center>Créer par : ".$Recipes[5][$i]."</p>
-                                <p align=center> Description : ".$Recipes[1][$i]."</p>
+                                <p align=center>");
+                                echo(nl2br("Description : <br/><br/>".$Recipes[1][$i]."</p>
                                 <input type='hidden' name='page' value='Recette'>
-                                <br><input type='submit' value='Retour'>");
+                                <br><input type='submit' value='Retour'>"));
                                 if(!empty($_GET['Org']))
                                 {
                                     echo"<input type='hidden' name='Request' value='Search'>
@@ -825,13 +826,14 @@
                             {
                                 if ($Recipes[6][$i]==$_GET['id'])
                                 {
+                                    
                                     echo("<div class='text-center mt-5'>
                                     <form action='Index.php' method='get'>
                                     <p align=center>".$Recipes[0][$i]."</p>
                                     <p align=center>Date de création : ".$Recipes[2][$i]."</p>
                                     <p align=center>Temps de préparation : ".$Recipes[3][$i]."</p>
-                                    <p align=center>Créer par : ".$Recipes[5][$i]."</p>
-                                    <p align=center> Description : ".$Recipes[1][$i]."</p>
+                                    <p align=center>Créer par : ".$Recipes[5][$i]."</p>");
+                                    echo(nl2br("<p align=center> Description : <br/><br/>".$Recipes[1][$i]."</p>
                                     <input type='hidden' name='page' value='Recette'>
                                     <input type='hidden' name='id' value='".$_GET['id']."'>
                                     <br>
@@ -839,7 +841,7 @@
                                     <input type='submit' name='RequestReview'value='Donner une note'>
                                     </form>
                                     <form action='Index.php' method='get'>
-                                    <input type='hidden' name='page' value='Recette'>");
+                                    <input type='hidden' name='page' value='Recette'>"));
                                     if(!empty($_GET['Org']))
                                     {
                                         echo"<input type='hidden' name='Request' value='Search'>
