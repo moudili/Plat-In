@@ -1,13 +1,14 @@
+<?php
+    require("View/ViewBanner.php");     
+?>
+
 <html>
     <head>
         <title>Categories alimentaires</title>
     </head>
     
     <body>
-        <?php
 
-            require("View/ViewBanner.php");     
-        ?>
         <div class="mt-5 text-center justify-content-center flexbox">
             <div>
         <?php
