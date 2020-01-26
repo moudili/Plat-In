@@ -395,8 +395,8 @@
                 {
                     echo("<div class='text-center mt-5'>
                     <p>Créer une recette</p>
-                    <form action='Index.php' method='get'>
-                    <p>image : <input id='get_compte' type='text' name='img' value=''></p>
+                    <form action='Index.php' enctype='multipart/form-data' method='get'>
+                    <p>image  <input id='get_compte' type='file' name='photo'  value=''></p>
                     <p> Nom de la recette : <input id='get_compte' type='text' name='name' value=''></p>
                     <p> Aliments : <select name='food0'>
                     <option value=''>--Choisissez un aliment--</option>");
@@ -452,8 +452,8 @@
                 {
                     echo("<div class='text-center mt-5'>
                     <p>Créer une recette</p>
-                    <form action='Index.php' method='get'>
-                    <p>image : <input id='get_compte' type='text' name='img' value='".$_GET['img']."'></p>
+                    <form action='Index.php' enctype='multipart/form-data' method='get'>
+                    <p>image  <input id='get_compte' type='file' name='photo' value=''></p>
                     <p> Nom de la recette : <input id='get_compte' type='text' name='name' value='".$_GET['name']."'></p>
                     <p> Aliments : ");
 
@@ -603,13 +603,15 @@
                 }
                 else if ($_GET['Request']=='Valider')
                 {
-                    if (!empty($_GET['name']) 
+                    if (!empty($_GET['name'])
                     AND !empty($_GET['food0']) 
                     AND !empty($_GET['time'])
                     AND !empty($_GET['origine'])
                     AND !empty($_GET['text'])
                     AND strlen($_GET['name'])<40)
                     {
+                        
+
                         echo("<div class='text-center mt-5'>
                         Votre recette est maintenant en ligne !");
                         echo("<p><form action='Index.php' method='get'>
@@ -636,8 +638,8 @@
 
                         echo("<div class='text-center mt-5'>
                         
-                        <form action='Index.php' method='get'>
-                        <p>image : <input id='get_compte' type='text' name='img' value='".$_GET['img']."'></p>
+                        <form action='Index.php' enctype='multipart/form-data' method='get'>
+                        <p>image  <input id='get_compte' type='file' name='photo' value=''></p>
                         <p> Nom de la recette : <input id='get_compte' type='text' name='name' value='".$_GET['name']."'></p>
                         <p> Aliments : ");
 
@@ -1554,7 +1556,7 @@
                         Vous avez bien supprimé votre recette 
                         <br>
                         <form action='Index.php' method='get'>
-                        <input type='hidden' name='page' value='Recettes'>");
+                        <input type='hidden' name='page' value='Recette'>");
                         if(!empty($_GET['Org']))
                         {
                             echo"<input type='hidden' name='Request' value='Search'>
