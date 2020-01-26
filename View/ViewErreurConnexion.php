@@ -1,12 +1,13 @@
+<?php     
+    require("View/ViewBanner.php"); 
+?>
 <html>
     <head>
         <title>Plat'In</title>
     </head>
     
     <body>
-        <?php     
-        require("View/ViewBanner.php"); 
-        ?>
+
         <div class="text-center mt-5">
 
 

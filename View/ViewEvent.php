@@ -1,3 +1,7 @@
+<?php
+    require("View/ViewBanner.php"); 
+?>
+
 <html>
     <head>
         <link rel="stylesheet" href="Css\ErrorChamp.css">
@@ -6,9 +10,6 @@
     
     <body>
         <?php
-             
-            require("View/ViewBanner.php");     
-        
             if (empty($_GET['event']))
             {
                 if ($Events==array() OR $Events==array(array(),array()))

@@ -1,12 +1,13 @@
+<?php 
+    require("View/ViewBanner.php");  
+?>
 <html>
     <head>
         <title>Aliments</title>
     </head>
     <body> 
 
-<?php 
-            require("View/ViewBanner.php");  
-?>
+
 <div class="text-center mt-5">
 <?php
             if(empty($_GET['Request']))
