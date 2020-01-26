@@ -1,6 +1,8 @@
 <html>
     <head>
     <link rel="stylesheet" href="Css/Bootstrap/MyCss.css">
+    <link rel="stylesheet" href="Css/Bootstrap/Bootstrap.css">
+    <link rel="stylesheet" href="Css/Bootstrap/MyCss.css">
     
     </head>
     <body>
