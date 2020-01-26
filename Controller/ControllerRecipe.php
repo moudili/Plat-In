@@ -74,6 +74,8 @@
         if(!empty($_GET['Request'])
         AND $_GET['Request']!='Afficher'
         AND $_GET['Request']!='Supprimer'
+        AND $_GET['Request']!='Filtre'
+        AND $_GET['Request']!='Search'
         )
         {
             
@@ -135,5 +137,6 @@
     SuppRecipe();
     starts();
     $Note=PrintStarts($Recipes[6]);
+    $MenuFiltre = MenuFiltre();
     require("View/ViewRecipe.php");
 ?>     
