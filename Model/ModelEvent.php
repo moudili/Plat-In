@@ -104,7 +104,7 @@
         WHERE ID_user NOT LIKE :id
         AND status_u NOT LIKE 'admin'
         ORDER BY user");
-        $Req -> bindParam(':id',$_SESSION['id'],PDO::PARAM_STR);
+        $Req -> bindParam(':id',$_SESSION['id'],PDO::PARAM_INT);
         $Req -> execute();
         $Users = array(array(),array(),array());
         while($n = $Req -> fetch())
