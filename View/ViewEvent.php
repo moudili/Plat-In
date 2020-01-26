@@ -90,18 +90,21 @@
                         }
                     }
                     echo("</table>");
-                    echo("Evenement en attente :
-                    <table border=4 align='center'>");
-                    for ($i=0;$i<count($Invitation[0]);$i++)
+                    echo("Evenement en attente :");
+                    if(count($Invitation[0]) != 0)
                     {
-                        echo("<tr><td>".$Invitation[1][$i]."</td><td><p><form action='Index.php' method='get'><input type='submit' name='event' value='Accepter'></p>
-                        <p><input type='submit' name='event' value='Refuser'>
-                        <input type='hidden' name='ID' value='".$Invitation[2][$i]."'>
-                        <input type='hidden' name='page' value='Evènement'>
-                        </form></p></td><tr>");
-                    }
+                        echo("<table border=4 align='center'>");
+                        for ($i=0;$i<count($Invitation[0]);$i++)
+                        {
+                            echo("<tr><td>".$Invitation[1][$i]."</td><td><p><form action='Index.php' method='get'><input type='submit' name='event' value='Accepter'></p>
+                            <p><input type='submit' name='event' value='Refuser'>
+                            <input type='hidden' name='ID' value='".$Invitation[2][$i]."'>
+                            <input type='hidden' name='page' value='Evènement'>
+                            </form></p></td><tr>");
+                        }
 
-                    echo("</table></div>");
+                        echo("</table></div>");
+                    }
                 }
             }
             else if ($_GET['event']=='Accepter')
