@@ -1,3 +1,6 @@
+<?php
+require("View/ViewBanner.php");
+?>
 <html>
     <head>
         <title>Notes Recettes</title>
@@ -5,7 +8,7 @@
     
     <body>
         <?php
-        require("View/ViewBanner.php");
+
 
         if (empty($_GET['Request']))
         {
