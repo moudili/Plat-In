@@ -82,7 +82,11 @@
                         }
                         else if ($Invite==true AND $Moi!=true)
                         {
-                            echo("<tr><td>".$Events[1][$i]."</td><td><br><input type='submit' name='event' value='Afficher'><br></td></tr>");
+                            echo("<form action='Index.php' method='get'>
+                            <tr><td>".$Events[1][$i]."</td><td><br><input type='submit' name='event' value='Afficher'><br></td></tr>
+                            <input type='hidden' name='evenement' value='".$Events[0][$i]."'>
+                            <input type='hidden' name='page' value='Evènement'>
+                            </form>");
                         }
                     }
                     echo("</table>");
@@ -450,18 +454,16 @@
             }
             else if ($_GET['event']=='Afficher')
             {
+                echo("<div class='text-center mt-5'>");
                 for ($i=0;$i<count($PrintEvent[0]);$i++)
                 {
-                    if($PrintEvent[0][$i]==$_GET['evenement'] AND ($i == 0 || $PrintEvent[0][$i] != $PrintEvent[0][$i-1]))
+                    if($PrintEvent[0][$i]==$_GET['evenement'] AND ($i == 0 || $PrintEvent[6][$i] != $PrintEvent[6][$i-1]))
                     {
-                        echo("<div class='text-center mt-5'>
-                        <h1>".$PrintEvent[1][$i]."</h1>
+                        echo("<h1>".$PrintEvent[1][$i]."</h1>
                         <p>Date : ".$PrintEvent[3][$i]." Heure : ".$PrintEvent[2][$i]."</p>
                         <p>Lieu : ".$PrintEvent[4][$i]."
                         <p>Personne invité : </p>");
-                    }
-                    
-                    
+                    } 
                 }
                 for ($i=0;$i<count($PrintUser[0]);$i++)
                 {
@@ -471,7 +473,6 @@
                         <p>".$PrintUser[2][$i]."<p>");
                     }
                 }
-
                 for ($i=0;$i<count($PrintEvent[0]);$i++)
                 {
                     if ($PrintEvent[0][$i]==$_GET['evenement'] AND ($i == 0 || $PrintEvent[6][$i] != $PrintEvent[6][$i-1]))
@@ -480,21 +481,19 @@
                         <p>Type de recette : ".$PrintEvent[7][$i]."</p>");
                     }
                 }
-
                 for ($i=0;$i<count($PrintEvent[0]);$i++)
                 {
-                    if ($PrintEvent[0][$i]==$_GET['evenement'] AND ($i == 0 || $PrintEvent[0][$i] != $PrintEvent[0][$i-1]))
+                    if ($PrintEvent[0][$i]==$_GET['evenement'] AND ($i == 0 || $PrintEvent[6][$i] != $PrintEvent[6][$i-1]))
                     {
                         echo("<p>Description : ".$PrintEvent[5][$i]);
                     }
                 }
-
-
                 echo("
                 <form action='Index.php' method='get'>
                     <input type='submit' value='Retour'>
                     <input type='hidden' name='page' value='Evènement'>
-                </form>");
+                </form>
+                <div>");
             }
             else if ($_GET['event']=='Supprimer')
             {
