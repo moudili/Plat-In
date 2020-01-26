@@ -151,7 +151,7 @@
                     echo("</select>
                     <br>");
                     echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>");
-                    if ($_GET['MenuUser']<=count($Intolerance[0]))
+                    if ($_GET['MenuUser']<count($Intolerance[0]))
                     {
                         echo("<input type='submit' name='RequestUser' value='+'>");
                     }
@@ -340,7 +340,7 @@
                     <br>");
                     }
                     echo("<input type='hidden' name='MenuUser' value='".$MenuUser."'>");
-                    if ($MenuUser<=count($Users[0]))
+                    if ($MenuUser<count($Users[0]))
                     {
                         echo("<input type='submit' name='RequestUser' value='+'>");
                     }
@@ -980,7 +980,7 @@
                     <br>");
                     }
                     echo("<input type='hidden' name='MenuUser' value='".$MenuUser."'>");
-                    if ($MenuUser<=count($Users[0]))
+                    if ($MenuUser<count($Users[0]))
                     {
                         echo("<input type='submit' name='RequestUser' value='+'>");
                     }
@@ -1218,7 +1218,7 @@
                     <br>");
                     }
                     echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>");
-                    if ($_GET['MenuUser']<=count($Users[0]))
+                    if ($_GET['MenuUser']<count($Users[0]))
                     {
                         echo("<input type='submit' name='RequestUser' value='+'>");
                     }
