@@ -196,69 +196,103 @@
                     <p>");
                     for($j = 0 ; $j < $_GET['MenuUser'] ; $j++ )
                     {
-                        echo("Personne à inviter à cette évènement : 
+                        echo("<p>Personne à inviter à cette évènement : 
                         <select name='utilisateur".$j."'>");
+                        
                         for ($i=0;$i<count($Users[0]);$i++)
                         {
-                        $Into=array();
-                        for ($k=0;$k<count($Intolerance[0]);$k++)
-                        {
-                            if ($Intolerance[0][$k]==$Users[0][$i])
+                            $Into=array();
+                            for ($k=0;$k<count($Intolerance[0]);$k++)
                             {
-                                array_push($Into,$Intolerance[1][$k]);
+                                if ($Intolerance[0][$k]==$Users[0][$i])
+                                {
+                                    array_push($Into,$Intolerance[1][$k]);
+                                }
+                            }
+                            $Into=implode(" ", $Into);
+                            
+                            if ($_GET['utilisateur'.$j]==$Users[0][$i]) 
+                            {
+                                echo("<option selected value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
+                            }
+                            else 
+                            {
+                                echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
                             }
                         }
-                        $Into=implode(" ", $Into);
-                        echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
-                    }
-                        echo("</select></p>");
+                    echo("</select>
+                    <br>");
                     }
                     echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>");
                     if ($_GET['MenuUser']<count($Users[0]))
                     {
                         echo("<input type='submit' name='RequestUser' value='+'>");
                     }
-
                     if($_GET['MenuUser'] > 1 )
                     {
                         echo("<input type='submit' name='RequestUser' value='-'>");
                     }
 
-                    echo("</p>
-                    <p>
-                    ");
                     for($j = 0 ; $j < $MenuRecipe ; $j++ )
                     {
-                        echo("Recette disponible : ");
-                        echo("<select name='recette".$j."'>");
+                        echo("<p>Recette disponible : 
+                        <select name='recette".$j."'>");
                         for ($i=0;$i<count($Recipes[0]);$i++)
                         {
-                            echo("<option value='".$Recipes[2][$i]."'>".$Recipes[0][$i]."</option>");
+                            if ($_GET['recette'.$j]==$Recipes[2][$i]) 
+                            {
+                                echo("<option selected value='".$Recipes[2][$i]."'>".$Recipes[0][$i]."</option>");
+                                //echo(" EGal :".$Recipes[0][$i]);
+                            }
+                            else 
+                            {
+                                echo("<option value='".$Recipes[2][$i]."'>".$Recipes[0][$i]."</option>");
+                                //echo($Recipes[0][$i]);
+                            }
                         }
                         echo("</select></p>
-                        <p>Ceci est <select name='service".$j."'>
-                        <option value='entrée'>une entrée</option>
-                        <option value='plat'>un plat</option>
-                        <option value='dessert'>un dessert</option>
-                        </select></p>
-                        ");
+                        <p>Ceci est <select name='service".$j."'>");
+                    
+                            if ($_GET['service'.$j]=='entrée')
+                            {
+                                echo("<option selected value='entrée'>entrée</option>");
+                                echo("<option value='plat'>plat</option>");
+                                echo("<option value='dessert'>dessert</option>");
+                            }
+                            else if ($_GET['service'.$j]=='plat')
+                            {
+                                echo("<option value='entrée'>entrée</option>");
+                                echo("<option selected value='plat'>plat</option>");
+                                echo("<option value='dessert'>dessert</option>");
+                            }
+                            else if ($_GET['service'.$j]=='dessert')
+                            {
+                                echo("<option value='entrée'>entrée</option>");
+                                echo("<option value='plat'>plat</option>");
+                                echo("<option selected value='dessert'>dessert</option>");
+                            }
+                            else 
+                            {
+                                echo("<option selected value='entrée'>entrée</option>");
+                                echo("<option value='plat'>plat</option>");
+                                echo("<option value='dessert'>dessert</option>");
+                            }
+                        echo("</select></p>");
                     }
-                    echo("
-                    <input type='hidden' name='MenuRecipe' value=".$MenuRecipe.">
+                    echo("<input type='hidden' name='MenuRecipe' value='".$MenuRecipe."'>
                     <p><input type='submit' name='RequestRecipe' value='+'>");
-
-                    if( $MenuRecipe > 1 )
+                    if($MenuRecipe > 1 )
                     {
                         echo("<input type='submit' name='RequestRecipe' value='-'>");
                     }
 
-                    echo("</p>
-                    <p><input type='date' name='date'><input type='time' name='time'></p>
+                    echo("<p><input type='date' name='date' value='".$_GET['date']."'><input type='time' name='time' value='".$_GET['time']."'></p>
                     <p>Lieu de l'évènement : <input type='text' name='location' value='".$_GET['location']."'></p>
                     Description : 
-                    <p><TEXTAREA name='description' rows=4 cols=40></TEXTAREA></p>
+                    <p><TEXTAREA name='description' rows=4 cols=40 value=''>".$_GET['description']."</TEXTAREA></p>
                     <input type='submit' name='Request' value='Confirmer'>
                     <input type='hidden' name='event' value='Ajouter un evenement'>
+                    <input type='hidden' name='evenement' value='".$_GET['evenement']."'>
                     <input type='hidden' name='page' value='Evènement'>
                     </form>
                     <form action='Index.php' method='get'>
@@ -278,8 +312,9 @@
                     <p>");
                     for($j = 0 ; $j < $MenuUser ; $j++ )
                     {
-                        echo("Personne à inviter à cette évènement : 
+                        echo("<p>Personne à inviter à cette évènement : 
                         <select name='utilisateur".$j."'>");
+                        
                         for ($i=0;$i<count($Users[0]);$i++)
                         {
                             $Into=array();
@@ -291,54 +326,89 @@
                                 }
                             }
                             $Into=implode(" ", $Into);
-                            echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
+                            
+                            if ($_GET['utilisateur'.$j]==$Users[0][$i]) 
+                            {
+                                echo("<option selected value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
+                            }
+                            else 
+                            {
+                                echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
+                            }
                         }
-                        echo("</select></p>");
+                    echo("</select>
+                    <br>");
                     }
                     echo("<input type='hidden' name='MenuUser' value='".$MenuUser."'>");
-                    if ($MenuUser<count($Users[0]))
+                    if ($MenuUser<=count($Users[0]))
                     {
                         echo("<input type='submit' name='RequestUser' value='+'>");
                     }
-                    if( $MenuUser > 1 )
+                    if($MenuUser > 1 )
                     {
                         echo("<input type='submit' name='RequestUser' value='-'>");
                     }
 
-                    echo("</p>");
                     for($j = 0 ; $j < $_GET['MenuRecipe'] ; $j++ )
                     {
-                        echo("Recette disponible : ");
-                        echo("<p><select name='recette".$j."'>");
+                        echo("<p>Recette disponible : 
+                        <select name='recette".$j."'>");
                         for ($i=0;$i<count($Recipes[0]);$i++)
                         {
-                            echo("<option value='".$Recipes[2][$i]."'>".$Recipes[0][$i]."</option>");
+                            if ($_GET['recette'.$j]==$Recipes[2][$i]) 
+                            {
+                                echo("<option selected value='".$Recipes[2][$i]."'>".$Recipes[0][$i]."</option>");
+                                //echo(" EGal :".$Recipes[0][$i]);
+                            }
+                            else 
+                            {
+                                echo("<option value='".$Recipes[2][$i]."'>".$Recipes[0][$i]."</option>");
+                                //echo($Recipes[0][$i]);
+                            }
                         }
                         echo("</select></p>
-                        <p>Ceci est <select name='service".$j."'>
-                        <option value='entrée'>une entrée</option>
-                        <option value='plat'>un plat</option>
-                        <option value='dessert'>un dessert</option>
-                        </select></p>
-                        ");
+                        <p>Ceci est <select name='service".$j."'>");
+                    
+                            if ($_GET['service'.$j]=='entrée')
+                            {
+                                echo("<option selected value='entrée'>entrée</option>");
+                                echo("<option value='plat'>plat</option>");
+                                echo("<option value='dessert'>dessert</option>");
+                            }
+                            else if ($_GET['service'.$j]=='plat')
+                            {
+                                echo("<option value='entrée'>entrée</option>");
+                                echo("<option selected value='plat'>plat</option>");
+                                echo("<option value='dessert'>dessert</option>");
+                            }
+                            else if ($_GET['service'.$j]=='dessert')
+                            {
+                                echo("<option value='entrée'>entrée</option>");
+                                echo("<option value='plat'>plat</option>");
+                                echo("<option selected value='dessert'>dessert</option>");
+                            }
+                            else 
+                            {
+                                echo("<option selected value='entrée'>entrée</option>");
+                                echo("<option value='plat'>plat</option>");
+                                echo("<option value='dessert'>dessert</option>");
+                            }
+                        echo("</select></p>");
                     }
-                    echo("<p>
-                    <input type='hidden' name='page' value='Evènement'>
-                    <input type='hidden' name='event' value='Ajouter un evenement'>
-                    <input type='hidden' name='MenuRecipe' value=".$_GET['MenuRecipe'].">
-                    <input type='submit' name='RequestRecipe' value='+'>");
+                    echo("<input type='hidden' name='MenuRecipe' value='".$_GET['MenuRecipe']."'>
+                    <p><input type='submit' name='RequestRecipe' value='+'>");
                     if($_GET['MenuRecipe'] > 1 )
                     {
                         echo("<input type='submit' name='RequestRecipe' value='-'>");
                     }
 
-                    echo("</p>
-                    <p><input type='date' name='date'><input type='time' name='time'></p>
+                    echo("<p><input type='date' name='date' value='".$_GET['date']."'><input type='time' name='time' value='".$_GET['time']."'></p>
                     <p>Lieu de l'évènement : <input type='text' name='location' value='".$_GET['location']."'></p>
                     Description : 
-                    <p><TEXTAREA name='description' rows=4 cols=40></TEXTAREA></p>
+                    <p><TEXTAREA name='description' rows=4 cols=40 value=''>".$_GET['description']."</TEXTAREA></p>
                     <input type='submit' name='Request' value='Confirmer'>
                     <input type='hidden' name='event' value='Ajouter un evenement'>
+                    <input type='hidden' name='evenement' value='".$_GET['evenement']."'>
                     <input type='hidden' name='page' value='Evènement'>
                     </form>
                     <form action='Index.php' method='get'>
@@ -376,14 +446,15 @@
                     <form action='Index.php' method='get'>
                     <h2>Ajouter un évènement</h2>
                     <br>
-                    <h3 style='color: red'>Veuillez remplir tous les champs. SI tous les champs sont remplis alors votre Nom de recette est trop long</h3>
+                    <h3 style='color: red'>Veuillez remplir tous les champs. Si tous les champs sont remplis alors votre nom d'événement est trop long</h3>
                     <br><br>
                     <p>Titre de l'évènement : <input type='text' name='Name' value='".$_GET['Name']."'></p>
                     <p>");
                     for($j = 0 ; $j < $_GET['MenuUser'] ; $j++ )
                     {
-                        echo("Personne à inviter à cette évènement : 
+                        echo("<p>Personne à inviter à cette évènement : 
                         <select name='utilisateur".$j."'>");
+                        
                         for ($i=0;$i<count($Users[0]);$i++)
                         {
                             $Into=array();
@@ -395,54 +466,90 @@
                                 }
                             }
                             $Into=implode(" ", $Into);
-                            echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
+                            
+                            if ($_GET['utilisateur'.$j]==$Users[0][$i]) 
+                            {
+                                echo("<option selected value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
+                            }
+                            else 
+                            {
+                                echo("<option value='".$Users[0][$i]."'>".$Users[1][$i]." Intolérances : ".$Into."</option><br>");
+                            }
                         }
-                        echo("</select></p>");
+                    echo("</select>
+                    <br>");
                     }
                     echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>");
-                    if ($_GET['MenuUser']<count($Users[0]))
+                    if($_GET['MenuUser'] < count($Users[0]))
                     {
                         echo("<input type='submit' name='RequestUser' value='+'>");
                     }
-                    if( $MenuUser > 1 )
+            
+                    if($_GET['MenuUser'] > 1 )
                     {
                         echo("<input type='submit' name='RequestUser' value='-'>");
                     }
 
-                    echo("</p>");
-                    for($j = 0 ; $j < $_GET['MenuRecipe']; $j++ )
+                    for($j = 0 ; $j < $_GET['MenuRecipe'] ; $j++ )
                     {
-                        echo("Recette disponible : ");
-                        echo("<p><select name='recette".$j."'>");
+                        echo("<p>Recette disponible : 
+                        <select name='recette".$j."'>");
                         for ($i=0;$i<count($Recipes[0]);$i++)
                         {
-                            echo("<option value='".$Recipes[2][$i]."'>".$Recipes[0][$i]."</option>");
+                            if ($_GET['recette'.$j]==$Recipes[2][$i]) 
+                            {
+                                echo("<option selected value='".$Recipes[2][$i]."'>".$Recipes[0][$i]."</option>");
+                                //echo(" EGal :".$Recipes[0][$i]);
+                            }
+                            else 
+                            {
+                                echo("<option value='".$Recipes[2][$i]."'>".$Recipes[0][$i]."</option>");
+                                //echo($Recipes[0][$i]);
+                            }
                         }
                         echo("</select></p>
-                        <p>Ceci est <select name='service".$j."'>
-                        <option value='entrée'>une entrée</option>
-                        <option value='plat'>un plat</option>
-                        <option value='dessert'>un dessert</option>
-                        </select></p>
-                        ");
+                        <p>Ceci est <select name='service".$j."'>");
+                    
+                            if ($_GET['service'.$j]=='entrée')
+                            {
+                                echo("<option selected value='entrée'>entrée</option>");
+                                echo("<option value='plat'>plat</option>");
+                                echo("<option value='dessert'>dessert</option>");
+                            }
+                            else if ($_GET['service'.$j]=='plat')
+                            {
+                                echo("<option value='entrée'>entrée</option>");
+                                echo("<option selected value='plat'>plat</option>");
+                                echo("<option value='dessert'>dessert</option>");
+                            }
+                            else if ($_GET['service'.$j]=='dessert')
+                            {
+                                echo("<option value='entrée'>entrée</option>");
+                                echo("<option value='plat'>plat</option>");
+                                echo("<option selected value='dessert'>dessert</option>");
+                            }
+                            else 
+                            {
+                                echo("<option selected value='entrée'>entrée</option>");
+                                echo("<option value='plat'>plat</option>");
+                                echo("<option value='dessert'>dessert</option>");
+                            }
+                        echo("</select></p>");
                     }
-                    echo("<p>
-                    <input type='hidden' name='page' value='Evènement'>
-                    <input type='hidden' name='event' value='Ajouter un evenement'>
-                    <input type='hidden' name='MenuRecipe' value=".$_GET['MenuRecipe'].">
-                    <input type='submit' name='RequestRecipe' value='+'>");
+                    echo("<input type='hidden' name='MenuRecipe' value='".$_GET['MenuRecipe']."'>
+                    <p><input type='submit' name='RequestRecipe' value='+'>");
                     if($_GET['MenuRecipe'] > 1 )
                     {
                         echo("<input type='submit' name='RequestRecipe' value='-'>");
                     }
 
-                    echo("</p>
-                    <p><input type='date' name='date'><input type='time' name='time'></p>
+                    echo("<p><input type='date' name='date' value='".$_GET['date']."'><input type='time' name='time' value='".$_GET['time']."'></p>
                     <p>Lieu de l'évènement : <input type='text' name='location' value='".$_GET['location']."'></p>
                     Description : 
-                    <p><TEXTAREA name='description' rows=4 cols=40></TEXTAREA></p>
+                    <p><TEXTAREA name='description' rows=4 cols=40 value=''>".$_GET['description']."</TEXTAREA></p>
                     <input type='submit' name='Request' value='Confirmer'>
                     <input type='hidden' name='event' value='Ajouter un evenement'>
+                    <input type='hidden' name='evenement' value='".$_GET['evenement']."'>
                     <input type='hidden' name='page' value='Evènement'>
                     </form>
                     <form action='Index.php' method='get'>
