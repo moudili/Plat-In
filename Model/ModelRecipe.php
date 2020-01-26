@@ -3,52 +3,167 @@
     {
         require('Model/ModelNewPDO.php');
 
-        $Req = $Bdd -> prepare("CREATE OR REPLACE VIEW VRecipes
-        AS SELECT DISTINCT R.name_r,R.text,R.date_r,R.cooking_time,R.ID_user,U.user,R.ID_recipes,R.ID_origin,F.food_name,P.grade,
-        AVG(REV.review) AS mark
-        FROM recipes R 
-        JOIN users U 
-        JOIN ingredients I 
-        JOIN foods F
-        JOIN origins O
-        JOIN food_categories FC
-        JOIN kinds_of_food KF
-        JOIN preferences P
-        JOIN reviews REV
-        WHERE R.ID_user LIKE U.ID_user 
-        AND I.ID_recipes LIKE R.ID_recipes 
-        AND I.ID_food LIKE F.ID_food
-        AND O.ID_origin LIKE R.ID_origin
-        AND FC.ID_food LIKE F.ID_food
-        AND KF.ID_kind_of_food LIKE FC.ID_kind_of_food
-        AND P.ID_kind_of_food LIKE KF.ID_kind_of_food
-        AND P.ID_user LIKE U.ID_user
-        AND REV.ID_recipes LIKE R.ID_recipes
-        GROUP BY R.ID_recipes,F.ID_food
-		ORDER BY mark DESC,
-        R.ID_recipes,
-        FIELD (U.user, :user ) DESC
-        ");
-        $Req -> bindParam(':user',$_SESSION['User'],PDO::PARAM_INT);
-        $Req -> execute();
-
-        $Req2 = $Bdd -> prepare("SELECT * 
-        FROM VRecipes
-        ORDER BY ID_recipes IN (SELECT ID_recipes FROM VRecipes WHERE grade = 0)
-        ");
-        $Req2 -> execute();
-        $Recipes = array(array(),array(),array(),array(),array(),array(),array(),array(),array());
-        while($n = $Req2 -> fetch())
+        if(!empty($_GET['Request']) && $_GET['Request'] == "Search")
         {
-            array_push($Recipes[0], $n[0]);
-            array_push($Recipes[1], $n[1]);
-            array_push($Recipes[2], $n[2]);
-            array_push($Recipes[3], $n[3]);
-            array_push($Recipes[4], $n[4]);
-            array_push($Recipes[5], $n[5]);
-            array_push($Recipes[6], $n[6]);
-            array_push($Recipes[7], $n[7]);
-            array_push($Recipes[8], $n[8]);
+
+            $Req = $Bdd -> prepare('CREATE OR REPLACE VIEW VRecipes
+            AS SELECT DISTINCT R.name_r,R.text,R.date_r,R.cooking_time,R.ID_user,U.user,R.ID_recipes,R.ID_origin,F.food_name,P.grade,
+            KF.ID_kind_of_food,F.ID_food,AVG(REV.review) AS mark
+            FROM recipes R 
+            JOIN users U 
+            JOIN ingredients I 
+            JOIN foods F
+            JOIN origins O
+            JOIN food_categories FC
+            JOIN kinds_of_food KF
+            JOIN preferences P
+            JOIN reviews REV
+            WHERE R.ID_user LIKE U.ID_user 
+            AND I.ID_recipes LIKE R.ID_recipes 
+            AND I.ID_food LIKE F.ID_food
+            AND O.ID_origin LIKE R.ID_origin
+            AND FC.ID_food LIKE F.ID_food
+            AND KF.ID_kind_of_food LIKE FC.ID_kind_of_food
+            AND P.ID_kind_of_food LIKE KF.ID_kind_of_food
+            AND P.ID_user LIKE U.ID_user
+            AND REV.ID_recipes LIKE R.ID_recipes
+            AND R.name_r LIKE "%'.$_GET['Org'].'%"
+            GROUP BY R.ID_recipes,F.ID_food
+            ORDER BY mark DESC,
+            R.ID_recipes,
+            FIELD (U.user, :user ) DESC
+            ');
+            $Req -> bindParam(':user',$_SESSION['User'],PDO::PARAM_INT);
+            $Req -> execute();
+
+            if(!empty($_GET['Filtre0']) || !empty($_GET['Filtre1']) || !empty($_GET['Filtre2']))
+            {
+                $Filtre = array();
+                for($i = 0 ; $i < 3 ; $i++ )
+                {
+                    if(empty($_GET['Filtre'.$i]))
+                    {
+                        $Filtre[$i] = "%";
+                    }
+                    else
+                    {
+                        $Filtre[$i] = $_GET['Filtre'.$i];
+                    }
+                }
+                $Req2 = $Bdd -> prepare("SELECT * 
+                FROM VRecipes
+                WHERE ID_recipes IN (SELECT ID_recipes FROM VRecipes WHERE ID_origin LIKE :Filtre0)
+                AND ID_recipes IN (SELECT ID_recipes FROM VRecipes WHERE ID_food LIKE :Filtre1)
+                AND ID_recipes IN (SELECT ID_recipes FROM VRecipes WHERE ID_kind_of_food LIKE :Filtre2)
+                ORDER BY ID_recipes IN (SELECT ID_recipes FROM VRecipes WHERE grade = 0)
+                ");
+                $Req2 -> bindParam(':Filtre0',$Filtre[0],PDO::PARAM_STR);
+                $Req2 -> bindParam(':Filtre1',$Filtre[1],PDO::PARAM_STR);
+                $Req2 -> bindParam(':Filtre2',$Filtre[2],PDO::PARAM_STR);
+            }
+            else
+            {
+                $Req2 = $Bdd -> prepare("SELECT * 
+                FROM VRecipes
+                ORDER BY ID_recipes IN (SELECT ID_recipes FROM VRecipes WHERE grade = 0)
+                ");
+            }
+
+            $Req2 -> execute();
+            $Recipes = array(array(),array(),array(),array(),array(),array(),array(),array(),array());
+            while($n = $Req2 -> fetch())
+            {
+                array_push($Recipes[0], $n[0]);
+                array_push($Recipes[1], $n[1]);
+                array_push($Recipes[2], $n[2]);
+                array_push($Recipes[3], $n[3]);
+                array_push($Recipes[4], $n[4]);
+                array_push($Recipes[5], $n[5]);
+                array_push($Recipes[6], $n[6]);
+                array_push($Recipes[7], $n[7]);
+                array_push($Recipes[8], $n[8]);
+            }
+        }
+        else
+        {   
+            $Req = $Bdd -> prepare("CREATE OR REPLACE VIEW VRecipes
+            AS SELECT DISTINCT R.name_r,R.text,R.date_r,R.cooking_time,R.ID_user,U.user,R.ID_recipes,R.ID_origin,F.food_name,P.grade,
+            KF.ID_kind_of_food,F.ID_food,AVG(REV.review) AS mark
+            FROM recipes R 
+            JOIN users U 
+            JOIN ingredients I 
+            JOIN foods F
+            JOIN origins O
+            JOIN food_categories FC
+            JOIN kinds_of_food KF
+            JOIN preferences P
+            JOIN reviews REV
+            WHERE R.ID_user LIKE U.ID_user 
+            AND I.ID_recipes LIKE R.ID_recipes 
+            AND I.ID_food LIKE F.ID_food
+            AND O.ID_origin LIKE R.ID_origin
+            AND FC.ID_food LIKE F.ID_food
+            AND KF.ID_kind_of_food LIKE FC.ID_kind_of_food
+            AND P.ID_kind_of_food LIKE KF.ID_kind_of_food
+            AND P.ID_user LIKE U.ID_user
+            AND REV.ID_recipes LIKE R.ID_recipes
+            GROUP BY R.ID_recipes,F.ID_food
+            ORDER BY mark DESC,
+            R.ID_recipes,
+            FIELD (U.user, :user ) DESC
+            ");
+            $Req -> bindParam(':user',$_SESSION['User'],PDO::PARAM_INT);
+            $Req -> execute();
+
+            if(!empty($_GET['Filtre0']) || !empty($_GET['Filtre1']) || !empty($_GET['Filtre2']))
+            {
+                $Filtre = array();
+                for($i = 0 ; $i < 3 ; $i++ )
+                {
+                    if(empty($_GET['Filtre'.$i]))
+                    {
+                        $Filtre[$i] = "%";
+                    }
+                    else
+                    {
+                        $Filtre[$i] = $_GET['Filtre'.$i];
+                    }
+                }
+
+                $Req2 = $Bdd -> prepare("SELECT * 
+                FROM VRecipes
+                WHERE ID_recipes IN (SELECT ID_recipes FROM VRecipes WHERE ID_origin LIKE :Filtre0)
+                AND ID_recipes IN (SELECT ID_recipes FROM VRecipes WHERE ID_food LIKE :Filtre1)
+                AND ID_recipes IN (SELECT ID_recipes FROM VRecipes WHERE ID_kind_of_food LIKE :Filtre2)
+                ORDER BY ID_recipes IN (SELECT ID_recipes FROM VRecipes WHERE grade = 0)
+                ");
+                $Req2 -> bindParam(':Filtre0',$Filtre[0],PDO::PARAM_STR);
+                $Req2 -> bindParam(':Filtre1',$Filtre[1],PDO::PARAM_STR);
+                $Req2 -> bindParam(':Filtre2',$Filtre[2],PDO::PARAM_STR);
+                $Req2 -> execute();
+            }
+            else
+            {
+                $Req2 = $Bdd -> prepare("SELECT * 
+                FROM VRecipes
+                ORDER BY ID_recipes IN (SELECT ID_recipes FROM VRecipes WHERE grade = 0)
+                ");
+                $Req2 -> execute();
+            }
+
+            $Recipes = array(array(),array(),array(),array(),array(),array(),array(),array(),array());
+            while($n = $Req2 -> fetch())
+            {
+                array_push($Recipes[0], $n[0]);
+                array_push($Recipes[1], $n[1]);
+                array_push($Recipes[2], $n[2]);
+                array_push($Recipes[3], $n[3]);
+                array_push($Recipes[4], $n[4]);
+                array_push($Recipes[5], $n[5]);
+                array_push($Recipes[6], $n[6]);
+                array_push($Recipes[7], $n[7]);
+                array_push($Recipes[8], $n[8]);
+            }
         }
         return $Recipes;
     }
@@ -215,7 +330,7 @@
 
     function PrintStarts($Id_R)
     {
-        if (empty($_GET['Request']))
+        if (empty($_GET['Request']) || $_GET['Request'] == "Search")
         {
             require('Model/ModelNewPDO.php');
             $Note=array();
@@ -308,6 +423,39 @@
             $Req = $Bdd -> prepare("DELETE FROM `recipes` WHERE `recipes`.`ID_recipes` = :resultat");
             $Req -> bindParam(':resultat',$Id,PDO::PARAM_INT);
             $Req -> execute();
+        }
+    }
+
+    function MenuFiltre()
+    {
+        if(!empty($_GET['Request']) && $_GET['Request']=='Filtre')
+        {
+            $MenuFiltre = array(array(),array(),array(),array(),array(),array());
+            require('Model/ModelNewPDO.php');
+            $Req1 = $Bdd -> prepare("SELECT * FROM origins");
+            $Req1 -> execute();
+            while($n = $Req1 -> fetch())
+            {
+                array_push($MenuFiltre[0], $n[0]);
+                array_push($MenuFiltre[1], $n[1]);
+            }
+
+            $Req2 = $Bdd -> prepare("SELECT * FROM foods");
+            $Req2 -> execute();
+            while($n = $Req2 -> fetch())
+            {
+                array_push($MenuFiltre[2], $n[0]);
+                array_push($MenuFiltre[3], $n[1]);
+            }
+
+            $Req3 = $Bdd -> prepare("SELECT * FROM kinds_of_food");
+            $Req3 -> execute();
+            while($n = $Req3 -> fetch())
+            {
+                array_push($MenuFiltre[4], $n[0]);
+                array_push($MenuFiltre[5], $n[1]);
+            }
+            return $MenuFiltre;
         }
     }
 
