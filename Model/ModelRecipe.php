@@ -4,7 +4,8 @@
         require('Model/ModelNewPDO.php');
 
         $Req = $Bdd -> prepare("CREATE OR REPLACE VIEW VRecipes
-        AS SELECT DISTINCT R.name_r,R.text,R.date_r,R.cooking_time,R.ID_user,U.user,R.ID_recipes,R.ID_origin,F.food_name,P.grade
+        AS SELECT DISTINCT R.name_r,R.text,R.date_r,R.cooking_time,R.ID_user,U.user,R.ID_recipes,R.ID_origin,F.food_name,P.grade,
+        AVG(REV.review) AS mark
         FROM recipes R 
         JOIN users U 
         JOIN ingredients I 
@@ -13,6 +14,7 @@
         JOIN food_categories FC
         JOIN kinds_of_food KF
         JOIN preferences P
+        JOIN reviews REV
         WHERE R.ID_user LIKE U.ID_user 
         AND I.ID_recipes LIKE R.ID_recipes 
         AND I.ID_food LIKE F.ID_food
@@ -21,8 +23,12 @@
         AND KF.ID_kind_of_food LIKE FC.ID_kind_of_food
         AND P.ID_kind_of_food LIKE KF.ID_kind_of_food
         AND P.ID_user LIKE U.ID_user
-        ORDER BY FIELD (U.user, :user ) DESC,
-        ID_recipes");
+        AND REV.ID_recipes LIKE R.ID_recipes
+        GROUP BY R.ID_recipes,F.ID_food
+		ORDER BY mark DESC,
+        R.ID_recipes,
+        FIELD (U.user, :user ) DESC
+        ");
         $Req -> bindParam(':user',$_SESSION['User'],PDO::PARAM_INT);
         $Req -> execute();
 
