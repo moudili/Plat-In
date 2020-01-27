@@ -73,7 +73,7 @@ require("View/ViewBanner.php");
                                         <p>Note des utilisateurs : ".$Note[$i]."/5</p></td>
                                         <td><input type='submit' name='Request' value='Afficher'></br>
                                         <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
-                                        <input type='hidden' name='page' value='Recette'>
+                                        <input type='hidden' name='page' value='Recettes'>
                                         <input type='submit' name='Request' value='Modifier'>
                                         <input type='hidden' name='Menu' value=1>
                                         <input type='submit' name='Request' value='Supprimer'></td></tr></p>
@@ -87,7 +87,7 @@ require("View/ViewBanner.php");
                                         <p>Note des utilisateurs : ".$Note[$i]."</p></td>
                                         <td><input type='submit' name='Request' value='Afficher'></br>
                                         <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
-                                        <input type='hidden' name='page' value='Recette'>
+                                        <input type='hidden' name='page' value='Recettes'>
                                         <input type='submit' name='Request' value='Modifier'>
                                         <input type='hidden' name='Menu' value=1>
                                         <input type='submit' name='Request' value='Supprimer'></td></tr></p>
@@ -110,8 +110,8 @@ require("View/ViewBanner.php");
                             <p align=center>".$Recipes[0][$i]."</p>
                             <p align=center>Date de création : ".$Recipes[2][$i]."</p>
                             <p align=center>Temps de préparation : ".$Recipes[3][$i]."</p>
-                            <p align=center>Créer par : ".$Recipes[5][$i]."</p>
-                            <p align=center> Description : ".$Recipes[1][$i]."</p>
+                            <p align=center>Créer par : ".$Recipes[5][$i]."</p>");
+                            echo(nl2br("<p align=center> Description : <br/><br/>".$Recipes[1][$i]."</p>
                             <input type='hidden' name='page' value='Recettes'>
                             <input type='hidden' name='id' value='".$_GET['id']."'>
                             <br>
@@ -121,7 +121,7 @@ require("View/ViewBanner.php");
                             <form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Recettes'>
                             <input type='submit' value='Retour'>
-                            </form>");
+                            </form>"));
                             } 
                         }
                     }
@@ -900,11 +900,11 @@ require("View/ViewBanner.php");
                 
                 <p> Recette : <br><TEXTAREA name='text' rows=4 cols=40></TEXTAREA></p>
                 <p>
-                <input type='hidden' name='page' value='Recette'>
+                <input type='hidden' name='page' value='Recettes'>
                 <br><input type='submit' name='Request'value='Valider'></form>");
 
                 echo("<p><form action='Index.php' method='get'>
-                <input type='hidden' name='page' value='Recette'>
+                <input type='hidden' name='page' value='Recettes'>
                 <br><input type='submit' value='Retour'></form>");
             }
             else if ($_GET['Request']=='Valider')
@@ -1059,7 +1059,7 @@ require("View/ViewBanner.php");
                     echo("</select></p>
                     <p> Recette : <br><TEXTAREA name='text' rows=4 cols=40></TEXTAREA></p>
                     <p>
-                    <input type='hidden' name='page' value='Recette'>");
+                    <input type='hidden' name='page' value='Recettes'>");
 
                     if(strlen($_GET['name']) < 3)
                     {
@@ -1091,7 +1091,7 @@ require("View/ViewBanner.php");
                     }                        
                     echo("<br><input type='submit' name='Request'value='Valider'></form>");
                     echo("<p><form action='Index.php' method='get'>
-                    <input type='hidden' name='page' value='Recette'>
+                    <input type='hidden' name='page' value='Recettes'>
                     <br><input type='submit' value='Retour'></form>");
                 }
             }
