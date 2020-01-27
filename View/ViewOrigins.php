@@ -1,16 +1,17 @@
+<?php
+
+require("View/ViewBanner.php");
+?>
 <html>
     <head>
         <title>Origines</title>
     </head>
-    
+    <style>
+         body{
+            text-align: center;
+            }
+    </style> 
     <body>
-
-        <?php
-
-            require("View/ViewBanner.php");
-        ?>
-
-        <div class="text-center mt-5">
         <?php
             if(empty($_GET['Request']))
             {
@@ -307,6 +308,5 @@
             }
 
         ?>
-        </div>
     </body>
 </html>

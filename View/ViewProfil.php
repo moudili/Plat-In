@@ -1,14 +1,19 @@
+<?php
+
+require("View/ViewBanner.php");
+?>
 <html>
     <head>
         <link rel="stylesheet" href="Css/ErrorChamp.css">
         <title>Profile</title>
     </head>
-    
+    <style>
+         body{
+            text-align: center;
+            }
+    </style> 
     <body>
         <?php
-
-        require("View/ViewBanner.php"); 
-        
         if (empty($_GET['modif']))
         {
             echo("<br>
@@ -179,7 +184,7 @@
             <input type='submit' value='Modifier'>
             <input type='hidden' name='page' value='Profil'>
             </form>
-            </div>");
+            ");
             echo("<form action='Index.php' method='get'>
             <input type='hidden' name='page' value='Profil'>
             <input type='submit' value='Retour'>

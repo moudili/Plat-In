@@ -1,14 +1,17 @@
+<?php
+    require("View/ViewBanner.php");             
+?>
 <html>
     <head>
         <title>Social</title>
     </head>
-    
+    <style>
+         body{
+            text-align: center;
+            }
+    </style> 
     <body>
-        <?php
-            
-            require("View/ViewBanner.php");     
-        
-        ?>
+
 
         <form action='Index.php' method='get'>
         <input type='hidden' name='page' value='Social'>
@@ -19,11 +22,6 @@
         <input type='hidden' name='Request' value="Demande amis">
         <input type='submit' value="Demande d'amis"></form>
         
-
-        <div class="text-center mt-5">
-
-
-
         <?php
             
             if(!empty($_GET['Request']))
@@ -426,10 +424,6 @@
                     <input type='submit' name='Request' value='Bloquer'></form>";
                 }                
             }
-
-        
         ?>
-        </div>
-
     </body>
 </html>

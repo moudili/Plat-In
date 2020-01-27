@@ -7,14 +7,18 @@
         <link rel="stylesheet" href="Css\ErrorChamp.css">
         <title>Evènement</title>
     </head>
-    
+    <style>
+         body{
+            text-align: center;
+            }
+    </style> 
     <body>
         <?php
             if (empty($_GET['event']))
             {
                 if ($Events==array() OR $Events==array(array(),array()))
                 {
-                    echo("<div class='text-center mt-5'>
+                    echo("
                     Pas d'évènement créé<br></br>
                     Venez vite en créer ci-dessous !<br></br>
                     <form action='Index.php' method='get'>
@@ -29,12 +33,12 @@
                         echo("<br>".$Invitation[1][$i]);
                     }
 
-                    echo("</div>");
+                    echo("");
                 }
                 
                 else
                 {
-                    echo("<div class='text-center mt-5'>
+                    echo("
                     <form action='Index.php' method='get'>
                         <input type='submit' name='event' value='Ajouter un evenement'>
                         <input type='hidden' name='MenuRecipe' value=1>
@@ -103,35 +107,35 @@
                             </form></p></td><tr>");
                         }
 
-                        echo("</table></div>");
+                        echo("</table>");
                     }
                 }
             }
             else if ($_GET['event']=='Accepter')
             {
-                echo("<div class='text-center mt-5'>
+                echo("
                 Vous avez accepter cette demande d'evenement
                 <form action='Index.php' method='get'>
                     <input type='submit' value='Retour'>
                     <input type='hidden' name='page' value='Evènement'>
                 </form>
-                </div>");
+                ");
             }
             else if ($_GET['event']=='Refuser')
             {
-                echo("<div class='text-center mt-5'>
+                echo("
                 Vous avez refuser cette demande d'evenement
                 <form action='Index.php' method='get'>
                     <input type='submit' value='Retour'>
                     <input type='hidden' name='page' value='Evènement'>
                 </form>
-                </div>");
+                ");
             }
             else if ($_GET['event']=='Ajouter un evenement')
             {
                 if (empty($_GET['Request']) AND empty($_GET['RequestRecipe']) AND empty($_GET['RequestUser']))
                 {
-                    echo("<div class='text-center mt-5'>
+                    echo("
                     <form action='Index.php' method='get'>
                     <h2>Ajouter un évènement</h2>
                     <br><br>
@@ -186,12 +190,12 @@
                         <input type='submit' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
-                    </div>");
+                    ");
                 }
                 else if (!empty($_GET['RequestRecipe']) AND ($_GET['RequestRecipe'] == "+"
                 || $_GET['RequestRecipe'] == "-"))
                 {
-                    echo("<div class='text-center mt-5'>
+                    echo("
                     <form action='Index.php' method='get'>
                     <h2>Ajouter un évènement</h2>
                     <br><br>
@@ -302,12 +306,12 @@
                         <input type='submit' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
-                    </div>");
+                    ");
                 }
                 else if (!empty($_GET['RequestUser']) AND ($_GET['RequestUser'] == "+"
                 OR $_GET['RequestUser'] == "-"))
                 {
-                    echo("<div class='text-center mt-5'>
+                    echo("
                     <form action='Index.php' method='get'>
                     <h2>Ajouter un évènement</h2>
                     <br><br>
@@ -418,7 +422,7 @@
                         <input type='submit' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
-                    </div>");
+                    ");
                 }
                 else if ($_GET['Request'] == "Confirmer"
                 AND !empty($_GET['Name']) 
@@ -428,14 +432,14 @@
                 AND !empty($_GET['description'])
                 AND strlen($_GET['Name'])<20)
                 {
-                    echo("<div class='text-center mt-5'>
+                    echo("
                     Vous avez bien créé votre évènement !
                     <br><br>
                     <form action='Index.php' method='get'>
                         <input type='submit' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
-                    </div>");
+                    ");
                 }
                 else if ($_GET['Request'] == "Confirmer"
                 AND (empty($_GET['Name']) 
@@ -445,7 +449,7 @@
                 OR empty($_GET['description'])
                 OR strlen($_GET['Name'])>20))
                 {
-                    echo("<div class='text-center mt-5'>
+                    echo("
                     <form action='Index.php' method='get'>
                     <h2>Ajouter un évènement</h2>
                     <br>
@@ -559,12 +563,12 @@
                         <input type='submit' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
-                    </div>");
+                    ");
                 }
             }
             else if ($_GET['event']=='Afficher')
             {
-                echo("<div class='text-center mt-5'>");
+                echo("");
                 for ($i=0;$i<count($PrintEvent[0]);$i++)
                 {
                     if($PrintEvent[0][$i]==$_GET['evenement'] AND ($i == 0 || $PrintEvent[6][$i] != $PrintEvent[6][$i-1]))
@@ -603,13 +607,13 @@
                     <input type='submit' value='Retour'>
                     <input type='hidden' name='page' value='Evènement'>
                 </form>
-                <div>");
+                ");
             }
             else if ($_GET['event']=='Supprimer')
             {
                 if (empty($_GET['Supp']))
                 {
-                    echo("<div class='text-center mt-5'>
+                    echo("
                     Êtes-vous sur de vouloir supprimer cette recette ?
                     <br><br>
                     <form action='Index.php' method='get'>
@@ -625,7 +629,7 @@
                 }
                 else if ($_GET['Supp']=='Oui')
                 {
-                    echo("<div class='text-center mt-5'>
+                    echo("
                     Vous avez bien supprimé votre évènement !
                     <form action='Index.php' method='get'>
                         <input type='submit' value='Non'>
@@ -639,7 +643,7 @@
                 {
                     $MenuUser=$Guests[5];
                     $MenuRecipe=$Dishes[5];
-                    echo("<div class='text-center mt-5'>
+                    echo("
                     <form action='Index.php' method='get'>
                     Vous etes en train de modifier l'événement : ".$_GET['Name']);
                     echo("<br><br>
@@ -826,12 +830,12 @@
                         <input type='submit' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
-                    </div>");
+                    ");
                 }
                 else if (!empty($_GET['RequestRecipe']) AND ($_GET['RequestRecipe'] == "+"
                 || $_GET['RequestRecipe'] == "-"))
                 {
-                    echo("<div class='text-center mt-5'>
+                    echo("
                     <form action='Index.php' method='get'>
                     Vous etes en train de modifier l'événement : ".$_GET['Name']);
                     echo("<br><br>
@@ -942,12 +946,12 @@
                         <input type='submit' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
-                    </div>");
+                    ");
                 }
                 else if (!empty($_GET['RequestUser']) AND ($_GET['RequestUser'] == "+"
                 OR $_GET['RequestUser'] == "-"))
                 {
-                    echo("<div class='text-center mt-5'>
+                    echo("
                     <form action='Index.php' method='get'>
                     Vous etes en train de modifier l'événement : ".$_GET['Name']);
                     echo("<br><br>
@@ -1058,12 +1062,12 @@
                         <input type='submit' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
-                    </div>");
+                    ");
                 }
                 else if ($_GET['Request'] == "Confirmer"
                 AND strlen($_GET['Name'])>20)
                 {
-                    echo("<div class='text-center mt-5'>
+                    echo("
                     <form action='Index.php' method='get'>
                     <h3 style='color: red'>Nom de l'évènement trop long</h3>");
                     echo("<br>
@@ -1176,7 +1180,7 @@
                         <input type='submit' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
-                    </div>");
+                    ");
                 }
                 else if ($_GET['Request'] == "Confirmer"
                 AND (empty($_GET['Name']) 
@@ -1185,7 +1189,7 @@
                 OR empty($_GET['location'])
                 OR empty($_GET['description'])))
                 {
-                    echo("<div class='text-center mt-5'>
+                    echo("
                     <form action='Index.php' method='get'>
                     Vous etes en train de modifier l'événement : ".$_GET['Name']."<br><br>
                     <h3 style='color: red'>Veuillez remplir tous les champs</h3>");
@@ -1298,7 +1302,7 @@
                         <input type='submit' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
-                    </div>");
+                    ");
                 }
                 else if ($_GET['Request'] == "Confirmer"
                 AND !empty($_GET['Name']) 
@@ -1307,14 +1311,14 @@
                 AND !empty($_GET['location'])
                 AND !empty($_GET['description']))
                 {
-                    echo("<div class='text-center mt-5'>
+                    echo("
                     Vous avez bien modifié votre évènement !
                     <br><br>
                     <form action='Index.php' method='get'>
                         <input type='submit' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
-                    </div>");
+                    ");
                 }
             }
         ?> 

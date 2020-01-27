@@ -1,13 +1,16 @@
+<?php
+    require("View/ViewBanner.php");
+    ?>
 <html>
     <head>
         <title>Connexion</title>
     </head>
     <body>
-
-    <?php
-    require("View/ViewBanner.php");
-    ?>
-    <div class="text-center mt-5">
+    <style>
+         body{
+            text-align: center;
+            }
+    </style> 
     <h1>Connexion</h1>
     <?php
     if(empty($Query) 
@@ -53,6 +56,5 @@
         }
     }
     ?>
-    </div>
     </body>
 </html> 

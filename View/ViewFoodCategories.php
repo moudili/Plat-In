@@ -6,11 +6,13 @@
     <head>
         <title>Categories alimentaires</title>
     </head>
-    
+    <style>
+         body{
+            text-align: center;
+            }
+    </style> 
     <body>
 
-        <div class="mt-5 text-center justify-content-center flexbox">
-            <div>
         <?php
             if(empty($_GET['Request']))
             {
