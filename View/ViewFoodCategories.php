@@ -28,7 +28,7 @@
                     <input type='hidden' name='page' value='Catégories Alimentaires'>
                     <input type='submit' name='Request' value='Ajouter une catégorie alimentaire'>
                     <input type='hidden' name='Menu' value=1></form><br>       
-                    <table border>
+                    <table border align=center>
                 <?php
                 for($i = 0 ; $i < count($FoodPrint[0]) ; $i++ )
                 {
