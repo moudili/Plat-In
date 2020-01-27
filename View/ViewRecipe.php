@@ -1,3 +1,6 @@
+<?php
+    require("View/ViewBanner.php"); 
+?>
 <html>
     <head>
         <title>Recette</title>
@@ -39,20 +42,20 @@
                 .rating2 a {
                     float:none
                 }
+                body{
+                    text-align: center;
+                }
         </style>
     </head>
     
     <body>
         <?php
-             
-            require("View/ViewBanner.php"); 
-
 
             if ($_SESSION['Co']==false)
             {
                 if (empty($_GET['Request']) || $_GET['Request'] == "Search")
                 {
-                    echo("<div class='text-center mt-5'>
+                    echo("
                     <form action='Index.php' method='get'>
                     <input type='search' placeholder = 'Rechercher une recette...' name='Org'");
                     if(!empty($_GET['Org']))
@@ -85,7 +88,6 @@
 
                     Veuillez vous <a href='Index.php?page=Inscription'> inscrire</a> ou 
                     vous <a href='Index.php?page=Connexion'> connecter</a> pour ajouter des recettes");
-                    echo("<div class='text-center mt-5'>");
 
                     if(count($Recipes[0]) != 0)
                     {
@@ -157,7 +159,7 @@
                         {
                             if ($Recipes[6][$i]==$_GET['id'])
                             {
-                                echo("<div class='text-center mt-5'>
+                                echo("
                                 <form action='Index.php' method='get'>
                                 <p align=center>".$Recipes[0][$i]."</p>
                                 <p align=center>Date de création : ".$Recipes[2][$i]."</p>
@@ -186,7 +188,7 @@
                 //----------------------------------------------------------------------------------------------------------------------
                 else if($_GET['Request']=='Filtre')
                 {
-                    echo"<div class='text-center mt-5'>
+                    echo"
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Recette'>
                     Origine : <select name='Filtre0'>
@@ -227,14 +229,14 @@
                         <input type='hidden' name='Filtre2' value='".$_GET['Filtre2']."'>
                         ";
                     }                    
-                    echo"</div>";
+                    echo"";
                 }
             }
             else if ($_SESSION['Co']!=false)
             {
                 if (empty($_GET['Request']) || $_GET['Request'] == "Search")
                 {
-                    echo("<div class='text-center mt-5'>
+                    echo("
                     <form action='Index.php' method='get'>
                     <input type='search' placeholder = 'Rechercher une recette...' name='Org'");
                     if(!empty($_GET['Org']))
@@ -393,7 +395,7 @@
                 } 
                 else if ($_GET['Request']=='Ajouter une recette')
                 {
-                    echo("<div class='text-center mt-5'>
+                    echo("
                     <p>Créer une recette</p>
                     <form action='Index.php' enctype='multipart/form-data' method='get'>
                     <p>image  <input id='get_compte' type='file' name='photo'  value=''></p>
@@ -450,7 +452,7 @@
                 else if ($_GET['Request'] == "+"
                 || $_GET['Request'] == "-")
                 {
-                    echo("<div class='text-center mt-5'>
+                    echo("
                     <p>Créer une recette</p>
                     <form action='Index.php' enctype='multipart/form-data' method='get'>
                     <p>image  <input id='get_compte' type='file' name='photo' value=''></p>
@@ -612,7 +614,7 @@
                     {
                         
 
-                        echo("<div class='text-center mt-5'>
+                        echo("
                         Votre recette est maintenant en ligne !");
                         echo("<p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Recette'>
@@ -633,10 +635,10 @@
                     }
                     else
                     {
-                        echo("<div class='text-center mt-5'>
+                        echo("
                         Votre recette n'as pas pu être mise en ligne !<br></br>");
 
-                        echo("<div class='text-center mt-5'>
+                        echo("
                         
                         <form action='Index.php' enctype='multipart/form-data' method='get'>
                         <p>image  <input id='get_compte' type='file' name='photo' value=''></p>
@@ -825,7 +827,7 @@
                             {
                                 if ($Recipes[6][$i]==$_GET['id'])
                                 {
-                                    echo("<div class='text-center mt-5'>
+                                    echo("
                                     <form action='Index.php' method='get'>
                                     <p align=center>".$Recipes[0][$i]."</p>
                                     <p align=center>Date de création : ".$Recipes[2][$i]."</p>
@@ -860,7 +862,7 @@
                     }
                     else if ($_GET['RequestReview']=='Donner une note')
                     {
-                        echo("<div class='text-center mt-5'>
+                        echo("
                         Merci de rentrer votre notre pour cette recette.
                         <form action='Index.php' method='get'>
                         <div class='rating'>
@@ -896,7 +898,7 @@
                     }
                     else if ($_GET['RequestReview']=='Valider' AND !empty($_GET['stars']))
                     {
-                        echo("<div class='text-center mt-5'>
+                        echo("
                         Nous avons bien enregistrer votre note
                         </br></br>
                         <form action='Index.php' method='get'>
@@ -920,7 +922,7 @@
                     }
                     else if ($_GET['RequestReview']=='Valider' AND empty($_GET['stars']))
                     {
-                        echo("<div class='text-center mt-5'>
+                        echo("
                         Merci de rentrer votre notre pour cette recette.
                         <form action='Index.php' method='get'>
                         <div class='rating'>
@@ -965,7 +967,7 @@
                             {
                                 if ($Recipes[6][$i]==$_GET['id'])
                                 {
-                                    echo("<div class='text-center mt-5'>
+                                    echo("
                                         <form action='Index.php' method='get'>
                                         <p align=center><input type='texte' name='name' value='".$Recipes[0][$i]."'></p>
                                         <p align=center>
@@ -1120,7 +1122,7 @@
                             {
                                 if ($Recipes[6][$i]==$_GET['id'])
                                 {
-                                    echo("<div class='text-center mt-5'>
+                                    echo("
                                         <form action='Index.php' method='get'>
                                         <p align=center><input type='texte' name='name' value='".$Recipes[0][$i]."'></p>
                                         <p align=center>
@@ -1288,7 +1290,7 @@
                         AND !empty($_GET['text'])
                         AND strlen($_GET['name'])<20)
                         {
-                            echo("<div class='text-center mt-5'>
+                            echo("
                             Votre recette est bien modifié !");
                             echo("<p><form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Recette'>
@@ -1315,7 +1317,7 @@
                                 {
                                     if ($Recipes[6][$i]==$_GET['id'])
                                     {
-                                        echo("<div class='text-center mt-5'>
+                                        echo("
                                             <form action='Index.php' method='get'>
                                             <p align=center><input type='texte' name='name' value='".$Recipes[0][$i]."'></p>
                                             <p align=center>
@@ -1520,7 +1522,7 @@
                             {
                                 if ($Recipes[6][$i]==$_GET['id'])
                                 {
-                                    echo("<div class='text-center mt-5'>
+                                    echo("
                                     Voulez-vous vraiment supprimer la recette ".$Recipes[0][$i]." de Plat-In ?
                                     </br></br>
                                     <form action='Index.php' method='get'>
@@ -1552,7 +1554,7 @@
                     }
                     else if ($_GET['RequestSupp']=='Oui')
                     {
-                        echo("<div class='text-center mt-5'>
+                        echo("
                         Vous avez bien supprimé votre recette 
                         <br>
                         <form action='Index.php' method='get'>
@@ -1575,7 +1577,7 @@
                 }
                 else if($_GET['Request']=='Filtre')
                 {
-                    echo"<div class='text-center mt-5'>
+                    echo"
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Recette'>
                     Origine : <select name='Filtre0'>
@@ -1616,7 +1618,7 @@
                         ";
                     }                    
                     echo"<input type='submit' value='Retour'>
-                    </div>";
+                    ";
                 }
             }
         
