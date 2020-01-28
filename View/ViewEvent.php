@@ -158,7 +158,8 @@
                     echo("</select>
                     <br>");
                     echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>");
-                    if ($_GET['MenuUser']<count($Intolerance[0]))
+
+                    if ($_GET['MenuUser']<count($Users[0]))
                     {
                         echo("<input type='submit' name='RequestUser' value='+'>");
                     }
@@ -571,7 +572,7 @@
                 echo("");
                 for ($i=0;$i<count($PrintEvent[0]);$i++)
                 {
-                    if($PrintEvent[0][$i]==$_GET['evenement'] AND ($i == 0 || $PrintEvent[6][$i] != $PrintEvent[6][$i-1]))
+                    if($PrintEvent[0][$i]==$_GET['evenement'] AND ($i == 0 || $PrintEvent[1][$i] != $PrintEvent[1][$i-1]))
                     {
                         echo("<h1>".$PrintEvent[1][$i]."</h1>
                         <p>Date : ".$PrintEvent[3][$i]." Heure : ".$PrintEvent[2][$i]."</p>
@@ -597,7 +598,7 @@
                 }
                 for ($i=0;$i<count($PrintEvent[0]);$i++)
                 {
-                    if ($PrintEvent[0][$i]==$_GET['evenement'] AND ($i == 0 || $PrintEvent[6][$i] != $PrintEvent[6][$i-1]))
+                    if ($PrintEvent[0][$i]==$_GET['evenement'] AND ($i == 0 || $PrintEvent[1][$i] != $PrintEvent[1][$i-1]))
                     {
                         echo(nl2br("<p>Description : ".$PrintEvent[5][$i]));
                     }
