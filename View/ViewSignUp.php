@@ -1,20 +1,25 @@
 <html>
+<?php 
+    require("View/ViewBanner.php");
+?>
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="Css/ErrorChamp.css">
         <title>Inscription</title>
     </head>
-    
+    <style>
+         body{
+            text-align: center;
+            }
+    </style>     
     <body>
     
-        <?php 
-            require("View/ViewBanner.php");
-        ?>
-        <div class="text-center mt-5">
+
+        <h1>Inscription</h1>
         <?php
             if (empty($_GET['SignUp']))
             {
-                echo("<div><form id='FormCom' name='FormName' action='Index.php' method='get'>
+                echo("<form id='FormCom' name='FormName' action='Index.php' method='get'>
                 <p>Nom d'utilisateur : <input type='text' id='User' name='User' value=''></p>
                 <p>Prénom : <input type='text'id='FirstName' name='FirstName' value=''></p>
                 <p>Nom : <input type='text'id='LastName' name='LastName' value=''></p>
@@ -26,12 +31,12 @@
                 <input type='hidden' name='page' value='Inscription'>
                 <input type='submit' value='Inscription' id='SignUp' name='SignUp'>
                 </form>
-                </div>");
+                ");
             } else if (!empty($_GET['SignUp']))
             {
                 if ($_SESSION["Create"]==true) 
                 {
-                    echo("Tu as reussi a t'inscrire, ton nom d'utilisateur est : ".$_GET['User']."<br>
+                    echo("<br><br>Tu as reussi a t'inscrire, ton nom d'utilisateur est : ".$_GET['User']."<br>
                     <a href='Index.php'><input type='button' value='Retour accueil'></a>");
                 } else if ($_SESSION["Create"]==false)
                 {
@@ -139,10 +144,9 @@
                     <input type='hidden' name='page' value='Inscription'>
                     <br><br><input type='submit' id='SignUp' value='Inscription' name='SignUp'>
                     </form>
-                    </div>";
+                    ";
                 }
             }       
         ?>
-    </div>
     </body>
 </html>

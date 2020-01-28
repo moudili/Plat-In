@@ -246,6 +246,7 @@
                 $Req -> bindParam(':cooking_time',$Time,PDO::PARAM_STR);
                 $Req -> bindParam(':origin',$Origin,PDO::PARAM_INT);
                 $Req -> bindParam(':user',$User1,PDO::PARAM_INT);
+
                 $Req -> execute();
                 $Req = $Bdd -> prepare("SELECT MAX(ID_recipes) FROM recipes");
                 $Req -> execute();
@@ -273,8 +274,6 @@
                 $n=$Req -> fetch();
                 $Recette=$n[0];
 
-                echo($Admin." Recette: ");  
-                echo($Recette);
                 $Req = $Bdd -> prepare("INSERT INTO `reviews` (`review`, `ID_user`, `ID_recipes`) 
                 VALUES (3, :id_u, :id_r)");
                 $Req -> bindParam(':id_u',$Admin,PDO::PARAM_INT);

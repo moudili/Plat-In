@@ -1,13 +1,17 @@
+<?php     
+    require("View/ViewBanner.php"); 
+?>
 <html>
     <head>
         <title>Plat'In</title>
     </head>
-    
+    <style>
+         body{
+            text-align: center;
+            }
+    </style> 
     <body>
-        <?php     
-        require("View/ViewBanner.php"); 
-        ?>
-        <div>
+
         <table border=1>
         <h1>Liste des utilisateurs</h1>
         <tr>
@@ -24,7 +28,6 @@
         ?>
         </tr>
         </table>
-        </div>
 
         <?php
         if ($_GET['Relation']=='Ajouter') {
@@ -45,7 +48,6 @@
         ?>
 
 
-        <div>
         <table border=1>
             <tr>
             <td>Utilisateur n°1</td><td>Utilisateur n°2</td><td>Status</td><td> Nouveau Utilisateur n°1</td><td>Nouveau Utilisateur n°2</td><td>Nouveau Status</td>
@@ -90,7 +92,6 @@
             }
             ?>
             </table>
-        </div>
         <?php
         }
         ?>

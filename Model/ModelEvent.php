@@ -104,7 +104,7 @@
         WHERE ID_user NOT LIKE :id
         AND status_u NOT LIKE 'admin'
         ORDER BY user");
-        $Req -> bindParam(':id',$_SESSION['id'],PDO::PARAM_STR);
+        $Req -> bindParam(':id',$_SESSION['id'],PDO::PARAM_INT);
         $Req -> execute();
         $Users = array(array(),array(),array());
         while($n = $Req -> fetch())
@@ -245,7 +245,7 @@
         AND !empty($_GET['location'])
         AND !empty($_GET['description'])
         AND $_GET['event']=='Modifier'
-        AND strlen($_GET['Name'])>20)
+        AND strlen($_GET['Name'])<20)
         {
             require('Model\ModelNewPDO.php');
             $Req1 = $Bdd -> prepare("UPDATE `meals` SET `name_m`=:name_e, `date_hours`=:hour, `date_days`=:dayss, `location`=:ville, `text`=:descriptions
