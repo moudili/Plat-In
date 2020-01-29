@@ -2,7 +2,7 @@
 
     function Intolerance()
     {
-        require('Model\ModelNewPDO.php');
+        require('Model/ModelNewPDO.php');
         $Req = $Bdd -> prepare("SELECT U.ID_user,K.name_k
         FROM users U
         JOIN preferences P
@@ -22,7 +22,7 @@
 
     function Invitation()
     {
-        require('Model\ModelNewPDO.php');
+        require('Model/ModelNewPDO.php');
         $Req = $Bdd -> prepare("SELECT G.ID_meals,M.name_m,G.ID_guest
         FROM guests G
         JOIN meals M
@@ -45,7 +45,7 @@
     {
         if (!empty($_GET['event']) AND $_GET['event']=='Accepter')
         {
-            require('Model\ModelNewPDO.php');
+            require('Model/ModelNewPDO.php');
             $Req = $Bdd -> prepare("UPDATE `guests` SET `status_g`='membre' 
             WHERE `guests`.`ID_guest` = :id;");
             $Req -> bindParam(':id',$_GET['ID'],PDO::PARAM_INT);
@@ -53,7 +53,7 @@
         }
         else if (!empty($_GET['event']) AND $_GET['event']=='Refuser')
         {
-            require('Model\ModelNewPDO.php');
+            require('Model/ModelNewPDO.php');
             $Req = $Bdd -> prepare("DELETE FROM `guests` 
             WHERE `guests`.`ID_guest` = :resultat");
             $Req -> bindParam(':resultat',$_GET['ID'],PDO::PARAM_INT);
@@ -65,7 +65,7 @@
     { 
         if (empty($_GET['event']))
         {
-            require('Model\ModelNewPDO.php');
+            require('Model/ModelNewPDO.php');
             $Req = $Bdd -> prepare("SELECT ID_meal,name_m 
             FROM meals");
             $Req -> execute();
@@ -81,7 +81,7 @@
  
     function SelectRecipe()
     {
-        require('Model\ModelNewPDO.php');
+        require('Model/ModelNewPDO.php');
         $Req = $Bdd -> prepare("SELECT name_r,text,ID_recipes
         FROM recipes 
         ORDER BY name_r");
@@ -98,7 +98,7 @@
 
     function SelectUser()
     {
-        require('Model\ModelNewPDO.php');
+        require('Model/ModelNewPDO.php');
         $Req = $Bdd -> prepare("SELECT ID_user,user,status_u
         FROM users 
         WHERE ID_user NOT LIKE :id
@@ -118,7 +118,7 @@
 
     function SelectGuest()
     {
-        require('Model\ModelNewPDO.php');
+        require('Model/ModelNewPDO.php');
         $Req = $Bdd -> prepare("SELECT G.ID_guest,G.ID_user,G.ID_meals,G.status_g,U.user
         FROM guests G
         JOIN users U
@@ -152,7 +152,7 @@
 
     function SelectDish()
     {
-        require('Model\ModelNewPDO.php');
+        require('Model/ModelNewPDO.php');
         $Req = $Bdd -> prepare("SELECT D.ID_dishe, D.ID_meals, D.ID_recipes, D.service_name, R.name_r
         FROM dishes D
         JOIN Recipes R
@@ -192,7 +192,7 @@
         AND $_GET['event']!='Modifier'
         AND strlen($_GET['Name'])<20)
         {
-            require('Model\ModelNewPDO.php');
+            require('Model/ModelNewPDO.php');
             $Req1 = $Bdd -> prepare("INSERT INTO `meals` (`name_m`, `date_hours`, `date_days`, `location`, `text`) 
             VALUES (:name_e, :hour, :dayss, :ville, :descriptions);");
             $Req1 -> bindParam(':name_e',$_GET['Name'],PDO::PARAM_STR);
@@ -247,7 +247,7 @@
         AND $_GET['event']=='Modifier'
         AND strlen($_GET['Name'])<20)
         {
-            require('Model\ModelNewPDO.php');
+            require('Model/ModelNewPDO.php');
             $Req1 = $Bdd -> prepare("UPDATE `meals` SET `name_m`=:name_e, `date_hours`=:hour, `date_days`=:dayss, `location`=:ville, `text`=:descriptions
             WHERE `meals`.`ID_meal` = :id;");
             $Req1 -> bindParam(':name_e',$_GET['Name'],PDO::PARAM_STR);
@@ -297,7 +297,7 @@
 
     function SelectSupp()
     {
-        require('Model\ModelNewPDO.php');
+        require('Model/ModelNewPDO.php');
         $Req = $Bdd -> prepare("SELECT ID_user,ID_meals,status_g
         FROM guests");
         $Users = array(array(),array(),array());
@@ -313,7 +313,7 @@
 
     function PrintEvent()
     {
-        require('Model\ModelNewPDO.php');
+        require('Model/ModelNewPDO.php');
         $Req = $Bdd -> prepare("SELECT M.ID_meal,M.name_m,M.date_hours,M.date_days,M.location,
         M.text,D.ID_recipes,D.service_name,R.name_r
         FROM meals M
@@ -341,7 +341,7 @@
 
     function PrintUser()
     {
-        require('Model\ModelNewPDO.php');
+        require('Model/ModelNewPDO.php');
         $Req = $Bdd -> prepare("SELECT G.ID_meals, G.ID_user, U.user
         FROM guests G
         JOIN users U
@@ -361,7 +361,7 @@
     {
         if (!empty($_GET['Supp']) AND $_GET['Supp']=='Oui')
         {
-            require('Model\ModelNewPDO.php');
+            require('Model/ModelNewPDO.php');
             $Id=$_GET['evenement'];
             $Req = $Bdd -> prepare("DELETE FROM `meals` WHERE `meals`.`ID_meal` = :resultat");
             $Req -> bindParam(':resultat',$Id,PDO::PARAM_INT);
@@ -373,7 +373,7 @@
     {
         if (!empty($_GET['event']) AND $_GET['event']=='Modifier' AND empty($_GET['modif']))
         {
-            require('Model\ModelNewPDO.php');
+            require('Model/ModelNewPDO.php');
             $Id=$_GET['evenement'];
             $Req = $Bdd -> prepare("SELECT M.ID_meal,M.name_m,M.date_hours,M.date_days,M.location,
             M.text
