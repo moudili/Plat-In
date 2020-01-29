@@ -26,13 +26,6 @@
         $MesRequetes = ShowRequest();
         $MesInvitations = MyRequest();
 
-        
-        //var_dump($_SESSION);
-
-
-
-
-
         if($_GET['Request'] == "Search")
         {
             $MesBloques = BlockPeople();

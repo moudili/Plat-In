@@ -5,14 +5,17 @@ require("View/ViewBanner.php");
     <head>
         <title>Notes Recettes</title>
     </head>
-    
+    <style>
+         body{
+            text-align: center;
+            }
+    </style> 
     <body>
         <?php
 
-
         if (empty($_GET['Request']))
         {
-            echo("<div class='text-center mt-5'>
+            echo("
             <form action='Index.php' method='get'>
             <input type='hidden' name='page' value='Notes recettes'>
             </form>
@@ -34,7 +37,7 @@ require("View/ViewBanner.php");
         }
         else if ($_GET['Request']=="Supprimer")
         {
-            echo("<div class='text-center mt-5'>
+            echo("
             Êtes-vous sur de vouloir supprimer la note ".$_GET['note']." de la recette ".$_GET['nom']."? </br></br>
             <form action='Index.php' method='get'>
             <input type='hidden' name='page' value='Notes recettes'>
@@ -51,7 +54,7 @@ require("View/ViewBanner.php");
         }
         else if ($_GET['Request']=="Oui" AND $_GET['RequestSupp']=='ok')
         {
-            echo("<div class='text-center mt-5'>
+            echo("
             Vous avez bien supprimé la note ".$_GET['note']." de la recette ".$_GET['nom'].".
             </br></br>
             <form action='Index.php' method='get'>

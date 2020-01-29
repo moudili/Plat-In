@@ -20,7 +20,7 @@
             ?>
             <div class='brr'>
             <form action='Index.php' method='get'>
-            <input type='search' placeholder = 'Recherche...' name='Search'/>
+            <input type='search' placeholder = 'Recherche...' name='Org'/>
             <input type='hidden' name='page' value='Recette'>
             <input type='hidden' name='Request' value='Search'>
             <input type='submit' value=" "></form>
@@ -108,8 +108,8 @@
                             <input type='submit' name="page" value="Gestion des droits"></form>                         
                             <form action='Index.php' method='get'>
                             <input type='submit' name="page" value="Notes recettes"></form>   
-                            <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Relation"></form>
+                            <!--<form action='Index.php' method='get'>
+                            <input type='submit' name="page" value="Relation"></form>-->
                             <form action='Index.php' method='get'>
                             <input type='submit' name="page" value="Recettes"></form>
                             

@@ -5,10 +5,13 @@
     <head>
         <title>Aliments</title>
     </head>
+    <style>
+         body{
+            text-align: center;
+            }
+    </style> 
     <body> 
 
-
-<div class="text-center mt-5">
 <?php
             if(empty($_GET['Request']))
             {
@@ -305,6 +308,5 @@
                 }
             }
 ?>
-</div>
     </body>
 </html>

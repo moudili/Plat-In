@@ -6,11 +6,13 @@
     <head>
         <title>Categories alimentaires</title>
     </head>
-    
+    <style>
+         body{
+            text-align: center;
+            }
+    </style> 
     <body>
 
-        <div class="mt-5 text-center justify-content-center flexbox">
-            <div>
         <?php
             if(empty($_GET['Request']))
             {
@@ -26,7 +28,7 @@
                     <input type='hidden' name='page' value='Catégories Alimentaires'>
                     <input type='submit' name='Request' value='Ajouter une catégorie alimentaire'>
                     <input type='hidden' name='Menu' value=1></form><br>       
-                    <table border>
+                    <table border align=center>
                 <?php
                 for($i = 0 ; $i < count($FoodPrint[0]) ; $i++ )
                 {

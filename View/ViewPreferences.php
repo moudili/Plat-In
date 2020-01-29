@@ -2,6 +2,11 @@
     <head>
         <title>Préférences alimentaires</title>   
     </head>
+    <style>
+         body{
+            text-align: center;
+            }
+    </style> 
     <body>
 
         <?php

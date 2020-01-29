@@ -1,16 +1,17 @@
+<?php
+
+require("View/ViewBanner.php");
+?>
 <html>
     <head>
         <title>Origines</title>
     </head>
-    
+    <style>
+         body{
+            text-align: center;
+            }
+    </style> 
     <body>
-
-        <?php
-
-            require("View/ViewBanner.php");
-        ?>
-
-        <div class="text-center mt-5">
         <?php
             if(empty($_GET['Request']))
             {
@@ -25,7 +26,7 @@
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Origines'>
                     <input type='submit' name='Request' value='Ajouter une origine'></form><br>
-                    <table border>       
+                    <table border align=center>       
         
                 <?php
                 for($i = 0 ; $i < count($Origins[0]) ; $i++ )
@@ -270,7 +271,7 @@
                         <form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
                         <input type='submit' name='Request' value='Ajouter une origine'></form><br>
-                        <table border>;                        
+                        <table border align=center>;                        
                         ");
                         for($i = 0 ; $i < count($Origins[0]) ; $i++ )
                         {
@@ -307,6 +308,5 @@
             }
 
         ?>
-        </div>
     </body>
 </html>
