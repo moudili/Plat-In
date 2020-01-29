@@ -1,7 +1,7 @@
 <html>
     <head>
     <link rel="stylesheet" href="Css/Bootstrap/MyCss.css">
-    <link rel="stylesheet" href="Css/Bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="Css/Bootstrap/css/bootstrap-grid.css">
     </head>
     <body>
         <!--affiche le haut de la banner -->
@@ -142,7 +142,7 @@
             }
 
         ?>
-        <div>
-        </div>
+
+
     </body>
 </html>  
