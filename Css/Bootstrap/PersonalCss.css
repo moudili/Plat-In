@@ -131,8 +131,3 @@ table{
     border-radius:12px;
     padding:5px 10px 5px 10px;    
 }
-
-input:focus
-{
-border: none;
-}
