@@ -49,7 +49,7 @@
                     <input type='submit' class='bouton_1' value='Enlever les filtres'></form></div>
                     <div>
                     Veuillez vous <a href='Index.php?page=Inscription'> inscrire</a> ou 
-                    vous <a href='Index.php?page=Connexion'> connecter</a> pour ajouter des recettes </div></div>");
+                    vous <a href='Index.php?page=Connexion'> connecter</a> pour ajouter des recettes </div><div>");
                     if(count($Recipes[0]) != 0)
                     {
                         echo"<table border=4 align='center'>
@@ -410,7 +410,8 @@
                 else if ($_GET['Request']=='Ajouter une recette')
                 {
                     echo("
-                    <p>Créer une recette</p>
+                    <div class='arriereprofil'>
+                    <div class='recetterecherche'><h1>Créer une recette</h1></div>
                     <form action='Index.php' enctype='multipart/form-data' method='get'>
                     <p>image  <input id='get_compte' type='file' name='photo'  value=''></p>
                     <p> Nom de la recette : <input id='get_compte' type='text' class='text_1'name='name' value=''></p>
@@ -467,7 +468,8 @@
                 || $_GET['Request'] == "-")
                 {
                     echo("
-                    <p>Créer une recette</p>
+                    <div class='arriereprofil'>
+                    <div class='recetterecherche'><h1>Créer une recette</h1></div>
                     <form action='Index.php' enctype='multipart/form-data' method='get'>
                     <p>image  <input id='get_compte' type='file' name='photo' value=''></p>
                     <p> Nom de la recette : <input id='get_compte' type='text' class='text_1'name='name' value='".$_GET['name']."'></p>
@@ -1597,7 +1599,7 @@
                 }
                 else if($_GET['Request']=='Filtre')
                 {
-                    echo"
+                    echo"<div class = 'arriereplan'
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Recette'>
                     Origine : <select name='Filtre0'>
