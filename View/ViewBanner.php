@@ -10,7 +10,7 @@
             <div>
                 <form action='Index.php' method='get'>
                 <button>
-                <img src="Pictures/Logo.png" alt="logo Plat'In" class='adjimg' type='submit' value='Accueil'>
+                <img src="Pictures/Logo.png" alt="logo Plat'In" class='adjimg' type='submit' class='bouton_1' value='Accueil'>
                 </button>
                 </form>
             </div>
@@ -24,7 +24,7 @@
             <input type='search' placeholder = 'Recherche...' name='Org'/>
             <input type='hidden' name='page' value='Recette'>
             <input type='hidden' name='Request' value='Search'>
-            <input type='submit' value=" "></form>
+            <input type='submit' class='bouton_1'value=" "></form>
             </div>
             <?php    
                 }
@@ -38,7 +38,7 @@
                         <input type='search' placeholder = 'Recherche...'/>
                         <input type='hidden' name='page' value='Recette'>
                         <input type='hidden' name='Request' value='search'>
-                        <input type='submit' value=" "></form>
+                        <input type='submit' class='bouton_1'value=" "></form>
                         </div>
                         <?php   
                     }
@@ -54,9 +54,9 @@
                 {
             ?>
                     <form action='Index.php' method='get'>
-                    <input type='submit' name="page" value="Inscription"></form>
+                    <input type='submit' class='bouton_1'name="page" value="Inscription"></form>
                     <form action='Index.php' method='get'>
-                    <input type='submit' name="page" value="Connexion"></form>
+                    <input type='submit' class='bouton_1'name="page" value="Connexion"></form>
             <?php
                 }
                 else        
@@ -79,7 +79,7 @@
                         <form action='Index.php' method='get'>
                         <input type='submit' class="bouton_1" value="Accueil"></form>
                         <form action='Index.php' method='get'>
-                        <input type='submit' name="page" class="bouton_1" value="Recette"></form>
+                        <input type='submit' name="page" class='bouton_1' value="Recette"></form>
                         <form action='Index.php'  method='get'>
                         <input type='submit' name="page" class="bouton_1" value="Evènement"></form>
                         <form action='Index.php'  method='get'>
@@ -96,23 +96,23 @@
                     ?>
                         <div class="banner2 row justify-content-around">
                             <form action='Index.php' method='get'>
-                            <input type='submit' value="Accueil"></form>
+                            <input type='submit' class='bouton_1'value="Accueil"></form>
                             <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Aliments"></form>
+                            <input type='submit' class='bouton_1'name="page" value="Aliments"></form>
                             <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Catégories Alimentaires"></form>     
+                            <input type='submit' class='bouton_1'name="page" value="Catégories Alimentaires"></form>     
                             <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Régimes"></form>
+                            <input type='submit' class='bouton_1'name="page" value="Régimes"></form>
                             <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Origines"></form>
+                            <input type='submit' class='bouton_1'name="page" value="Origines"></form>
                             <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Gestion des droits"></form>                         
+                            <input type='submit' class='bouton_1'name="page" value="Gestion des droits"></form>                         
                             <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Notes recettes"></form>   
+                            <input type='submit' class='bouton_1'name="page" value="Notes recettes"></form>   
                             <!--<form action='Index.php' method='get'>
                             <input type='submit' name="page" value="Relation"></form>-->
                             <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Recettes"></form>
+                            <input type='submit' class='bouton_1'name="page" value="Recettes"></form>
                             
 
                             
@@ -124,16 +124,16 @@
                     ?>
                         <div class="banner2 row justify-content-around">
                             <form action='Index.php' method='get'>
-                            <input type='submit' value="Accueil"></form>
+                            <input type='submit' class='bouton_1'value="Accueil"></form>
                             <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Recette"></form>
+                            <input type='submit' class='bouton_1'name="page" value="Recette"></form>
                             <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Evènement"></form>
+                            <input type='submit' class='bouton_1'name="page" value="Evènement"></form>
                             <form action='Index.php' method='get'>
-                            <input type='submit' name="page" value="Profil"></form>
+                            <input type='submit' class='bouton_1'name="page" value="Profil"></form>
                             <form action='Index.php' method='get'>
                             <input type='hidden' name='Usr' value=''>
-                            <input type='submit' name="page" value="Social">
+                            <input type='submit' class='bouton_1'name="page" value="Social">
                             <input type='hidden' name='Request' value='Search'>
                             <input type='hidden' name='Usr' value="">
                             </form>

@@ -16,7 +16,7 @@
         <form action='Index.php' method='get'>
         <input type='hidden' name='page' value='Social'>
         <input type='hidden' name='Request' value='Amis'>
-        <input type='submit' value="Amis"></form>
+        <input type='submit' class='bouton_1' value="Amis"></form>
         <form action='Index.php' method='get'>
         <input type='hidden' name='page' value='Social'>
         <input type='hidden' name='Request' value="Demande amis"></form>
@@ -41,7 +41,7 @@
                         }
                         echo "<input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Search'>
-                        <input type='submit' value=' '></form>";
+                        <input type='submit' class='bouton_1' value=' '></form>";
 
                         for($i = 0 ; $i < count($Search[0]) ; $i++ )
                         {
@@ -117,7 +117,7 @@
                                         <input type='hidden' name='page' value='Social'>
                                         <input type='hidden' name='User' value='".$Search[1][$i]."'>
                                         <input type='hidden' name='id' value='".$Search[0][$i]."'>
-                                        <input type='submit' name='Request' value='Ajouter un ami'></form>
+                                        <input type='submit' class='bouton_1' name='Request' value='Ajouter un ami'></form>
                                         ");
                                     }
                                     else
@@ -131,7 +131,7 @@
                                     <input type='hidden' name='page' value='Social'>
                                     <input type='hidden' name='User' value='".$Search[1][$i]."'>
                                     <input type='hidden' name='id' value='".$Search[0][$i]."'>
-                                    <input type='submit' name='Request' value='Bloquer'></form>");
+                                    <input type='submit' class='bouton_1' name='Request' value='Bloquer'></form>");
 
                                 }
                                 elseif($alreadyInvited == 1 )
@@ -144,7 +144,7 @@
                                     echo("<br>Vous avez déja une demande d'ami qui vous attend avec ".$Search[1][$i]."<br><form action='Index.php' method='get'>
                                     <input type='hidden' name='page' value='Social'>
                                     <input type='hidden' name='Request' value='Demande amis'><br>
-                                    <input type='submit' value='Demande d&#39;amis'></form>
+                                    <input type='submit' class='bouton_1' value='Demande d&#39;amis'></form>
                                     <br>");
 
                                 }
@@ -155,7 +155,7 @@
                                     <input type='hidden' name='page' value='Social'>
                                     <input type='hidden' name='User' value='".$Search[1][$i]."'>
                                     <input type='hidden' name='id' value='".$Search[0][$i]."'>
-                                    <input type='submit' name='Request' value='Bloquer'></form>
+                                    <input type='submit' class='bouton_1' name='Request' value='Bloquer'></form>
                                     <br>"
                                     );
                                     
@@ -170,7 +170,7 @@
                                 <input type='hidden' name='page' value='Social'>
                                 <input type='hidden' name='User' value='".$Search[1][$i]."'>
                                 <input type='hidden' name='id' value='".$Search[0][$i]."'>
-                                <input type='submit' name='Request' value='Debloquer'></form>");
+                                <input type='submit' class='bouton_1' name='Request' value='Debloquer'></form>");
                             }
                         
                         }
@@ -181,7 +181,7 @@
                         <input type='search' name='Usr' value='".htmlspecialchars($_GET['Usr'], ENT_QUOTES)."'/>
                         <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Search'>
-                        <input type='submit' value=' '></form>
+                        <input type='submit' class='bouton_1' value=' '></form>
                         <br>aucun résultat pour la recherche ".$_GET['Usr'].".");                         
                     }
                 }
@@ -200,13 +200,13 @@
                     
                         <input type='hidden' name='User' value='".$_GET['User']."'>
                         <input type='hidden' name='id' value='".$_GET['id']."'>
-                        <br><input type='submit' name='Answer' value='Oui'></form>
+                        <br><input type='submit' class='bouton_1' name='Answer' value='Oui'></form>
                         
                         
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Search'>
-                        <br><input type='submit' name='Answer' value='Non'></form>
+                        <br><input type='submit' class='bouton_1' name='Answer' value='Non'></form>
                         ");
                     }
 
@@ -225,7 +225,7 @@
                     <input type='hidden' name='id' value='".$Myfriend["ID"]."'>
                     <input type='hidden' name='User' value='".$Myfriend["user"]."'>
                     <img src='Pictures/random_user.svg' alt='' width='200'>
-                    <br><input type='submit' name='' value='Supprimer'></form>
+                    <br><input type='submit' class='bouton_1' name='' value='Supprimer'></form>
 
                     <br> <br>");
 
@@ -250,13 +250,13 @@
                      
                         <input type='hidden' name='User' value='".$_GET['User']."'>
                         <input type='hidden' name='id' value='".$_GET['id']."'>
-                        <br><input type='submit' name='Answer' value='Oui'></form>
+                        <br><input type='submit' class='bouton_1' name='Answer' value='Oui'></form>
                         
                         
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Amis'>
-                        <br><input type='submit' name='Answer' value='Non'></form>
+                        <br><input type='submit' class='bouton_1' name='Answer' value='Non'></form>
                         ");
                     }
                 }
@@ -271,14 +271,14 @@
                     <input type='hidden' name='Request' value='Accepter ami'>
                     <input type='hidden' name='id' value='".$Requete["ID"]."'>
                     <input type='hidden' name='User' value='".$Requete["user"]."'>
-                    <br><input type='submit' name='' value='Accepter'></form>
+                    <br><input type='submit' class='bouton_1' name='' value='Accepter'></form>
 
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Social'>
                     <input type='hidden' name='Request' value='Refuser ami'>
                     <input type='hidden' name='id' value='".$Requete["ID"]."'>
                     <input type='hidden' name='User' value='".$Requete["user"]."'>
-                    <br><input type='submit' name='' value='Refuser'></form></p>
+                    <br><input type='submit' class='bouton_1' name='' value='Refuser'></form></p>
                     <br> <br>
 
                         ");
@@ -303,13 +303,13 @@
                      
                         <input type='hidden' name='User' value='".$_GET['User']."'>
                         <input type='hidden' name='id' value='".$_GET['id']."'>
-                        <br><input type='submit' name='Answer' value='Oui'></form>
+                        <br><input type='submit' class='bouton_1' name='Answer' value='Oui'></form>
                         
                         
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Accepter amis'>
-                        <br><input type='submit' name='Answer' value='Non'></form>
+                        <br><input type='submit' class='bouton_1' name='Answer' value='Non'></form>
                         ");
                     }
                 }
@@ -329,13 +329,13 @@
                      
                         <input type='hidden' name='User' value='".$_GET['User']."'>
                         <input type='hidden' name='id' value='".$_GET['id']."'>
-                        <br><input type='submit' name='Answer' value='Oui'></form>
+                        <br><input type='submit' class='bouton_1' name='Answer' value='Oui'></form>
                         
                         
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Refuser ami'>
-                        <br><input type='submit' name='Answer' value='Non'></form>
+                        <br><input type='submit' class='bouton_1' name='Answer' value='Non'></form>
                         ");
                     }
                 }
@@ -355,13 +355,13 @@
                      
                         <input type='hidden' name='User' value='".$_GET['User']."'>
                         <input type='hidden' name='id' value='".$_GET['id']."'>
-                        <br><input type='submit' name='Answer' value='Oui'></form>
+                        <br><input type='submit' class='bouton_1' name='Answer' value='Oui'></form>
                         
                         
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Search'>
-                        <br><input type='submit' name='Answer' value='Non'></form>
+                        <br><input type='submit' class='bouton_1' name='Answer' value='Non'></form>
                         ");
                     }
                 }
@@ -381,13 +381,13 @@
                         
                         <input type='hidden' name='User' value='".$_GET['User']."'>
                         <input type='hidden' name='id' value='".$_GET['id']."'>
-                        <br><input type='submit' name='Answer' value='Oui'></form>
+                        <br><input type='submit' class='bouton_1' name='Answer' value='Oui'></form>
                         
                         
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Debloquer'>
-                        <br><input type='submit' name='Answer' value='Non'></form>
+                        <br><input type='submit' class='bouton_1' name='Answer' value='Non'></form>
                         ");
                     }
                 }
@@ -400,7 +400,7 @@
                 <input type='search' placeholder = 'Rechercher un utilisateur...' name='Usr'/>
                 <input type='hidden' name='page' value='Social'>
                 <input type='hidden' name='Request' value='Search'>
-                <input type='submit' value=' '></form>");
+                <input type='submit' class='bouton_1' value=' '></form>");
 
                 for($i = 0 ; $i < count($Search[0]) ; $i++ )
                 {
@@ -415,12 +415,12 @@
                     <input type='hidden' name='page' value='Social'>
                     <input type='hidden' name='User' value='".$Search[1][$i]."'>
                     <input type='hidden' name='id' value='".$Search[0][$i]."'>
-                    <input type='submit' name='Request' value='Ajouter en ami'></form>
+                    <input type='submit' class='bouton_1' name='Request' value='Ajouter en ami'></form>
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Social'>
                     <input type='hidden' name='User' value='".$Search[1][$i]."'>
                     <input type='hidden' name='id' value='".$Search[0][$i]."'>
-                    <input type='submit' name='Request' value='Bloquer'></form>";
+                    <input type='submit' class='bouton_1' name='Request' value='Bloquer'></form>";
                 }                
             }
         ?>

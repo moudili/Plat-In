@@ -45,9 +45,9 @@
                     
                 if($Menu > 1)
                 {
-                    echo"<input type='submit' name='Request' value='-' > ";
+                    echo"<input type='submit' class='bouton_1' name='Request' value='-' > ";
                 }
-                echo"<input type='submit' name='Request' value='+' >
+                echo"<input type='submit' class='bouton_1' name='Request' value='+' >
                 <input type='hidden' name='Menu' value= ".$Menu." ><br><br>
                 Choississez vos trois catégories alimentaires préférés:<br><br>";
             
@@ -90,7 +90,7 @@
                     echo "<br><br><FONT color='red'>Vous avez sélectionné un régime alimentaire et une catégorie alimentaire incompatibles</FONT>";
                 }
 
-                echo "<br><br><input type='submit' name='Request' value='Valider'></form>
+                echo "<br><br><input type='submit' class='bouton_1' name='Request' value='Valider'></form>
                 <a href=../Index.php?Request=LogOut><input type='button' value = 'Retour'></a>
                 ";                     
             }
@@ -107,7 +107,7 @@
                 echo("<option value=".$PrintDiet[0][$i].">".$PrintDiet[1][$i]."</option>");
             }
             echo"</select>
-            <input type='submit' name='Request' value='+'>
+            <input type='submit' class='bouton_1' name='Request' value='+'>
             <input type='hidden' name='Menu' value= 1 >
 
             <br><br>Choississez vos trois catégories alimentaires préférés:<br><br>";
@@ -130,7 +130,7 @@
                 echo"</select> ";                
             }
             
-            echo "<br><br><input type='submit' name='Request' value='Valider'></form>
+            echo "<br><br><input type='submit' class='bouton_1' name='Request' value='Valider'></form>
             <a href=../Index.php?Request=LogOut><input type='button' value = 'Retour'></a>
             ";    
         }

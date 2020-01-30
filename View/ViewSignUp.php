@@ -30,7 +30,7 @@
                 <p>Mot de passe : <input type='password' id='Pwd'class='text_1' name='Pwd' value=''></p>
                 <p>Confirmation de mot de passe : <input type='password' id='Cpwd'class='text_1' name='Cpwd' value=''></p>
                 <input type='hidden' name='page' value='Inscription'>
-                <input type='submit' value='Inscription' id='SignUp' name='SignUp'>
+                <input type='submit' class='bouton_1' value='Inscription' id='SignUp' name='SignUp'>
                 </form>
                 ");
             } else if (!empty($_GET['SignUp']))
@@ -49,11 +49,11 @@
                     || !empty($CheckUser)
                     )
                     {
-                        echo"<p>Nom d'utilisateur : <input type='text' id='User' name='User' value='".htmlspecialchars($_GET['User'], ENT_QUOTES)."' class=Error></p>";
+                        echo"<p>Nom d'utilisateur : <input type='text' class='text_1'id='User' name='User' value='".htmlspecialchars($_GET['User'], ENT_QUOTES)."' class=Error></p>";
                     }
                     else
                     {
-                        echo"<p>Nom d'utilisateur : <input type='text' id='User' name='User' value='".htmlspecialchars($_GET['User'], ENT_QUOTES)."' class=Aright></p>";
+                        echo"<p>Nom d'utilisateur : <input type='text' class='text_1'id='User' name='User' value='".htmlspecialchars($_GET['User'], ENT_QUOTES)."' class=Aright></p>";
                     }
                     
                     if(empty($_GET['FirstName'])
@@ -62,11 +62,11 @@
                     || !preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['FirstName'])
                     )
                     {
-                        echo"<p>Prénom : <input type='text' name='FirstName' id='FirstName' value='".htmlspecialchars($_GET['FirstName'], ENT_QUOTES)."'class=Error></p>";
+                        echo"<p>Prénom : <input type='text' class='text_1'name='FirstName' id='FirstName' value='".htmlspecialchars($_GET['FirstName'], ENT_QUOTES)."'class=Error></p>";
                     }
                     else
                     {
-                        echo"<p>Prénom : <input type='text' name='FirstName' id='FirstName' value='".htmlspecialchars($_GET['FirstName'], ENT_QUOTES)."'class=Aright></p>";
+                        echo"<p>Prénom : <input type='text' class='text_1'name='FirstName' id='FirstName' value='".htmlspecialchars($_GET['FirstName'], ENT_QUOTES)."'class=Aright></p>";
                     }
 
                     if(empty($_GET['LastName'])
@@ -75,11 +75,11 @@
                     || !preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['LastName'])
                     )
                     {
-                        echo"<p>Nom : <input type='text' id='LastName' name='LastName' value='".htmlspecialchars($_GET['LastName'], ENT_QUOTES)."'class=Error></p>";
+                        echo"<p>Nom : <input type='text' class='text_1'id='LastName' name='LastName' value='".htmlspecialchars($_GET['LastName'], ENT_QUOTES)."'class=Error></p>";
                     }
                     else
                     {
-                        echo"<p>Nom : <input type='text' id='LastName' name='LastName' value='".htmlspecialchars($_GET['LastName'], ENT_QUOTES)."'class=Aright></p>";
+                        echo"<p>Nom : <input type='text' class='text_1'id='LastName' name='LastName' value='".htmlspecialchars($_GET['LastName'], ENT_QUOTES)."'class=Aright></p>";
                     }
 
                     if(empty($_GET['Adress'])
@@ -88,11 +88,11 @@
                     || !preg_match("#^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['Adress'])
                     )
                     {
-                        echo"<p>Adresse : <input type='text' id='Adress' name='Adress' value='".htmlspecialchars($_GET['Adress'], ENT_QUOTES)."'class=Error></p>";
+                        echo"<p>Adresse : <input type='text' class='text_1'id='Adress' name='Adress' value='".htmlspecialchars($_GET['Adress'], ENT_QUOTES)."'class=Error></p>";
                     }
                     else
                     {
-                        echo"<p>Adresse : <input type='text' id='Adress' name='Adress' value='".htmlspecialchars($_GET['Adress'], ENT_QUOTES)."'class=Aright></p>";
+                        echo"<p>Adresse : <input type='text' class='text_1'id='Adress' name='Adress' value='".htmlspecialchars($_GET['Adress'], ENT_QUOTES)."'class=Aright></p>";
                     }
 
                     if(empty($_GET['Mail'])
@@ -100,33 +100,33 @@
                     || !empty($CheckUser)
                     )
                     {
-                        echo"<p>Adresse e-mail : <input type='email' id='Mail' name='Mail' value='".htmlspecialchars($_GET['Mail'], ENT_QUOTES)."'class=Error></p>";
+                        echo"<p>Adresse e-mail : <input type='email' class='text_1'id='Mail' name='Mail' value='".htmlspecialchars($_GET['Mail'], ENT_QUOTES)."'class=Error></p>";
                     }
                     else
                     {
-                        echo"<p>Adresse e-mail : <input type='email' id='Mail' name='Mail' value='".htmlspecialchars($_GET['Mail'], ENT_QUOTES)."'class=Aright></p>";
+                        echo"<p>Adresse e-mail : <input type='email' class='text_1'id='Mail' name='Mail' value='".htmlspecialchars($_GET['Mail'], ENT_QUOTES)."'class=Aright></p>";
                     }
 
                     if(empty($_GET['Phone'])
                     || !preg_match('#^(0|\+33)[1-9]{1}\d{8}$#' , $_GET['Phone'])
                     )
                     {
-                        echo"<p>Numéro de téléphone : <input type='text' id='Phone' name='Phone' value='".htmlspecialchars($_GET['Phone'], ENT_QUOTES)."'class=Error></p>";
+                        echo"<p>Numéro de téléphone : <input type='text' class='text_1'id='Phone' name='Phone' value='".htmlspecialchars($_GET['Phone'], ENT_QUOTES)."'class=Error></p>";
                     }
                     else
                     {
-                        echo"<p>Numéro de téléphone : <input type='text' id='Phone' name='Phone' value='".htmlspecialchars($_GET['Phone'], ENT_QUOTES)."'class=Aright></p>";
+                        echo"<p>Numéro de téléphone : <input type='text' class='text_1'id='Phone' name='Phone' value='".htmlspecialchars($_GET['Phone'], ENT_QUOTES)."'class=Aright></p>";
                     }
                     if(empty($_GET['Pwd']) 
                     || strlen($_GET['Pwd']) < 5
                     || strlen($_GET['Pwd']) > 40    
                     )
                     {
-                        echo"<p>Mot de passe : <input type='password' id='Pwd' name='Pwd' value='".htmlspecialchars($_GET['Pwd'], ENT_QUOTES)."'class=Error></p>";
+                        echo"<p>Mot de passe : <input type='password' class='text_1'id='Pwd' name='Pwd' value='".htmlspecialchars($_GET['Pwd'], ENT_QUOTES)."'class=Error></p>";
                     }
                     else
                     {
-                        echo"<p>Mot de passe : <input type='password' id='Pwd' name='Pwd' value='".htmlspecialchars($_GET['Pwd'], ENT_QUOTES)."'class=Aright></p>";
+                        echo"<p>Mot de passe : <input type='password' class='text_1'id='Pwd' name='Pwd' value='".htmlspecialchars($_GET['Pwd'], ENT_QUOTES)."'class=Aright></p>";
                     }
                     if(empty($_GET['Cpwd'])
                     || $_GET['Pwd'] != $_GET['Cpwd']
@@ -134,16 +134,16 @@
                     || strlen($_GET['Cpwd']) > 40 
                     )
                     {
-                        echo"<p>Confirmation de mot de passe : <input type='password' id='Cpwd' name='Cpwd' value='".htmlspecialchars($_GET['Cpwd'], ENT_QUOTES)."'class=Error></p>";
+                        echo"<p>Confirmation de mot de passe : <input type='password' class='text_1'class='text_1'id='Cpwd' name='Cpwd' value='".htmlspecialchars($_GET['Cpwd'], ENT_QUOTES)."'class=Error></p>";
                     }
                     else
                     {
-                        echo"<p>Confirmation de mot de passe : <input type='password' id='Cpwd' name='Cpwd' value='".htmlspecialchars($_GET['Cpwd'], ENT_QUOTES)."'class=Aright></p>";
+                        echo"<p>Confirmation de mot de passe : <input type='password' class='text_1'class='text_1'id='Cpwd' name='Cpwd' value='".htmlspecialchars($_GET['Cpwd'], ENT_QUOTES)."'class=Aright></p>";
                     }
 
                     echo "<FONT color='red'>".$_SESSION['Error']."</FONT>
                     <input type='hidden' name='page' value='Inscription'>
-                    <br><br><input type='submit' id='SignUp' value='Inscription' name='SignUp'>
+                    <br><br><input type='submit' class='bouton_1' id='SignUp' value='Inscription' name='SignUp'>
                     </form>
                     ";
                 }

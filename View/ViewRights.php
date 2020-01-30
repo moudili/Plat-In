@@ -25,7 +25,7 @@
                         <input type='search' name='Usr' value='".htmlspecialchars($_GET['Usr'], ENT_QUOTES)."'/>
                         <input type='hidden' name='page' value='Gestion des droits'>
                         <input type='hidden' name='Request' value='Search'>
-                        <input type='submit' value=' '></form>
+                        <input type='submit' class='bouton_1' value=' '></form>
                         ");
                         for($i = 0 ; $i < count($Search[0]) ; $i++ )
                         {

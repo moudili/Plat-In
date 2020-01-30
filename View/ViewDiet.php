@@ -35,13 +35,13 @@
                     }
                     
                     echo("</select>
-                    <input type='submit' name='Request' value='+'></p>
+                    <input type='submit' class='bouton_1' name='Request' value='+'></p>
                     <input type='hidden' name='Menu' value=".$_GET['Menu'].">
-                    <input type='submit' name='Request' value='Ajouter'>
+                    <input type='submit' class='bouton_1' name='Request' value='Ajouter'>
                     </form>
                     <p><form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Régimes'>
-                    <input type='submit' value='Retour'></form>");
+                    <input type='submit' class='bouton_1' value='Retour'></form>");
                 }
                 else if($_GET['Request'] == "+"
                 || $_GET['Request'] == "-" )
@@ -78,16 +78,16 @@
                     
                     if( $Menu > 1 )
                     {
-                        echo("<input type='submit' name='Request' value='-'> ");
+                        echo("<input type='submit' class='bouton_1' name='Request' value='-'> ");
                     }
                     
-                    echo("<input type='submit' name='Request' value='+'></p>
+                    echo("<input type='submit' class='bouton_1' name='Request' value='+'></p>
                     <input type='hidden' name='Menu' value=".$Menu.">
-                    <input type='submit' name='Request' value='Ajouter'>
+                    <input type='submit' class='bouton_1' name='Request' value='Ajouter'>
                     </form>
                     <p><form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Régimes'>
-                    <input type='submit' value='Retour'></form>");
+                    <input type='submit' class='bouton_1' value='Retour'></form>");
                 }
                 else if($_GET['Request'] == "Ajouter")
                 {
@@ -130,10 +130,10 @@
                         
                         if( $Menu > 1 )
                         {
-                            echo("<input type='submit' name='Request' value='-'> ");
+                            echo("<input type='submit' class='bouton_1' name='Request' value='-'> ");
                         }
                         
-                        echo("<input type='submit' name='Request' value='+'></p>
+                        echo("<input type='submit' class='bouton_1' name='Request' value='+'></p>
                         <input type='hidden' name='Menu' value=".$Menu.">");
 
                         if(strlen($_GET['Diet']) < 3)
@@ -160,18 +160,18 @@
                         {
                             echo("<FONT color='red'>Ce régime alimentaire existe déjà</FONT><br><br>");
                         }
-                        echo("<input type='submit' name='Request' value='Ajouter'>
+                        echo("<input type='submit' class='bouton_1' name='Request' value='Ajouter'>
                         </form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Régimes'>
-                        <input type='submit' value='Retour'></form>");
+                        <input type='submit' class='bouton_1' value='Retour'></form>");
                     }
                     else
                     {
                         echo"<p>Le régime ".$_GET['Diet']." à bien été ajouté à la base de donnée</p>";
                         echo("<p><form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Régimes'>
-                            <input type='submit' value='Retour'></form>");
+                            <input type='submit' class='bouton_1' value='Retour'></form>");
                     }
                 }
                 else if($_GET['Request'] == "Search")
@@ -181,12 +181,12 @@
                     <input type='search' placeholder = 'Rechercher un regime...' name='Search' value='".htmlspecialchars($_GET['Search'], ENT_QUOTES)."'/>
                     <input type='hidden' name='page' value='Régimes'>
                     <input type='hidden' name='Request' value='Search'>
-                    <input type='submit' value=' '></form>
+                    <input type='submit' class='bouton_1' value=' '></form>
 
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Régimes'>
                     <input type='hidden' name='Menu' value=1>
-                    <input type='submit' name='Request' value='Ajouter un régime'></form><br>
+                    <input type='submit' class='bouton_1' name='Request' value='Ajouter un régime'></form><br>
        
                     ");
 
@@ -222,18 +222,18 @@
                                     <input type='hidden' name='page' value='Régimes'>
                                     <input type='hidden' name='iddiet' value='".$PrintDiet[0][$i]."'>
                                     <input type='hidden' name='diet' value='".$PrintDiet[1][$i]."'>
-                                    <input type='submit' name='Request' value='Supprimer ce régime'></form></p>
+                                    <input type='submit' class='bouton_1' name='Request' value='Supprimer ce régime'></form></p>
                                     <p><form action='Index.php' method='get'>
                                     <input type='hidden' name='page' value='Régimes'>
                                     <input type='hidden' name='iddiet' value='".$PrintDiet[0][$i]."'>
                                     <input type='hidden' name='diet' value='".$PrintDiet[1][$i]."'>
-                                    <input type='submit' name='Request' value='Modifier ce régime'></form></p>
+                                    <input type='submit' class='bouton_1' name='Request' value='Modifier ce régime'></form></p>
                                     <p><form action='Index.php' method='get'>
                                     <input type='hidden' name='page' value='Régimes'>
                                     <input type='hidden' name='iddiet' value='".$PrintDiet[0][$i]."'>
                                     <input type='hidden' name='diet' value='".$PrintDiet[1][$i]."'> 
                                     <input type='hidden' name='Menu' value=1>   
-                                    <input type='submit' name='Request' value='Ajouter des catégories'></form></p>
+                                    <input type='submit' class='bouton_1' name='Request' value='Ajouter des catégories'></form></p>
                                     </td>";
                                 }
                             }
@@ -244,18 +244,18 @@
                                 <input type='hidden' name='page' value='Régimes'>
                                 <input type='hidden' name='iddiet' value='".$PrintDiet[0][$i]."'>
                                 <input type='hidden' name='diet' value='".$PrintDiet[1][$i]."'>
-                                <input type='submit' name='Request' value='Supprimer ce régime'></form></p>
+                                <input type='submit' class='bouton_1' name='Request' value='Supprimer ce régime'></form></p>
                                 <p><form action='Index.php' method='get'>
                                 <input type='hidden' name='page' value='Régimes'>
                                 <input type='hidden' name='iddiet' value='".$PrintDiet[0][$i]."'>
                                 <input type='hidden' name='diet' value='".$PrintDiet[1][$i]."'>
-                                <input type='submit' name='Request' value='Modifier ce régime'></form></p>
+                                <input type='submit' class='bouton_1' name='Request' value='Modifier ce régime'></form></p>
                                 <p><form action='Index.php' method='get'>
                                 <input type='hidden' name='page' value='Régimes'>
                                 <input type='hidden' name='iddiet' value='".$PrintDiet[0][$i]."'>
                                 <input type='hidden' name='diet' value='".$PrintDiet[1][$i]."'>
                                 <input type='hidden' name='Menu' value=1>
-                                <input type='submit' name='Request' value='Ajouter des catégories'></form></p>
+                                <input type='submit' class='bouton_1' name='Request' value='Ajouter des catégories'></form></p>
                                 </td>
                                 ";                        
                             }
@@ -271,7 +271,7 @@
                                 <input type='hidden' name='diet' value='".$PrintDiet[1][$i]."'>
                                 <input type='hidden' name='idcat' value='".$PrintDiet[2][$i]."'>
                                 <input type='hidden' name='cat' value='".$PrintDiet[3][$i]."'>
-                                <input type='submit' name='SubRequest' value='Supprimer'></form>
+                                <input type='submit' class='bouton_1' name='SubRequest' value='Supprimer'></form>
                                 ");
                             }
                             echo"</td></tr>";
@@ -289,11 +289,11 @@
                         <input type='hidden' name='Request' value='Supprimer ce régime'>
                         <input type='hidden' name='iddiet' value='".$_GET['iddiet']."'>
                         <input type='hidden' name='diet' value='".$_GET['diet']."'>
-                        <input type='submit' name='answer' value='Oui'></form>
+                        <input type='submit' class='bouton_1' name='answer' value='Oui'></form>
 
                         <form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Régimes'>
-                        <input type='submit' value='Non'></form>
+                        <input type='submit' class='bouton_1' value='Non'></form>
                         ";
                     }
                     else
@@ -301,7 +301,7 @@
                         echo"Le régime ".$_GET['diet']." à bien été effacé.";
                         echo("<p><form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Régimes'>
-                            <input type='submit' value='Retour'></form>");
+                            <input type='submit' class='bouton_1' value='Retour'></form>");
                     }
                 }
                 else if($_GET['Request'] == "Modifier ce régime")
@@ -310,14 +310,14 @@
                     Régime
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Régimes'>
-                    <input type='text' name='newdiet' value='".htmlspecialchars($_GET['diet'], ENT_QUOTES)."'/><br><br>
+                    <input type='text'class='text_1' name='newdiet' value='".htmlspecialchars($_GET['diet'], ENT_QUOTES)."'/><br><br>
                     <input type='hidden' name='iddiet' value='".$_GET['iddiet']."'>
                     <input type='hidden' name='diet' value='".$_GET['diet']."'>
-                    <input type='submit' name='Request' value='Modifier'></form>
+                    <input type='submit' class='bouton_1' name='Request' value='Modifier'></form>
 
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Régimes'>
-                    <input type='submit' value='Retour'></form>
+                    <input type='submit' class='bouton_1' value='Retour'></form>
                     ";
                 }
                 else if($_GET['Request'] == "Modifier")
@@ -332,7 +332,7 @@
                         Régime
                         <form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Régimes'>
-                        <input type='text' name='newdiet' value='".htmlspecialchars($_GET['newdiet'], ENT_QUOTES)."'/><br><br>
+                        <input type='text'class='text_1' name='newdiet' value='".htmlspecialchars($_GET['newdiet'], ENT_QUOTES)."'/><br><br>
                         <input type='hidden' name='iddiet' value='".$_GET['iddiet']."'>
                         <input type='hidden' name='diet' value='".$_GET['diet']."'>";
                         
@@ -353,10 +353,10 @@
                             echo("<FONT color='red'>Ce régime alimentaire existe déjà</FONT><br><br>");
                         }
 
-                        echo("<input type='submit' name='Request' value='Modifier'></form>
+                        echo("<input type='submit' class='bouton_1' name='Request' value='Modifier'></form>
                         <form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Régimes'>
-                        <input type='submit' value='Retour'></form>
+                        <input type='submit' class='bouton_1' value='Retour'></form>
                         ");
                     }
                     else
@@ -364,7 +364,7 @@
                         echo"Le régime ".$_GET['diet']." a été modifié en ".$_GET['newdiet'].".";
                         echo("<p><form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Régimes'>
-                            <input type='submit' value='Retour'></form>");
+                            <input type='submit' class='bouton_1' value='Retour'></form>");
                     }
                 }
                 else if($_GET['Request'] == "Ajouter des catégories")//=========================================================================================================================
@@ -387,13 +387,13 @@
                         
                         echo("</select>
                         <input type='hidden' name='Request' value='Ajouter des catégories'>
-                        <input type='submit' name='SubRequest' value='+'></p>
+                        <input type='submit' class='bouton_1' name='SubRequest' value='+'></p>
                         <input type='hidden' name='Menu' value=".$_GET['Menu'].">
-                        <input type='submit' name='SubRequest' value='Ajouter'>
+                        <input type='submit' class='bouton_1' name='SubRequest' value='Ajouter'>
                         </form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Régimes'>
-                        <input type='submit' value='Retour'></form>");
+                        <input type='submit' class='bouton_1' value='Retour'></form>");
                     }
                     else
                     {
@@ -436,11 +436,11 @@
                         
                                 if( $Menu2 > 1 )
                                 {
-                                    echo("<input type='submit' name='SubRequest' value='-'> ");
+                                    echo("<input type='submit' class='bouton_1' name='SubRequest' value='-'> ");
                                 }
                                 
                                 echo("<input type='hidden' name='Request' value='Ajouter des catégories'>
-                                <input type='submit' name='SubRequest' value='+'></p>
+                                <input type='submit' class='bouton_1' name='SubRequest' value='+'></p>
                                 <input type='hidden' name='Menu' value=".$Menu2.">");
                                 
                                 if($CheckMenu2 == "double")
@@ -456,18 +456,18 @@
                                     echo("<FONT color='red'>Une des catégorie alimentaire est déjà présente dans ce régime alimentaire</FONT><br><br>");
                                 }
                                 
-                                echo("<input type='submit' name='SubRequest' value='Ajouter'>
+                                echo("<input type='submit' class='bouton_1' name='SubRequest' value='Ajouter'>
                                 </form>
                                 <p><form action='Index.php' method='get'>
                                 <input type='hidden' name='page' value='Régimes'>
-                                <input type='submit' value='Retour'></form>");
+                                <input type='submit' class='bouton_1' value='Retour'></form>");
                             }
                             else
                             {
                                 echo"Le régime ".$_GET['diet']." a bien été mis à jour";
                                 echo("<p><form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Régimes'>
-                            <input type='submit' value='Retour'></form>");
+                            <input type='submit' class='bouton_1' value='Retour'></form>");
                             }
                         }
                         else if($_GET['SubRequest'] == "+"
@@ -506,17 +506,17 @@
                     
                             if( $Menu2 > 1 )
                             {
-                                echo("<input type='submit' name='SubRequest' value='-'> ");
+                                echo("<input type='submit' class='bouton_1' name='SubRequest' value='-'> ");
                             }
                             
                             echo("<input type='hidden' name='Request' value='Ajouter des catégories'>
-                            <input type='submit' name='SubRequest' value='+'></p>
+                            <input type='submit' class='bouton_1' name='SubRequest' value='+'></p>
                             <input type='hidden' name='Menu' value=".$Menu2.">
-                            <input type='submit' name='SubRequest' value='Ajouter'>
+                            <input type='submit' class='bouton_1' name='SubRequest' value='Ajouter'>
                             </form>
                             <p><form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Régimes'>
-                            <input type='submit' value='Retour'></form>");
+                            <input type='submit' class='bouton_1' value='Retour'></form>");
                         }
                     }
                 }//===================================================================================================================================================================================          
@@ -528,12 +528,12 @@
                     <input type='search' placeholder = 'Rechercher un regime...' name='Search'/>
                     <input type='hidden' name='page' value='Régimes'>
                     <input type='hidden' name='Request' value='Search'>
-                    <input type='submit' value=' '></form>
+                    <input type='submit' class='bouton_1' value=' '></form>
 
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Régimes'>
                     <input type='hidden' name='Menu' value=1>
-                    <input type='submit' name='Request' value='Ajouter un régime'></form><br>
+                    <input type='submit' class='bouton_1' name='Request' value='Ajouter un régime'></form><br>
                     <div class='shrink'>
                     <table border>       
                 ");
@@ -563,18 +563,18 @@
                             <input type='hidden' name='page' value='Régimes'>
                             <input type='hidden' name='iddiet' value='".$PrintDiet[0][$i]."'>
                             <input type='hidden' name='diet' value='".$PrintDiet[1][$i]."'>
-                            <input type='submit' name='Request' value='Supprimer ce régime'></form></p>
+                            <input type='submit' class='bouton_1' name='Request' value='Supprimer ce régime'></form></p>
                             <p><form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Régimes'>
                             <input type='hidden' name='iddiet' value='".$PrintDiet[0][$i]."'>
                             <input type='hidden' name='diet' value='".$PrintDiet[1][$i]."'>
-                            <input type='submit' name='Request' value='Modifier ce régime'></form></p>
+                            <input type='submit' class='bouton_1' name='Request' value='Modifier ce régime'></form></p>
                             <p><form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Régimes'>
                             <input type='hidden' name='iddiet' value='".$PrintDiet[0][$i]."'>
                             <input type='hidden' name='diet' value='".$PrintDiet[1][$i]."'>
                             <input type='hidden' name='Menu' value=1>
-                            <input type='submit' name='Request' value='Ajouter des catégories'></form></p>
+                            <input type='submit' class='bouton_1' name='Request' value='Ajouter des catégories'></form></p>
                             </td>";
                         }
                     }
@@ -585,18 +585,18 @@
                         <input type='hidden' name='page' value='Régimes'>
                         <input type='hidden' name='iddiet' value='".$PrintDiet[0][$i]."'>
                         <input type='hidden' name='diet' value='".$PrintDiet[1][$i]."'>
-                        <input type='submit' name='Request' value='Supprimer ce régime'></form></p>
+                        <input type='submit' class='bouton_1' name='Request' value='Supprimer ce régime'></form></p>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Régimes'>
                         <input type='hidden' name='iddiet' value='".$PrintDiet[0][$i]."'>
                         <input type='hidden' name='diet' value='".$PrintDiet[1][$i]."'>
-                        <input type='submit' name='Request' value='Modifier ce régime'></form></p>
+                        <input type='submit' class='bouton_1' name='Request' value='Modifier ce régime'></form></p>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Régimes'>
                         <input type='hidden' name='iddiet' value='".$PrintDiet[0][$i]."'>
                         <input type='hidden' name='diet' value='".$PrintDiet[1][$i]."'>
                         <input type='hidden' name='Menu' value=1>
-                        <input type='submit' name='Request' value='Ajouter des catégories'></form></p>
+                        <input type='submit' class='bouton_1' name='Request' value='Ajouter des catégories'></form></p>
                         </td>
                         ";                        
                     }
@@ -612,7 +612,7 @@
                         <input type='hidden' name='diet' value='".$PrintDiet[1][$i]."'>
                         <input type='hidden' name='idcat' value='".$PrintDiet[2][$i]."'>
                         <input type='hidden' name='cat' value='".$PrintDiet[3][$i]."'>
-                        <input type='submit' name='SubRequest' value='Supprimer'></form>
+                        <input type='submit' class='bouton_1' name='SubRequest' value='Supprimer'></form>
                         ");
                     }
                     echo"</td></tr>";

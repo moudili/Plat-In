@@ -132,7 +132,10 @@ $(function() {
         {
             document.getElementById("Phone").style.borderColor="green";
         }
-
+        else if(Phone.length == 0)
+        {
+            //document.getElementById("Phone").style.borderColor="";
+        }
 
         //Pwd
 
