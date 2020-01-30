@@ -6,15 +6,10 @@ require("View/ViewBanner.php");
     <head>
         <link rel="stylesheet" href="Css/ErrorChamp.css">
         <link rel="stylesheet" href="Css/Bootstrap/PersonalCss.css">
-        <link rel="stylesheet" href="Css/Bootstrap/Pinnaple.css">
+        <link rel="stylesheet" href="Css/Bootstrap/background.css">
         <title>Profile</title>
-    </head>
-    <style>
-         body{
-            text-align: center;
-            }
-    </style> 
-    <body class='pinnaple'>
+    </head> 
+    <body class='backgroundhat'>
         <div class='arriereprofil'>
         <?php
         if (empty($_GET['modif']))

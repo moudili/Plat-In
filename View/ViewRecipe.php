@@ -4,58 +4,20 @@
 <html>
     <head>
         <title>Recette</title>
-        <style> 
-        .rating {
-			width: 226px;
-			margin: 0 auto 1em;
-			font-size: 45px;
-			overflow:hidden;
-		}
-        .rating input {
-        float: right;
-        opacity: 0;
-        position: absolute;
-        }
-                .rating a,
-            .rating label {
-                    float:right;
-                    color: #aaa;
-                    text-decoration: none;
-                    -webkit-transition: color .4s;
-                    -moz-transition: color .4s;
-                    -o-transition: color .4s;
-                    transition: color .4s;
-                }
-        .rating label:hover ~ label,
-        .rating input:focus ~ label,
-        .rating label:hover,
-                .rating a:hover,
-                .rating a:hover ~ a,
-                .rating a:focus,
-                .rating a:focus ~ a		{
-                    color: orange;
-                    cursor: pointer;
-                }
-                .rating2 {
-                    direction: rtl;
-                }
-                .rating2 a {
-                    float:none
-                }
-                body{
-                    text-align: center;
-                }
-        </style>
+        <link rel="stylesheet" href="Css/Bootstrap/PersonalCss.css">
+        <link rel="stylesheet" href="Css/Bootstrap/background.css">
+        <link rel="stylesheet" href="Css/Bootstrap/rating.css">
     </head>
     
-    <body>
+    <body class='backgroundhat center'>
         <?php
 
             if ($_SESSION['Co']==false)
             {
                 if (empty($_GET['Request']) || $_GET['Request'] == "Search")
                 {
-                    echo("
+                    echo("<div><div class='arriereplan'>
+                    <div class='recetterecherche'>
                     <form action='Index.php' method='get'>
                     <input type='search' placeholder = 'Rechercher une recette...' name='Org'");
                     if(!empty($_GET['Org']))
@@ -84,11 +46,10 @@
 
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Recette'>
-                    <input type='submit' value='Enlever les filtres'></form>
-
+                    <input type='submit' value='Enlever les filtres'></form></div>
+                    <div>
                     Veuillez vous <a href='Index.php?page=Inscription'> inscrire</a> ou 
-                    vous <a href='Index.php?page=Connexion'> connecter</a> pour ajouter des recettes");
-
+                    vous <a href='Index.php?page=Connexion'> connecter</a> pour ajouter des recettes </div></div>");
                     if(count($Recipes[0]) != 0)
                     {
                         echo"<table border=4 align='center'>
@@ -149,7 +110,8 @@
                     else
                     {
                         echo"Aucun résultat n' été obtenu";
-                    }  
+                    }
+                    echo("</div>");  
                 } 
                 else if ($_GET['Request']=='Afficher')
                 {
@@ -160,13 +122,17 @@
                             if ($Recipes[6][$i]==$_GET['id'])
                             {
                                 echo("
+                                <div class='arriereplan'>
+                                <div>
                                 <form action='Index.php' method='get'>
-                                <p align=center>".$Recipes[0][$i]."</p>
-                                <p align=center>Date de création : ".$Recipes[2][$i]."</p>
-                                <p align=center>Temps de préparation : ".$Recipes[3][$i]."</p>
-                                <p align=center>Créer par : ".$Recipes[5][$i]."</p>
-                                <p align=center>");
-                                echo(nl2br("Description : <br/><br/>".$Recipes[1][$i]."</p>
+                                <div><h1>".$Recipes[0][$i]."</h1></div>
+                                <div class = 'row'>
+                                <div><h4>Date de création : ".$Recipes[2][$i]."</h4></div>
+                                <div><h4>Temps de préparation : ".$Recipes[3][$i]."</h4></div>
+                                </div>
+                                <div>Créer par : ".$Recipes[5][$i]."<br><br></div>
+                                ");
+                                echo(nl2br("<div class='recetterecherche'>Description : <br/><br/>".$Recipes[1][$i]."</div>
                                 <input type='hidden' name='page' value='Recette'>
                                 <br><input type='submit' value='Retour'>"));
                                 if(!empty($_GET['Org']))
@@ -181,7 +147,7 @@
                                     <input type='hidden' name='Filtre2' value='".$_GET['Filtre2']."'>
                                     ";
                                 }
-                                echo("</form>");
+                                echo("</form></div></div>");
                             }
                         } 
                     }
@@ -189,7 +155,7 @@
                 //----------------------------------------------------------------------------------------------------------------------
                 else if($_GET['Request']=='Filtre')
                 {
-                    echo"
+                    echo"<div class = 'arriereplan'>
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Recette'>
                     Origine : <select name='Filtre0'>
@@ -230,14 +196,14 @@
                         <input type='hidden' name='Filtre2' value='".$_GET['Filtre2']."'>
                         ";
                     }                    
-                    echo"";
+                    echo"</div>";
                 }
             }
             else if ($_SESSION['Co']!=false)
             {
                 if (empty($_GET['Request']) || $_GET['Request'] == "Search")
                 {
-                    echo("
+                    echo("<div> 
                     <form action='Index.php' method='get'>
                     <input type='search' placeholder = 'Rechercher une recette...' name='Org'");
                     if(!empty($_GET['Org']))
@@ -393,6 +359,7 @@
                     {
                         echo"Aucun résultat n' été obtenu"; 
                     }
+                    echo("</div>");
                 } 
                 else if ($_GET['Request']=='Ajouter une recette')
                 {

@@ -1,18 +1,24 @@
-/*div {
-    margin: 4px;
-    padding: 4px;
-    border: 1px solid black;
-    background-color: rgba(240, 0, 0, 0.2);
-    }*/
+/* div {margin: 4px;padding: 4px;border: 1px solid black;background-color: rgba(240, 0, 0, 0.2);}    */
 
 
 .arriereprofil
 {
-    background-color: grey;
+    font-family: 'Coda';font-size: 22px;
+    background-color: rgba(180,202,181,0.9);
     display:flex ;
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
+    padding: 1%;
+    flex-grow: 1;
+       
+}
+.arriereplan
+{
+    font-family: 'Coda';font-size: 22px;
+    background-color: rgba(180,202,181,0.9);
+    border-radius: 20px;
+    padding: 1%;
     flex-grow: 1;
        
 }
@@ -23,6 +29,8 @@
     display:flex ;
     flex-direction: column;
     align-items: center;
+    margin: 1%;
+    padding: 3%;
     border-radius: 20px;
     border-top: hidden;
     border-bottom: hidden;   
@@ -31,11 +39,14 @@
 .sousprofil
 {
     justify-content: center;
-    flex-shrink: 1;
-
+    flex-shrink: 1; 
+    border-bottom: ridge;
 }
 
 .banner1{
+position: -webkit-sticky;
+position: sticky;
+top: 0px;
 background-color:whitesmoke;
 border: thick double gray;
 }
@@ -44,6 +55,26 @@ border: thick double gray;
 background-color: whitesmoke;
 border: thick double gray;
 border-top-style: none;
+}
+
+.row
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.recetterecherche
+{
+    background-color: seashell;
+    border-style: groove;
+    border-color: slategrey;
+    flex-grow: 1;
+}
+
+.center
+{
+    text-align: center;
 }
 
 .flexbox{
@@ -60,8 +91,17 @@ display: flex;
     flex-shrink: 1;
 }
 
+.recetterecherche
+{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
 table{
     text-align: center;
+    padding:20px;
+    background-color: rgba(180,202,181,0.8);
+
 }
 
 .brr{

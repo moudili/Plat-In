@@ -1,6 +1,7 @@
 <html>
     <head>
-    <link rel="stylesheet" href="Css/Bootstrap/MyCss.css">
+    <link rel="stylesheet" href="Css/Bootstrap/PersonalCss.css">
+    <link rel="stylesheet" href="Css/Bootstrap/background.css">
     <link rel="stylesheet" href="Css/Bootstrap/css/bootstrap-grid.css">
     </head>
     <body>

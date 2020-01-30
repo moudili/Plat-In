@@ -5,17 +5,18 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="Css/ErrorChamp.css">
+        <link rel="stylesheet" href="Css/Bootstrap/PersonalCss.css">
+        <link rel="stylesheet" href="Css/Bootstrap/background.css">
         <title>Inscription</title>
     </head>
-    <style>
-         body{
-            text-align: center;
-            }
-    </style>     
-    <body>
+  
+    <body class='backgroundhat center'>
     
-
+        <div class='arriereplan'>
+        <div>
         <h1>Inscription</h1>
+</div>
+        <div>
         <?php
             if (empty($_GET['SignUp']))
             {
@@ -148,5 +149,6 @@
                 }
             }       
         ?>
+        </div></div>
     </body>
 </html>
