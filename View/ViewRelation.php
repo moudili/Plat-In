@@ -39,7 +39,7 @@
                 <input type='radio' name='status' value='requested'> requested<br>
                 <input type='radio' name='status' value='block'> block<br>
                 <input type='hidden' name='page' value='Relation'>
-                <input type='submit' name='Relation' value='Inserer'>
+                <input type='submit' class='bouton_1' name='Relation' value='Inserer'>
                 </form>
             ");
         }
@@ -54,7 +54,7 @@
             <td>
             <form>
                 <input type='hidden' name='page' value='Relation'>
-                <input type='submit' name='Relation' value='Ajouter'></form>
+                <input type='submit' class='bouton_1' name='Relation' value='Ajouter'></form>
             </tr>
 
             <?php
@@ -78,13 +78,13 @@
                 <td>
                 <input type='hidden' name='page' value='Relation'>
                 <input type='hidden' name='ID' value='".$Amitier[3]."'>
-                <input type='submit' name='Relation' value='Mettre a jour'>
+                <input type='submit' class='bouton_1' name='Relation' value='Mettre a jour'>
                 </form></td>");
                 echo("<form action='Index.php' method='get'>
                 <td>
                 <input type='hidden' name='page' value='Relation'>
                 <input type='hidden' name='ID' value='".$Amitier[3]."'>
-                <input type='submit' name='Relation' value='Supprimer'>
+                <input type='submit' class='bouton_1' name='Relation' value='Supprimer'>
                 </form></td>");
                 echo("</tr>");
 

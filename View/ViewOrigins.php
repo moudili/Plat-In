@@ -18,14 +18,14 @@ require("View/ViewBanner.php");
 
                 ?>
                     <form action='Index.php' method='get'>
-                    <input type='search' placeholder = 'Rechercher une origine...' name='Org'/>
+                    <input type='search' class='text_1'placeholder = 'Rechercher une origine...' name='Org'/>
                     <input type='hidden' name='page' value='Origines'>
                     <input type='hidden' name='Request' value='Search'>
-                    <input type='submit' value=" "></form>
+                    <input type='submit' class='bouton_1' value=" "></form>
 
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Origines'>
-                    <input type='submit' name='Request' value='Ajouter une origine'></form><br>
+                    <input type='submit' class='bouton_1' name='Request' value='Ajouter une origine'></form><br>
                     <table border align=center>       
         
                 <?php
@@ -36,12 +36,12 @@ require("View/ViewBanner.php");
                     <input type='hidden' name='page' value='Origines'>
                     <input type='hidden' name='origin' value='".htmlspecialchars($Origins[1][$i], ENT_QUOTES)."'>
                     <input type='hidden' name='id' value='".htmlspecialchars($Origins[0][$i], ENT_QUOTES)."'>
-                    <input type='submit' name='Request' value='Modifier'></form>
+                    <input type='submit' class='bouton_1' name='Request' value='Modifier'></form>
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Origines'>
                     <input type='hidden' name='origin' value='".$Origins[1][$i]."'>
                     <input type='hidden' name='id' value='".$Origins[0][$i]."'>
-                    <input type='submit' name='Request' value='Supprimer'></form></td></tr>
+                    <input type='submit' class='bouton_1' name='Request' value='Supprimer'></form></td></tr>
 ";
                 }
                 echo "</table>";
@@ -53,10 +53,10 @@ require("View/ViewBanner.php");
                     echo "<p><form action='Index.php' method='get'>
                     <p>Origine: <input type='Origine' name='Org'/></p>
                     <input type='hidden' name='page' value='Origines'>
-                    <input type='submit' name='Request' value='Ajouter'></form>
+                    <input type='submit' class='bouton_1' name='Request' value='Ajouter'></form>
                     <p><form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Origines'>
-                    <br><input type='submit' value='Retour'></form>
+                    <br><input type='submit' class='bouton_1' value='Retour'></form>
                     ";
                 }
                 else if($_GET['Request'] == "Ajouter")
@@ -67,10 +67,10 @@ require("View/ViewBanner.php");
                         <p>Origine: <input type='Origine' name='Org'/></p>
                         <input type='hidden' name='page' value='Origines'>
                         <FONT color='red'>Veuillez saisir une origine</FONT><br>
-                        <br><input type='submit' name='Request' value='Ajouter'></form>
+                        <br><input type='submit' class='bouton_1' name='Request' value='Ajouter'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
-                        <br><input type='submit' value='Retour'></form>
+                        <br><input type='submit' class='bouton_1' value='Retour'></form>
                         ";    
                     }
                     else if(strlen($_GET['Org']) < 3)
@@ -79,10 +79,10 @@ require("View/ViewBanner.php");
                         <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/></p>
                         <input type='hidden' name='page' value='Origines'>
                         <FONT color='red'>Cette origine doit faire plus de 2 caractères</FONT><br>
-                        <br><input type='submit' name='Request' value='Ajouter'></form>
+                        <br><input type='submit' class='bouton_1' name='Request' value='Ajouter'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
-                        <br><input type='submit' value='Retour'></form>
+                        <br><input type='submit' class='bouton_1' value='Retour'></form>
                         "; 
                     }
                     else if(strlen($_GET['Org']) > 39)
@@ -91,10 +91,10 @@ require("View/ViewBanner.php");
                         <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/></p>
                         <input type='hidden' name='page' value='Origines'>
                         <FONT color='red'>Cette origine doit faire moins de 40 caractères</FONT><br>
-                        <br><input type='submit' name='Request' value='Ajouter'></form>
+                        <br><input type='submit' class='bouton_1' name='Request' value='Ajouter'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
-                        <br><input type='submit' value='Retour'></form>
+                        <br><input type='submit' class='bouton_1' value='Retour'></form>
                         "; 
                     }
                     else if(!preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['Org']))
@@ -103,10 +103,10 @@ require("View/ViewBanner.php");
                         <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/></p>
                         <input type='hidden' name='page' value='Origines'>
                         <FONT color='red'>Cette origine est incorrecte</FONT><br>
-                        <br><input type='submit' name='Request' value='Ajouter'></form>
+                        <br><input type='submit' class='bouton_1' name='Request' value='Ajouter'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
-                        <br><input type='submit' value='Retour'></form>
+                        <br><input type='submit' class='bouton_1' value='Retour'></form>
                         "; 
                     }
                     else
@@ -116,7 +116,7 @@ require("View/ViewBanner.php");
                             echo "L'origine ".mb_strtolower($_GET['Org'],"UTF-8")." à bien été ajouté à la base de données
                             <p><form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Origines'>
-                            <br><input type='submit' value='Retour'></form>";
+                            <br><input type='submit' class='bouton_1' value='Retour'></form>";
                         }
                         else
                         {
@@ -124,10 +124,10 @@ require("View/ViewBanner.php");
                             <p>Origine: <input type='Origine' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/></p>
                             <input type='hidden' name='page' value='Origines'>
                             <FONT color='red'>Cette origine est déja présente dans la base de données</FONT><br>
-                            <br><input type='submit' name='Request' value='Ajouter'></form>
+                            <br><input type='submit' class='bouton_1' name='Request' value='Ajouter'></form>
                             <p><form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Origines'>
-                            <br><input type='submit' value='Retour'></form>
+                            <br><input type='submit' class='bouton_1' value='Retour'></form>
                             ";                                
                         }
                     }
@@ -144,12 +144,12 @@ require("View/ViewBanner.php");
                         <input type='hidden' name='Request' value='Supprimer'>
                         <input type='hidden' name='id' value='".$_GET['id']."'>
                         <input type='hidden' name='origin' value='".$_GET['origin']."'>
-                        <br><input type='submit' name='Answer' value='Oui'></form>
+                        <br><input type='submit' class='bouton_1' name='Answer' value='Oui'></form>
                         
                         
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
-                        <br><input type='submit' value='Non'></form>
+                        <br><input type='submit' class='bouton_1' value='Non'></form>
 
                         ";
                     }
@@ -158,7 +158,7 @@ require("View/ViewBanner.php");
                         echo "Vous avez bien supprimé l'origine ".$_GET['origin']." de la base de données.
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
-                        <br><input type='submit' value='Retour'></form>";
+                        <br><input type='submit' class='bouton_1' value='Retour'></form>";
                     }
                 }
                 else if($_GET['Request'] == "Modifier")
@@ -168,10 +168,10 @@ require("View/ViewBanner.php");
                     <input type='hidden' name='page' value='Origines'>
                     <input type='hidden' name='id' value='".$_GET['id']."'>
                     <input type='hidden' name='origin' value='".$_GET['origin']."'>
-                    <input type='submit' name='Request' value='Modifier cette origine'></form>
+                    <input type='submit' class='bouton_1' name='Request' value='Modifier cette origine'></form>
                     <p><form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Origines'>
-                    <br><input type='submit' value='Retour'></form>
+                    <br><input type='submit' class='bouton_1' value='Retour'></form>
                     ";
                 }
                 else if($_GET['Request'] == "Modifier cette origine")
@@ -184,10 +184,10 @@ require("View/ViewBanner.php");
                     <input type='hidden' name='id' value='".$_GET['id']."'>
                     <input type='hidden' name='origin' value='".$_GET['origin']."'>
                     <FONT color='red'>Veuillez saisir une origine</FONT><br>
-                    <input type='submit' name='Request' value='Modifier cette origine'></form>
+                    <input type='submit' class='bouton_1' name='Request' value='Modifier cette origine'></form>
                     <p><form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Origines'>
-                    <br><input type='submit' value='Retour'></form>
+                    <br><input type='submit' class='bouton_1' value='Retour'></form>
                     ";
                     }
                     else if(strlen($_GET['Org']) < 3)
@@ -198,10 +198,10 @@ require("View/ViewBanner.php");
                         <input type='hidden' name='id' value='".$_GET['id']."'>
                         <input type='hidden' name='origin' value='".$_GET['origin']."'>
                         <FONT color='red'>Cette origine doit faire plus de 2 caractères</FONT><br>
-                        <input type='submit' name='Request' value='Modifier cette origine'></form>
+                        <input type='submit' class='bouton_1' name='Request' value='Modifier cette origine'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
-                        <br><input type='submit' value='Retour'></form>
+                        <br><input type='submit' class='bouton_1' value='Retour'></form>
                         ";
                     }
                     else if(strlen($_GET['Org']) > 39)
@@ -212,10 +212,10 @@ require("View/ViewBanner.php");
                         <input type='hidden' name='id' value='".$_GET['id']."'>
                         <input type='hidden' name='origin' value='".$_GET['origin']."'>
                         <FONT color='red'>Cette origine doit faire moins de 40 caractères</FONT><br>
-                        <input type='submit' name='Request' value='Modifier cette origine'></form>
+                        <input type='submit' class='bouton_1' name='Request' value='Modifier cette origine'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
-                        <br><input type='submit' value='Retour'></form>
+                        <br><input type='submit' class='bouton_1' value='Retour'></form>
                         ";
                     }
                     else if(!preg_match("#^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ '._-]+$#", $_GET['Org']))
@@ -226,10 +226,10 @@ require("View/ViewBanner.php");
                         <input type='hidden' name='id' value='".$_GET['id']."'>
                         <input type='hidden' name='origin' value='".$_GET['origin']."'>
                         <FONT color='red'>Cette origine est incorrecte</FONT><br>
-                        <input type='submit' name='Request' value='Modifier cette origine'></form>
+                        <input type='submit' class='bouton_1' name='Request' value='Modifier cette origine'></form>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
-                        <br><input type='submit' value='Retour'></form>
+                        <br><input type='submit' class='bouton_1' value='Retour'></form>
                         ";
                     }
                     else
@@ -246,10 +246,10 @@ require("View/ViewBanner.php");
                             <input type='hidden' name='id' value='".$_GET['id']."'>
                             <input type='hidden' name='origin' value='".$_GET['origin']."'>
                             <FONT color='red'>Cette origine est déja présente dans la base de données</FONT><br>
-                            <br><input type='submit' name='Request' value='Modifier cette origine'></form>
+                            <br><input type='submit' class='bouton_1' name='Request' value='Modifier cette origine'></form>
                             <p><form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Origines'>
-                            <br><input type='submit' value='Retour'></form>
+                            <br><input type='submit' class='bouton_1' value='Retour'></form>
                             ";                            
                         }
 
@@ -263,14 +263,14 @@ require("View/ViewBanner.php");
 
                         echo("
                         <form action='Index.php' method='get'>
-                        <input type='search' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/>
+                        <input type='search' class='text_1'name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/>
                         <input type='hidden' name='page' value='Origines'>
                         <input type='hidden' name='Request' value='Search'>
-                        <input type='submit' value=' '></form>
+                        <input type='submit' class='bouton_1' value=' '></form>
     
                         <form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
-                        <input type='submit' name='Request' value='Ajouter une origine'></form><br>
+                        <input type='submit' class='bouton_1' name='Request' value='Ajouter une origine'></form><br>
                         <table border align=center>;                        
                         ");
                         for($i = 0 ; $i < count($Origins[0]) ; $i++ )
@@ -280,12 +280,12 @@ require("View/ViewBanner.php");
                             <input type='hidden' name='page' value='Origines'>
                             <input type='hidden' name='origin' value='".$Origins[1][$i]."'>
                             <input type='hidden' name='id' value='".$Origins[0][$i]."'>
-                            <input type='submit' name='Request' value='Modifier'></form>
+                            <input type='submit' class='bouton_1' name='Request' value='Modifier'></form>
                             <form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Origines'>
                             <input type='hidden' name='origin' value='".$Origins[1][$i]."'>
                             <input type='hidden' name='id' value='".$Origins[0][$i]."'>
-                            <input type='submit' name='Request' value='Supprimer'></form></td></tr>
+                            <input type='submit' class='bouton_1' name='Request' value='Supprimer'></form></td></tr>
 ";
                         }
                         echo "</table>";                        
@@ -294,14 +294,14 @@ require("View/ViewBanner.php");
                     {
                         echo("
                         <form action='Index.php' method='get'>
-                        <input type='search' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/>
+                        <input type='search' class='text_1'name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/>
                         <input type='hidden' name='page' value='Origines'>
                         <input type='hidden' name='Request' value='Search'>
-                        <input type='submit' value=' '></form>
+                        <input type='submit' class='bouton_1' value=' '></form>
     
                         <form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Origines'>
-                        <input type='submit' name='Request' value='Ajouter une origine'></form><br>                        
+                        <input type='submit' class='bouton_1' name='Request' value='Ajouter une origine'></form><br>                        
                         <br>aucun résultat pour la recherche ".$_GET['Org'].".");                        
                     }
                 }

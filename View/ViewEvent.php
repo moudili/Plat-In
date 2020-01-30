@@ -22,7 +22,7 @@
                     Pas d'évènement créé<br></br>
                     Venez vite en créer ci-dessous !<br></br>
                     <form action='Index.php' method='get'>
-                        <input type='submit' name='event' value='Ajouter un evenement'>
+                        <input type='submit' class='bouton_1' name='event' value='Ajouter un evenement'>
                         <input type='hidden' name='MenuRecipe' value=1>
                         <input type='hidden' name='MenuUser' value=1>
                         <input type='hidden' name='page' value='Evènement'>
@@ -40,7 +40,7 @@
                 {
                     echo("
                     <form action='Index.php' method='get'>
-                        <input type='submit' name='event' value='Ajouter un evenement'>
+                        <input type='submit' class='bouton_1' name='event' value='Ajouter un evenement'>
                         <input type='hidden' name='MenuRecipe' value=1>
                         <input type='hidden' name='MenuUser' value=1>
                         <input type='hidden' name='page' value='Evènement'>
@@ -72,10 +72,10 @@
                             echo("<form action='Index.php' method='get'>
                             <tr><td>".$Events[1][$i]."</td><td>
                             <br>
-                            <input type='submit' name='event' value='Afficher'>
+                            <input type='submit' class='bouton_1' name='event' value='Afficher'>
                             <br></br>
-                            <input type='submit' name='event' value='Modifier'>
-                            <input type='submit' name='event' value='Supprimer'>
+                            <input type='submit' class='bouton_1' name='event' value='Modifier'>
+                            <input type='submit' class='bouton_1' name='event' value='Supprimer'>
                             <input type='hidden' name='evenement' value='".$Events[0][$i]."'>
                             <input type='hidden' name='Name' value='".$Events[1][$i]."'>
                             <input type='hidden' name='page' value='Evènement'>
@@ -87,7 +87,7 @@
                         else if ($Invite==true AND $Moi!=true)
                         {
                             echo("<form action='Index.php' method='get'>
-                            <tr><td>".$Events[1][$i]."</td><td><br><input type='submit' name='event' value='Afficher'><br></td></tr>
+                            <tr><td>".$Events[1][$i]."</td><td><br><input type='submit' class='bouton_1' name='event' value='Afficher'><br></td></tr>
                             <input type='hidden' name='evenement' value='".$Events[0][$i]."'>
                             <input type='hidden' name='Name' value='".$Events[1][$i]."'>
                             <input type='hidden' name='page' value='Evènement'>
@@ -101,8 +101,8 @@
                         echo("<table border=4 align='center'>");
                         for ($i=0;$i<count($Invitation[0]);$i++)
                         {
-                            echo("<tr><td>".$Invitation[1][$i]."</td><td><p><form action='Index.php' method='get'><input type='submit' name='event' value='Accepter'></p>
-                            <p><input type='submit' name='event' value='Refuser'>
+                            echo("<tr><td>".$Invitation[1][$i]."</td><td><p><form action='Index.php' method='get'><input type='submit' class='bouton_1' name='event' value='Accepter'></p>
+                            <p><input type='submit' class='bouton_1' name='event' value='Refuser'>
                             <input type='hidden' name='ID' value='".$Invitation[2][$i]."'>
                             <input type='hidden' name='page' value='Evènement'>
                             </form></p></td><tr>");
@@ -117,7 +117,7 @@
                 echo("
                 Vous avez accepter cette demande d'evenement
                 <form action='Index.php' method='get'>
-                    <input type='submit' value='Retour'>
+                    <input type='submit' class='bouton_1' value='Retour'>
                     <input type='hidden' name='page' value='Evènement'>
                 </form>
                 ");
@@ -127,7 +127,7 @@
                 echo("
                 Vous avez refuser cette demande d'evenement
                 <form action='Index.php' method='get'>
-                    <input type='submit' value='Retour'>
+                    <input type='submit' class='bouton_1' value='Retour'>
                     <input type='hidden' name='page' value='Evènement'>
                 </form>
                 ");
@@ -140,7 +140,7 @@
                     <form action='Index.php' method='get'>
                     <h2>Ajouter un évènement</h2>
                     <br><br>
-                    <p>Titre de l'évènement : <input type='text' name='Name' value=''></p>
+                    <p>Titre de l'évènement : <input type='text' class='text_1'name='Name' value=''></p>
                     <p>Personne à inviter à cette évènement : 
                     <select name='utilisateur0'>");
                     for ($i=0;$i<count($Users[0]);$i++)
@@ -162,7 +162,7 @@
 
                     if ($_GET['MenuUser']<count($Users[0]))
                     {
-                        echo("<input type='submit' name='RequestUser' value='+'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestUser' value='+'>");
                     }
                     echo("</p>
                     <p>Recette disponible : 
@@ -179,17 +179,17 @@
                     <option value='dessert'>un dessert</option>
                     </select></p>
                     <input type='hidden' name='MenuRecipe' value='".$_GET['MenuRecipe']."'>
-                    <p><input type='submit' name='RequestRecipe' value='+'></p>
+                    <p><input type='submit' class='bouton_1' name='RequestRecipe' value='+'></p>
                     <p><input type='date' name='date'><input type='time' name='time'></p>
-                    <p>Lieu de l'évènement : <input type='text' name='location' value=''></p>
+                    <p>Lieu de l'évènement : <input type='text' class='text_1'name='location' value=''></p>
                     Description : 
-                    <p><TEXTAREA name='description' rows=4 cols=40></TEXTAREA></p>
-                    <input type='submit' name='Request' value='Confirmer'>
+                    <p><TEXTAREA class='text_1'name='description' rows=15 cols=90></TEXTAREA></p>
+                    <input type='submit' class='bouton_1' name='Request' value='Confirmer'>
                     <input type='hidden' name='event' value='Ajouter un evenement'>
                     <input type='hidden' name='page' value='Evènement'>
                     </form>
                     <form action='Index.php' method='get'>
-                        <input type='submit' value='Retour'>
+                        <input type='submit' class='bouton_1' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
                     ");
@@ -201,7 +201,7 @@
                     <form action='Index.php' method='get'>
                     <h2>Ajouter un évènement</h2>
                     <br><br>
-                    <p>Titre de l'évènement : <input type='text' name='Name' value='".$_GET['Name']."'></p>
+                    <p>Titre de l'évènement : <input type='text' class='text_1'name='Name' value='".$_GET['Name']."'></p>
                     <p>");
                     for($j = 0 ; $j < $_GET['MenuUser'] ; $j++ )
                     {
@@ -235,11 +235,11 @@
                     echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>");
                     if ($_GET['MenuUser']<count($Users[0]))
                     {
-                        echo("<input type='submit' name='RequestUser' value='+'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestUser' value='+'>");
                     }
                     if($_GET['MenuUser'] > 1 )
                     {
-                        echo("<input type='submit' name='RequestUser' value='-'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestUser' value='-'>");
                     }
 
                     for($j = 0 ; $j < $MenuRecipe ; $j++ )
@@ -289,23 +289,23 @@
                         echo("</select></p>");
                     }
                     echo("<input type='hidden' name='MenuRecipe' value='".$MenuRecipe."'>
-                    <p><input type='submit' name='RequestRecipe' value='+'>");
+                    <p><input type='submit' class='bouton_1' name='RequestRecipe' value='+'>");
                     if($MenuRecipe > 1 )
                     {
-                        echo("<input type='submit' name='RequestRecipe' value='-'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestRecipe' value='-'>");
                     }
 
                     echo("<p><input type='date' name='date' value='".$_GET['date']."'><input type='time' name='time' value='".$_GET['time']."'></p>
-                    <p>Lieu de l'évènement : <input type='text' name='location' value='".$_GET['location']."'></p>
+                    <p>Lieu de l'évènement : <input type='text' class='text_1'name='location' value='".$_GET['location']."'></p>
                     Description : 
-                    <p><TEXTAREA name='description' rows=4 cols=40 value=''>".$_GET['description']."</TEXTAREA></p>
-                    <input type='submit' name='Request' value='Confirmer'>
+                    <p><TEXTAREA class='text_1'name='description' rows=15 cols=90 value=''>".$_GET['description']."</TEXTAREA></p>
+                    <input type='submit' class='bouton_1' name='Request' value='Confirmer'>
                     <input type='hidden' name='event' value='Ajouter un evenement'>
                     <input type='hidden' name='evenement' value='".$_GET['evenement']."'>
                     <input type='hidden' name='page' value='Evènement'>
                     </form>
                     <form action='Index.php' method='get'>
-                        <input type='submit' value='Retour'>
+                        <input type='submit' class='bouton_1' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
                     ");
@@ -317,7 +317,7 @@
                     <form action='Index.php' method='get'>
                     <h2>Ajouter un évènement</h2>
                     <br><br>
-                    <p>Titre de l'évènement : <input type='text' name='Name' value='".$_GET['Name']."'></p>
+                    <p>Titre de l'évènement : <input type='text' class='text_1'name='Name' value='".$_GET['Name']."'></p>
                     <p>");
                     for($j = 0 ; $j < $MenuUser ; $j++ )
                     {
@@ -351,11 +351,11 @@
                     echo("<input type='hidden' name='MenuUser' value='".$MenuUser."'>");
                     if ($MenuUser<count($Users[0]))
                     {
-                        echo("<input type='submit' name='RequestUser' value='+'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestUser' value='+'>");
                     }
                     if($MenuUser > 1 )
                     {
-                        echo("<input type='submit' name='RequestUser' value='-'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestUser' value='-'>");
                     }
 
                     for($j = 0 ; $j < $_GET['MenuRecipe'] ; $j++ )
@@ -405,23 +405,23 @@
                         echo("</select></p>");
                     }
                     echo("<input type='hidden' name='MenuRecipe' value='".$_GET['MenuRecipe']."'>
-                    <p><input type='submit' name='RequestRecipe' value='+'>");
+                    <p><input type='submit' class='bouton_1' name='RequestRecipe' value='+'>");
                     if($_GET['MenuRecipe'] > 1 )
                     {
-                        echo("<input type='submit' name='RequestRecipe' value='-'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestRecipe' value='-'>");
                     }
 
                     echo("<p><input type='date' name='date' value='".$_GET['date']."'><input type='time' name='time' value='".$_GET['time']."'></p>
-                    <p>Lieu de l'évènement : <input type='text' name='location' value='".$_GET['location']."'></p>
+                    <p>Lieu de l'évènement : <input type='text' class='text_1'name='location' value='".$_GET['location']."'></p>
                     Description : 
-                    <p><TEXTAREA name='description' rows=4 cols=40 value=''>".$_GET['description']."</TEXTAREA></p>
-                    <input type='submit' name='Request' value='Confirmer'>
+                    <p><TEXTAREA class='text_1'name='description' rows=15 cols=90 value=''>".$_GET['description']."</TEXTAREA></p>
+                    <input type='submit' class='bouton_1' name='Request' value='Confirmer'>
                     <input type='hidden' name='event' value='Ajouter un evenement'>
                     <input type='hidden' name='evenement' value='".$_GET['evenement']."'>
                     <input type='hidden' name='page' value='Evènement'>
                     </form>
                     <form action='Index.php' method='get'>
-                        <input type='submit' value='Retour'>
+                        <input type='submit' class='bouton_1' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
                     ");
@@ -438,7 +438,7 @@
                     Vous avez bien créé votre évènement !
                     <br><br>
                     <form action='Index.php' method='get'>
-                        <input type='submit' value='Retour'>
+                        <input type='submit' class='bouton_1' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
                     ");
@@ -457,7 +457,7 @@
                     <br>
                     <h3 style='color: red'>Veuillez remplir tous les champs. Si tous les champs sont remplis alors votre nom d'événement est trop long</h3>
                     <br><br>
-                    <p>Titre de l'évènement : <input type='text' name='Name' value='".$_GET['Name']."'></p>
+                    <p>Titre de l'évènement : <input type='text' class='text_1'name='Name' value='".$_GET['Name']."'></p>
                     <p>");
                     for($j = 0 ; $j < $_GET['MenuUser'] ; $j++ )
                     {
@@ -491,12 +491,12 @@
                     echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>");
                     if($_GET['MenuUser'] < count($Users[0]))
                     {
-                        echo("<input type='submit' name='RequestUser' value='+'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestUser' value='+'>");
                     }
             
                     if($_GET['MenuUser'] > 1 )
                     {
-                        echo("<input type='submit' name='RequestUser' value='-'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestUser' value='-'>");
                     }
 
                     for($j = 0 ; $j < $_GET['MenuRecipe'] ; $j++ )
@@ -546,23 +546,23 @@
                         echo("</select></p>");
                     }
                     echo("<input type='hidden' name='MenuRecipe' value='".$_GET['MenuRecipe']."'>
-                    <p><input type='submit' name='RequestRecipe' value='+'>");
+                    <p><input type='submit' class='bouton_1' name='RequestRecipe' value='+'>");
                     if($_GET['MenuRecipe'] > 1 )
                     {
-                        echo("<input type='submit' name='RequestRecipe' value='-'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestRecipe' value='-'>");
                     }
 
                     echo("<p><input type='date' name='date' value='".$_GET['date']."'><input type='time' name='time' value='".$_GET['time']."'></p>
-                    <p>Lieu de l'évènement : <input type='text' name='location' value='".$_GET['location']."'></p>
+                    <p>Lieu de l'évènement : <input type='text' class='text_1'name='location' value='".$_GET['location']."'></p>
                     Description : 
-                    <p><TEXTAREA name='description' rows=4 cols=40 value=''>".$_GET['description']."</TEXTAREA></p>
-                    <input type='submit' name='Request' value='Confirmer'>
+                    <p><TEXTAREA class='text_1'name='description' rows=15 cols=90 value=''>".$_GET['description']."</TEXTAREA></p>
+                    <input type='submit' class='bouton_1' name='Request' value='Confirmer'>
                     <input type='hidden' name='event' value='Ajouter un evenement'>
                     <input type='hidden' name='evenement' value='".$_GET['evenement']."'>
                     <input type='hidden' name='page' value='Evènement'>
                     </form>
                     <form action='Index.php' method='get'>
-                        <input type='submit' value='Retour'>
+                        <input type='submit' class='bouton_1' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
                     ");
@@ -608,7 +608,7 @@
                 }
                 echo("
                 <form action='Index.php' method='get'>
-                    <input type='submit' value='Retour'>
+                    <input type='submit' class='bouton_1' value='Retour'>
                     <input type='hidden' name='page' value='Evènement'>
                 </form>
                 ");
@@ -621,13 +621,13 @@
                     Êtes-vous sur de vouloir supprimer cette recette ?
                     <br><br>
                     <form action='Index.php' method='get'>
-                        <input type='submit' name='Supp' value='Oui'>
+                        <input type='submit' class='bouton_1' name='Supp' value='Oui'>
                         <input type='hidden' name='event' value='Supprimer'>
                         <input type='hidden' name='page' value='Evènement'>
                         <input type='hidden' name='evenement' value='".$_GET['evenement']."'>
                     </form>
                     <form action='Index.php' method='get'>
-                        <input type='submit' value='Non'>
+                        <input type='submit' class='bouton_1' value='Non'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>");
                 }
@@ -636,7 +636,7 @@
                     echo("<br>
                     Vous avez bien supprimé votre évènement !
                     <form action='Index.php' method='get'>
-                        <input type='submit' value='Retour'>
+                        <input type='submit' class='bouton_1' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>");
                 }
@@ -651,7 +651,7 @@
                     <form action='Index.php' method='get'>
                     Vous etes en train de modifier l'événement : ".$_GET['Name']);
                     echo("<br><br>
-                    <p>Titre de l'évènement : <input type='text' name='Name' value='".$SelectEvent[1]."'></p>");
+                    <p>Titre de l'évènement : <input type='text' class='text_1'name='Name' value='".$SelectEvent[1]."'></p>");
                     $Listes=array();
                     $verif=true;
                     $valeur=0;
@@ -726,11 +726,11 @@
                     echo("<input type='hidden' name='MenuUser' value='".$MenuUser."'>");
                     if ($MenuUser<count($Users[0]))
                     {
-                        echo("<input type='submit' name='RequestUser' value='+'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestUser' value='+'>");
                     }
                     if($MenuUser > 1 )
                     {
-                        echo("<input type='submit' name='RequestUser' value='-'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestUser' value='-'>");
                     }
                     echo("</p>");
                     $Listes=array();
@@ -816,22 +816,22 @@
                         echo("</select></p>");
                     }
                     echo("<input type='hidden' name='MenuRecipe' value='".$MenuRecipe."'>
-                    <p><input type='submit' name='RequestRecipe' value='+'>");
+                    <p><input type='submit' class='bouton_1' name='RequestRecipe' value='+'>");
                     if($MenuRecipe > 1 )
                     {
-                        echo("<input type='submit' name='RequestRecipe' value='-'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestRecipe' value='-'>");
                     }
                     echo("</p><p><input type='date' name='date' value='".$SelectEvent[3]."'><input type='time' name='time' value='".$SelectEvent[2]."'></p>
-                    <p>Lieu de l'évènement : <input type='text' name='location' value='".$SelectEvent[4]."'></p>
+                    <p>Lieu de l'évènement : <input type='text' class='text_1'name='location' value='".$SelectEvent[4]."'></p>
                     Description : 
-                    <p><TEXTAREA name='description' rows=4 cols=40 value=''>".$SelectEvent[5]."</TEXTAREA></p>
-                    <input type='submit' name='Request' value='Confirmer'>
+                    <p><TEXTAREA class='text_1'name='description' rows=15 cols=90 value=''>".$SelectEvent[5]."</TEXTAREA></p>
+                    <input type='submit' class='bouton_1' name='Request' value='Confirmer'>
                     <input type='hidden' name='event' value='Modifier'>
                     <input type='hidden' name='evenement' value='".$_GET['evenement']."'>
                     <input type='hidden' name='page' value='Evènement'>
                     </form>
                     <form action='Index.php' method='get'>
-                        <input type='submit' value='Retour'>
+                        <input type='submit' class='bouton_1' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
                     ");
@@ -843,7 +843,7 @@
                     <form action='Index.php' method='get'>
                     Vous etes en train de modifier l'événement : ".$_GET['Name']);
                     echo("<br><br>
-                    <p>Titre de l'évènement : <input type='text' name='Name' value='".$_GET['Name']."'></p>");
+                    <p>Titre de l'évènement : <input type='text' class='text_1'name='Name' value='".$_GET['Name']."'></p>");
 
                     for($j = 0 ; $j < $_GET['MenuUser'] ; $j++ )
                     {
@@ -877,11 +877,11 @@
                     echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>");
                     if ($_GET['MenuUser']<count($Users[0]))
                     {
-                        echo("<input type='submit' name='RequestUser' value='+'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestUser' value='+'>");
                     }
                     if($_GET['MenuUser'] > 1 )
                     {
-                        echo("<input type='submit' name='RequestUser' value='-'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestUser' value='-'>");
                     }
 
                     for($j = 0 ; $j < $MenuRecipe ; $j++ )
@@ -931,23 +931,23 @@
                         echo("</select></p>");
                     }
                     echo("<input type='hidden' name='MenuRecipe' value='".$MenuRecipe."'>
-                    <p><input type='submit' name='RequestRecipe' value='+'>");
+                    <p><input type='submit' class='bouton_1' name='RequestRecipe' value='+'>");
                     if($MenuRecipe > 1 )
                     {
-                        echo("<input type='submit' name='RequestRecipe' value='-'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestRecipe' value='-'>");
                     }
 
                     echo("<p><input type='date' name='date' value='".$_GET['date']."'><input type='time' name='time' value='".$_GET['time']."'></p>
-                    <p>Lieu de l'évènement : <input type='text' name='location' value='".$_GET['location']."'></p>
+                    <p>Lieu de l'évènement : <input type='text' class='text_1'name='location' value='".$_GET['location']."'></p>
                     Description : 
-                    <p><TEXTAREA name='description' rows=4 cols=40 value=''>".$_GET['description']."</TEXTAREA></p>
-                    <input type='submit' name='Request' value='Confirmer'>
+                    <p><TEXTAREA class='text_1'name='description' rows=15 cols=90 value=''>".$_GET['description']."</TEXTAREA></p>
+                    <input type='submit' class='bouton_1' name='Request' value='Confirmer'>
                     <input type='hidden' name='event' value='Modifier'>
                     <input type='hidden' name='evenement' value='".$_GET['evenement']."'>
                     <input type='hidden' name='page' value='Evènement'>
                     </form>
                     <form action='Index.php' method='get'>
-                        <input type='submit' value='Retour'>
+                        <input type='submit' class='bouton_1' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
                     ");
@@ -959,7 +959,7 @@
                     <form action='Index.php' method='get'>
                     Vous etes en train de modifier l'événement : ".$_GET['Name']);
                     echo("<br><br>
-                    <p>Titre de l'évènement : <input type='text' name='Name' value='".$_GET['Name']."'></p>");
+                    <p>Titre de l'évènement : <input type='text' class='text_1'name='Name' value='".$_GET['Name']."'></p>");
 
                     for($j = 0 ; $j < $MenuUser ; $j++ )
                     {
@@ -993,11 +993,11 @@
                     echo("<input type='hidden' name='MenuUser' value='".$MenuUser."'>");
                     if ($MenuUser<count($Users[0]))
                     {
-                        echo("<input type='submit' name='RequestUser' value='+'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestUser' value='+'>");
                     }
                     if($MenuUser > 1 )
                     {
-                        echo("<input type='submit' name='RequestUser' value='-'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestUser' value='-'>");
                     }
 
                     for($j = 0 ; $j < $_GET['MenuRecipe'] ; $j++ )
@@ -1047,23 +1047,23 @@
                         echo("</select></p>");
                     }
                     echo("<input type='hidden' name='MenuRecipe' value='".$_GET['MenuRecipe']."'>
-                    <p><input type='submit' name='RequestRecipe' value='+'>");
+                    <p><input type='submit' class='bouton_1' name='RequestRecipe' value='+'>");
                     if($_GET['MenuRecipe'] > 1 )
                     {
-                        echo("<input type='submit' name='RequestRecipe' value='-'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestRecipe' value='-'>");
                     }
 
                     echo("<p><input type='date' name='date' value='".$_GET['date']."'><input type='time' name='time' value='".$_GET['time']."'></p>
-                    <p>Lieu de l'évènement : <input type='text' name='location' value='".$_GET['location']."'></p>
+                    <p>Lieu de l'évènement : <input type='text' class='text_1'name='location' value='".$_GET['location']."'></p>
                     Description : 
-                    <p><TEXTAREA name='description' rows=4 cols=40 value=''>".$_GET['description']."</TEXTAREA></p>
-                    <input type='submit' name='Request' value='Confirmer'>
+                    <p><TEXTAREA class='text_1'name='description' rows=15 cols=90 value=''>".$_GET['description']."</TEXTAREA></p>
+                    <input type='submit' class='bouton_1' name='Request' value='Confirmer'>
                     <input type='hidden' name='event' value='Modifier'>
                     <input type='hidden' name='evenement' value='".$_GET['evenement']."'>
                     <input type='hidden' name='page' value='Evènement'>
                     </form>
                     <form action='Index.php' method='get'>
-                        <input type='submit' value='Retour'>
+                        <input type='submit' class='bouton_1' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
                     ");
@@ -1075,7 +1075,7 @@
                     <form action='Index.php' method='get'>
                     <h3 style='color: red'>Nom de l'évènement trop long</h3>");
                     echo("<br>
-                    <p>Titre de l'évènement : <input type='text' name='Name' value='".$_GET['Name']."'></p>");
+                    <p>Titre de l'évènement : <input type='text' class='text_1'name='Name' value='".$_GET['Name']."'></p>");
 
                     for($j = 0 ; $j < $_GET['MenuUser'] ; $j++ )
                     {
@@ -1109,12 +1109,12 @@
                     echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>");
                     if ($_GET['MenuUser']<count($Users[0]))
                     {
-                        echo("<input type='submit' name='RequestUser' value='+'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestUser' value='+'>");
                     }
 
                     if($_GET['MenuUser'] > 1 )
                     {
-                        echo("<input type='submit' name='RequestUser' value='-'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestUser' value='-'>");
                     }
 
                     for($j = 0 ; $j < $_GET['MenuRecipe'] ; $j++ )
@@ -1164,24 +1164,24 @@
                         echo("</select></p>");
                     }
                     echo("<input type='hidden' name='MenuRecipe' value='".$_GET['MenuRecipe']."'>
-                    <p><input type='submit' name='RequestRecipe' value='+'>");
+                    <p><input type='submit' class='bouton_1' name='RequestRecipe' value='+'>");
 
                     if($_GET['MenuRecipe'] > 1 )
                     {
-                        echo("<input type='submit' name='RequestRecipe' value='-'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestRecipe' value='-'>");
                     }
 
                     echo("<p><input type='date' name='date' value='".$_GET['date']."'><input type='time' name='time' value='".$_GET['time']."'></p>
-                    <p>Lieu de l'évènement : <input type='text' name='location' value='".$_GET['location']."'></p>
+                    <p>Lieu de l'évènement : <input type='text' class='text_1'name='location' value='".$_GET['location']."'></p>
                     Description : 
-                    <p><TEXTAREA name='description' rows=4 cols=40 value=''>".$_GET['description']."</TEXTAREA></p>
-                    <input type='submit' name='Request' value='Confirmer'>
+                    <p><TEXTAREA class='text_1'name='description' rows=15 cols=90 value=''>".$_GET['description']."</TEXTAREA></p>
+                    <input type='submit' class='bouton_1' name='Request' value='Confirmer'>
                     <input type='hidden' name='event' value='Modifier'>
                     <input type='hidden' name='evenement' value='".$_GET['evenement']."'>
                     <input type='hidden' name='page' value='Evènement'>
                     </form>
                     <form action='Index.php' method='get'>
-                        <input type='submit' value='Retour'>
+                        <input type='submit' class='bouton_1' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
                     ");
@@ -1198,7 +1198,7 @@
                     Vous etes en train de modifier l'événement : ".$_GET['Name']."<br><br>
                     <h3 style='color: red'>Veuillez remplir tous les champs</h3>");
                     echo("<br>
-                    <p>Titre de l'évènement : <input type='text' name='Name' value='".$_GET['Name']."'></p>");
+                    <p>Titre de l'évènement : <input type='text' class='text_1'name='Name' value='".$_GET['Name']."'></p>");
 
                     for($j = 0 ; $j < $_GET['MenuUser'] ; $j++ )
                     {
@@ -1232,12 +1232,12 @@
                     echo("<input type='hidden' name='MenuUser' value='".$_GET['MenuUser']."'>");
                     if($_GET['MenuUser'] < count($Users[0]))
                     {
-                        echo("<input type='submit' name='RequestUser' value='+'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestUser' value='+'>");
                     }
             
                     if($_GET['MenuUser'] > 1 )
                     {
-                        echo("<input type='submit' name='RequestUser' value='-'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestUser' value='-'>");
                     }
 
                     for($j = 0 ; $j < $_GET['MenuRecipe'] ; $j++ )
@@ -1287,23 +1287,23 @@
                         echo("</select></p>");
                     }
                     echo("<input type='hidden' name='MenuRecipe' value='".$_GET['MenuRecipe']."'>
-                    <p><input type='submit' name='RequestRecipe' value='+'>");
+                    <p><input type='submit' class='bouton_1' name='RequestRecipe' value='+'>");
                     if($_GET['MenuRecipe'] > 1 )
                     {
-                        echo("<input type='submit' name='RequestRecipe' value='-'>");
+                        echo("<input type='submit' class='bouton_1' name='RequestRecipe' value='-'>");
                     }
 
                     echo("<p><input type='date' name='date' value='".$_GET['date']."'><input type='time' name='time' value='".$_GET['time']."'></p>
-                    <p>Lieu de l'évènement : <input type='text' name='location' value='".$_GET['location']."'></p>
+                    <p>Lieu de l'évènement : <input type='text' class='text_1'name='location' value='".$_GET['location']."'></p>
                     Description : 
-                    <p><TEXTAREA name='description' rows=4 cols=40 value=''>".$_GET['description']."</TEXTAREA></p>
-                    <input type='submit' name='Request' value='Confirmer'>
+                    <p><TEXTAREA class='text_1'name='description' rows=15 cols=90 value=''>".$_GET['description']."</TEXTAREA></p>
+                    <input type='submit' class='bouton_1' name='Request' value='Confirmer'>
                     <input type='hidden' name='event' value='Modifier'>
                     <input type='hidden' name='evenement' value='".$_GET['evenement']."'>
                     <input type='hidden' name='page' value='Evènement'>
                     </form>
                     <form action='Index.php' method='get'>
-                        <input type='submit' value='Retour'>
+                        <input type='submit' class='bouton_1' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
                     ");
@@ -1319,7 +1319,7 @@
                     Vous avez bien modifié votre évènement !
                     <br><br>
                     <form action='Index.php' method='get'>
-                        <input type='submit' value='Retour'>
+                        <input type='submit' class='bouton_1' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>
                     ");

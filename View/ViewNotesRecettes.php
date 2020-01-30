@@ -31,7 +31,7 @@ require("View/ViewBanner.php");
                 <input type='hidden' name='note' value='".$Note[0][$i]."'>
                 <input type='hidden' name='nom' value='".$Note[2][$i]."'>
                 <input type='hidden' name='id' value='".$Note[3][$i]."'>
-                <input type='submit' name='Request' value='Supprimer'></td>
+                <input type='submit' class='bouton_1' name='Request' value='Supprimer'></td>
                 </tr></p></form>");
             }
         }
@@ -45,11 +45,11 @@ require("View/ViewBanner.php");
             <input type='hidden' name='id' value='".$_GET['id']."'>
             <input type='hidden' name='note' value='".$_GET['note']."'>
             <input type='hidden' name='nom' value='".$_GET['nom']."'>
-            <input type='submit' name='Request' value='Oui'>
+            <input type='submit' class='bouton_1' name='Request' value='Oui'>
             </form>
             <form action='Index.php' method='get'>
             <input type='hidden' name='page' value='Notes recettes'>
-            <input type='submit' value='Non'>
+            <input type='submit' class='bouton_1' value='Non'>
             </form>");
         }
         else if ($_GET['Request']=="Oui" AND $_GET['RequestSupp']=='ok')
@@ -59,7 +59,7 @@ require("View/ViewBanner.php");
             </br></br>
             <form action='Index.php' method='get'>
             <input type='hidden' name='page' value='Notes recettes'>
-            <input type='submit' value='Retour'>
+            <input type='submit' class='bouton_1' value='Retour'>
             </form>");
         }     
 
