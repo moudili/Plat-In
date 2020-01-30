@@ -62,7 +62,8 @@
                                 {
                                     $Note[$i]=round($Note[$i], 1);
                                     echo("<form action='Index.php' method='get'>
-                                    <tr><td><p>".$Recipes[0][$i]."</p>
+                                    <tr><td align='center'><img src='Pictures/recipe.png' alt='' width='200'>
+                                    <p>".$Recipes[0][$i]."</p>
                                     <p>Créer par : ".$Recipes[5][$i]."
                                     <p>Note des utilisateurs : ".$Note[$i]."/5</p></td>
                                     <td><input type='submit' name='Request' value='Afficher'>
@@ -84,7 +85,8 @@
                                 else
                                 {
                                     echo("<form action='Index.php' method='get'>
-                                    <tr><td><p>".$Recipes[0][$i]."</p>
+                                    <tr><td align='center'><img src='Pictures/recipe.png' alt='' width='200'>
+                                    <p>".$Recipes[0][$i]."</p>
                                     <p>Créer par : ".$Recipes[5][$i]."
                                     <p>Note des utilisateurs : ".$Note[$i]."</p></td>
                                     <td><input type='submit' name='Request' value='Afficher'>
@@ -255,13 +257,14 @@
                                     {
                                         $Note[$i]=round($Note[$i], 1);
                                         echo("<form action='Index.php' method='get'>
-                                        <tr><td><p>".$Recipes[0][$i]."</p>
+                                        <tr><td align='center'><img src='Pictures/recipe.png' alt='' width='200'>
+                                        <p>".$Recipes[0][$i]."</p>
                                         <p>Créer par : ".$Recipes[5][$i]."</p>
                                         <p>Note des utilisateurs : ".$Note[$i]."/5</p></td>
-                                        <td><input type='submit' name='Request' value='Afficher'></br>
+                                        <td align='center'><input type='submit' name='Request' value='Afficher'></br><br>
                                         <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
                                         <input type='hidden' name='page' value='Recette'>
-                                        <input type='submit' name='Request' value='Modifier'>
+                                        <input type='submit' name='Request' value='Modifier'></br><br>
                                         <input type='hidden' name='Menu' value=1>
                                         <input type='submit' name='Request' value='Supprimer'></td></tr></p>");
                                         if(!empty($_GET['Org']))
@@ -280,13 +283,14 @@
                                     else
                                     {
                                         echo("<form action='Index.php' method='get'>
-                                        <tr><td><p>".$Recipes[0][$i]."</p>
+                                        <tr><td align='center'><img src='Pictures/recipe.png' alt='' width='200'>
+                                        <p>".$Recipes[0][$i]."</p>
                                         <p>Créer par : ".$Recipes[5][$i]."</p>
                                         <p>Note des utilisateurs : ".$Note[$i]."</p></td>
-                                        <td><input type='submit' name='Request' value='Afficher'></br>
+                                        <td align='center'><input type='submit' name='Request' value='Afficher'></br><br>
                                         <input type='hidden' name='id' value='".$Recipes[6][$i]."'>
                                         <input type='hidden' name='page' value='Recette'>
-                                        <input type='submit' name='Request' value='Modifier'>
+                                        <input type='submit' name='Request' value='Modifier'><br><br>
                                         <input type='hidden' name='Menu' value=1>
                                         <input type='submit' name='Request' value='Supprimer'></td></tr></p>");
                                         if(!empty($_GET['Org']))

@@ -19,8 +19,7 @@
         <input type='submit' value="Amis"></form>
         <form action='Index.php' method='get'>
         <input type='hidden' name='page' value='Social'>
-        <input type='hidden' name='Request' value="Demande amis">
-        <input type='submit' value="Demande d'amis"></form>
+        <input type='hidden' name='Request' value="Demande amis"></form>
         
         <?php
             
@@ -225,7 +224,7 @@
                  
                     <input type='hidden' name='id' value='".$Myfriend["ID"]."'>
                     <input type='hidden' name='User' value='".$Myfriend["user"]."'>
-
+                    <img src='Pictures/random_user.svg' alt='' width='200'>
                     <br><input type='submit' name='' value='Supprimer'></form>
 
                     <br> <br>");
