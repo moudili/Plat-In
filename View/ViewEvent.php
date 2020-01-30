@@ -89,6 +89,7 @@
                             echo("<form action='Index.php' method='get'>
                             <tr><td>".$Events[1][$i]."</td><td><br><input type='submit' name='event' value='Afficher'><br></td></tr>
                             <input type='hidden' name='evenement' value='".$Events[0][$i]."'>
+                            <input type='hidden' name='Name' value='".$Events[1][$i]."'>
                             <input type='hidden' name='page' value='Evènement'>
                             </form>");
                         }
@@ -569,28 +570,29 @@
             }
             else if ($_GET['event']=='Afficher')
             {
-                echo("");
                 for ($i=0;$i<count($PrintEvent[0]);$i++)
                 {
-                    if($PrintEvent[0][$i]==$_GET['evenement'] AND ($i == 0 || $PrintEvent[1][$i] != $PrintEvent[1][$i-1]))
+                    if($PrintEvent[0][$i]==$_GET['evenement'])
                     {
                         echo("<h1>".$PrintEvent[1][$i]."</h1>
                         <p>Date : ".$PrintEvent[3][$i]." Heure : ".$PrintEvent[2][$i]."</p>
                         <p>Lieu : ".$PrintEvent[4][$i]."
                         <p>Personne invité : </p>");
+                    break;
                     } 
                 }
                 for ($i=0;$i<count($PrintUser[0]);$i++)
                 {
-                    if ($PrintUser[0][$i]==$_GET['evenement'] AND ($i == 0 || $PrintUser[1][$i] != $PrintUser[1][$i-1]))
+                    if ($PrintUser[0][$i]==$_GET['evenement'])
                     {
+                    
                         echo("
                         <p>".$PrintUser[2][$i]."<p>");
                     }
                 }
                 for ($i=0;$i<count($PrintEvent[0]);$i++)
                 {
-                    if ($PrintEvent[0][$i]==$_GET['evenement'] AND ($i == 0 || $PrintEvent[6][$i] != $PrintEvent[6][$i-1]))
+                    if ($PrintEvent[0][$i]==$_GET['evenement'])
                     {
                         echo("<p>Recette : ".$PrintEvent[8][$i]."</p>
                         <p>Type de recette : ".$PrintEvent[7][$i]."</p>");
@@ -598,9 +600,10 @@
                 }
                 for ($i=0;$i<count($PrintEvent[0]);$i++)
                 {
-                    if ($PrintEvent[0][$i]==$_GET['evenement'] AND ($i == 0 || $PrintEvent[1][$i] != $PrintEvent[1][$i-1]))
+                    if ($PrintEvent[0][$i]==$_GET['evenement'])
                     {
                         echo(nl2br("<p>Description : ".$PrintEvent[5][$i]));
+                        break;
                     }
                 }
                 echo("

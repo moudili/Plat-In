@@ -5,6 +5,36 @@
     background-color: rgba(240, 0, 0, 0.2);
     }*/
 
+
+.arriereprofil
+{
+    background-color: grey;
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    flex-grow: 1;
+       
+}
+
+.profil
+{
+    background-color: darkgrey;
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    border-top: hidden;
+    border-bottom: hidden;   
+}
+
+.sousprofil
+{
+    justify-content: center;
+    flex-shrink: 1;
+
+}
+
 .banner1{
 background-color:whitesmoke;
 border: thick double gray;
@@ -26,7 +56,7 @@ display: flex;
     }
 
 
-.skrink{
+.shrink{
     flex-shrink: 1;
 }
 

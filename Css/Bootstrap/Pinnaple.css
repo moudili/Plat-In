@@ -1,0 +1,16 @@
+/* Background styles */
+.pinnaple {
+	background-image: "Pictures/chefs-hat.webp";
+	/*background-color: #f9d8d4;*/
+	background-size: 180px 210px;
+	animation: animatedBackground 0.5s cubic-bezier(0.61, -0.64, 0.58, 1.46) forwards;
+}
+/* Animation */
+@keyframes animatedBackground {
+	from {
+		background-position: 0 50%;
+   }
+	to {
+		background-position: 0 0;
+   }
+}
