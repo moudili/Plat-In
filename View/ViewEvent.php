@@ -630,10 +630,10 @@
                 }
                 else if ($_GET['Supp']=='Oui')
                 {
-                    echo("
+                    echo("<br>
                     Vous avez bien supprimé votre évènement !
                     <form action='Index.php' method='get'>
-                        <input type='submit' value='Non'>
+                        <input type='submit' value='Retour'>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>");
                 }
