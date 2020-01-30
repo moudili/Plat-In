@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="Css/Bootstrap/background.css">
     <link rel="stylesheet" href="Css/Bootstrap/css/bootstrap-grid.css">
     </head>
-    <body>
+    <body >
         <!--affiche le haut de la banner -->
         <div class="banner1 row justify-content-between px-5" >
             <div>
@@ -45,18 +45,21 @@
                 }    
             ?>
            
-           <div>
+           <div class='ghetto'>
         <!--partie statut -->
 
             <?php
 
                 if($_SESSION['Co']==false)
                 {
-            ?>
+            ?>      <div>
                     <form action='Index.php' method='get'>
                     <input type='submit' name="page" value="Inscription"></form>
+                    </div>
+                    <div>
                     <form action='Index.php' method='get'>
                     <input type='submit' name="page" value="Connexion"></form>
+                    </div>
             <?php
                 }
                 else        
@@ -67,8 +70,8 @@
             <?php
                 }
             ?>
-             </div>
-        </div>
+            </div>
+    </div>
         <!--affiche le menu -->
 
         <?php

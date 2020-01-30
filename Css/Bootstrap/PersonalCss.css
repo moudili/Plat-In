@@ -1,5 +1,10 @@
-div {margin: 4px;padding: 4px;border: 1px solid black;background-color: rgba(240, 0, 0, 0.2);}   
+/* div {margin: 4px;padding: 4px;border: 1px solid black;background-color: rgba(240, 0, 0, 0.2);}    */
 
+html,body{
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
 
 .arriereprofil
 {
@@ -25,7 +30,7 @@ div {margin: 4px;padding: 4px;border: 1px solid black;background-color: rgba(240
 
 .profil
 {
-    background-color: darkgrey;
+    background-color: rgba(238,217,143,0.8);
     display:flex ;
     flex-direction: column;
     align-items: center;
@@ -42,22 +47,28 @@ div {margin: 4px;padding: 4px;border: 1px solid black;background-color: rgba(240
     flex-shrink: 1; 
     border-bottom: ridge;
 }
+.sticky{
+    position: -webkit-sticky;
+position: sticky;
+}
 
 .banner1{
-position: -webkit-sticky;
-position: sticky;
-top: 0px;
 background-color:whitesmoke;
 border: thick double gray;
+margin: 0px;
 }
 
 .banner2{
-position: -webkit-sticky;
-position: sticky;
-top: 18%;
 background-color: whitesmoke;
 border: thick double gray;
 border-top-style: none;
+margin: 0px;
+}
+
+.column
+{
+    display: flex;
+    flex-direction: column !important;
 }
 
 .row
@@ -69,10 +80,21 @@ border-top-style: none;
 
 .recetterecherche
 {
-    background-color: seashell;
+    background-color: rgba(238,217,143,0.9);
     border-style: groove;
     border-color: slategrey;
     flex-grow: 1;
+    padding: 4px;
+}
+
+.ghetto
+{
+    padding-top: 2%;
+}
+
+.middle
+{
+    align-items: center;
 }
 
 .center

@@ -1,13 +1,11 @@
 <html>
     <head>
-        <title>Préférences alimentaires</title>   
+        <title>Préférences alimentaires</title>
+        <link rel="stylesheet" href="/Projet/Plat-In/Css/Bootstrap/PersonalCss.css">
+        <link rel="stylesheet" href="/Projet/Plat-In/Css/Bootstrap/background.css">
     </head>
-    <style>
-         body{
-            text-align: center;
-            }
-    </style> 
-    <body>
+
+    <body class="backgroundhat center">
 
         <?php
 
@@ -16,7 +14,7 @@
             if($_GET['Request'] == '+' || $_GET['Request'] == '-' || $_GET['Request'] == 'Valider')
             {
                 echo"<form action='../Controller/ControllerPreferences.php' method='get'>
-                Préférences alimentaires<br><br>
+                <div class='arriereplan'><div class='profil'>Préférences alimentaires<br><br></div>
                 Séléctionner un ou plusieurs régimes alimentaires si nécessaire:<br><br>";
                 
                 for($j = 0 ; $j < $Menu ; $j++)
@@ -98,7 +96,7 @@
         else
         {
             echo"<form action='../Controller/ControllerPreferences.php' method='get'>
-            Préférences alimentaires<br><br>
+            <div class='arriereplan'><div class='profil'>Préférences alimentaires<br><br></div>
             Séléctionner un ou plusieurs régimes alimentaires si nécessaire:<br><br>
             <select name='Diet0'>
             <option value=''>Aucun</option>";
