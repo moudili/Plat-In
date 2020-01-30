@@ -54,8 +54,26 @@
                     {
                         echo"<table border=4 align='center'>
                         <p>Recettes";
+
+                        
                         for ($i=0;$i<count($Recipes[0]);$i++)
                         {
+                            $Food = "";
+                            $CountRecipes = 0;
+    
+                            for ($j=$i ; $j<count($Recipes[0]) ; $j++)
+                            {
+                                if($j == count($Recipes[0])-1 || $Recipes[6][$j] == $Recipes[6][$j+1])
+                                {
+                                    $Food = $Food.$Recipes[8][$j].",";
+                                }
+                                else
+                                {
+                                    $Food = $Food.$Recipes[8][$j];
+                                    break 1;
+                                }
+                            }
+                                
                             if($i == 0 || $Recipes[6][$i] != $Recipes[6][$i-1])
                             {
                                 if ($Note[$i]>0 AND $Note[$i]<=5)
@@ -64,6 +82,7 @@
                                     echo("<form action='Index.php' method='get'>
                                     <tr><td align='center'><img src='Pictures/recipe.png' alt='' width='200'>
                                     <p>".$Recipes[0][$i]."</p>
+                                    <p>Ingédients:".$Food."</p>
                                     <p>Créer par : ".$Recipes[5][$i]."
                                     <p>Note des utilisateurs : ".$Note[$i]."/5</p></td>
                                     <td><input type='submit' name='Request' value='Afficher'>
@@ -87,6 +106,7 @@
                                     echo("<form action='Index.php' method='get'>
                                     <tr><td align='center'><img src='Pictures/recipe.png' alt='' width='200'>
                                     <p>".$Recipes[0][$i]."</p>
+                                    <p>Ingédients:".$Food."</p>
                                     <p>Créer par : ".$Recipes[5][$i]."
                                     <p>Note des utilisateurs : ".$Note[$i]."</p></td>
                                     <td><input type='submit' name='Request' value='Afficher'>
@@ -249,6 +269,23 @@
                         <p>Recettes";
                         for ($i=0;$i<count($Recipes[0]);$i++)
                         {
+
+                            $Food = "";
+                            $CountRecipes = 0;
+    
+                            for ($j=$i ; $j<count($Recipes[0]) ; $j++)
+                            {
+                                if($j == count($Recipes[0])-1 || $Recipes[6][$j] == $Recipes[6][$j+1])
+                                {
+                                    $Food = $Food.$Recipes[8][$j].",";
+                                }
+                                else
+                                {
+                                    $Food = $Food.$Recipes[8][$j];
+                                    break 1;
+                                }
+                            }
+
                             if($i == 0 || $Recipes[6][$i] != $Recipes[6][$i-1])
                             {
 
@@ -260,6 +297,7 @@
                                         echo("<form action='Index.php' method='get'>
                                         <tr><td align='center'><img src='Pictures/recipe.png' alt='' width='200'>
                                         <p>".$Recipes[0][$i]."</p>
+                                        <p>Ingédients:".$Food."</p>
                                         <p>Créer par : ".$Recipes[5][$i]."</p>
                                         <p>Note des utilisateurs : ".$Note[$i]."/5</p></td>
                                         <td align='center'><input type='submit' name='Request' value='Afficher'></br><br>
@@ -286,6 +324,7 @@
                                         echo("<form action='Index.php' method='get'>
                                         <tr><td align='center'><img src='Pictures/recipe.png' alt='' width='200'>
                                         <p>".$Recipes[0][$i]."</p>
+                                        <p>Ingédients:".$Food."</p>
                                         <p>Créer par : ".$Recipes[5][$i]."</p>
                                         <p>Note des utilisateurs : ".$Note[$i]."</p></td>
                                         <td align='center'><input type='submit' name='Request' value='Afficher'></br><br>
@@ -314,7 +353,8 @@
                                     {
                                         $Note[$i]=round($Note[$i], 1);
                                         echo("<form action='Index.php' method='get'>
-                                        <tr><td><p>".$Recipes[0][$i]."</p>
+                                        <tr><td><img src='Pictures/recipe.png' alt='' width='200'>
+                                        <p>".$Recipes[0][$i]."</p>
                                         <p>Créer par : ".$Recipes[5][$i]."</p>
                                         <p>Note des utilisateurs : ".$Note[$i]."/5</p></td>
                                         <td><input type='submit' name='Request' value='Afficher'>
@@ -336,7 +376,8 @@
                                     else
                                     {
                                         echo("<form action='Index.php' method='get'>
-                                        <tr><td><p>".$Recipes[0][$i]."</p>
+                                        <tr><td><img src='Pictures/recipe.png' alt='' width='200'>
+                                        <p>".$Recipes[0][$i]."</p>
                                         <p>Créer par : ".$Recipes[5][$i]."</p>
                                         <p>Note des utilisateurs : ".$Note[$i]."</p></td>
                                         <td><input type='submit' name='Request' value='Afficher'>

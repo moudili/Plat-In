@@ -77,15 +77,15 @@
                 ?>
                     <div class="banner2 row justify-content-around">
                         <form action='Index.php' method='get'>
-                        <input type='submit' value="Accueil"></form>
+                        <input type='submit' class="bouton_1" value="Accueil"></form>
                         <form action='Index.php' method='get'>
-                        <input type='submit' name="page" value="Recette"></form>
+                        <input type='submit' name="page" class="bouton_1" value="Recette"></form>
+                        <form action='Index.php'  method='get'>
+                        <input type='submit' name="page" class="bouton_1" value="Evènement"></form>
+                        <form action='Index.php'  method='get'>
+                        <input type='submit' name="page" class="bouton_1" value="Profil"></form>
                         <form action='Index.php' method='get'>
-                        <input type='submit' name="page" value="Evènement"></form>
-                        <form action='Index.php' method='get'>
-                        <input type='submit' name="page" value="Profil"></form>
-                        <form action='Index.php' method='get'>
-                        <input type='submit' name="page" value='Social'></form>            
+                        <input type='submit' name="page" class="bouton_1" value='Social'></form>            
                     </div>
                 <?php
             }
