@@ -126,18 +126,13 @@ table{
 	color:#fff;
 }
 
-.bouton_1:hover, .bouton_1:focus {
-    
-    padding:12px 12px 12px 12px;
-}
-
 .text_1 {
     border: 3px solid #bc1948;
     border-radius:12px;
     padding:5px 10px 5px 10px;    
 }
 
-.text_1:focus {
-    
-    padding:5px 10px 5px 10px;
+input:focus
+{
+border: none;
 }
