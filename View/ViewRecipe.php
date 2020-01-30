@@ -352,7 +352,8 @@
                                     {
                                         $Note[$i]=round($Note[$i], 1);
                                         echo("<form action='Index.php' method='get'>
-                                        <tr><td><p>".$Recipes[0][$i]."</p>
+                                        <tr><td><img src='Pictures/recipe.png' alt='' width='200'>
+                                        <p>".$Recipes[0][$i]."</p>
                                         <p>Créer par : ".$Recipes[5][$i]."</p>
                                         <p>Note des utilisateurs : ".$Note[$i]."/5</p></td>
                                         <td><input type='submit' name='Request' value='Afficher'>
@@ -374,7 +375,8 @@
                                     else
                                     {
                                         echo("<form action='Index.php' method='get'>
-                                        <tr><td><p>".$Recipes[0][$i]."</p>
+                                        <tr><td><img src='Pictures/recipe.png' alt='' width='200'>
+                                        <p>".$Recipes[0][$i]."</p>
                                         <p>Créer par : ".$Recipes[5][$i]."</p>
                                         <p>Note des utilisateurs : ".$Note[$i]."</p></td>
                                         <td><input type='submit' name='Request' value='Afficher'>
