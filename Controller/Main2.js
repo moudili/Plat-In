@@ -28,7 +28,7 @@ $(function() {
         }
         else if(User.length == 0)
         {
-            document.getElementById("User").style.borderColor="";
+            //document.getElementById("User").style.borderColor="";
         }
 
         //First Name
@@ -49,7 +49,7 @@ $(function() {
         }
         else if(FirstName.length == 0)
         {
-            document.getElementById("FirstName").style.borderColor="";
+            //document.getElementById("FirstName").style.borderColor="";
         }
 
         //LastName
@@ -70,7 +70,7 @@ $(function() {
         }
         else if(LastName.length == 0)
         {
-            document.getElementById("LastName").style.borderColor="";
+            //document.getElementById("LastName").style.borderColor="";
         }
 
         //Adress
@@ -92,7 +92,7 @@ $(function() {
         }
         else if(Adress.length == 0)
         {
-            document.getElementById("Adress").style.borderColor="";
+            //document.getElementById("Adress").style.borderColor="";
         }
 
         //Mail
@@ -113,7 +113,7 @@ $(function() {
         }
         else if(Mail.length == 0)
         {
-            document.getElementById("Mail").style.borderColor="";
+            //document.getElementById("Mail").style.borderColor="";
         }
 
         //Phone
@@ -134,7 +134,7 @@ $(function() {
         }
         else if(Phone.length == 0)
         {
-            document.getElementById("Phone").style.borderColor="";
+            //document.getElementById("Phone").style.borderColor="";
         }
 
         //Pwd
@@ -155,7 +155,7 @@ $(function() {
         }
         else if(User.length == 0)
         {
-            document.getElementById("Pwd").style.borderColor="";
+            //document.getElementById("Pwd").style.borderColor="";
         }
 
         //Cpwd
@@ -178,7 +178,7 @@ $(function() {
         }
         else if(User.length == 0)
         {
-            document.getElementById("Cpwd").style.borderColor="";
+            //document.getElementById("Cpwd").style.borderColor="";
         }
 
 

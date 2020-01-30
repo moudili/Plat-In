@@ -21,14 +21,14 @@
             if (empty($_GET['SignUp']))
             {
                 echo("<form id='FormCom' name='FormName' action='Index.php' method='get'>
-                <p>Nom d'utilisateur : <input type='text' id='User' name='User' value=''></p>
-                <p>Prénom : <input type='text'id='FirstName' name='FirstName' value=''></p>
-                <p>Nom : <input type='text'id='LastName' name='LastName' value=''></p>
-                <p>Adresse : <input type='text'id='Adress' name='Adress' value=''></p>
-                <p>Adresse e-mail : <input type='email' id='Mail' name='Mail' value=''></p>
-                <p>Numéro de téléphone : <input type='text' id='Phone' name='Phone' value=''></p>
-                <p>Mot de passe : <input type='password' id='Pwd' name='Pwd' value=''></p>
-                <p>Confirmation de mot de passe : <input type='password' id='Cpwd' name='Cpwd' value=''></p>
+                <p>Nom d'utilisateur : <input type='text' id='User'class='text_1' name='User' value=''></p>
+                <p>Prénom : <input type='text'id='FirstName'class='text_1' name='FirstName' value=''></p>
+                <p>Nom : <input type='text'id='LastName'class='text_1' name='LastName' value=''></p>
+                <p>Adresse : <input type='text'id='Adress'class='text_1' name='Adress' value=''></p>
+                <p>Adresse e-mail : <input type='email' id='Mail'class='text_1' name='Mail' value=''></p>
+                <p>Numéro de téléphone : <input type='text' id='Phone'class='text_1' name='Phone' value=''></p>
+                <p>Mot de passe : <input type='password' id='Pwd'class='text_1' name='Pwd' value=''></p>
+                <p>Confirmation de mot de passe : <input type='password' id='Cpwd'class='text_1' name='Cpwd' value=''></p>
                 <input type='hidden' name='page' value='Inscription'>
                 <input type='submit' value='Inscription' id='SignUp' name='SignUp'>
                 </form>
