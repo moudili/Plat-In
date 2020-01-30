@@ -1,5 +1,4 @@
 <?php
-
     function CheckMenu1()
     {
         if(!empty($_GET['event']))
@@ -81,7 +80,7 @@
     CheckSesion();
     CheckLogOut();
     CheckCo();
- 
+    
     if ($_SESSION['Co']==true)
     {
         $MenuRecipe=ManageMenu1();
@@ -103,6 +102,8 @@
         SuppEvent();
         AdInvitation();
         require("View/ViewEvent.php");
+
     }
+
 ?>
        

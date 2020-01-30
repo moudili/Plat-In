@@ -72,7 +72,7 @@
             $Check = $n[0];
 
             if($Check > 0)
-            {
+            {   
                 $Req = $Bdd -> prepare("DELETE FROM `preferences` WHERE `preferences`.`ID_user` = :IdUser");
                 $Req -> bindParam(':IdUser',$_SESSION['id'],PDO::PARAM_INT);
                 $Req -> execute();                
@@ -108,6 +108,48 @@
                 $Req -> bindParam(':IdUser',$_SESSION['id'],PDO::PARAM_INT);
                 $Req -> execute();
             }
+
+            $Req1 = $Bdd -> prepare("SELECT P.ID_kind_of_food 
+            FROM preferences P
+            JOIN users U
+            WHERE U.ID_user LIKE :IdUser
+            AND  P.ID_user LIKE U.ID_user
+            AND (P.grade LIKE 0 
+            OR P.grade LIKE 10)
+            ORDER BY P.ID_kind_of_food");
+            $Req1 -> bindParam(':IdUser',$_SESSION['id'],PDO::PARAM_INT);
+            $Req1 -> execute();
+            $Pref = array();
+            while($n = $Req1 -> fetch())
+            {
+                array_push($Pref, $n[0]);
+            }
+            //print_r($Pref);
+            //echo $_SESSION['id'];
+
+            $Req2 = $Bdd -> prepare("SELECT ID_kind_of_food FROM kinds_of_food ORDER BY ID_kind_of_food");
+            $Req2 -> execute();
+            $Fc = array();
+            while($n = $Req2 -> fetch())
+            {
+                array_push($Fc, $n[0]);
+            }
+            //print_r($Fc);
+            //echo $Fc[count($Fc)-1];
+
+            for($i = 0 ; $i < count($Fc) ; $i++)
+            {
+                
+                if(!in_array($Fc[$i],$Pref))
+                {
+                    $Req3 = $Bdd -> prepare("INSERT INTO `preferences` (`ID_preference`, `ID_kind_of_food`, `ID_user`, `grade`) 
+                    VALUES (NULL, :IdKf, :IdUser, '5');");
+                    $Req3 -> bindParam(':IdKf',$Fc[$i],PDO::PARAM_INT);
+                    $Req3 -> bindParam(':IdUser',$_SESSION['id'],PDO::PARAM_INT);
+                    $Req3 -> execute();
+                }
+            }
+
         }
     }
 ?>

@@ -5,6 +5,8 @@ require("View/ViewBanner.php");
 <html>
     <head>
         <link rel="stylesheet" href="Css/ErrorChamp.css">
+        <link rel="stylesheet" href="Css/Bootstrap/PersonalCss.css">
+        <link rel="stylesheet" href="Css/Bootstrap/Pinnaple.css">
         <title>Profile</title>
     </head>
     <style>
@@ -12,19 +14,20 @@ require("View/ViewBanner.php");
             text-align: center;
             }
     </style> 
-    <body>
+    <body class='pinnaple'>
+        <div class='arriereprofil'>
         <?php
         if (empty($_GET['modif']))
         {
-            echo("<br>
-                <p>Nom d'utilisateur : ".PrintProfil(SelectProfile())[0]."</p>
-                <p>Prénom : ".PrintProfil(SelectProfile())[2]."</p>
-                <p>Nom : ".PrintProfil(SelectProfile())[3]."</p>
-                <p>Adresse :".PrintProfil(SelectProfile())[4]."</p>
-                <p>Adresse e-mail :".PrintProfil(SelectProfile())[5]."</p>
-                <p>Numéro de téléphone :".PrintProfil(SelectProfile())[6]."</p>
-                <p>Mot de passe : ".PrintProfil(SelectProfile())[1]."</p>");
-            echo("<form action='Index.php' method='get'>
+            echo("<br><div><div class='flexbox profil'>
+                <div class='flexbox sousprofil'><p>Nom d'utilisateur : ".PrintProfil(SelectProfile())[0]."</p></div>
+                <div class='flexbox sousprofil'><p>Prénom : ".PrintProfil(SelectProfile())[2]."</p></div>
+                <div class='flexbox sousprofil'><p>Nom : ".PrintProfil(SelectProfile())[3]."</p></div>
+                <div class='flexbox sousprofil'><p>Adresse :".PrintProfil(SelectProfile())[4]."</p></div>
+                <div class='flexbox sousprofil'><p>Adresse e-mail :".PrintProfil(SelectProfile())[5]."</p></div>
+                <div class='flexbox sousprofil'><p>Numéro de téléphone :".PrintProfil(SelectProfile())[6]."</p></div>
+                <div class='flexbox sousprofil'><p>Mot de passe : ".PrintProfil(SelectProfile())[1]."</p></div></div>");
+            echo("<div class='profil'><form action='Index.php' method='get'>
             <input type='submit' name='modif' value='Modifier mon profil'>
             <input type='hidden' name='page' value='Profil'>
             </form>
@@ -35,7 +38,7 @@ require("View/ViewBanner.php");
             <input type='hidden' name='modif' value='Supprimer mon profil'>
             <input type='submit' value='Supprimer mon compte'>
             <input type='hidden' name='page' value='Profil'>
-            </form>");
+            </form></div></div>");
         } 
         else if ($_GET['modif']=='Modifier mon profil')
         {
@@ -191,5 +194,6 @@ require("View/ViewBanner.php");
             </form>");
         }
         ?>
+        </div>
     </body>
 </html>

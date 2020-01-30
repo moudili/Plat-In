@@ -33,7 +33,7 @@
             R.ID_recipes,
             FIELD (U.user, :user ) DESC
             ');
-            $Req -> bindParam(':user',$_SESSION['User'],PDO::PARAM_INT);
+            $Req -> bindParam(':user',$_SESSION['User'],PDO::PARAM_STR);
             $Req -> execute();
 
             if(!empty($_GET['Filtre0']) || !empty($_GET['Filtre1']) || !empty($_GET['Filtre2']))
@@ -112,7 +112,7 @@
             R.ID_recipes,
             FIELD (U.user, :user ) DESC
             ");
-            $Req -> bindParam(':user',$_SESSION['User'],PDO::PARAM_INT);
+            $Req -> bindParam(':user',$_SESSION['User'],PDO::PARAM_STR);
             $Req -> execute();
 
             if(!empty($_GET['Filtre0']) || !empty($_GET['Filtre1']) || !empty($_GET['Filtre2']))
@@ -165,6 +165,7 @@
                 array_push($Recipes[8], $n[8]);
             }
         }
+        //print_r($Recipes);
         return $Recipes;
     }
 
