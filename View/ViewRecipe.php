@@ -49,7 +49,7 @@
                     <input type='submit' value='Enlever les filtres'></form></div>
                     <div>
                     Veuillez vous <a href='Index.php?page=Inscription'> inscrire</a> ou 
-                    vous <a href='Index.php?page=Connexion'> connecter</a> pour ajouter des recettes </div></div>");
+                    vous <a href='Index.php?page=Connexion'> connecter</a> pour ajouter des recettes </div><div>");
                     if(count($Recipes[0]) != 0)
                     {
                         echo"<table border=4 align='center'>
@@ -410,7 +410,8 @@
                 else if ($_GET['Request']=='Ajouter une recette')
                 {
                     echo("
-                    <p>Créer une recette</p>
+                    <div class='arriereprofil'>
+                    <div class='recetterecherche'><h1>Créer une recette</h1></div>
                     <form action='Index.php' enctype='multipart/form-data' method='get'>
                     <p>image  <input id='get_compte' type='file' name='photo'  value=''></p>
                     <p> Nom de la recette : <input id='get_compte' type='text' name='name' value=''></p>
@@ -442,7 +443,7 @@
                             echo("</select></p>
 
                     
-                    <p> Recette : <br><TEXTAREA name='text' rows=4 cols=40></TEXTAREA></p>
+                    <p> Recette : <br><TEXTAREA name='text' rows=10 cols=70></TEXTAREA></p>
                     <p>
                     <input type='hidden' name='page' value='Recette'>
                     <br><input type='submit' name='Request'value='Valider'></form>");
@@ -467,7 +468,8 @@
                 || $_GET['Request'] == "-")
                 {
                     echo("
-                    <p>Créer une recette</p>
+                    <div class='arriereprofil'>
+                    <div class='recetterecherche'><h1>Créer une recette</h1></div>
                     <form action='Index.php' enctype='multipart/form-data' method='get'>
                     <p>image  <input id='get_compte' type='file' name='photo' value=''></p>
                     <p> Nom de la recette : <input id='get_compte' type='text' name='name' value='".$_GET['name']."'></p>
@@ -596,7 +598,7 @@
                             echo("</select></p>
 
                     
-                    <p> Recette : <br><TEXTAREA name='text' rows=4 cols=40></TEXTAREA></p>
+                    <p> Recette : <br><TEXTAREA name='text' rows=10 cols=70></TEXTAREA></p>
                     <p>
                     <input type='hidden' name='page' value='Recette'>
                     <br><input type='submit' name='Request'value='Valider'></form>");
@@ -781,7 +783,7 @@
                                 }      
 
                         echo("</select></p>
-                        <p> Recette : <br><TEXTAREA name='text' rows=4 cols=40></TEXTAREA></p>
+                        <p> Recette : <br><TEXTAREA name='text' rows=10 cols=70></TEXTAREA></p>
                         <p>
                         <input type='hidden' name='page' value='Recette'>");
 
@@ -1110,7 +1112,7 @@
                                             }
                                         }                
                                         echo("</select></p>
-                                        <p align=center> Description :<br><TEXTAREA name='text' rows=4 cols=40>".$Recipes[1][$i]."</TEXTAREA></p>
+                                        <p align=center> Description :<br><TEXTAREA name='text' rows=10 cols=70>".$Recipes[1][$i]."</TEXTAREA></p>
                                         <br><input type='submit' name='RequestModif' value='Confirmation'>
                                         </form>
                                         <form action='Index.php' method='get'>
@@ -1277,7 +1279,7 @@
                                             }
                                         }                
                                         echo("</select></p>
-                                        <p align=center> Description : <br><TEXTAREA name='text' rows=4 cols=40>".$Recipes[1][$i]."</TEXTAREA></p>
+                                        <p align=center> Description : <br><TEXTAREA name='text' rows=10 cols=70>".$Recipes[1][$i]."</TEXTAREA></p>
                                         <input type='hidden' name='page' value='Recette'>
                                         <br><input type='submit' name='RequestModif' value='Confirmation'>
                                         </form>
@@ -1472,7 +1474,7 @@
                                                 }
                                             }                
                                             echo("</select></p>
-                                            <p align=center> Description : <br><TEXTAREA name='text' rows=4 cols=40>".$Recipes[1][$i]."</TEXTAREA></p>
+                                            <p align=center> Description : <br><TEXTAREA name='text' rows=10 cols=70>".$Recipes[1][$i]."</TEXTAREA></p>
                                             <input type='hidden' name='page' value='Recette'>");
                                     }
                                 }
@@ -1597,7 +1599,7 @@
                 }
                 else if($_GET['Request']=='Filtre')
                 {
-                    echo"
+                    echo"<div class = 'arriereplan'
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Recette'>
                     Origine : <select name='Filtre0'>
@@ -1637,7 +1639,7 @@
                         <input type='hidden' name='Filtre2' value='".$_GET['Filtre2']."'>
                         ";
                     }                    
-                    echo"<input type='submit' value='Retour'>
+                    echo"<input type='submit' value='Retour'></div>
                     ";
                 }
             }
