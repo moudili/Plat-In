@@ -113,3 +113,17 @@ table{
     text-align: center;
     margin: 1%
 }
+
+.bouton_1 {
+	border:none;
+	padding:10px 10px 10px 10px;
+	border-radius:12px;
+	background:#bc1948;
+	font:bold 15px Arial;
+	color:#fff;
+}
+
+.bouton_1:hover, .bouton_1:focus {
+    
+    padding:12px 12px 12px 12px;
+}
