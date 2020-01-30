@@ -854,7 +854,7 @@
                                     ");
 
                                     echo(nl2br("<div class='recetterecherche'> Description : <br><br>".$Recipes[1][$i]."</div>
-                                    <input type='hidden' name='page' value='Recette'>
+                                        <input type='hidden' name='page' value='Recette'>
                                     <input type='hidden' name='id' value='".$_GET['id']."'>
                                     <br>
                                     <input type='hidden' name='Request' value='Afficher'>
