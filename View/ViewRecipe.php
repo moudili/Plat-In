@@ -205,7 +205,8 @@
             {
                 if (empty($_GET['Request']) || $_GET['Request'] == "Search")
                 {
-                    echo("<div> 
+                    echo("<div><div class='arriereplan'>
+                    <div class='recetterecherche'> 
                     <form action='Index.php' method='get'>
                     <input type='search' placeholder = 'Rechercher une recette...' name='Org'");
                     if(!empty($_GET['Org']))
@@ -240,7 +241,7 @@
 
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Recette'>
-                    <input type='submit' value='Enlever les filtres'></form>");
+                    <input type='submit' value='Enlever les filtres'></form></div><div>");
 
                     if(count($Recipes[0]) != 0)
                     {
@@ -800,12 +801,18 @@
                                 if ($Recipes[6][$i]==$_GET['id'])
                                 {
                                     echo("
+                                    <div class='arriereplan'>
+                                    <div>
                                     <form action='Index.php' method='get'>
-                                    <p align=center>".$Recipes[0][$i]."</p>
-                                    <p align=center>Date de création : ".$Recipes[2][$i]."</p>
-                                    <p align=center>Temps de préparation : ".$Recipes[3][$i]."</p>
-                                    <p align=center>Créer par : ".$Recipes[5][$i]."</p>");
-                                    echo(nl2br("<p align=center> Description : <br/><br/>".$Recipes[1][$i]."</p>
+                                    <div><h1>".$Recipes[0][$i]."</h1></div>
+                                    <div class = 'row'>
+                                    <div><h4>Date de création : ".$Recipes[2][$i]."</h4></div>
+                                    <div><h4>Temps de préparation : ".$Recipes[3][$i]."</h4></div>
+                                    </div>  
+                                    <div>Créer par : ".$Recipes[5][$i]."<br><br></div>
+                                    ");
+
+                                    echo(nl2br("<div class='recetterecherche'> Description : <br><br>".$Recipes[1][$i]."</div>
                                     <input type='hidden' name='page' value='Recette'>
                                     <input type='hidden' name='id' value='".$_GET['id']."'>
                                     <br>
@@ -827,7 +834,7 @@
                                         ";
                                     }                                    
                                     echo("<input type='submit' value='Retour'>
-                                    </form>");
+                                    </form></div>");
                                 } 
                             }
                         }
