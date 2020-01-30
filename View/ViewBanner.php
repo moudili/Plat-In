@@ -21,7 +21,7 @@
             ?>
             <div class='brr'>
             <form action='Index.php' method='get'>
-            <input type='search' placeholder = 'Recherche...' name='Org'/>
+            <input type='search' class='text_1'placeholder = 'Recherche...' name='Org'/>
             <input type='hidden' name='page' value='Recette'>
             <input type='hidden' name='Request' value='Search'>
             <input type='submit' class='bouton_1'value=" "></form>
@@ -35,7 +35,7 @@
                         ?>
                         <div class='brr'>
                         <form action='Index.php' method='get'>
-                        <input type='search' placeholder = 'Recherche...'/>
+                        <input type='search' class='text_1'placeholder = 'Recherche...'/>
                         <input type='hidden' name='page' value='Recette'>
                         <input type='hidden' name='Request' value='search'>
                         <input type='submit' class='bouton_1'value=" "></form>

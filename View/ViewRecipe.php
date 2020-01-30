@@ -19,7 +19,7 @@
                     echo("<div><div class='arriereplan'>
                     <div class='recetterecherche'>
                     <form action='Index.php' method='get'>
-                    <input type='search' placeholder = 'Rechercher une recette...' name='Org'");
+                    <input type='search' class='text_1'placeholder = 'Rechercher une recette...' name='Org'");
                     if(!empty($_GET['Org']))
                     {
                         echo"value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'>";
@@ -228,7 +228,7 @@
                     echo("<div><div class='arriereplan'>
                     <div class='recetterecherche'> 
                     <form action='Index.php' method='get'>
-                    <input type='search' placeholder = 'Rechercher une recette...' name='Org'");
+                    <input type='search' class='text_1'placeholder = 'Rechercher une recette...' name='Org'");
                     if(!empty($_GET['Org']))
                     {
                         echo"value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'>";

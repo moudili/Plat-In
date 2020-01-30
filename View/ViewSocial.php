@@ -33,11 +33,11 @@
                         echo"<form action='Index.php' method='get'>";
                         if(isset($_GET['Usr']))
                         {
-                            echo "<input type='search' value='".htmlspecialchars($_GET['Usr'], ENT_QUOTES)."' name='Usr'/>";
+                            echo "<input type='search' class='text_1'class='text_1'value='".htmlspecialchars($_GET['Usr'], ENT_QUOTES)."' name='Usr'/>";
                         }
                         else
                         {
-                            echo "<input type='search' value='' name='Usr'/>";
+                            echo "<input type='search' class='text_1'class='text_1'value='' name='Usr'/>";
                         }
                         echo "<input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Search'>
@@ -178,7 +178,7 @@
                     else
                     {
                         echo("<form action='Index.php' method='get'>
-                        <input type='search' name='Usr' value='".htmlspecialchars($_GET['Usr'], ENT_QUOTES)."'/>
+                        <input type='search' class='text_1'name='Usr' value='".htmlspecialchars($_GET['Usr'], ENT_QUOTES)."'/>
                         <input type='hidden' name='page' value='Social'>
                         <input type='hidden' name='Request' value='Search'>
                         <input type='submit' class='bouton_1' value=' '></form>
@@ -397,7 +397,7 @@
             else
             {
                 echo("<form action='Index.php' method='get'>
-                <input type='search' placeholder = 'Rechercher un utilisateur...' name='Usr'/>
+                <input type='search' class='text_1'placeholder = 'Rechercher un utilisateur...' name='Usr'/>
                 <input type='hidden' name='page' value='Social'>
                 <input type='hidden' name='Request' value='Search'>
                 <input type='submit' class='bouton_1' value=' '></form>");

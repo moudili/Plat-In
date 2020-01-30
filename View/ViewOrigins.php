@@ -18,7 +18,7 @@ require("View/ViewBanner.php");
 
                 ?>
                     <form action='Index.php' method='get'>
-                    <input type='search' placeholder = 'Rechercher une origine...' name='Org'/>
+                    <input type='search' class='text_1'placeholder = 'Rechercher une origine...' name='Org'/>
                     <input type='hidden' name='page' value='Origines'>
                     <input type='hidden' name='Request' value='Search'>
                     <input type='submit' class='bouton_1' value=" "></form>
@@ -263,7 +263,7 @@ require("View/ViewBanner.php");
 
                         echo("
                         <form action='Index.php' method='get'>
-                        <input type='search' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/>
+                        <input type='search' class='text_1'name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/>
                         <input type='hidden' name='page' value='Origines'>
                         <input type='hidden' name='Request' value='Search'>
                         <input type='submit' class='bouton_1' value=' '></form>
@@ -294,7 +294,7 @@ require("View/ViewBanner.php");
                     {
                         echo("
                         <form action='Index.php' method='get'>
-                        <input type='search' name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/>
+                        <input type='search' class='text_1'name='Org' value='".htmlspecialchars($_GET['Org'], ENT_QUOTES)."'/>
                         <input type='hidden' name='page' value='Origines'>
                         <input type='hidden' name='Request' value='Search'>
                         <input type='submit' class='bouton_1' value=' '></form>

@@ -178,7 +178,7 @@
                 {
                     echo("
                     <form action='Index.php' method='get'>
-                    <input type='search' placeholder = 'Rechercher un regime...' name='Search' value='".htmlspecialchars($_GET['Search'], ENT_QUOTES)."'/>
+                    <input type='search' class='text_1'placeholder = 'Rechercher un regime...' name='Search' value='".htmlspecialchars($_GET['Search'], ENT_QUOTES)."'/>
                     <input type='hidden' name='page' value='Régimes'>
                     <input type='hidden' name='Request' value='Search'>
                     <input type='submit' class='bouton_1' value=' '></form>
@@ -525,7 +525,7 @@
             {
                 echo("
                     <form action='Index.php' method='get'>
-                    <input type='search' placeholder = 'Rechercher un regime...' name='Search'/>
+                    <input type='search' class='text_1'placeholder = 'Rechercher un regime...' name='Search'/>
                     <input type='hidden' name='page' value='Régimes'>
                     <input type='hidden' name='Request' value='Search'>
                     <input type='submit' class='bouton_1' value=' '></form>

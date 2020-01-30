@@ -22,7 +22,7 @@
                     if($Search != false)
                     {
                         echo("<form action='Index.php' method='get'>
-                        <input type='search' name='Usr' value='".htmlspecialchars($_GET['Usr'], ENT_QUOTES)."'/>
+                        <input type='search' class='text_1'name='Usr' value='".htmlspecialchars($_GET['Usr'], ENT_QUOTES)."'/>
                         <input type='hidden' name='page' value='Gestion des droits'>
                         <input type='hidden' name='Request' value='Search'>
                         <input type='submit' class='bouton_1' value=' '></form>
@@ -68,7 +68,7 @@
                     else
                     {
                         echo("<form action='Index.php' method='get'>
-                        <input type='search' name='Usr' value='".htmlspecialchars($_GET['Usr'], ENT_QUOTES)."'/>
+                        <input type='search' class='text_1'name='Usr' value='".htmlspecialchars($_GET['Usr'], ENT_QUOTES)."'/>
                         <input type='hidden' name='page' value='Gestion des droits'>
                         <input type='hidden' name='Request' value='Search'>
                         <input type='submit' value=' '></form>
@@ -157,7 +157,7 @@
             else
             {
                 echo ("<form action='Index.php' method='get'>
-                <input type='search' placeholder = 'Rechercher un utilisateur...' name='Usr'/>
+                <input type='search' class='text_1'placeholder = 'Rechercher un utilisateur...' name='Usr'/>
                 <input type='hidden' name='page' value='Gestion des droits'>
                 <input type='hidden' name='Request' value='Search'>
                 <input type='submit' value=' '></form>
