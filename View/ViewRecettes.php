@@ -5,6 +5,8 @@ require("View/ViewBanner.php");
 <html>
     <head>
         <title>Gérer les recettes</title>
+        <link rel="stylesheet" href="Css/Bootstrap/PersonalCss.css">
+        <link rel="stylesheet" href="Css/Bootstrap/background.css">
         <style> 
         .rating {
 			width: 226px;
@@ -49,7 +51,9 @@ require("View/ViewBanner.php");
         </style>
     </head>
     
-    <body>
+    <body class='backgroundhat center'>
+        <div class='arriereprofil'>
+            <div class="profil">
         <?php
             if (empty($_GET['Request']))
             {
@@ -61,7 +65,7 @@ require("View/ViewBanner.php");
                     <input type='hidden' name='page' value='Recettes'>
                     </form>
                     <table border=4 align='center'>
-                    <p>Recettes");
+                    Recettes<br><br>");
                 for ($i=0;$i<count($Recipes[0]);$i++)
                 {
                     if ($Note[$i]>0 AND $Note[$i]<=5)
@@ -76,7 +80,7 @@ require("View/ViewBanner.php");
                                         <input type='hidden' name='page' value='Recettes'>
                                         <input type='submit' class='bouton_1' name='Request' value='Modifier'>
                                         <input type='hidden' name='Menu' value=1>
-                                        <input type='submit' class='bouton_1' name='Request' value='Supprimer'></td></tr></p>
+                                        <input type='submit' class='bouton_1' name='Request' value='Supprimer'></td></tr>
                                         </form>");   
                                     }
                                     else
@@ -90,7 +94,7 @@ require("View/ViewBanner.php");
                                         <input type='hidden' name='page' value='Recettes'>
                                         <input type='submit' class='bouton_1' name='Request' value='Modifier'>
                                         <input type='hidden' name='Menu' value=1>
-                                        <input type='submit' class='bouton_1' name='Request' value='Supprimer'></td></tr></p>
+                                        <input type='submit' class='bouton_1' name='Request' value='Supprimer'></td></tr>
                                         </form>");
                                     }
                 }

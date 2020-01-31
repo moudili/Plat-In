@@ -4,13 +4,12 @@
 <html>
     <head>
         <title>Gestion des droits</title>
+        <link rel="stylesheet" href="Css/Bootstrap/PersonalCss.css">
+        <link rel="stylesheet" href="Css/Bootstrap/background.css">
     </head>
-    <style>
-         body{
-            text-align: center;
-            }
-    </style> 
-    <body>
+    <body class='backgroundhat center'>
+        <div class='arriereprofil'>
+            <div class='profil'>
 
         <?php
         

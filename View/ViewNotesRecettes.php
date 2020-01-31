@@ -5,12 +5,11 @@ require("View/ViewBanner.php");
     <head>
         <title>Notes Recettes</title>
     </head>
-    <style>
-         body{
-            text-align: center;
-            }
-    </style> 
-    <body>
+    <link rel="stylesheet" href="Css/Bootstrap/PersonalCss.css">
+    <link rel="stylesheet" href="Css/Bootstrap/background.css">
+    <body class='backgroundhat center'>
+        <div class='arriereprofil'>
+            <div class='profil'>
         <?php
 
         if (empty($_GET['Request']))
@@ -20,11 +19,11 @@ require("View/ViewBanner.php");
             <input type='hidden' name='page' value='Notes recettes'>
             </form>
             <table border=4 align='center'>
-            <p>Notes des recettes</br></br>");
+            Notes des recettes<br><br>");
             for ($i=0;$i<count($Note[0]);$i++)
             {
                 echo("<form action='Index.php' method='get'>
-                <td>Note des utilisateurs : ".$Note[0][$i]."/5</br>
+                <td>Note des utilisateurs : ".$Note[0][$i]."/5</br> 
                 Recette : ".$Note[2][$i]."
                 <td>
                 <input type='hidden' name='page' value='Notes recettes'><br>
@@ -32,7 +31,7 @@ require("View/ViewBanner.php");
                 <input type='hidden' name='nom' value='".$Note[2][$i]."'>
                 <input type='hidden' name='id' value='".$Note[3][$i]."'>
                 <input type='submit' class='bouton_1' name='Request' value='Supprimer'></td>
-                </tr></p></form>");
+                </tr></form>");
             }
         }
         else if ($_GET['Request']=="Supprimer")

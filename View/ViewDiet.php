@@ -4,14 +4,14 @@
 <html>
     <head>
         <title>Régimes</title>
+
+        <link rel="stylesheet" href="Css/Bootstrap/PersonalCss.css">
+        <link rel="stylesheet" href="Css/Bootstrap/background.css">
     </head>
-    <style>
-         body{
-            text-align: center;
-            }
-        
-    </style> 
-    <body>
+
+    <body class='backgroundhat center'>
+        <div class='arriereprofil'>
+            <div class ='profil'>
 
         <div class="mt-5 text-center justify-content-center flexbox">
             <div>
@@ -196,7 +196,7 @@
                     }
                     else
                     {
-                        echo"<div class='shrink'><table border>";
+                        echo"<div class='shrink'><table border align=center>";
                         for($i = 0 ; $i < count($PrintDiet[0]) ; $i++)
                         {
                             $compt = 0;
@@ -535,7 +535,7 @@
                     <input type='hidden' name='Menu' value=1>
                     <input type='submit' class='bouton_1' name='Request' value='Ajouter un régime'></form><br>
                     <div class='shrink'>
-                    <table border>
+                    <table border align=center>
                 ");
 
                 for($i = 0 ; $i < count($PrintDiet[0]) ; $i++)

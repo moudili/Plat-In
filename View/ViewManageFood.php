@@ -8,7 +8,8 @@
         <link rel="stylesheet" href="Css/Bootstrap/background.css">
     </head> 
     <body class='backgroundhat center'> 
-
+    <div class='arriereprofil'>
+        <div class='profil'>
 <?php
             if(empty($_GET['Request']))
             {
@@ -305,5 +306,6 @@
                 }
             }
 ?>
+    </div>
     </body>
 </html>

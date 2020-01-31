@@ -5,13 +5,12 @@ require("View/ViewBanner.php");
 <html>
     <head>
         <title>Origines</title>
-    </head>
-    <style>
-         body{
-            text-align: center;
-            }
-    </style> 
-    <body>
+        <link rel="stylesheet" href="Css/Bootstrap/PersonalCss.css">
+        <link rel="stylesheet" href="Css/Bootstrap/background.css">
+    </head> 
+    <body class='backgroundhat center'>
+        <div class='arriereprofil'>
+            <div class='profil'>
         <?php
             if(empty($_GET['Request']))
             {

@@ -179,7 +179,6 @@
                 else if($_GET['Request']=='Filtre')
                 {
                     echo"<div class = 'arriereplan'>
-                    <div class = 'profil'>
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Recette'>
                     Origine : <select class='text_1'name='Filtre0'>
@@ -1602,7 +1601,6 @@
                 else if($_GET['Request']=='Filtre')
                 {
                     echo"<div class = 'arriereplan'>
-                    <div class = 'profil'>
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Recette'>
                     Origine : <select class='text_1'name='Filtre0'>
