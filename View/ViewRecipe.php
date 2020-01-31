@@ -226,7 +226,8 @@
                 if (empty($_GET['Request']) || $_GET['Request'] == "Search")
                 {
                     echo("<div><div class='arriereplan'>
-                    <div class='recetterecherche'> 
+                    <div class='column recetterecherche'>
+                    <div>
                     <form action='Index.php' method='get'>
                     <input type='search' class='text_1'placeholder = 'Rechercher une recette...' name='Org'");
                     if(!empty($_GET['Org']))
@@ -246,7 +247,7 @@
                         <input type='hidden' name='Filtre2' value='".$_GET['Filtre2']."'>
                         ";
                     }
-                    echo("<button type='submit'class='bouton_1'> <i class='fa fa-search'></i></button></form>
+                    echo("<button type='submit'class='bouton_1'> <i class='fa fa-search'></i></button></form></div><div class='row'>
 
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='Menu' value=1>
@@ -261,7 +262,7 @@
 
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Recette'>
-                    <input type='submit' class='bouton_1' value='Enlever les filtres'></form></div><div>");
+                    <input type='submit' value='Enlever les filtres'></form></div></div><div>");
 
                     if(count($Recipes[0]) != 0)
                     {
@@ -652,7 +653,9 @@
                     else
                     {
                         echo("
-                        Votre recette n'as pas pu être mise en ligne !<br></br>");
+                        <div><div class='arriereplan'>
+                        <div class='recetterecherche'> 
+                        <p>Votre recette n'as pas pu être mise en ligne !</div><br></br>");
 
                         echo("
                         

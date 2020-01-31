@@ -4,14 +4,13 @@
 <html>
     <head>
         <title>Social</title>
+        <link rel="stylesheet" href="Css/Bootstrap/PersonalCss.css">
+        <link rel="stylesheet" href="Css/Bootstrap/background.css">
     </head>
-    <style>
-         body{
-            text-align: center;
-            }
-    </style> 
-    <body>
 
+    <body class='backgroundhat center'>
+    
+    <div class="arriereprofil">
 
         <form action='Index.php' method='get'>
         <input type='hidden' name='page' value='Social'>
@@ -21,6 +20,7 @@
         <input type='hidden' name='page' value='Social'>
         <input type='hidden' name='Request' value="Demande amis"></form>
         
+        <div class='profil'>
         <?php
             
             if(!empty($_GET['Request']))
@@ -213,7 +213,8 @@
                 }
                 elseif($_GET['Request'] == "Amis")
                 {
-
+                    if($Myfriends == FALSE)
+                    echo 'Vous n\'avez pas encore d\'amis';
                     foreach ($Myfriends as $Myfriend) {
 
                     echo ($Myfriend["user"]);
@@ -424,5 +425,7 @@
                 }                
             }
         ?>
+        </div>
+        </div>
     </body>
 </html>
