@@ -37,8 +37,8 @@
             {
                 if ($_SESSION["Create"]==true) 
                 {
-                    echo("<br><br>Tu as reussi a t'inscrire, ton nom d'utilisateur est : ".$_GET['User']."<br>
-                    <a href='Index.php'><input type='button' value='Retour accueil'></a>");
+                    echo("<br><br>Tu as reussi à t'inscrire, ton nom d'utilisateur est : ".$_GET['User']."<br><br>
+                    <a href='Index.php'><input type='submit' class='bouton_1' value='Retour accueil'></a>");
                 } else if ($_SESSION["Create"]==false)
                 {
 

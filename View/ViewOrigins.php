@@ -112,7 +112,7 @@ require("View/ViewBanner.php");
                     {
                         if($CheckFormAdd == 0)
                         {
-                            echo "L'origine ".mb_strtolower($_GET['Org'],"UTF-8")." à bien été ajouté à la base de données
+                            echo "L'origine ".mb_strtolower($_GET['Org'],"UTF-8")." à bien été ajoutée à la base de données
                             <p><form action='Index.php' method='get'>
                             <input type='hidden' name='page' value='Origines'>
                             <br><input type='submit' class='bouton_1' value='Retour'></form>";

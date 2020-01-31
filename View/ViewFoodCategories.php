@@ -267,7 +267,7 @@
                     }
                     else
                     {
-                        echo"<p>La catégorie alimentaire ".$_GET['Cat']." à bien été ajouté à la base de donnée</p>
+                        echo"<p>La catégorie alimentaire ".$_GET['Cat']." à bien été ajoutée à la base de donnée</p>
                         <p><form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Catégories Alimentaires'>
                         <input type='submit' class='bouton_1' value='Retour'></form>";
