@@ -23,15 +23,15 @@ require("View/ViewBanner.php");
                 <div class='flexbox sousprofil'><p>Numéro de téléphone :".PrintProfil(SelectProfile())[6]."</p></div>
                 <div class='flexbox sousprofil'><p>Mot de passe : ".PrintProfil(SelectProfile())[1]."</p></div></div>");
             echo("<div class='profil'><form action='Index.php' method='get'>
-            <input type='submit' name='modif' value='Modifier mon profil'>
+            <input type='submit' class='bouton_1'name='modif' value='Modifier mon profil'>
             <input type='hidden' name='page' value='Profil'>
             </form>
             <form action='Controller/ControllerPreferences.php' method='get'>
-            <input type='submit' value='Modifier mes préférences'>
+            <input type='submit' class='bouton_1'value='Modifier mes préférences'>
             </form>
             <form action='Index.php' method='get'>
             <input type='hidden' name='modif' value='Supprimer mon profil'>
-            <input type='submit' value='Supprimer mon compte'>
+            <input type='submit' class='bouton_1'value='Supprimer mon compte'>
             <input type='hidden' name='page' value='Profil'>
             </form></div></div>");
         } 
@@ -47,12 +47,12 @@ require("View/ViewBanner.php");
                 <p>Mot de passe : <input id='Pwd' type='password' class='text_1'name='mdp' class='text_1'value='".htmlspecialchars(PrintProfil(SelectProfile())[1], ENT_QUOTES)."' class=Aright></p>
                 <p>Confirmation de mot de passe : <input id='Cpwd' type='password' class='text_1'name='cmdp' class='text_1'value=''></p>
                 <input type='hidden' name='modif' value='Corriger'>
-                <input type='submit' value='Modifier'>
+                <input type='submit' class='bouton_1'value='Modifier'>
                 <input type='hidden' name='page' value='Profil'>
                 </form>");
             echo("<form action='Index.php' method='get'>
                 <input type='hidden' name='page' value='Profil'>
-                <input type='submit' value='Retour'>
+                <input type='submit' class='bouton_1'class='bouton_1'value='Retour'>
                 </form>");
         }
         else if ($_GET['modif']=='Supprimer mon profil')
@@ -60,17 +60,17 @@ require("View/ViewBanner.php");
             echo("Etes-vous vraiment sûr de vouloir supprimer votre compte ?");
             echo("<form action='Index.php' method='get'>
                 <input type='hidden' name='page' value='Profil'>
-                <input type='submit' name='supprimer'value='Oui'>
+                <input type='submit' class='bouton_1'name='supprimer'value='Oui'>
                 </form>");
             echo("<form action='Index.php' method='get'>
                 <input type='hidden' name='page' value='Profil'>
-                <input type='submit' value='Non'>
+                <input type='submit' class='bouton_1'value='Non'>
                 </form>");
         } 
         else if ($_SESSION['modifier']==true)
         {
             echo($_SESSION['erreur']."<br><form action='Index.php' method='get'>
-            <input type='submit' value='Retour'>
+            <input type='submit' class='bouton_1'value='Retour'>
             <input type='hidden' name='page' value='Profil'>
             </form>");
         } 
@@ -179,13 +179,13 @@ require("View/ViewBanner.php");
             <p><FONT color='red'>
             ".($_SESSION['erreur']."
             </FONT></p>
-            <input type='submit' value='Modifier'>
+            <input type='submit' class='bouton_1'value='Modifier'>
             <input type='hidden' name='page' value='Profil'>
             </form>
             ");
             echo("<form action='Index.php' method='get'>
             <input type='hidden' name='page' value='Profil'>
-            <input type='submit' value='Retour'>
+            <input type='submit' class='bouton_1'value='Retour'>
             </form>");
         }
         ?>

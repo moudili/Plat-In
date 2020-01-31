@@ -262,7 +262,7 @@
 
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Recette'>
-                    <input type='submit' value='Enlever les filtres'></form></div></div><div>");
+                    <input type='submit' class='bouton_1' value='Enlever les filtres'></form></div></div><div>");
 
                     if(count($Recipes[0]) != 0)
                     {
