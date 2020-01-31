@@ -21,7 +21,7 @@
                     <input type='search' class='text_1'placeholder = 'Rechercher un aliment...' name='Ali'/>
                     <input type='hidden' name='page' value='Aliments'>
                     <input type='hidden' name='Request' value='Search'>
-                    <input type='submit' class='bouton_1' value=" "></form>
+                    <button type='submit'class='bouton_1'> <i class="fa fa-search"></i></button></form>
 
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Aliments'>
@@ -267,7 +267,7 @@
                         <input type='search' name='Ali' class='text_1'value='".htmlspecialchars($_GET['Ali'], ENT_QUOTES)."'/>
                         <input type='hidden' name='page' value='Aliments'>
                         <input type='hidden' name='Request' value='Search'>
-                        <input type='submit' class='bouton_1' value=' '></form>
+                        <button type='submit'class='bouton_1'> <i class='fa fa-search'></i></button></form>
                         
     
                         <form action='Index.php' method='get'>
@@ -298,7 +298,7 @@
                         <input type='search' name='Ali' class='text_1'value='".htmlspecialchars($_GET['Ali'], ENT_QUOTES)."'/>
                         <input type='hidden' name='page' value='Aliments'>
                         <input type='hidden' name='Request' value='Search'>
-                        <input type='submit' class='bouton_1' value=' '></form>
+                        <button type='submit'class='bouton_1'> <i class='fa fa-search'></i></button></form>
     
                         <form action='Index.php' method='get'>
                         <input type='hidden' name='page' value='Aliments'>

@@ -22,7 +22,7 @@
                     <input type='search' class='text_1'placeholder = 'Rechercher une categorie...' name='Cat'/>
                     <input type='hidden' name='page' value='Catégories Alimentaires'>
                     <input type='hidden' name='Request' value='Search'>
-                    <input type='submit' class='bouton_1' value=" "></form>
+                    <button type='submit'class='bouton_1'> <i class="fa fa-search"></i></button></form>
 
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Catégories Alimentaires'>
@@ -464,7 +464,7 @@
                     <input type='search' class='text_1'placeholder = 'Rechercher une catégorie...' name='Cat' value='".htmlspecialchars($_GET['Cat'], ENT_QUOTES)."'/>
                     <input type='hidden' name='page' value='Catégories Alimentaires'>
                     <input type='hidden' name='Request' value='Search'>
-                    <input type='submit' class='bouton_1' value=' '></form>
+                    <button type='submit'class='bouton_1'> <i class='fa fa-search'></i></button></form>
 
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Catégories Alimentaires'>

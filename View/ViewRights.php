@@ -25,7 +25,7 @@
                         <input type='search' class='text_1'name='Usr' value='".htmlspecialchars($_GET['Usr'], ENT_QUOTES)."'/>
                         <input type='hidden' name='page' value='Gestion des droits'>
                         <input type='hidden' name='Request' value='Search'>
-                        <input type='submit' class='bouton_1' value=' '></form>
+                        <button type='submit'class='bouton_1'> <i class='fa fa-search'></i></button></form>
                         ");
                         for($i = 0 ; $i < count($Search[0]) ; $i++ )
                         {
@@ -71,7 +71,7 @@
                         <input type='search' class='text_1'name='Usr' value='".htmlspecialchars($_GET['Usr'], ENT_QUOTES)."'/>
                         <input type='hidden' name='page' value='Gestion des droits'>
                         <input type='hidden' name='Request' value='Search'>
-                        <input type='submit' value=' '></form>
+                        <button type='submit'class='bouton_1'> <i class='fa fa-search'></i></button></form>
                         <br>aucun résultat pour la recherche ".$_GET['Usr'].".");                        
                     }
                 }
@@ -160,7 +160,7 @@
                 <input type='search' class='text_1'placeholder = 'Rechercher un utilisateur...' name='Usr'/>
                 <input type='hidden' name='page' value='Gestion des droits'>
                 <input type='hidden' name='Request' value='Search'>
-                <input type='submit' value=' '></form>
+                <button type='submit'class='bouton_1'> <i class='fa fa-search'></i></button></form>
                 ");
 
                 for($i = 0 ; $i < count($Search[0]) ; $i++ )

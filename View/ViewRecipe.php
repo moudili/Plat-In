@@ -37,7 +37,7 @@
                         <input type='hidden' name='Filtre2' value='".$_GET['Filtre2']."'>
                         ";
                     }                    
-                    echo("<input type='submit' class='bouton_1' value=' '></form>
+                    echo("<button type='submit'class='bouton_1'> <i class='fa fa-search'></i></button></form>
                     
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Recette'>
@@ -246,7 +246,7 @@
                         <input type='hidden' name='Filtre2' value='".$_GET['Filtre2']."'>
                         ";
                     }
-                    echo("<input type='submit' class='bouton_1' value=' '></form>
+                    echo("<button type='submit'class='bouton_1'> <i class='fa fa-search'></i></button></form>
 
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='Menu' value=1>

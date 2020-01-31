@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="Css/Bootstrap/PersonalCss.css">
     <link rel="stylesheet" href="Css/Bootstrap/background.css">
     <link rel="stylesheet" href="Css/Bootstrap/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <!--affiche le haut de la banner -->
@@ -21,10 +22,14 @@
             ?>
             <div class='brr'>
             <form action='Index.php' method='get'>
-            <input type='search' class='text_1'placeholder = 'Recherche...' name='Org'/>
+            <input type='search' class='text_1'placeholder = 'Recherche...' name='Org' 
+            <?php
+            if(!empty($_GET['Org'])) 
+            echo"value='".$_GET['Org']."'"; 
+            ?>/>
             <input type='hidden' name='page' value='Recette'>
-            <input type='hidden' name='Request' value='Search'>
-            <input type='submit' class='bouton_1'value=" "></form>
+            <input type='hidden' name='Request' value='Search' >
+            <button type='submit'class='bouton_1'> <i class="fa fa-search"></i></button></form>
             </div>
             <?php    
                 }
@@ -35,10 +40,14 @@
                         ?>
                         <div class='brr'>
                         <form action='Index.php' method='get'>
-                        <input type='search' class='text_1'placeholder = 'Recherche...'/>
+                        <input type='search' class='text_1'placeholder = 'Recherche...' name='Org' 
+                        <?php
+                        if(!empty($_GET['Org'])) 
+                        echo"value='".$_GET['Org']."'"; 
+                        ?>/>                        
                         <input type='hidden' name='page' value='Recette'>
-                        <input type='hidden' name='Request' value='search'>
-                        <input type='submit' class='bouton_1'value=" "></form>
+                        <input type='hidden' name='Request' value='Search'>
+                        <button type='submit'class='bouton_1'> <i class="fa fa-search"></i></button></form></form>
                         </div>
                         <?php   
                     }

@@ -92,15 +92,22 @@
     {
         if(!empty($_GET['Request']))
         {
-            $Check3 = "true";
-            for($i = 0 ; $i < count($DataCheck3) ; $i++)
+            if(empty($DataCheck3))
             {
-                for($j = 0 ; $j < 3 ; $j++)
+                $Check3 = "true";
+            }
+            else
+            {
+                $Check3 = "true";
+                for($i = 0 ; $i < count($DataCheck3) ; $i++)
                 {
-                    if($DataCheck3[$i] == $_GET['Food'.$j])
+                    for($j = 0 ; $j < 3 ; $j++)
                     {
-                        $Check3 = "false";
-                        break;
+                        if($DataCheck3[$i] == $_GET['Food'.$j])
+                        {
+                            $Check3 = "false";
+                            break;
+                        }
                     }
                 }
             }
