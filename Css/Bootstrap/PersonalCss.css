@@ -1,9 +1,15 @@
-/* div {margin: 4px;padding: 4px;border: 1px solid black;background-color: rgba(240, 0, 0, 0.2);}    */
+/* p,div {margin: 4px;padding: 4px;border: 1px solid black;background-color: rgba(240, 0, 0, 0.2);}    */
 
 html,body{
     margin: 0px;
     border: 0px;
     padding: 0px;
+}
+
+.image {
+	width: 200;
+    height: 139;
+    margin-top: 5px;
 }
 
 .arriereprofil
@@ -53,13 +59,13 @@ position: sticky;
 }
 
 .banner1{
-background-color:whitesmoke;
+background-color:rgba(238,217,143,1);
 border: thick double gray;
 margin: 0px;
 }
 
 .banner2{
-background-color: whitesmoke;
+background-color: rgba(238,217,143,1);
 border: thick double gray;
 border-top-style: none;
 margin: 0px;

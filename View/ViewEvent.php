@@ -5,15 +5,16 @@
 <html>
     <head>
         <link rel="stylesheet" href="Css/ErrorChamp.css">
+        <link rel="stylesheet" href="Css/Bootstrap/PersonalCss.css">
+        <link rel="stylesheet" href="Css/Bootstrap/background.css">
         <title>Evènement</title>
     </head>
-    <style>
-         body{
-            text-align: center;
-            }
-    </style> 
-    <body>
+
+    <body class='backgroundhat center'>
+        <div class='arriereprofil'>
+            <div class='profil'>
         <?php
+        
             if (empty($_GET['event']))
             {
                 if ($Events==array() OR $Events==array(array(),array()))
@@ -27,7 +28,7 @@
                         <input type='hidden' name='MenuUser' value=1>
                         <input type='hidden' name='page' value='Evènement'>
                     </form>");
-                    echo("Evenement en attente :");
+                    echo("<br><br>Evenement en attente :");
                     for ($i=0;$i<count($Invitation[0]);$i++)
                     {
                         echo("<br>".$Invitation[1][$i]);
@@ -95,17 +96,18 @@
                         }
                     }
                     echo("</table>");
-                    echo("Evenement en attente :");
+                    echo("<br><br>Evenement en attente :");
                     if(count($Invitation[0]) != 0)
                     {
-                        echo("<table border=4 align='center'>");
+                        echo("<table border=4 align='flex center'>");
                         for ($i=0;$i<count($Invitation[0]);$i++)
                         {
-                            echo("<tr><td>".$Invitation[1][$i]."</td><td><p><form action='Index.php' method='get'><input type='submit' class='bouton_1' name='event' value='Accepter'></p>
+                            echo("<tr><td>".$Invitation[1][$i]."</td>
+                            <td><form action='Index.php' method='get'><p><input type='submit' class='bouton_1' name='event' value='Accepter'></p>
                             <p><input type='submit' class='bouton_1' name='event' value='Refuser'>
                             <input type='hidden' name='ID' value='".$Invitation[2][$i]."'>
-                            <input type='hidden' name='page' value='Evènement'>
-                            </form></p></td><tr>");
+                            <input type='hidden' name='page' value='Evènement'></p>
+                            </form></td><tr>");
                         }
 
                         echo("</table>");
@@ -1325,6 +1327,8 @@
                     ");
                 }
             }
-        ?> 
+        ?>
+            </div>
+        </div> 
     </body>
 </html>

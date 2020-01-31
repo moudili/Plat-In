@@ -15,13 +15,13 @@ require("View/ViewBanner.php");
         if (empty($_GET['modif']))
         {
             echo("<br><div><div class='flexbox profil'>
-                <div class='flexbox sousprofil'><p>Nom d'utilisateur : ".PrintProfil(SelectProfile())[0]."</p></div>
-                <div class='flexbox sousprofil'><p>Prénom : ".PrintProfil(SelectProfile())[2]."</p></div>
-                <div class='flexbox sousprofil'><p>Nom : ".PrintProfil(SelectProfile())[3]."</p></div>
-                <div class='flexbox sousprofil'><p>Adresse :".PrintProfil(SelectProfile())[4]."</p></div>
-                <div class='flexbox sousprofil'><p>Adresse e-mail :".PrintProfil(SelectProfile())[5]."</p></div>
-                <div class='flexbox sousprofil'><p>Numéro de téléphone :".PrintProfil(SelectProfile())[6]."</p></div>
-                <div class='flexbox sousprofil'><p>Mot de passe : ".PrintProfil(SelectProfile())[1]."</p></div></div>");
+                <div class='flexbox sousprofil center'><p>Nom d'utilisateur : ".PrintProfil(SelectProfile())[0]."</p></div>
+                <div class='flexbox sousprofil center'><p>Prénom : ".PrintProfil(SelectProfile())[2]."</p></div>
+                <div class='flexbox sousprofil center'><p>Nom : ".PrintProfil(SelectProfile())[3]."</p></div>
+                <div class='flexbox sousprofil center'><p>Adresse : ".PrintProfil(SelectProfile())[4]."</p></div>
+                <div class='flexbox sousprofil center'><p>Adresse e-mail : ".PrintProfil(SelectProfile())[5]."</p></div>
+                <div class='flexbox sousprofil center'><p>Numéro de téléphone : ".PrintProfil(SelectProfile())[6]."</p></div>
+                <div class='flexbox sousprofil center'><p>Mot de passe : ".PrintProfil(SelectProfile())[1]."</p></div></div>");
             echo("<div class='profil'><form action='Index.php' method='get'>
             <input type='submit' class='bouton_1'name='modif' value='Modifier mon profil'>
             <input type='hidden' name='page' value='Profil'>
@@ -37,7 +37,7 @@ require("View/ViewBanner.php");
         } 
         else if ($_GET['modif']=='Modifier mon profil')
         {
-            echo("<br><form action='Index.php' id='FormCom' name='FormName' method='get'>
+            echo("<div class='profil center'><br><form action='Index.php' id='FormCom' name='FormName' method='get'>
                 <p>Nom d'utilisateur : <input id='User' type='text' class='text_1'name='ndu' value='".htmlspecialchars(PrintProfil(SelectProfile())[0], ENT_QUOTES)."' class=Aright></p>
                 <p>Prénom : <input id='FirstName' type='text' name='first_name' class='text_1'value='".htmlspecialchars(PrintProfil(SelectProfile())[2], ENT_QUOTES)."' class=Aright></p>
                 <p>Nom : <input id='LastName' type='text' name='last_name' class='text_1'value='".htmlspecialchars(PrintProfil(SelectProfile())[3], ENT_QUOTES)."' class=Aright></p>
@@ -47,9 +47,9 @@ require("View/ViewBanner.php");
                 <p>Mot de passe : <input id='Pwd' type='password' class='text_1'name='mdp' class='text_1'value='".htmlspecialchars(PrintProfil(SelectProfile())[1], ENT_QUOTES)."' class=Aright></p>
                 <p>Confirmation de mot de passe : <input id='Cpwd' type='password' class='text_1'name='cmdp' class='text_1'value=''></p>
                 <input type='hidden' name='modif' value='Corriger'>
-                <input type='submit' class='bouton_1'value='Modifier'>
+                <p><input type='submit' class='bouton_1'value='Modifier'></p>
                 <input type='hidden' name='page' value='Profil'>
-                </form>");
+                </form>");  
             echo("<form action='Index.php' method='get'>
                 <input type='hidden' name='page' value='Profil'>
                 <input type='submit' class='bouton_1'class='bouton_1'value='Retour'>

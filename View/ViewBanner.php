@@ -10,9 +10,10 @@
         <div class="banner1 row justify-content-between px-5" >
             <div>
                 <form action='Index.php' method='get'>
-                <button>
-                <img src="Pictures/Logo.png" alt="logo Plat'In" class='adjimg' type='submit' class='bouton_1' value='Accueil'>
-                </button>
+
+                <input type="image" class ='image' id='logo' alt='logo' src='Pictures/Logo.png' type='submit' value='Accueil' >
+
+
                 </form>
             </div>
             

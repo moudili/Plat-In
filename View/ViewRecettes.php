@@ -129,7 +129,7 @@ require("View/ViewBanner.php");
                 else if ($_GET['RequestReview']=='Donner une note')
                 {
                     echo("
-                    Merci de rentrer votre notre pour cette recette.
+                    Merci de rentrer votre note pour cette recette.
                     <form action='Index.php' method='get'>
                     <div class='rating'>
                     <input name='stars' id='e5' type='radio' value='5'></a><label for='e5'>☆</label>
@@ -165,7 +165,7 @@ require("View/ViewBanner.php");
                 else if ($_GET['RequestReview']=='Valider' AND empty($_GET['stars']))
                 {
                     echo("
-                    Merci de rentrer votre notre pour cette recette.
+                    Merci de rentrer votre note pour cette recette.
                     <form action='Index.php' method='get'>
                     <div class='rating'>
                     <input name='stars' id='e5' type='radio' value='5'></a><label for='e5'>☆</label>

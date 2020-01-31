@@ -4,13 +4,10 @@
 <html>
     <head>
         <title>Aliments</title>
-    </head>
-    <style>
-         body{
-            text-align: center;
-            }
-    </style> 
-    <body> 
+        <link rel="stylesheet" href="Css/Bootstrap/PersonalCss.css">
+        <link rel="stylesheet" href="Css/Bootstrap/background.css">
+    </head> 
+    <body class='backgroundhat center'> 
 
 <?php
             if(empty($_GET['Request']))

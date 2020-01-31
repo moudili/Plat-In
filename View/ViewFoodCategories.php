@@ -5,13 +5,10 @@
 <html>
     <head>
         <title>Categories alimentaires</title>
+        <link rel="stylesheet" href="Css/Bootstrap/PersonalCss.css">
+        <link rel="stylesheet" href="Css/Bootstrap/background.css">
     </head>
-    <style>
-         body{
-            text-align: center;
-            }
-    </style> 
-    <body>
+    <body class='backgroundhat center'>
 
         <?php
             if(empty($_GET['Request']))
@@ -19,7 +16,7 @@
 
                 ?>
                     <form action='Index.php' method='get'>
-                    <input type='search' class='text_1'placeholder = 'Rechercher une categorie...' name='Cat'/>
+                    <input type='search' class='text_1' size='25'placeholder = 'Rechercher une categorie...' name='Cat'/>
                     <input type='hidden' name='page' value='Catégories Alimentaires'>
                     <input type='hidden' name='Request' value='Search'>
                     <button type='submit'class='bouton_1'> <i class="fa fa-search"></i></button></form>
@@ -461,7 +458,7 @@
 
                     echo("
                     <form action='Index.php' method='get'>
-                    <input type='search' class='text_1'placeholder = 'Rechercher une catégorie...' name='Cat' value='".htmlspecialchars($_GET['Cat'], ENT_QUOTES)."'/>
+                    <input type='search' size='25' class='text_1'placeholder = 'Rechercher une catégorie...' name='Cat' value='".htmlspecialchars($_GET['Cat'], ENT_QUOTES)."'/>
                     <input type='hidden' name='page' value='Catégories Alimentaires'>
                     <input type='hidden' name='Request' value='Search'>
                     <button type='submit'class='bouton_1'> <i class='fa fa-search'></i></button></form>
