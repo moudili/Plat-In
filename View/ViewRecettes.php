@@ -207,7 +207,7 @@ require("View/ViewBanner.php");
                                     echo("</p>
                                     <p align=center>Aliment(s) : ");
                                     
-                                        echo("<select name='food0'>
+                                        echo("<select class='text_1'name='food0'>
                                         <option value=''>--Choisissez un aliment--</option>");
                                         for($k = 0 ; $k < count($Foods[0]) ; $k++)
                                         {
@@ -229,7 +229,7 @@ require("View/ViewBanner.php");
 
                                     echo("
                                     <p align=center>Date de création : ".$Recipes[2][$i]."</p>
-                                    <p align=center>Temps de préparation : <SELECT name='time' size='1'>");
+                                    <p align=center>Temps de préparation : <SELECT class='text_1'name='time' size='1'>");
                                     if ($Recipes[3][$i]=="00:05:00")
                                     {
                                         echo("<OPTION selected='selected' value='00:05:00'>5min");
@@ -304,7 +304,7 @@ require("View/ViewBanner.php");
                                     }
                                     echo("</SELECT></p>
                                     <p align=center>Créer par : ".$Recipes[5][$i]."</p>
-                                    Origine de la recette : <select name='origine'>
+                                    Origine de la recette : <select class='text_1'name='origine'>
                                     <option value=''>--Choisissez une origine--</option>");
                                     for($j = 0 ; $j < count($Origines[0]) ; $j++)
                                     {
@@ -348,7 +348,7 @@ require("View/ViewBanner.php");
                                     <p align=center>Aliment(s) : ");
                                     for($j = 0 ; $j < $Menu2 ; $j++ )
                                     {
-                                        echo("<select name='food".$j."'>
+                                        echo("<select class='text_1'name='food".$j."'>
                                         <option value=''>--Choisissez un aliment--</option>");
                                         for($k = 0 ; $k < count($Foods[0]) ; $k++)
                                         {
@@ -381,7 +381,7 @@ require("View/ViewBanner.php");
 
                                     echo("
                                     <p align=center>Date de création : ".$Recipes[2][$i]."</p>
-                                    <p align=center>Temps de préparation : <SELECT name='time' size='1'>");
+                                    <p align=center>Temps de préparation : <SELECT class='text_1'name='time' size='1'>");
                                     if ($_GET['time']=="00:05:00")
                                     {
                                         echo("<OPTION selected='selected' value='00:05:00'>5min");
@@ -456,7 +456,7 @@ require("View/ViewBanner.php");
                                     }
                                     echo("</SELECT></p>
                                     <p align=center>Créer par : ".$Recipes[5][$i]."</p>
-                                    Origine de la recette : <select name='origine'>
+                                    Origine de la recette : <select class='text_1'name='origine'>
                                     <option value=''>--Choisissez une origine--</option>");
                                     for($j = 0 ; $j < count($Origines[0]) ; $j++)
                                     {
@@ -516,7 +516,7 @@ require("View/ViewBanner.php");
                                         <p align=center>Aliment(s) : ");
                                         for($j = 0 ; $j < $Menu2 ; $j++ )
                                         {
-                                            echo("<select name='food".$j."'>
+                                            echo("<select class='text_1'name='food".$j."'>
                                             <option value=''>--Choisissez un aliment--</option>");
                                             for($k = 0 ; $k < count($Foods[0]) ; $k++)
                                             {
@@ -549,7 +549,7 @@ require("View/ViewBanner.php");
 
                                         echo("
                                         <p align=center>Date de création : ".$Recipes[2][$i]."</p>
-                                        <p align=center>Temps de préparation : <SELECT name='time' size='1'>");
+                                        <p align=center>Temps de préparation : <SELECT class='text_1'name='time' size='1'>");
                                         if ($_GET['time']=="00:05:00")
                                         {
                                             echo("<OPTION selected='selected' value='00:05:00'>5min");
@@ -624,7 +624,7 @@ require("View/ViewBanner.php");
                                         }
                                         echo("</SELECT></p>
                                         <p align=center>Créer par : ".$Recipes[5][$i]."</p>
-                                        Origine de la recette : <select name='origine'>
+                                        Origine de la recette : <select class='text_1'name='origine'>
                                         <option value=''>--Choisissez une origine--</option>");
                                         for($j = 0 ; $j < count($Origines[0]) ; $j++)
                                         {
@@ -728,7 +728,7 @@ require("View/ViewBanner.php");
                 <form action='Index.php' method='get'>
                 <p>image : <input id='get_compte' type='text' class='text_1'class='text_1'name='img' value=''></p>
                 <p> Nom de la recette : <input id='get_compte' type='text' class='text_1'class='text_1'name='name' value=''></p>
-                <p> Aliments : <select name='food0'>
+                <p> Aliments : <select class='text_1'name='food0'>
                 <option value=''>--Choisissez un aliment--</option>");
                 for($i = 0 ; $i < count($Foods[0]) ; $i++)
                 {
@@ -736,7 +736,7 @@ require("View/ViewBanner.php");
                 }                
                 echo("</select> <input type='submit' class='bouton_1' name='Request' value='+'></p></p>
                 <input type='hidden' name='Menu' value=".$_GET['Menu'].">
-                <p> Temps de préparation : <SELECT name='time' size='1'>
+                <p> Temps de préparation : <SELECT class='text_1'name='time' size='1'>
                 <OPTION value='00:05:00'>5 min
                 <OPTION value='00:10:00'>10 min
                 <OPTION value='00:20:00'>20 min
@@ -747,7 +747,7 @@ require("View/ViewBanner.php");
                 <OPTION value='02:00:00'>2h
                 <OPTION value='03:00:00'>2h+
                 </SELECT></p>
-                <p>Origine de la recette : <select name='origine'>
+                <p>Origine de la recette : <select class='text_1'name='origine'>
                 <option value=''>--Choisissez une origine--</option>");
                 for($i = 0 ; $i < count($Origines[0]) ; $i++)
                 {
@@ -777,7 +777,7 @@ require("View/ViewBanner.php");
 
                 for($j = 0 ; $j < $Menu ; $j++ )
                 {
-                    echo("<select name='food".$j."'>
+                    echo("<select class='text_1'name='food".$j."'>
                     <option value=''>--Choisissez un aliment--</option>");
                     for($i = 0 ; $i < count($Foods[0]) ; $i++)
                     {
@@ -808,7 +808,7 @@ require("View/ViewBanner.php");
 
 
                 echo("</p></p>
-                <p> Temps de préparation : <SELECT name='time' size='1'>");
+                <p> Temps de préparation : <SELECT class='text_1'name='time' size='1'>");
                 if ($_GET['time']=="00:05:00")
                 {
                     echo("<OPTION selected='selected' value='00:05:00'>5 min");
@@ -882,7 +882,7 @@ require("View/ViewBanner.php");
                     echo("<OPTION value='03:00:00'>2H+");
                 }
                 echo("</SELECT></p></p>
-                <p>Origine de la recette : <select name='origine'>
+                <p>Origine de la recette : <select class='text_1'name='origine'>
                         <option value=''>--Choisissez une origine--</option>");
                         for($i = 0 ; $i < count($Origines[0]) ; $i++)
                         {
@@ -937,7 +937,7 @@ require("View/ViewBanner.php");
 
                     for($j = 0 ; $j < $Menu ; $j++ )
                     {
-                        echo("<select name='food".$j."'>
+                        echo("<select class='text_1'name='food".$j."'>
                         <option value=''>--Choisissez un aliment--</option>");
                         for($i = 0 ; $i < count($Foods[0]) ; $i++)
                         {
@@ -967,7 +967,7 @@ require("View/ViewBanner.php");
 
 
                     echo("</p></p>
-                    <p> Temps de préparation : <SELECT name='time' size='1'>");
+                    <p> Temps de préparation : <SELECT class='text_1'name='time' size='1'>");
                     if ($_GET['time']=="00:05:00")
                     {
                         echo("<OPTION selected='selected' value='00:05:00'>5 min");
@@ -1041,7 +1041,7 @@ require("View/ViewBanner.php");
                         echo("<OPTION value='03:00:00'>2H+");
                     }
                     echo("</SELECT></p></p>
-                    <p>Origine de la recette : <select name='origine'>
+                    <p>Origine de la recette : <select class='text_1'name='origine'>
                             <option value=''>--Choisissez une origine--</option>");
 
                             for($i = 0 ; $i < count($Origines[0]) ; $i++)

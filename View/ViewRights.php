@@ -121,7 +121,7 @@
                 {
                     echo"<p>Quels droits souhaitez vous attribuer à l'utilisateur ".$_GET['User']."?</p>
                     <form action='Index.php' method='get'>
-                    <select name='rights'>
+                    <select class='text_1'name='rights'>
                         <option value='membre'>Membre</option>
                         <option value='operator'>Modérateur</option>
                     </select>
@@ -141,7 +141,7 @@
                     {
                         echo"<p>Quels droits souhaitez vous attribuer à l'utilisateur ".$_GET['User']."?</p>
                         <form action='Index.php' method='get'>
-                        <select name='rights'>
+                        <select class='text_1'name='rights'>
                             <option value='membre'>Membre</option>
                             <option value='operator'>Modérateur</option>
                         </select>

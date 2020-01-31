@@ -124,7 +124,7 @@
                     <p>Catégorie alimentaire: <input name='Cat'/></p>
                     <input type='hidden' name='page' value='Catégories Alimentaires'>
                     <p>Choisissez un ou des aliments que vous voulez ajouter à votre catégorie :<br><br>
-                    <select name='Kind0'>
+                    <select class='text_1' class='text_1'name='Kind0'>
                     <option value=''>--Choisissez un aliment--</option>
                     ";
                     
@@ -133,7 +133,7 @@
                         echo("<option value=".$Foods[0][$i].">".$Foods[1][$i]."</option>");
                     }
                     
-                    echo("</select>
+                    echo("</select class='text_1'>
                     <input type='submit' class='bouton_1' name='Request' value='+'></p>
                     <input type='hidden' name='Menu' value=".$_GET['Menu'].">
                     <input type='submit' class='bouton_1' name='Request' value='Ajouter'>
@@ -153,7 +153,7 @@
                     
                     for($j = 0 ; $j < $Menu ; $j++ )
                     {
-                        echo(" <select name='Kind".$j."'>
+                        echo(" <select class='text_1' name='Kind".$j."'>
                         <option value=''>--Choisissez un aliment--</option>");
                 
                         for($i = 0 ; $i < count($Foods[0]) ; $i++)
@@ -167,7 +167,7 @@
                                 echo("<option value=".$Foods[0][$i].">".$Foods[1][$i]."</option>");
                             }  
                         }                
-                        echo("</select> ");
+                        echo("</select class='text_1'> ");
 
                         if( ($j+2)%5 == 1)
                         {
@@ -206,7 +206,7 @@
                         
                         for($j = 0 ; $j < $Menu ; $j++ )
                         {
-                            echo(" <select name='Kind".$j."'>
+                            echo(" <select class='text_1' name='Kind".$j."'>
                             <option value=''>--Choisissez un aliment--</option>");
                     
                             for($i = 0 ; $i < count($Foods[0]) ; $i++)
@@ -220,7 +220,7 @@
                                     echo("<option value=".$Foods[0][$i].">".$Foods[1][$i]."</option>");
                                 }  
                             }                
-                            echo("</select> ");
+                            echo("</select class='text_1'> ");
     
                             if( ($j+2)%5 == 1)
                             {
@@ -571,7 +571,7 @@
                         <input type='hidden' name='categorie' value='".$_GET['categorie']."'>
                         <input type='hidden' name='id' value='".$_GET['id']."'>
                         Choisissez un ou des aliments que vous voulez ajouter à votre catégorie :<br><br>
-                        <select name='Kind0'>
+                        <select class='text_1' name='Kind0'>
                         <option value=''>--Choisissez un aliment--</option>
                         ");
                         
@@ -580,7 +580,7 @@
                             echo("<option value=".$Foods[0][$i].">".$Foods[1][$i]."</option>");
                         }
                         
-                        echo("</select>
+                        echo("</select class='text_1'>
                         <input type='hidden' name='Request' value='Ajouter des aliments'>
                         <input type='submit' class='bouton_1' name='SubRequest' value='+'></p>
                         <input type='hidden' name='Menu' value=".$_GET['Menu'].">
@@ -607,7 +607,7 @@
                         
                                 for($j = 0 ; $j < $Menu2 ; $j++ )
                                 {
-                                    echo(" <select name='Kind".$j."'>
+                                    echo(" <select class='text_1' name='Kind".$j."'>
                                     <option value=''>--Choisissez un aliment--</option>");
                             
                                     for($i = 0 ; $i < count($Foods[0]) ; $i++)
@@ -621,7 +621,7 @@
                                             echo("<option value=".$Foods[0][$i].">".$Foods[1][$i]."</option>");
                                         }  
                                     }                
-                                    echo("</select> ");
+                                    echo("</select class='text_1'> ");
     
                                     if( ($j+2)%5 == 1)
                                     {
@@ -677,7 +677,7 @@
                     
                             for($j = 0 ; $j < $Menu2 ; $j++ )
                             {
-                                echo(" <select name='Kind".$j."'>
+                                echo(" <select class='text_1' name='Kind".$j."'>
                                 <option value=''>--Choisissez un aliment--</option>");
                         
                                 for($i = 0 ; $i < count($Foods[0]) ; $i++)
@@ -691,7 +691,7 @@
                                         echo("<option value=".$Foods[0][$i].">".$Foods[1][$i]."</option>");
                                     }  
                                 }                
-                                echo("</select> ");
+                                echo("</select class='text_1'> ");
 
                                 if( ($j+2)%5 == 1)
                                 {

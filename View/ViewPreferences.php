@@ -19,7 +19,7 @@
                 
                 for($j = 0 ; $j < $Menu ; $j++)
                 {
-                    echo "<select name='Diet".$j."'>
+                    echo "<select class='text_1' name='Diet".$j."'>
                     <option value=''>Aucun</option>";
                     for($i = 0 ; $i < count($PrintDiet[0]) ; $i++)
                     {
@@ -51,7 +51,7 @@
             
                 for($j = 0 ; $j < 3 ; $j++)
                 {
-                    echo "<select name='Food".$j."'>
+                    echo "<select class='text_1' name='Food".$j."'>
                     <option value=''>Aucun</option>";
                     for($i = 0 ; $i < count($PrintFood[0]) ; $i++)
                     {
@@ -98,7 +98,7 @@
             echo"<form action='../Controller/ControllerPreferences.php' method='get'>
             <div class='arriereplan'><div class='profil'>Préférences alimentaires<br><br></div>
             Séléctionner un ou plusieurs régimes alimentaires si nécessaire:<br><br>
-            <select name='Diet0'>
+            <select class='text_1' name='Diet0'>
             <option value=''>Aucun</option>";
             for($i = 0 ; $i < count($PrintDiet[0]) ; $i++)
             {
@@ -112,7 +112,7 @@
             
             for($j = 0 ; $j < 3 ; $j++)
             {
-                echo "<select name='Food".$j."'>
+                echo "<select class='text_1' name='Food".$j."'>
                 <option value=''>Aucun</option>";
                 for($i = 0 ; $i < count($PrintFood[0]) ; $i++)
                 {

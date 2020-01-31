@@ -63,11 +63,11 @@
                 {
             ?>      <div>
                     <form action='Index.php' method='get'>
-                    <input type='submit' name="page" value="Inscription"></form>
+                    <input type='submit' class="bouton_1" name="page" value="Inscription"></form>
                     </div>
                     <div>
                     <form action='Index.php' method='get'>
-                    <input type='submit' name="page" value="Connexion"></form>
+                    <input type='submit' class="bouton_1" name="page" value="Connexion"></form>
                     </div>
             <?php
                 }

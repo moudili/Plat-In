@@ -142,7 +142,7 @@
                     <br><br>
                     <p>Titre de l'évènement : <input type='text' class='text_1'name='Name' value=''></p>
                     <p>Personne à inviter à cette évènement : 
-                    <select name='utilisateur0'>");
+                    <select class='text_1'name='utilisateur0'>");
                     for ($i=0;$i<count($Users[0]);$i++)
                     {
                         $Into=array();
@@ -166,21 +166,21 @@
                     }
                     echo("</p>
                     <p>Recette disponible : 
-                    <select name='recette0'>
+                    <select class='text_1'name='recette0'>
                     ");
                     for ($i=0;$i<count($Recipes[0]);$i++)
                     {
                         echo("<option value='".$Recipes[2][$i]."'>".$Recipes[0][$i]."</option>");
                     }
                     echo("</select></p>
-                    <p>Ceci est <select name='service0'>
+                    <p>Ceci est <select class='text_1'name='service0'>
                     <option value='entrée'>une entrée</option>
                     <option value='plat'>un plat</option>
                     <option value='dessert'>un dessert</option>
                     </select></p>
                     <input type='hidden' name='MenuRecipe' value='".$_GET['MenuRecipe']."'>
                     <p><input type='submit' class='bouton_1' name='RequestRecipe' value='+'></p>
-                    <p><input type='date' name='date'><input type='time' name='time'></p>
+                    <p><input type='date' class='text_1'name='date'><input type='time'class='text_1' name='time'></p>
                     <p>Lieu de l'évènement : <input type='text' class='text_1'name='location' value=''></p>
                     Description : 
                     <p><TEXTAREA class='text_1'name='description' rows=15 cols=90></TEXTAREA></p>
@@ -206,7 +206,7 @@
                     for($j = 0 ; $j < $_GET['MenuUser'] ; $j++ )
                     {
                         echo("<p>Personne à inviter à cette évènement : 
-                        <select name='utilisateur".$j."'>");
+                        <select class='text_1'name='utilisateur".$j."'>");
                         
                         for ($i=0;$i<count($Users[0]);$i++)
                         {
@@ -245,7 +245,7 @@
                     for($j = 0 ; $j < $MenuRecipe ; $j++ )
                     {
                         echo("<p>Recette disponible : 
-                        <select name='recette".$j."'>");
+                        <select class='text_1'name='recette".$j."'>");
                         for ($i=0;$i<count($Recipes[0]);$i++)
                         {
                             if ($_GET['recette'.$j]==$Recipes[2][$i]) 
@@ -260,7 +260,7 @@
                             }
                         }
                         echo("</select></p>
-                        <p>Ceci est <select name='service".$j."'>");
+                        <p>Ceci est <select class='text_1'name='service".$j."'>");
                     
                             if ($_GET['service'.$j]=='entrée')
                             {
@@ -295,7 +295,7 @@
                         echo("<input type='submit' class='bouton_1' name='RequestRecipe' value='-'>");
                     }
 
-                    echo("<p><input type='date' name='date' value='".$_GET['date']."'><input type='time' name='time' value='".$_GET['time']."'></p>
+                    echo("<p><input type='date' class='text_1'name='date' value='".$_GET['date']."'><input type='time'class='text_1' name='time' value='".$_GET['time']."'></p>
                     <p>Lieu de l'évènement : <input type='text' class='text_1'name='location' value='".$_GET['location']."'></p>
                     Description : 
                     <p><TEXTAREA class='text_1'name='description' rows=15 cols=90 value=''>".$_GET['description']."</TEXTAREA></p>
@@ -322,7 +322,7 @@
                     for($j = 0 ; $j < $MenuUser ; $j++ )
                     {
                         echo("<p>Personne à inviter à cette évènement : 
-                        <select name='utilisateur".$j."'>");
+                        <select class='text_1'name='utilisateur".$j."'>");
                         
                         for ($i=0;$i<count($Users[0]);$i++)
                         {
@@ -361,7 +361,7 @@
                     for($j = 0 ; $j < $_GET['MenuRecipe'] ; $j++ )
                     {
                         echo("<p>Recette disponible : 
-                        <select name='recette".$j."'>");
+                        <select class='text_1'name='recette".$j."'>");
                         for ($i=0;$i<count($Recipes[0]);$i++)
                         {
                             if ($_GET['recette'.$j]==$Recipes[2][$i]) 
@@ -376,7 +376,7 @@
                             }
                         }
                         echo("</select></p>
-                        <p>Ceci est <select name='service".$j."'>");
+                        <p>Ceci est <select class='text_1'name='service".$j."'>");
                     
                             if ($_GET['service'.$j]=='entrée')
                             {
@@ -411,7 +411,7 @@
                         echo("<input type='submit' class='bouton_1' name='RequestRecipe' value='-'>");
                     }
 
-                    echo("<p><input type='date' name='date' value='".$_GET['date']."'><input type='time' name='time' value='".$_GET['time']."'></p>
+                    echo("<p><input type='date' class='text_1'name='date' value='".$_GET['date']."'><input type='time'class='text_1' name='time' value='".$_GET['time']."'></p>
                     <p>Lieu de l'évènement : <input type='text' class='text_1'name='location' value='".$_GET['location']."'></p>
                     Description : 
                     <p><TEXTAREA class='text_1'name='description' rows=15 cols=90 value=''>".$_GET['description']."</TEXTAREA></p>
@@ -462,7 +462,7 @@
                     for($j = 0 ; $j < $_GET['MenuUser'] ; $j++ )
                     {
                         echo("<p>Personne à inviter à cette évènement : 
-                        <select name='utilisateur".$j."'>");
+                        <select class='text_1'name='utilisateur".$j."'>");
                         
                         for ($i=0;$i<count($Users[0]);$i++)
                         {
@@ -502,7 +502,7 @@
                     for($j = 0 ; $j < $_GET['MenuRecipe'] ; $j++ )
                     {
                         echo("<p>Recette disponible : 
-                        <select name='recette".$j."'>");
+                        <select class='text_1'name='recette".$j."'>");
                         for ($i=0;$i<count($Recipes[0]);$i++)
                         {
                             if ($_GET['recette'.$j]==$Recipes[2][$i]) 
@@ -517,7 +517,7 @@
                             }
                         }
                         echo("</select></p>
-                        <p>Ceci est <select name='service".$j."'>");
+                        <p>Ceci est <select class='text_1'name='service".$j."'>");
                     
                             if ($_GET['service'.$j]=='entrée')
                             {
@@ -552,7 +552,7 @@
                         echo("<input type='submit' class='bouton_1' name='RequestRecipe' value='-'>");
                     }
 
-                    echo("<p><input type='date' name='date' value='".$_GET['date']."'><input type='time' name='time' value='".$_GET['time']."'></p>
+                    echo("<p><input type='date' class='text_1'name='date' value='".$_GET['date']."'><input type='time'class='text_1' name='time' value='".$_GET['time']."'></p>
                     <p>Lieu de l'évènement : <input type='text' class='text_1'name='location' value='".$_GET['location']."'></p>
                     Description : 
                     <p><TEXTAREA class='text_1'name='description' rows=15 cols=90 value=''>".$_GET['description']."</TEXTAREA></p>
@@ -660,7 +660,7 @@
                     {
                         echo("<p>Personne à inviter à cette évènement : 
                         
-                        <select name='utilisateur".$j."'>");
+                        <select class='text_1'name='utilisateur".$j."'>");
                         $Tailles=count($Guests[4]);
                         $Tailles=$Tailles;
                         for ($i=0;$i<$Tailles;$i++)
@@ -742,7 +742,7 @@
                     for ($j = 0 ; $j < $Dishes[5]; $j++ )
                     {
                         echo("<p>Recette disponible : 
-                        <select name='recette".$j."'>");
+                        <select class='text_1'name='recette".$j."'>");
                         for ($i=0;$i<count($Dishes[0]);$i++)
                         {
                             for ($h=0;$h<count($Listes);$h++)
@@ -787,7 +787,7 @@
                         }
 
                         echo("</select></p>
-                        <p>Ceci est <select name='service".$j."'>");
+                        <p>Ceci est <select class='text_1'name='service".$j."'>");
                         for ($g=0;$g<count($Dishes[3]);$g++)
                         {
                             
@@ -821,7 +821,7 @@
                     {
                         echo("<input type='submit' class='bouton_1' name='RequestRecipe' value='-'>");
                     }
-                    echo("</p><p><input type='date' name='date' value='".$SelectEvent[3]."'><input type='time' name='time' value='".$SelectEvent[2]."'></p>
+                    echo("</p><p><input type='date' class='text_1'name='date' value='".$SelectEvent[3]."'><input class='text_1' name='time' value='".$SelectEvent[2]."'></p>
                     <p>Lieu de l'évènement : <input type='text' class='text_1'name='location' value='".$SelectEvent[4]."'></p>
                     Description : 
                     <p><TEXTAREA class='text_1'name='description' rows=15 cols=90 value=''>".$SelectEvent[5]."</TEXTAREA></p>
@@ -848,7 +848,7 @@
                     for($j = 0 ; $j < $_GET['MenuUser'] ; $j++ )
                     {
                         echo("<p>Personne à inviter à cette évènement : 
-                        <select name='utilisateur".$j."'>");
+                        <select class='text_1'name='utilisateur".$j."'>");
                         
                         for ($i=0;$i<count($Users[0]);$i++)
                         {
@@ -887,7 +887,7 @@
                     for($j = 0 ; $j < $MenuRecipe ; $j++ )
                     {
                         echo("<p>Recette disponible : 
-                        <select name='recette".$j."'>");
+                        <select class='text_1'name='recette".$j."'>");
                         for ($i=0;$i<count($Recipes[0]);$i++)
                         {
                             if ($_GET['recette'.$j]==$Recipes[2][$i]) 
@@ -902,7 +902,7 @@
                             }
                         }
                         echo("</select></p>
-                        <p>Ceci est <select name='service".$j."'>");
+                        <p>Ceci est <select class='text_1'name='service".$j."'>");
                     
                             if ($_GET['service'.$j]=='entrée')
                             {
@@ -937,7 +937,7 @@
                         echo("<input type='submit' class='bouton_1' name='RequestRecipe' value='-'>");
                     }
 
-                    echo("<p><input type='date' name='date' value='".$_GET['date']."'><input type='time' name='time' value='".$_GET['time']."'></p>
+                    echo("<p><input type='date' class='text_1'name='date' value='".$_GET['date']."'><input type='time'class='text_1' name='time' value='".$_GET['time']."'></p>
                     <p>Lieu de l'évènement : <input type='text' class='text_1'name='location' value='".$_GET['location']."'></p>
                     Description : 
                     <p><TEXTAREA class='text_1'name='description' rows=15 cols=90 value=''>".$_GET['description']."</TEXTAREA></p>
@@ -964,7 +964,7 @@
                     for($j = 0 ; $j < $MenuUser ; $j++ )
                     {
                         echo("<p>Personne à inviter à cette évènement : 
-                        <select name='utilisateur".$j."'>");
+                        <select class='text_1'name='utilisateur".$j."'>");
                         
                         for ($i=0;$i<count($Users[0]);$i++)
                         {
@@ -1003,7 +1003,7 @@
                     for($j = 0 ; $j < $_GET['MenuRecipe'] ; $j++ )
                     {
                         echo("<p>Recette disponible : 
-                        <select name='recette".$j."'>");
+                        <select class='text_1'name='recette".$j."'>");
                         for ($i=0;$i<count($Recipes[0]);$i++)
                         {
                             if ($_GET['recette'.$j]==$Recipes[2][$i]) 
@@ -1018,7 +1018,7 @@
                             }
                         }
                         echo("</select></p>
-                        <p>Ceci est <select name='service".$j."'>");
+                        <p>Ceci est <select class='text_1'name='service".$j."'>");
                     
                             if ($_GET['service'.$j]=='entrée')
                             {
@@ -1053,7 +1053,7 @@
                         echo("<input type='submit' class='bouton_1' name='RequestRecipe' value='-'>");
                     }
 
-                    echo("<p><input type='date' name='date' value='".$_GET['date']."'><input type='time' name='time' value='".$_GET['time']."'></p>
+                    echo("<p><input type='date' name='date' class='text_1'value='".$_GET['date']."'><input type='time'class='text_1' name='time' value='".$_GET['time']."'></p>
                     <p>Lieu de l'évènement : <input type='text' class='text_1'name='location' value='".$_GET['location']."'></p>
                     Description : 
                     <p><TEXTAREA class='text_1'name='description' rows=15 cols=90 value=''>".$_GET['description']."</TEXTAREA></p>
@@ -1080,7 +1080,7 @@
                     for($j = 0 ; $j < $_GET['MenuUser'] ; $j++ )
                     {
                         echo("<p>Personne à inviter à cette évènement : 
-                        <select name='utilisateur".$j."'>");
+                        <select class='text_1'name='utilisateur".$j."'>");
                         
                         for ($i=0;$i<count($Users[0]);$i++)
                         {
@@ -1120,7 +1120,7 @@
                     for($j = 0 ; $j < $_GET['MenuRecipe'] ; $j++ )
                     {
                         echo("<p>Recette disponible : 
-                        <select name='recette".$j."'>");
+                        <select class='text_1'name='recette".$j."'>");
                         for ($i=0;$i<count($Recipes[0]);$i++)
                         {
                             if ($_GET['recette'.$j]==$Recipes[2][$i]) 
@@ -1135,7 +1135,7 @@
                             }
                         }
                         echo("</select></p>
-                        <p>Ceci est <select name='service".$j."'>");
+                        <p>Ceci est <select class='text_1'name='service".$j."'>");
                     
                             if ($_GET['service'.$j]=='entrée')
                             {
@@ -1171,7 +1171,7 @@
                         echo("<input type='submit' class='bouton_1' name='RequestRecipe' value='-'>");
                     }
 
-                    echo("<p><input type='date' name='date' value='".$_GET['date']."'><input type='time' name='time' value='".$_GET['time']."'></p>
+                    echo("<p><input type='date' name='date' class='text_1'value='".$_GET['date']."'><input type='time'class='text_1' name='time' value='".$_GET['time']."'></p>
                     <p>Lieu de l'évènement : <input type='text' class='text_1'name='location' value='".$_GET['location']."'></p>
                     Description : 
                     <p><TEXTAREA class='text_1'name='description' rows=15 cols=90 value=''>".$_GET['description']."</TEXTAREA></p>
@@ -1203,7 +1203,7 @@
                     for($j = 0 ; $j < $_GET['MenuUser'] ; $j++ )
                     {
                         echo("<p>Personne à inviter à cette évènement : 
-                        <select name='utilisateur".$j."'>");
+                        <select class='text_1'name='utilisateur".$j."'>");
                         
                         for ($i=0;$i<count($Users[0]);$i++)
                         {
@@ -1243,7 +1243,7 @@
                     for($j = 0 ; $j < $_GET['MenuRecipe'] ; $j++ )
                     {
                         echo("<p>Recette disponible : 
-                        <select name='recette".$j."'>");
+                        <select class='text_1'name='recette".$j."'>");
                         for ($i=0;$i<count($Recipes[0]);$i++)
                         {
                             if ($_GET['recette'.$j]==$Recipes[2][$i]) 
@@ -1258,7 +1258,7 @@
                             }
                         }
                         echo("</select></p>
-                        <p>Ceci est <select name='service".$j."'>");
+                        <p>Ceci est <select class='text_1'name='service".$j."'>");
                     
                             if ($_GET['service'.$j]=='entrée')
                             {
@@ -1293,7 +1293,7 @@
                         echo("<input type='submit' class='bouton_1' name='RequestRecipe' value='-'>");
                     }
 
-                    echo("<p><input type='date' name='date' value='".$_GET['date']."'><input type='time' name='time' value='".$_GET['time']."'></p>
+                    echo("<p><input type='date' name='date' class='text_1'value='".$_GET['date']."'><input type='time' class='text_1'name='time' value='".$_GET['time']."'></p>
                     <p>Lieu de l'évènement : <input type='text' class='text_1'name='location' value='".$_GET['location']."'></p>
                     Description : 
                     <p><TEXTAREA class='text_1'name='description' rows=15 cols=90 value=''>".$_GET['description']."</TEXTAREA></p>

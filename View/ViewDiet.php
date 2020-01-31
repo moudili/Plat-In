@@ -25,7 +25,7 @@
                     <p>Régime alimentaire: <input name='Diet'/></p>
                     <input type='hidden' name='page' value='Régimes'>
                     <p>Choisissez une ou des catégories alimentaires avec lesquelles votre régime n'est pas compatible:<br><br>
-                    <select name='Kind0'>
+                    <select class='text_1' name='Kind0'>
                     <option value=''>--Choisissez une catégorie alimentaire--</option>
                     ";
                     
@@ -54,7 +54,7 @@
                     
                     for($j = 0 ; $j < $Menu ; $j++ )
                     {
-                        echo(" <select name='Kind".$j."'>
+                        echo(" <select class='text_1'name='Kind".$j."'>
                         <option value=''>--Choisissez une catégorie alimentaire--</option>");
                 
                         for($i = 0 ; $i < count($Kind[0]) ; $i++)
@@ -106,7 +106,7 @@
                         
                         for($j = 0 ; $j < $Menu ; $j++ )
                         {
-                            echo(" <select name='Kind".$j."'>
+                            echo(" <select class='text_1'name='Kind".$j."'>
                             <option value=''>--Choisissez une catégorie alimentaire--</option>");
                     
                             for($i = 0 ; $i < count($Kind[0]) ; $i++)
@@ -376,7 +376,7 @@
                         <input type='hidden' name='iddiet' value='".$_GET['iddiet']."'>
                         <input type='hidden' name='diet' value='".$_GET['diet']."'>
                         Choisissez une ou des catégories alimentaires avec lesquelles votre régime n'est pas compatible:<br><br>
-                        <select name='Kind0'>
+                        <select class='text_1'name='Kind0'>
                         <option value=''>--Choisissez une catégorie alimentaire--</option>
                         ");
                         
@@ -412,7 +412,7 @@
                         
                                 for($j = 0 ; $j < $Menu2 ; $j++ )
                                 {
-                                    echo(" <select name='Kind".$j."'>
+                                    echo(" <select class='text_1'name='Kind".$j."'>
                                     <option value=''>--Choisissez une catégorie alimentaire--</option>");
                             
                                     for($i = 0 ; $i < count($Kind[0]) ; $i++)
@@ -482,7 +482,7 @@
                     
                             for($j = 0 ; $j < $Menu2 ; $j++ )
                             {
-                                echo(" <select name='Kind".$j."'>
+                                echo(" <select class='text_1'name='Kind".$j."'>
                                 <option value=''>--Choisissez une catégorie alimentaire--</option>");
                         
                                 for($i = 0 ; $i < count($Kind[0]) ; $i++)

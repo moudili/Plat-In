@@ -180,19 +180,19 @@
                     echo"<div class = 'arriereplan'>
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Recette'>
-                    Origine : <select name='Filtre0'>
+                    Origine : <select class='text_1'name='Filtre0'>
                     <option value=''>Toutes</option>";
                     for($i = 0 ; $i < count($MenuFiltre[0]) ; $i++)
                     {
                         echo("<option value=".$MenuFiltre[0][$i].">".$MenuFiltre[1][$i]."</option>"); 
                     } 
-                    echo"</select><br><br>aliment : <select name='Filtre1'>
+                    echo"</select><br><br>aliment : <select class='text_1'name='Filtre1'>
                     <option value=''>Tous</option>";
                     for($i = 0 ; $i < count($MenuFiltre[2]) ; $i++)
                     {
                         echo("<option value=".$MenuFiltre[2][$i].">".$MenuFiltre[3][$i]."</option>"); 
                     } 
-                    echo"</select><br><br>catégorie alimentaire : <select name='Filtre2'>
+                    echo"</select><br><br>catégorie alimentaire : <select class='text_1'name='Filtre2'>
                     <option value=''>Toutes</option>";
                     for($i = 0 ; $i < count($MenuFiltre[4]) ; $i++)
                     {
@@ -413,10 +413,9 @@
                     echo("
                     <div class='arriereprofil'>
                     <div class='recetterecherche'><h1>Créer une recette</h1></div>
-                    <form action='Index.php' enctype='multipart/form-data' method='get'>
-                    <p>image  <input id='get_compte' type='file' name='photo'  value=''></p>
+                    <form action='Index.php' method='get'>
                     <p> Nom de la recette : <input id='get_compte' type='text' class='text_1'name='name' value=''></p>
-                    <p> Aliments : <select name='food0'>
+                    <p> Aliments : <select class='text_1' name='food0'>
                     <option value=''>--Choisissez un aliment--</option>");
                     for($i = 0 ; $i < count($Foods[0]) ; $i++)
                     {
@@ -424,7 +423,7 @@
                     }                
                     echo("</select> <input type='submit' class='bouton_1' name='Request' value='+'></p></p>
                     <input type='hidden' name='Menu' value=".$_GET['Menu'].">
-                    <p> Temps de préparation : <SELECT name='time' size='1'>
+                    <p> Temps de préparation : <SELECT class='text_1'name='time' size='1'>
                     <OPTION value='00:05:00'>5 min
                     <OPTION value='00:10:00'>10 min
                     <OPTION value='00:20:00'>20 min
@@ -435,7 +434,7 @@
                     <OPTION value='02:00:00'>2h
                     <OPTION value='03:00:00'>2h+
                     </SELECT></p>
-                    <p>Origine de la recette : <select name='origine'>
+                    <p>Origine de la recette : <select class='text_1'name='origine'>
                             <option value=''>--Choisissez une origine--</option>");
                             for($i = 0 ; $i < count($Origines[0]) ; $i++)
                             {
@@ -444,7 +443,7 @@
                             echo("</select></p>
 
                     
-                    <p> Recette : <br><TEXTAREA name='text' rows=15 cols=90></TEXTAREA></p>
+                    <p> Recette : <br><TEXTAREA class='text_1'name='text' rows=15 cols=90></TEXTAREA></p>
                     <p>
                     <input type='hidden' name='page' value='Recette'>
                     <br><input type='submit' class='bouton_1' name='Request'value='Valider'></form>");
@@ -463,7 +462,7 @@
                         <input type='hidden' name='Filtre2' value='".$_GET['Filtre2']."'>
                         ";
                     }                    
-                    echo("<br><input type='submit' class='bouton_1' value='Retour'></form>");
+                    echo("<input type='submit' class='bouton_1' value='Retour'></form>");
                 } 
                 else if ($_GET['Request'] == "+"
                 || $_GET['Request'] == "-")
@@ -472,13 +471,12 @@
                     <div class='arriereprofil'>
                     <div class='recetterecherche'><h1>Créer une recette</h1></div>
                     <form action='Index.php' enctype='multipart/form-data' method='get'>
-                    <p>image  <input id='get_compte' type='file' name='photo' value=''></p>
                     <p> Nom de la recette : <input id='get_compte' type='text' class='text_1'name='name' value='".$_GET['name']."'></p>
                     <p> Aliments : ");
 
                     for($j = 0 ; $j < $Menu ; $j++ )
                     {
-                        echo("<select name='food".$j."'>
+                        echo("<select class='text_1'name='food".$j."'>
                         <option value=''>--Choisissez un aliment--</option>");
                         for($i = 0 ; $i < count($Foods[0]) ; $i++)
                         {
@@ -509,7 +507,7 @@
 
 
                     echo("</p></p>
-                    <p> Temps de préparation : <SELECT name='time' size='1'>");
+                    <p> Temps de préparation : <SELECT class='text_1'name='time' size='1'>");
                     if ($_GET['time']=="00:05:00")
                     {
                         echo("<OPTION selected='selected' value='00:05:00'>5 min");
@@ -583,7 +581,7 @@
                         echo("<OPTION value='03:00:00'>2H+");
                     }
                     echo("</SELECT></p></p>
-                    <p>Origine de la recette : <select name='origine'>
+                    <p>Origine de la recette : <select class='text_1'name='origine'>
                             <option value=''>--Choisissez une origine--</option>");
                             for($i = 0 ; $i < count($Origines[0]) ; $i++)
                             {
@@ -599,7 +597,7 @@
                             echo("</select></p>
 
                     
-                    <p> Recette : <br><TEXTAREA name='text' rows=15 cols=90></TEXTAREA></p>
+                    <p> Recette : <br><TEXTAREA class='text_1'name='text' rows=15 cols=90></TEXTAREA></p>
                     <p>
                     <input type='hidden' name='page' value='Recette'>
                     <br><input type='submit' class='bouton_1' name='Request'value='Valider'></form>");
@@ -660,13 +658,12 @@
                         echo("
                         
                         <form action='Index.php' enctype='multipart/form-data' method='get'>
-                        <p>image  <input id='get_compte' type='file' name='photo' value=''></p>
                         <p> Nom de la recette : <input id='get_compte' type='text' class='text_1'name='name' value='".$_GET['name']."'></p>
                         <p> Aliments : ");
 
                         for($j = 0 ; $j < $Menu ; $j++ )
                         {
-                            echo("<select name='food".$j."'>
+                            echo("<select class='text_1'name='food".$j."'>
                             <option value=''>--Choisissez un aliment--</option>");
                             for($i = 0 ; $i < count($Foods[0]) ; $i++)
                             {
@@ -696,7 +693,7 @@
 
 
                         echo("</p></p>
-                        <p> Temps de préparation : <SELECT name='time' size='1'>");
+                        <p> Temps de préparation : <SELECT class='text_1'name='time' size='1'>");
                         if ($_GET['time']=="00:05:00")
                         {
                             echo("<OPTION selected='selected' value='00:05:00'>5 min");
@@ -770,7 +767,7 @@
                             echo("<OPTION value='03:00:00'>2H+");
                         }
                         echo("</SELECT></p></p>
-                        <p>Origine de la recette : <select name='origine'>
+                        <p>Origine de la recette : <select class='text_1'name='origine'>
                                 <option value=''>--Choisissez une origine--</option>");
 
                                 for($i = 0 ; $i < count($Origines[0]) ; $i++)
@@ -786,7 +783,7 @@
                                 }      
 
                         echo("</select></p>
-                        <p> Recette : <br><TEXTAREA name='text' rows=15 cols=90></TEXTAREA></p>
+                        <p> Recette : <br><TEXTAREA class='text_1'name='text' rows=15 cols=90></TEXTAREA></p>
                         <p>
                         <input type='hidden' name='page' value='Recette'>");
 
@@ -1004,7 +1001,7 @@
                                         echo("</p>
                                         <p align=center>Aliment(s) : ");
                                         
-                                            echo("<select name='food0'>
+                                            echo("<select class='text_1'name='food0'>
                                             <option value=''>--Choisissez un aliment--</option>");
                                             for($k = 0 ; $k < count($Foods[0]) ; $k++)
                                             {
@@ -1026,7 +1023,7 @@
 
                                         echo("
                                         <p align=center>Date de création : ".$Recipes[2][$i]."</p>
-                                        <p align=center>Temps de préparation : <SELECT name='time' size='1'>");
+                                        <p align=center>Temps de préparation : <SELECT class='text_1'name='time' size='1'>");
                                         if ($Recipes[3][$i]=="00:05:00")
                                         {
                                             echo("<OPTION selected='selected' value='00:05:00'>5min");
@@ -1101,7 +1098,7 @@
                                         }
                                         echo("</SELECT></p>
                                         <p align=center>Créer par : ".$Recipes[5][$i]."</p>
-                                        Origine de la recette : <select name='origine'>
+                                        Origine de la recette : <select class='text_1'name='origine'>
                                         <option value=''>--Choisissez une origine--</option>");
                                         for($j = 0 ; $j < count($Origines[0]) ; $j++)
                                         {
@@ -1115,7 +1112,7 @@
                                             }
                                         }                
                                         echo("</select></p>
-                                        <p align=center> Description :<br><TEXTAREA name='text' rows=15 cols=90>".$Recipes[1][$i]."</TEXTAREA></p>
+                                        <p align=center> Description :<br><TEXTAREA class='text_1'name='text' rows=15 cols=90>".$Recipes[1][$i]."</TEXTAREA></p>
                                         <br><input type='submit' class='bouton_1' name='RequestModif' value='Confirmation'>
                                         </form>
                                         <form action='Index.php' method='get'>
@@ -1160,7 +1157,7 @@
                                         <p align=center>Aliment(s) : ");
                                         for($j = 0 ; $j < $Menu2 ; $j++ )
                                         {
-                                            echo("<select name='food".$j."'>
+                                            echo("<select class='text_1'name='food".$j."'>
                                             <option value=''>--Choisissez un aliment--</option>");
                                             for($k = 0 ; $k < count($Foods[0]) ; $k++)
                                             {
@@ -1193,7 +1190,7 @@
 
                                         echo("
                                         <p align=center>Date de création : ".$Recipes[2][$i]."</p>
-                                        <p align=center>Temps de préparation : <SELECT name='time' size='1'>");
+                                        <p align=center>Temps de préparation : <SELECT class='text_1'name='time' size='1'>");
                                         if ($_GET['time']=="00:05:00")
                                         {
                                             echo("<OPTION selected='selected' value='00:05:00'>5min");
@@ -1268,7 +1265,7 @@
                                         }
                                         echo("</SELECT></p>
                                         <p align=center>Créer par : ".$Recipes[5][$i]."</p>
-                                        Origine de la recette : <select name='origine'>
+                                        Origine de la recette : <select class='text_1'name='origine'>
                                         <option value=''>--Choisissez une origine--</option>");
                                         for($j = 0 ; $j < count($Origines[0]) ; $j++)
                                         {
@@ -1282,7 +1279,7 @@
                                             }
                                         }                
                                         echo("</select></p>
-                                        <p align=center> Description : <br><TEXTAREA name='text' rows=15 cols=90>".$Recipes[1][$i]."</TEXTAREA></p>
+                                        <p align=center> Description : <br><TEXTAREA class='text_1'name='text' rows=15 cols=90>".$Recipes[1][$i]."</TEXTAREA></p>
                                         <input type='hidden' name='page' value='Recette'>
                                         <br><input type='submit' class='bouton_1' name='RequestModif' value='Confirmation'>
                                         </form>
@@ -1355,7 +1352,7 @@
                                             <p align=center>Aliment(s) : ");
                                             for($j = 0 ; $j < $Menu2 ; $j++ )
                                             {
-                                                echo("<select name='food".$j."'>
+                                                echo("<select class='text_1'name='food".$j."'>
                                                 <option value=''>--Choisissez un aliment--</option>");
                                                 for($k = 0 ; $k < count($Foods[0]) ; $k++)
                                                 {
@@ -1388,7 +1385,7 @@
 
                                             echo("
                                             <p align=center>Date de création : ".$Recipes[2][$i]."</p>
-                                            <p align=center>Temps de préparation : <SELECT name='time' size='1'>");
+                                            <p align=center>Temps de préparation : <SELECT class='text_1'name='time' size='1'>");
                                             if ($_GET['time']=="00:05:00")
                                             {
                                                 echo("<OPTION selected='selected' value='00:05:00'>5min");
@@ -1463,7 +1460,7 @@
                                             }
                                             echo("</SELECT></p>
                                             <p align=center>Créer par : ".$Recipes[5][$i]."</p>
-                                            Origine de la recette : <select name='origine'>
+                                            Origine de la recette : <select class='text_1'name='origine'>
                                             <option value=''>--Choisissez une origine--</option>");
                                             for($j = 0 ; $j < count($Origines[0]) ; $j++)
                                             {
@@ -1477,7 +1474,7 @@
                                                 }
                                             }                
                                             echo("</select></p>
-                                            <p align=center> Description : <br><TEXTAREA name='text' rows=15 cols=90>".$Recipes[1][$i]."</TEXTAREA></p>
+                                            <p align=center> Description : <br><TEXTAREA class='text_1'name='text' rows=15 cols=90>".$Recipes[1][$i]."</TEXTAREA></p>
                                             <input type='hidden' name='page' value='Recette'>");
                                     }
                                 }
@@ -1605,19 +1602,19 @@
                     echo"<div class = 'arriereplan'
                     <form action='Index.php' method='get'>
                     <input type='hidden' name='page' value='Recette'>
-                    Origine : <select name='Filtre0'>
+                    Origine : <select class='text_1'name='Filtre0'>
                     <option value=''>Toutes</option>";
                     for($i = 0 ; $i < count($MenuFiltre[0]) ; $i++)
                     {
                         echo("<option value=".$MenuFiltre[0][$i].">".$MenuFiltre[1][$i]."</option>"); 
                     } 
-                    echo"</select><br><br>aliment : <select name='Filtre1'>
+                    echo"</select><br><br>aliment : <select class='text_1'name='Filtre1'>
                     <option value=''>Tous</option>";
                     for($i = 0 ; $i < count($MenuFiltre[2]) ; $i++)
                     {
                         echo("<option value=".$MenuFiltre[2][$i].">".$MenuFiltre[3][$i]."</option>"); 
                     } 
-                    echo"</select><br><br>catégorie alimentaire : <select name='Filtre2'>
+                    echo"</select><br><br>catégorie alimentaire : <select class='text_1'name='Filtre2'>
                     <option value=''>Toutes</option>";
                     for($i = 0 ; $i < count($MenuFiltre[4]) ; $i++)
                     {
