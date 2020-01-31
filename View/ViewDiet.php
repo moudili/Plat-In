@@ -535,7 +535,7 @@
                     <input type='hidden' name='Menu' value=1>
                     <input type='submit' class='bouton_1' name='Request' value='Ajouter un régime'></form><br>
                     <div class='shrink'>
-                    <table border>       
+                    <table border>
                 ");
 
                 for($i = 0 ; $i < count($PrintDiet[0]) ; $i++)

@@ -476,7 +476,7 @@
                     }
                     else
                     {
-                        echo"<table border>";
+                        echo"<table border  align=center>";
                         for($i = 0 ; $i < count($Categories[0]) ; $i++)
                         {
                             $compt = 0;
